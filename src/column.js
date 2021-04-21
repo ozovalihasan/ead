@@ -1,33 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Droppable } from 'react-beautiful-dnd';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 import Task from './task';
 
 const Column = ({
-  column, tasks, isDropDisabled,
+  column, tasks, isDropDisabled, index,
 }) => (
-  <Container>
-    <Title>{column.title}</Title>
-    <Droppable
-      droppableId={column.id}
-      isDropDisabled={isDropDisabled}
-    >
-      {(provided, snapshot) => (
-        <TaskList
-          {...provided.droppableProps}
-          isDraggingOver={snapshot.isDraggingOver}
-          ref={provided.innerRef}
+  <Draggable draggableId={column.id} index={index}>
+    {(provided) => (
+      <Container
+        {...provided.draggableProps}
+        ref={provided.innerRef}
+      >
+        <Title {...provided.dragHandleProps}>
+          {column.title}
+        </Title>
+        <Droppable
+          droppableId={column.id}
+          type="task"
+          isDropDisabled={isDropDisabled}
         >
-          {tasks.map((task, index) => (
-            <Task key={task.id} task={task} index={index} />
-          ))}
-          { provided.placeholder }
-        </TaskList>
-      )}
-    </Droppable>
-  </Container>
+          {(provided, snapshot) => (
+            <TaskList
+              {...provided.droppableProps}
+              isDraggingOver={snapshot.isDraggingOver}
+              ref={provided.innerRef}
+            >
+              {tasks.map((task, index) => (
+                <Task key={task.id} task={task} index={index} />
+              ))}
+              { provided.placeholder }
+            </TaskList>
+          )}
+        </Droppable>
+      </Container>
+    )}
 
+  </Draggable>
 );
 
 const Container = styled.div`
@@ -58,5 +68,6 @@ Column.propTypes = {
   column: PropTypes.shape().isRequired,
   tasks: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   isDropDisabled: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
 };
 export default Column;

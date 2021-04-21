@@ -21,7 +21,6 @@ const Task = ({ task, index }) => {
           isDragDisabled={isDragDisabled}
           ref={provided.innerRef}
         >
-          {/* <Handle {...provided.dragHandleProps} /> */}
           {task.content}
         </Container>
       )}

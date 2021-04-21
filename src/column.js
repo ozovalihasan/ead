@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import Task from './task';
+
+const InnerList = memo(({ tasks }) => tasks.map((task, index) => (
+  <Task key={task.id} task={task} index={index} />
+)));
+
+InnerList.displayName = 'InnerList';
+InnerList.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
 
 const Column = ({
   column, tasks, isDropDisabled, index,
@@ -27,9 +36,7 @@ const Column = ({
               isDraggingOver={snapshot.isDraggingOver}
               ref={provided.innerRef}
             >
-              {tasks.map((task, index) => (
-                <Task key={task.id} task={task} index={index} />
-              ))}
+              <InnerList tasks={tasks} />
               { provided.placeholder }
             </TaskList>
           )}
@@ -58,7 +65,7 @@ const Title = styled.h3`
 const TaskList = styled.div`
   padding: 8px;
   transition: background-color 0.2s ease;
-  background-color: ${(props) => (props.isDraggingOver ? 'skyblue' : 'inherit')};
+  background-color: ${(props) => (props.isDraggingOver ? 'lightgrey' : 'inherit')};
   flex-grow: 1;
   min-height: 100px;
  

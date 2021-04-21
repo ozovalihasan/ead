@@ -1,8 +1,27 @@
-import React, { useState } from 'react';
+/* eslint-disable react/no-this-in-sfc */
+import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from './initial-data';
 import Column from './column';
+
+const InnerList = ({
+  column, taskMap, index, isDropDisabled,
+}) => useMemo(() => {
+  const tasks = column.taskIds.map((taskId) => taskMap[taskId]);
+  return (
+    <Column column={column} tasks={tasks} index={index} isDropDisabled={isDropDisabled} />
+  );
+},
+[column, taskMap, index]);
+
+InnerList.propTypes = {
+  column: PropTypes.shape().isRequired,
+  taskMap: PropTypes.shape().isRequired,
+  isDropDisabled: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 const App = () => {
   const [data, setData] = useState(initialData);
@@ -28,9 +47,6 @@ const App = () => {
     });
   };
   const onDragEnd = (result) => {
-    // document.body.style.color = 'inherit';
-    // document.body.style.backgroundColor = 'inherit';
-
     const {
       destination, source, draggableId, type,
     } = result;
@@ -132,15 +148,13 @@ const App = () => {
             >
               {data.columnOrder.map((columnId, index) => {
                 const column = data.columns[columnId];
-                const tasks = column.taskIds.map(
-                  (taskId) => data.tasks[taskId],
-                );
+
                 const isDropDisabled = index < data.homeIndex;
                 return (
-                  <Column
+                  <InnerList
                     key={column.id}
                     column={column}
-                    tasks={tasks}
+                    taskMap={data.tasks}
                     isDropDisabled={isDropDisabled}
                     index={index}
                   />

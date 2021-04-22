@@ -4,22 +4,32 @@ const initialData = {
     'task-2': { id: 'task-2', content: 'Watch my favorite show' },
     'task-3': { id: 'task-3', content: 'Charge my phone' },
     'task-4': { id: 'task-4', content: 'Cook dinner' },
+    has_many: { id: 'has_many', content: 'has_many' },
+    has_one: { id: 'has_one', content: 'has_one' },
+    belongs_to: { id: 'belongs_to', content: 'belongs_to' },
+    entity: { id: 'entity', content: 'entity' },
   },
   columns: {
     'column-1': {
       id: 'column-1',
-      title: 'To do',
+      content: 'To do',
       taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
     },
     'column-2': {
       id: 'column-2',
-      title: 'In progress',
+      content: 'In progress',
+      taskIds: [],
+    },
+    'new-column': {
+      id: 'new-column',
+      content: 'new-column',
       taskIds: [],
     },
 
   },
   // Facilitate reordering of the columns
-  columnOrder: ['column-1', 'column-2'],
+  columnOrder: ['column-1', 'column-2', 'new-column'],
+
 };
 
 export default initialData;

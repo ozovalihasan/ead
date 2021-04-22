@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/no-this-in-sfc */
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
@@ -5,11 +6,13 @@ import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from './initial-data';
 import Column from './column';
+import Factory from './Factory';
 
 const InnerList = ({
   column, taskMap, index, isDropDisabled,
 }) => useMemo(() => {
   const tasks = column.taskIds.map((taskId) => taskMap[taskId]);
+
   return (
     <Column column={column} tasks={tasks} index={index} isDropDisabled={isDropDisabled} />
   );
@@ -25,7 +28,11 @@ InnerList.propTypes = {
 
 const App = () => {
   const [data, setData] = useState(initialData);
+  const [idCount, setIdCount] = useState(0);
 
+  const idCountIncrease = () => {
+    setIdCount(idCount + 1);
+  };
   // const onDragStart = () => {
   //   document.body.style.color = 'orange';
   //   document.body.style.transition = 'background-color 0.2s ease';
@@ -50,7 +57,12 @@ const App = () => {
     const {
       destination, source, draggableId, type,
     } = result;
-
+    // eslint-disable-next-line no-console
+    console.warn(
+      {
+        destination, source, draggableId, type,
+      },
+    );
     setData({
       ...data,
       homeIndex: null,
@@ -63,6 +75,48 @@ const App = () => {
       destination.droppableId === source.droppableId
       && destination.index === source.index
     ) {
+      return;
+    }
+
+    if (type === 'task' && destination.droppableId === 'permanent-column') {
+      return;
+    }
+
+    if (type === 'task' && source.droppableId === 'permanent-column') {
+      const foreign = data.columns[destination.droppableId];
+      console.warn(foreign);
+
+      const finishTaskIds = Array.from(foreign.taskIds);
+      finishTaskIds.splice(destination.index, 0, idCount);
+
+      const newFinish = {
+        ...foreign,
+        taskIds: finishTaskIds,
+      };
+
+      const rows = [
+        { id: 'has_many', content: 'has_many' },
+        { id: 'has_one', content: 'has_one' },
+        { id: 'belongs_to', content: 'belongs_to' },
+        { id: 'entity', content: 'entity' },
+      ];
+
+      const newData = {
+        ...data,
+        columns: {
+          ...data.columns,
+          [newFinish.id]: newFinish,
+        },
+        tasks: {
+          ...data.tasks,
+          [idCount.toString()]: {
+            ...rows[source.index],
+            id: idCount.toString(),
+          },
+        },
+      };
+      setData(newData);
+      idCountIncrease();
       return;
     }
 
@@ -136,16 +190,21 @@ const App = () => {
         // onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
+
         <Droppable
           droppableId="all-columns"
           direction="horizontal"
           type="column"
         >
+
           {(provided) => (
             <Container
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
+              <Factory
+                isDropDisabled
+              />
               {data.columnOrder.map((columnId, index) => {
                 const column = data.columns[columnId];
 

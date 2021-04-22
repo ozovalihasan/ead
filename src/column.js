@@ -23,7 +23,7 @@ const Column = ({
         ref={provided.innerRef}
       >
         <Title {...provided.dragHandleProps}>
-          {column.title}
+          {column.content}
         </Title>
         <Droppable
           droppableId={column.id}

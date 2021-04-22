@@ -74,11 +74,11 @@ const App = () => {
       return;
     }
 
-    if (type === 'task' && destination.droppableId === 'permanent-column') {
+    if (type === 'task' && destination.droppableId === 20) {
       return;
     }
 
-    if (type === 'task' && source.droppableId === 'permanent-column') {
+    if (type === 'task' && source.droppableId === 20) {
       const foreign = data.columns[destination.droppableId];
 
       const finishTaskIds = Array.from(foreign.taskIds);

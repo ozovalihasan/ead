@@ -17,7 +17,7 @@ const Factory = () => {
   const isDropDisabled = false;
   const column = {
 
-    id: 'permanent-column',
+    id: 20,
     content: 'Associations',
   };
 

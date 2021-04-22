@@ -58,11 +58,7 @@ const App = () => {
       destination, source, draggableId, type,
     } = result;
     // eslint-disable-next-line no-console
-    console.warn(
-      {
-        destination, source, draggableId, type,
-      },
-    );
+
     setData({
       ...data,
       homeIndex: null,
@@ -84,7 +80,6 @@ const App = () => {
 
     if (type === 'task' && source.droppableId === 'permanent-column') {
       const foreign = data.columns[destination.droppableId];
-      console.warn(foreign);
 
       const finishTaskIds = Array.from(foreign.taskIds);
       finishTaskIds.splice(destination.index, 0, idCount);

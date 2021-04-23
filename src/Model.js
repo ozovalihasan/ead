@@ -38,7 +38,7 @@ const Model = ({
                 droppableId={id.toString()}
                 direction={allItems[id].order}
                 isDropDisabled={allItems[id].isDropDisabled
-                      || (restrictedDropId !== -1 && restrictedDropId !== allItems[id])}
+                      || (restrictedDropId !== -1 && restrictedDropId !== id)}
               >
 
                 { (providedDrop) => (

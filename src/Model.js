@@ -6,103 +6,92 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 // import Factory from './Factory';
 
 const Model = ({
-  item, allItems, restrictedDropId, handleCheck,
+  item, allItems, restrictedDropId, handleCheck, id,
 }) => (
-  <SubContainer
-    subdirection={item.subdirection}
-  >
 
-    {item.subItemIds.map((id, index) => (
-
-      <Draggable
-        key={id}
-        draggableId={id.toString()}
-        index={index}
-        isDragDisabled={allItems[id].isDragDisabled}
-      >
-        {(providedDrag, snapshot) => (
-          <div>
-
-            <Container
-              {...providedDrag.draggableProps}
-              {...providedDrag.dragHandleProps}
-              ref={providedDrag.innerRef}
-            >
-
-              {false && console.warn(snapshot)}
-              drag
-              <Title {...providedDrag.dragHandleProps}>
-                {allItems[id].content}
-              </Title>
-              <Droppable
-                droppableId={id.toString()}
-                direction={allItems[id].order}
-                isDropDisabled={allItems[id].isDropDisabled
-                      || (restrictedDropId !== -1 && restrictedDropId !== id)}
+  <div>
+    {item.isDropDisabled || (
+    <input
+      name="isRestrictedDrop"
+      type="checkbox"
+      checked={restrictedDropId === id}
+      onChange={(e) => handleCheck(e, id)}
+    />
+    )}
+    <SubContainer
+      subdirection={item.subdirection}
+      factory={item.factory}
+    >
+      {item.subItemIds.map((id, index) => (
+        <Container key={id}>
+          <Draggable
+            draggableId={id.toString()}
+            index={index}
+            isDragDisabled={allItems[id].isDragDisabled}
+          >
+            {(providedDrag, snapshot) => (
+              <DragContainer
+                {...providedDrag.draggableProps}
+                {...providedDrag.dragHandleProps}
+                ref={providedDrag.innerRef}
               >
-
-                { (providedDrop) => (
-                  <div>
-
-                    <Container
+                {false && console.warn(snapshot)}
+                <Title {...providedDrag.dragHandleProps}>
+                  {allItems[id].content}
+                </Title>
+                <Droppable
+                  droppableId={id.toString()}
+                  direction={allItems[id].order}
+                  isDropDisabled={allItems[id].isDropDisabled
+                        || (restrictedDropId !== -1 && restrictedDropId !== id)}
+                >
+                  { (providedDrop) => (
+                    <DropContainer
                       {...providedDrop.droppableProps}
                       ref={providedDrop.innerRef}
+                      factory={allItems[id].factory}
                     >
-                      drop
-                      {allItems[id].isDropDisabled || (
-                      <input
-                        name="isRestrictedDrop"
-                        type="checkbox"
-                        checked={restrictedDropId === id}
-                        onChange={(e) => handleCheck(e, id)}
-                      />
-                      )}
-
                       <Model
+                        id={id}
                         item={allItems[id]}
                         allItems={allItems}
                         index={index}
                         restrictedDropId={restrictedDropId}
                         handleCheck={handleCheck}
                       />
-
                       {providedDrop.placeholder}
-                    </Container>
-                  </div>
-                )}
-
-              </Droppable>
-
-            </Container>
-          </div>
-        )}
-      </Draggable>
-
-    ))}
-  </SubContainer>
+                    </DropContainer>
+                  )}
+                </Droppable>
+              </DragContainer>
+            )}
+          </Draggable>
+        </Container>
+      ))}
+    </SubContainer>
+  </div>
 );
 
 const Container = styled.div`
-  /* display: flex;
-  flex-direction: ${(props) => props.direction}; */
-  /* width: 100px;
-  height: 100px; */
-  border: 3px solid red;
-  background-color: yellow;
+  border: 3px solid gray;
   margin: 10px;
-  min-height: 100px;
+  border-radius: 5px;
 
+`;
+const DropContainer = styled.div`
+  margin: 10px;
+  border-radius: 5px;
+`;
+const DragContainer = styled.div`
+  margin: 10px;
+  border-radius: 5px;
 `;
 
 const SubContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => props.subdirection};
-
-  /* width: 100px;
-  height: 100px; */
-  border: 3px solid green;
-  min-height: 100px;
-
+  min-height: ${(props) => (props.factory ? '0' : '100px')};
+  border-radius: 5px;
 `;
 
 const Title = styled.h3`
@@ -110,6 +99,5 @@ const Title = styled.h3`
   /* width: 200px;
   height: 200px; */
   /* background-color: red; */
-  border: 10px solid blue;
 `;
 export default Model;

@@ -151,7 +151,7 @@ const AppModel = () => {
     // setData(newData);
   };
 
-  const item = data.items[0];
+  const id = 0;
   const allItems = data.items;
   const handleCheck = (e, id) => {
     const { target } = e;
@@ -185,7 +185,8 @@ const AppModel = () => {
               >
 
                 <Model
-                  item={item}
+                  id={id}
+                  item={allItems[id]}
                   allItems={allItems}
                   index={0}
                   restrictedDropId={restrictedDropId}

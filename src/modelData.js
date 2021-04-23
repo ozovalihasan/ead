@@ -80,14 +80,14 @@ const modelData = {
     },
     10: {
       id: '10',
-      content: 'entity',
+      content: 'entity1',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',
     },
     11: {
       id: '11',
-      content: 'entity',
+      content: 'entity2',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',

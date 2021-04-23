@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-this-in-sfc */
-import React from 'react';
+import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import modelData from './modelData';
 import Model from './Model';
@@ -9,6 +9,7 @@ const AppModel = () => {
   const data = modelData;
   // const [data, setData] = useState(modelData);
   // const [idCount, setIdCount] = useState(0);
+  const [restrictedDropId, setRestrictedDropId] = useState(-1);
 
   // const idCountIncrease = () => {
   //   setIdCount(idCount + 1);
@@ -151,6 +152,15 @@ const AppModel = () => {
   };
 
   const item = data.items[0];
+  const handleCheck = (e, id) => {
+    const { target } = e;
+
+    if (target.checked) {
+      setRestrictedDropId(id);
+    } else {
+      setRestrictedDropId(-1);
+    }
+  };
 
   return (
     <div className="App">
@@ -160,7 +170,13 @@ const AppModel = () => {
         onDragEnd={onDragEnd}
       >
 
-        <Model item={item} allItems={data.items} index={0} />
+        <Model
+          item={item}
+          allItems={data.items}
+          index={0}
+          restrictedDropId={restrictedDropId}
+          handleCheck={handleCheck}
+        />
       </DragDropContext>
     </div>
   );

@@ -4,7 +4,6 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import modelData from './modelData';
 import Model from './Model';
-// import Factory from './Factory';
 
 const AppModel = () => {
   const data = modelData;
@@ -16,7 +15,7 @@ const AppModel = () => {
   // };
 
   const onDragStart = (start) => {
-    console.warn(start);
+    console.warn({ start });
     // const homeIndex = data.columnOrder.indexOf(start.source.droppableId);
 
     // setData({
@@ -151,7 +150,7 @@ const AppModel = () => {
     // setData(newData);
   };
 
-  const item = data.items[1];
+  const item = data.items[0];
 
   return (
     <div className="App">
@@ -160,9 +159,7 @@ const AppModel = () => {
         // onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
-        {/* <Factory
-          isDropDisabled
-        /> */}
+
         <Model item={item} allItems={data.items} index={0} />
       </DragDropContext>
     </div>

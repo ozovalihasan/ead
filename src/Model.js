@@ -3,60 +3,85 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
+// import Factory from './Factory';
 
 const Model = ({ item, allItems, index }) => (
 
   <Droppable
     droppableId={item.id}
+    direction={item.order}
+    isDropDisabled={item.isDropDisabled}
   >
-    { (provided) => (
-      <Container
-        {...provided.droppableProps}
-        ref={provided.innerRef}
-      >
-
-        <Draggable draggableId={item.id} index={index}>
-          {(provided) => (
-            <Container
-              ref={provided.innerRef}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-            >
-              <Title {...provided.dragHandleProps}>
-                {item.content}
-              </Title>
-              {item.subItemIds.map((id, index) => (
-                <Model item={allItems[id]} key={id} allItems={allItems} index={index} />
-              ))}
-
-            </Container>
-          )}
-
-        </Draggable>
-        {provided.placeholder}
-      </Container>
+    { (provided, snapshot) => (
+      <div>
+        <Container
+          {...provided.droppableProps}
+          ref={provided.innerRef}
+        >
+          {console.warn(snapshot)}
+          drop
+          <Draggable
+            draggableId={item.id}
+            index={index}
+            isDragDisabled={item.isDragDisabled}
+          >
+            {(provided) => (
+              <div>
+                <Container
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                  ref={provided.innerRef}
+                >
+                  drag
+                  <Title {...provided.dragHandleProps}>
+                    {item.content}
+                  </Title>
+                  <SubContainer
+                    subdirection={item.subdirection}
+                  >
+                    {provided.placeholder}
+                    {item.subItemIds.map((id, index) => (
+                      <Model item={allItems[id]} key={id} allItems={allItems} index={index} />
+                    ))}
+                  </SubContainer>
+                </Container>
+              </div>
+            )}
+          </Draggable>
+          {provided.placeholder}
+        </Container>
+      </div>
     )}
 
   </Droppable>
 );
 
 const Container = styled.div`
+  /* display: flex;
+  flex-direction: ${(props) => props.direction}; */
+  /* width: 100px;
+  height: 100px; */
+  border: 3px solid red;
+  background-color: yellow;
+  margin: 10px;
+
+`;
+
+const SubContainer = styled.div`
   display: flex;
-  width: 100px;
-  height: 100px;
+  flex-direction: ${(props) => props.subdirection};
+
+  /* width: 100px;
+  height: 100px; */
+  border: 3px solid green;
 
 `;
 
 const Title = styled.h3`
   padding: 8px;
-  width: 50px;
-  height: 50px;
-  background-color: red;
+  /* width: 200px;
+  height: 200px; */
+  /* background-color: red; */
+  border: 10px solid blue;
 `;
 export default Model;
-
-// const Column = ({
-//     column, tasks, isDropDisabled, index,
-//   }) => (
-
-//   );

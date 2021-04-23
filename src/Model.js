@@ -6,75 +6,80 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 // import Factory from './Factory';
 
 const Model = ({
-  item, allItems, index, restrictedDropId, handleCheck,
+  item, allItems, restrictedDropId, handleCheck,
 }) => (
-
-  <Droppable
-    droppableId={item.id}
-    direction={item.order}
-    isDropDisabled={item.isDropDisabled
-      || (restrictedDropId !== -1 && restrictedDropId !== item.id)}
+  <SubContainer
+    subdirection={item.subdirection}
   >
 
-    { (provided) => (
-      <div>
+    {item.subItemIds.map((id, index) => (
 
-        <Container
-          {...provided.droppableProps}
-          ref={provided.innerRef}
-        >
-          drop
-          {item.isDropDisabled || (
-          <input
-            name="isGoing"
-            type="checkbox"
-            checked={restrictedDropId === item.id}
-            onChange={(e) => handleCheck(e, item.id)}
-          />
-          )}
-          <Draggable
-            draggableId={item.id}
-            index={index}
-            isDragDisabled={item.isDragDisabled}
-          >
-            {(provided, snapshot) => (
-              <div>
+      <Draggable
+        key={id}
+        draggableId={id.toString()}
+        index={index}
+        isDragDisabled={allItems[id].isDragDisabled}
+      >
+        {(providedDrag, snapshot) => (
+          <div>
 
-                <Container
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}
-                  ref={provided.innerRef}
-                >
-                  {false && console.warn(snapshot)}
-                  drag
-                  <Title {...provided.dragHandleProps}>
-                    {item.content}
-                  </Title>
-                  <SubContainer
-                    subdirection={item.subdirection}
-                  >
-                    {provided.placeholder}
-                    {item.subItemIds.map((id, index) => (
+            <Container
+              {...providedDrag.draggableProps}
+              {...providedDrag.dragHandleProps}
+              ref={providedDrag.innerRef}
+            >
+
+              {false && console.warn(snapshot)}
+              drag
+              <Title {...providedDrag.dragHandleProps}>
+                {allItems[id].content}
+              </Title>
+              <Droppable
+                droppableId={id.toString()}
+                direction={allItems[id].order}
+                isDropDisabled={allItems[id].isDropDisabled
+                      || (restrictedDropId !== -1 && restrictedDropId !== allItems[id])}
+              >
+
+                { (providedDrop) => (
+                  <div>
+
+                    <Container
+                      {...providedDrop.droppableProps}
+                      ref={providedDrop.innerRef}
+                    >
+                      drop
+                      {allItems[id].isDropDisabled || (
+                      <input
+                        name="isRestrictedDrop"
+                        type="checkbox"
+                        checked={restrictedDropId === id}
+                        onChange={(e) => handleCheck(e, id)}
+                      />
+                      )}
+
                       <Model
                         item={allItems[id]}
-                        key={id}
                         allItems={allItems}
                         index={index}
                         restrictedDropId={restrictedDropId}
                         handleCheck={handleCheck}
                       />
-                    ))}
-                  </SubContainer>
-                </Container>
-              </div>
-            )}
-          </Draggable>
-          {provided.placeholder}
-        </Container>
-      </div>
-    )}
 
-  </Droppable>
+                      {providedDrop.placeholder}
+                    </Container>
+                  </div>
+                )}
+
+              </Droppable>
+
+            </Container>
+          </div>
+        )}
+      </Draggable>
+
+    ))}
+  </SubContainer>
 );
 
 const Container = styled.div`
@@ -85,6 +90,7 @@ const Container = styled.div`
   border: 3px solid red;
   background-color: yellow;
   margin: 10px;
+  min-height: 100px;
 
 `;
 
@@ -95,6 +101,7 @@ const SubContainer = styled.div`
   /* width: 100px;
   height: 100px; */
   border: 3px solid green;
+  min-height: 100px;
 
 `;
 

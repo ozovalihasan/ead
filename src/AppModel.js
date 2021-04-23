@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-this-in-sfc */
 import React, { useState } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import modelData from './modelData';
 import Model from './Model';
 
@@ -152,9 +152,10 @@ const AppModel = () => {
   };
 
   const item = data.items[0];
+  const allItems = data.items;
   const handleCheck = (e, id) => {
     const { target } = e;
-
+    console.warn(id);
     if (target.checked) {
       setRestrictedDropId(id);
     } else {
@@ -169,14 +170,34 @@ const AppModel = () => {
         // onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
+        <Droppable
+          droppableId="OuterDrop"
+          direction="vertical"
+          isDropDisabled
+        >
 
-        <Model
-          item={item}
-          allItems={data.items}
-          index={0}
-          restrictedDropId={restrictedDropId}
-          handleCheck={handleCheck}
-        />
+          { (provided) => (
+            <div>
+
+              <div
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+
+                <Model
+                  item={item}
+                  allItems={allItems}
+                  index={0}
+                  restrictedDropId={restrictedDropId}
+                  handleCheck={handleCheck}
+                />
+
+                {provided.placeholder}
+              </div>
+            </div>
+          )}
+
+        </Droppable>
       </DragDropContext>
     </div>
   );

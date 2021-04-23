@@ -6,39 +6,63 @@ import modelData from './modelData';
 import Model from './Model';
 
 const AppModel = () => {
-  const data = modelData;
-  // const [data, setData] = useState(modelData);
-  // const [idCount, setIdCount] = useState(0);
+  const [data, setData] = useState(modelData);
+  const [idCount, setIdCount] = useState(Object.keys(data.items).length);
+
   const [restrictedDropId, setRestrictedDropId] = useState(-1);
 
-  // const idCountIncrease = () => {
-  //   setIdCount(idCount + 1);
-  // };
+  const idCountIncrease = () => {
+    setIdCount(idCount + 1);
+  };
 
   const onDragStart = (start) => {
     console.warn({ start });
-    // const homeIndex = data.columnOrder.indexOf(start.source.droppableId);
-
-    // setData({
-    //   ...data,
-    //   homeIndex,
-    // });
   };
+
   const onDragEnd = (result) => {
     // const {
     //   destination, source, draggableId, type,
     // } = result;
-    // eslint-disable-next-line no-console
-    console.warn({
-      result,
-    });
-    // setData({
-    //   ...data,
-    //   homeIndex: null,
-    // });
-    // if (!destination) {
-    //   return;
-    // }
+
+    const {
+      destination, draggableId, source,
+    } = result;
+    console.warn(result);
+
+    if (!destination && !(data.items[draggableId].factory)) {
+      const newData = data;
+      newData.items[source.droppableId].subItemIds.splice(source.index, 1);
+      delete newData[draggableId];
+      setData(newData);
+    }
+
+    if (!destination) {
+      return;
+    }
+
+    if (data.items[draggableId].factory) {
+      const newData = { ...data };
+      const newItem = {
+        ...data.items[draggableId],
+        factory: false,
+        isDropDisabled: false,
+      };
+      newData.items[destination.droppableId].subItemIds.splice(
+        destination.index, 0, idCount,
+      );
+      newData.items[idCount.toString()] = newItem;
+      idCountIncrease();
+      setData(newData);
+      return;
+    }
+
+    const newData = { ...data };
+    newData.items[source.droppableId].subItemIds.splice(source.index, 1);
+    newData.items[destination.droppableId].subItemIds.splice(
+      destination.index, 0, draggableId,
+    );
+    idCountIncrease();
+    setData(newData);
 
     // if (
     //   destination.droppableId === source.droppableId
@@ -155,7 +179,6 @@ const AppModel = () => {
   const allItems = data.items;
   const handleCheck = (e, id) => {
     const { target } = e;
-    console.warn(id);
     if (target.checked) {
       setRestrictedDropId(id);
     } else {

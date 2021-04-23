@@ -88,7 +88,7 @@ const modelData = {
       subdirection: 'column',
     },
     12: {
-      content: 'entity2',
+      content: 'entity3',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',

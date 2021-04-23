@@ -11,12 +11,12 @@ const Model = ({
 
   <div>
     {item.isDropDisabled || (
-    <input
-      name="isRestrictedDrop"
-      type="checkbox"
-      checked={restrictedDropId === id}
-      onChange={(e) => handleCheck(e, id)}
-    />
+      <input
+        name="isRestrictedDrop"
+        type="checkbox"
+        checked={restrictedDropId === id}
+        onChange={(e) => handleCheck(e, id)}
+      />
     )}
     <SubContainer
       subdirection={item.subdirection}
@@ -71,7 +71,6 @@ const Model = ({
     </SubContainer>
   </div>
 );
-
 const Container = styled.div`
   border: 3px solid gray;
   margin: 10px;

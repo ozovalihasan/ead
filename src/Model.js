@@ -117,6 +117,7 @@ const ModelInput = styled.input`
   color: black;
   font-size: 25px;
   font-weight: 700;
+  width: 150px;
 `;
 
 const DirectionButton = styled.button`

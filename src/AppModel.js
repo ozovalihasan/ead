@@ -99,7 +99,7 @@ const AppModel = () => {
     const newData = { ...data };
     newData.items[source.droppableId].subItemIds.splice(source.index, 1);
     newData.items[destination.droppableId].subItemIds.splice(
-      destination.index, 0, draggableId,
+      destination.index, 0, parseInt(draggableId, 10),
     );
     idCountIncrease();
   };

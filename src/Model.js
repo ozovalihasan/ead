@@ -53,7 +53,7 @@ const Model = ({
                         {allItems[id].content}
                       </Title>
                     )}
-                  {item.isDropDisabled || (
+                  {(item.isDropDisabled || allItems[id].attribute) || (
                   <input
                     name="isRestrictedDrop"
                     type="checkbox"

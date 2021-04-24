@@ -24,6 +24,21 @@ const AppModel = () => {
       setRestrictedDropId(-1);
     }
   };
+  const handleCheckDirection = (id) => {
+    const newData = {
+      ...data,
+
+      items: {
+        ...data.items,
+        [id]: {
+          ...data.items[id],
+          subdirection: (data.items[id].subdirection === 'column' ? 'row' : 'column'),
+          order: (data.items[id].subdirection === 'vertical' ? 'horizontal' : 'vertical'),
+        },
+      },
+    };
+    setData(newData);
+  };
 
   const onDragStart = (start) => {
     console.warn({ start });
@@ -101,6 +116,7 @@ const AppModel = () => {
                   index={0}
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
+                  handleCheckDirection={handleCheckDirection}
                 />
 
                 {provided.placeholder}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-console */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -6,18 +7,11 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 // import Factory from './Factory';
 
 const Model = ({
-  item, allItems, restrictedDropId, handleCheck, id,
+  item, allItems, restrictedDropId, handleCheck, handleCheckDirection,
 }) => (
 
   <div>
-    {item.isDropDisabled || (
-      <input
-        name="isRestrictedDrop"
-        type="checkbox"
-        checked={restrictedDropId === id}
-        onChange={(e) => handleCheck(e, id)}
-      />
-    )}
+
     <SubContainer
       subdirection={item.subdirection}
       factory={item.factory}
@@ -34,22 +28,42 @@ const Model = ({
                 {...providedDrag.draggableProps}
                 {...providedDrag.dragHandleProps}
                 ref={providedDrag.innerRef}
+                isDragging={snapshot.isDragging}
               >
                 {false && console.warn(snapshot)}
-                <Title {...providedDrag.dragHandleProps}>
-                  {allItems[id].content}
-                </Title>
+
+                <TitleCheck>
+                  <DirectionButton
+                    name="direction"
+                    type="button"
+                    onClick={() => handleCheckDirection(id)}
+                  />
+                  <Title {...providedDrag.dragHandleProps}>
+                    {allItems[id].content}
+                  </Title>
+                  {item.isDropDisabled || (
+                  <input
+                    name="isRestrictedDrop"
+                    type="checkbox"
+                    checked={restrictedDropId === id}
+                    onChange={(e) => handleCheck(e, id)}
+                  />
+                  )}
+                </TitleCheck>
+
                 <Droppable
                   droppableId={id.toString()}
                   direction={allItems[id].order}
                   isDropDisabled={allItems[id].isDropDisabled
                         || (restrictedDropId !== -1 && restrictedDropId !== id)}
                 >
-                  { (providedDrop) => (
+                  { (providedDrop, snapshot) => (
                     <DropContainer
                       {...providedDrop.droppableProps}
                       ref={providedDrop.innerRef}
                       factory={allItems[id].factory}
+                      isDraggingOver={snapshot.isDraggingOver}
+
                     >
                       <Model
                         id={id}
@@ -58,6 +72,7 @@ const Model = ({
                         index={index}
                         restrictedDropId={restrictedDropId}
                         handleCheck={handleCheck}
+                        handleCheckDirection={handleCheckDirection}
                       />
                       {providedDrop.placeholder}
                     </DropContainer>
@@ -72,18 +87,32 @@ const Model = ({
   </div>
 );
 const Container = styled.div`
-  border: 3px solid gray;
+  
   margin: 10px;
   border-radius: 5px;
 
 `;
+
+const TitleCheck = styled.div`
+  display: flex;
+`;
+const DirectionButton = styled.button`
+  background-color: red;
+  width: 20px;
+  height: 20px;
+`;
+
 const DropContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
+  background-color: ${(props) => (props.isDraggingOver ? 'skyblue' : 'white')};
+
 `;
 const DragContainer = styled.div`
-  margin: 10px;
+  padding: 10px;
   border-radius: 5px;
+  background-color: ${(props) => (props.isDragging ? 'green' : 'white')};
+  border: 3px solid gray;
 `;
 
 const SubContainer = styled.div`

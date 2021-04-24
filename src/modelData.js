@@ -4,15 +4,15 @@ const modelData = {
   items: {
     0: {
       content: 'Initialize your project from ERD',
-      subItemIds: [1, 6],
+      subItemIds: [1, 8],
       order: 'vertical',
       subdirection: 'row',
       isDropDisabled: true,
       isDragDisabled: true,
     },
     1: {
-      content: 'Associations',
-      subItemIds: [2, 3, 4, 5, 15],
+      content: 'Elements',
+      subItemIds: [2, 3, 4, 5, 6, 7],
       order: 'vertical',
       subdirection: 'column',
       isDropDisabled: true,
@@ -25,6 +25,7 @@ const modelData = {
       subdirection: 'column',
       isDropDisabled: true,
       factory: true,
+      association: true,
     },
     3: {
       content: 'has_one',
@@ -33,6 +34,7 @@ const modelData = {
       subdirection: 'column',
       isDropDisabled: true,
       factory: true,
+      association: true,
     },
     4: {
       content: 'belongs_to',
@@ -41,8 +43,18 @@ const modelData = {
       subdirection: 'column',
       isDropDisabled: true,
       factory: true,
+      association: true,
     },
     5: {
+      content: 'has_and_belongs_to_many',
+      subItemIds: [],
+      order: 'vertical',
+      subdirection: 'column',
+      isDropDisabled: true,
+      factory: true,
+      association: true,
+    },
+    6: {
       content: 'attribute',
       attribute: true,
       subItemIds: [],
@@ -51,67 +63,7 @@ const modelData = {
       isDropDisabled: true,
       factory: true,
     },
-    6: {
-      content: 'ERD',
-      subItemIds: [7, 8, 9, 13],
-      order: 'vertical',
-      subdirection: 'column',
-      isDragDisabled: true,
-    },
     7: {
-      content: 'has_one',
-      subItemIds: [10, 11, 12],
-      order: 'horizontal',
-      subdirection: 'row',
-    },
-    8: {
-      content: 'attribute',
-      attribute: true,
-      subItemIds: [],
-      order: 'vertical',
-      subdirection: 'column',
-    },
-    9: {
-      content: 'belongs_to',
-      subItemIds: [],
-      order: 'vertical',
-      subdirection: 'column',
-    },
-    10: {
-      content: 'attribute1',
-      attribute: true,
-      subItemIds: [],
-      order: 'vertical',
-      subdirection: 'column',
-    },
-    11: {
-      content: 'attribute2',
-      attribute: true,
-      subItemIds: [],
-      order: 'vertical',
-      subdirection: 'column',
-    },
-    12: {
-      content: 'attribute3',
-      attribute: true,
-      subItemIds: [],
-      order: 'vertical',
-      subdirection: 'column',
-    },
-    13: {
-      content: 'has_one',
-      subItemIds: [14],
-      order: 'horizontal',
-      subdirection: 'row',
-    },
-    14: {
-      content: 'attribute',
-      attribute: true,
-      subItemIds: [],
-      order: 'vertical',
-      subdirection: 'column',
-    },
-    15: {
       content: 'entity',
       subItemIds: [],
       order: 'vertical',
@@ -119,6 +71,14 @@ const modelData = {
       factory: true,
       entity: true,
     },
+    8: {
+      content: 'ERD',
+      subItemIds: [],
+      order: 'vertical',
+      subdirection: 'column',
+      isDragDisabled: true,
+    },
+
   },
 
 };

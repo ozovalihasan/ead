@@ -31,11 +31,14 @@ const Model = ({
                 isDragging={snapshot.isDragging}
               >
                 <TitleCheck>
+
+                  {allItems[id].factory || (
                   <DirectionButton
                     name="direction"
                     type="button"
                     onClick={() => handleCheckDirection(id)}
                   />
+                  )}
                   <HandleDrag {...providedDrag.dragHandleProps} />
                   {allItems[id].entity || allItems[id].attribute
                     ? (

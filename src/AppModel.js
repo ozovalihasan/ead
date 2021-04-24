@@ -40,6 +40,23 @@ const AppModel = () => {
     setData(newData);
   };
 
+  const handleChangeEntity = (e, id) => {
+    if (!data.items[id].factory) {
+      const newData = {
+        ...data,
+
+        items: {
+          ...data.items,
+          [id]: {
+            ...data.items[id],
+            content: e.target.value,
+          },
+        },
+      };
+      setData(newData);
+    }
+  };
+
   const onDragStart = (start) => {
     console.warn({ start });
   };
@@ -62,7 +79,6 @@ const AppModel = () => {
     }
 
     if (data.items[draggableId].factory) {
-      console.warn({ modelData });
       const newData = { ...data };
       const newItem = {
         ...newData.items[draggableId],
@@ -117,6 +133,7 @@ const AppModel = () => {
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
                   handleCheckDirection={handleCheckDirection}
+                  handleChangeEntity={handleChangeEntity}
                 />
 
                 {provided.placeholder}

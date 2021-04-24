@@ -7,7 +7,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 // import Factory from './Factory';
 
 const Model = ({
-  item, allItems, restrictedDropId, handleCheck, handleCheckDirection,
+  item, allItems, restrictedDropId, handleCheck, handleCheckDirection, handleChangeEntity,
 }) => (
 
   <div>
@@ -30,17 +30,26 @@ const Model = ({
                 ref={providedDrag.innerRef}
                 isDragging={snapshot.isDragging}
               >
-                {false && console.warn(snapshot)}
-
                 <TitleCheck>
                   <DirectionButton
                     name="direction"
                     type="button"
                     onClick={() => handleCheckDirection(id)}
                   />
-                  <Title {...providedDrag.dragHandleProps}>
-                    {allItems[id].content}
-                  </Title>
+                  <HandleDrag {...providedDrag.dragHandleProps} />
+                  {allItems[id].entity || allItems[id].attribute
+                    ? (
+                      <ModelInput
+                        type="text"
+                        onChange={(e) => handleChangeEntity(e, id)}
+                        value={allItems[id].content}
+                      />
+                    )
+                    : (
+                      <Title>
+                        {allItems[id].content}
+                      </Title>
+                    )}
                   {item.isDropDisabled || (
                   <input
                     name="isRestrictedDrop"
@@ -51,6 +60,7 @@ const Model = ({
                   )}
                 </TitleCheck>
 
+                {allItems[id].attribute || (
                 <Droppable
                   droppableId={id.toString()}
                   direction={allItems[id].order}
@@ -63,7 +73,6 @@ const Model = ({
                       ref={providedDrop.innerRef}
                       factory={allItems[id].factory}
                       isDraggingOver={snapshot.isDraggingOver}
-
                     >
                       <Model
                         id={id}
@@ -73,11 +82,13 @@ const Model = ({
                         restrictedDropId={restrictedDropId}
                         handleCheck={handleCheck}
                         handleCheckDirection={handleCheckDirection}
+                        handleChangeEntity={handleChangeEntity}
                       />
                       {providedDrop.placeholder}
                     </DropContainer>
                   )}
                 </Droppable>
+                )}
               </DragContainer>
             )}
           </Draggable>
@@ -96,10 +107,25 @@ const Container = styled.div`
 const TitleCheck = styled.div`
   display: flex;
 `;
+
+const ModelInput = styled.input`
+  outline: none;
+  border: 3px red dotted ;
+  color: black;
+  font-size: 25px;
+  font-weight: 700;
+`;
+
 const DirectionButton = styled.button`
   background-color: red;
   width: 20px;
   height: 20px;
+`;
+
+const HandleDrag = styled.div`
+  background-color: green;
+  width: 30px;
+  height: 30px;
 `;
 
 const DropContainer = styled.div`

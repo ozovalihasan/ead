@@ -73,12 +73,20 @@ const modelData = {
     },
     8: {
       content: 'ERD',
-      subItemIds: [],
+      subItemIds: [9],
       order: 'vertical',
       subdirection: 'column',
       isDragDisabled: true,
     },
-
+    9: {
+      content: 'entity',
+      subItemIds: [],
+      order: 'vertical',
+      subdirection: 'column',
+      factory: false,
+      entity: true,
+      isDropDisabled: false,
+    },
   },
 
 };

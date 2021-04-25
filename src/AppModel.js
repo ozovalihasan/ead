@@ -76,9 +76,6 @@ const AppModel = () => {
       }
       return;
     }
-    if (source.droppableId === destination.droppableId) {
-      return;
-    }
 
     if (data.items[draggableId].association && !data.items[destination.droppableId].entity) {
       return;

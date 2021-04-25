@@ -122,7 +122,6 @@ const AppModel = () => {
     newData.items[destination.droppableId].subItemIds.splice(
       destination.index, 0, parseInt(draggableId, 10),
     );
-    idCountIncrease();
   };
 
   return (

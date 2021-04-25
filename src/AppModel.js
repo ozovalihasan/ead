@@ -80,6 +80,14 @@ const AppModel = () => {
       return;
     }
 
+    if (data.items[draggableId].association && !data.items[destination.droppableId].entity) {
+      return;
+    }
+
+    if (data.items[draggableId].entity && data.items[destination.droppableId].entity) {
+      return;
+    }
+
     if (data.items[draggableId].factory) {
       const newData = { ...data };
       const newItem = {

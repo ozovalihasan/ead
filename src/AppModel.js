@@ -12,7 +12,7 @@ const AppModel = () => {
   const [restrictedDropId, setRestrictedDropId] = useState(-1);
 
   const idCountIncrease = () => {
-    setIdCount(idCount + 1);
+    setIdCount((prevIdCount) => prevIdCount + 1);
   };
 
   const id = 0;

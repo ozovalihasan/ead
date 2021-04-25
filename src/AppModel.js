@@ -65,16 +65,18 @@ const AppModel = () => {
     const {
       destination, draggableId, source,
     } = result;
-    console.warn(result);
-
-    if (!destination && !(data.items[draggableId].factory)) {
-      const newData = data;
-      newData.items[source.droppableId].subItemIds.splice(source.index, 1);
-      delete newData[draggableId];
-      setData(newData);
-    }
+    console.warn({ result, source });
 
     if (!destination) {
+      if (!(data.items[draggableId].factory)) {
+        const newData = data;
+        newData.items[source.droppableId].subItemIds.splice(source.index, 1);
+        delete newData[draggableId];
+        setData(newData);
+      }
+      return;
+    }
+    if (source.droppableId === destination.droppableId) {
       return;
     }
 

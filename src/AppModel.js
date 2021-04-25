@@ -149,7 +149,7 @@ const AppModel = () => {
                   id={id}
                   item={data.items[id]}
                   allItems={data.items}
-                  index={0}
+                  index={id}
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
                   handleCheckDirection={handleCheckDirection}

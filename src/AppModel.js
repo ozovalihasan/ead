@@ -33,7 +33,7 @@ const AppModel = () => {
         [id]: {
           ...data.items[id],
           subdirection: (data.items[id].subdirection === 'column' ? 'row' : 'column'),
-          order: (data.items[id].subdirection === 'vertical' ? 'horizontal' : 'vertical'),
+          order: (data.items[id].order === 'vertical' ? 'horizontal' : 'vertical'),
         },
       },
     };

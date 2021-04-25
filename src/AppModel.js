@@ -99,8 +99,19 @@ const AppModel = () => {
       newData.items[destination.droppableId].subItemIds.splice(
         destination.index, 0, idCount,
       );
-      newData.items[idCount.toString()] = newItem;
-      console.warn(newData, data);
+      newData.items[idCount] = newItem;
+      if (data.items[draggableId].association) {
+        const entityId = 7;
+        const newSubitem = {
+          ...newData.items[entityId],
+          subItemIds: [],
+          factory: false,
+          isDropDisabled: false,
+        };
+        newItem.subItemIds.push(idCount + 1);
+        newData.items[idCount + 1] = newSubitem;
+        idCountIncrease();
+      }
       idCountIncrease();
       setData(newData);
       return;

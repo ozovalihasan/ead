@@ -4,66 +4,66 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
-// import Factory from './Factory';
 
 const Model = ({
-  item, allItems, restrictedDropId, handleCheck, handleCheckDirection, handleChangeEntity,
+  item,
+  allItems,
+  restrictedDropId,
+  handleCheck,
+  handleCheckDirection,
+  handleChangeEntity,
 }) => (
-
-  <div>
-
-    <SubContainer
-      subdirection={item.subdirection}
-      factory={item.factory}
-    >
-      {item.subItemIds.map((id, index) => (
-        <Container key={id}>
-          <Draggable
-            draggableId={id.toString()}
-            index={index}
-            isDragDisabled={allItems[id].isDragDisabled}
-          >
-            {(providedDrag, snapshot) => (
-              <DragContainer
-                {...providedDrag.draggableProps}
-                {...providedDrag.dragHandleProps}
-                ref={providedDrag.innerRef}
-                isDragging={snapshot.isDragging}
-              >
-                <TitleCheck>
-
-                  {allItems[id].factory || (
+  <SubContainer
+    subdirection={item.subdirection}
+    factory={item.factory}
+  >
+    {item.subItemIds.map((id, index) => (
+      <Container key={id}>
+        <Draggable
+          draggableId={id.toString()}
+          index={index}
+          isDragDisabled={allItems[id].isDragDisabled}
+        >
+          {(providedDrag, snapshot) => (
+            <DragContainer
+              {...providedDrag.draggableProps}
+              {...providedDrag.dragHandleProps}
+              ref={providedDrag.innerRef}
+              isDragging={snapshot.isDragging}
+            >
+              <TitleCheck>
+                {allItems[id].factory || (
                   <DirectionButton
                     name="direction"
                     type="button"
                     onClick={() => handleCheckDirection(id)}
                   />
+                )}
+                <HandleDrag {...providedDrag.dragHandleProps} />
+                {allItems[id].entity || allItems[id].attribute
+                  ? (
+                    <ModelInput
+                      type="text"
+                      onChange={(e) => handleChangeEntity(e, id)}
+                      value={allItems[id].content}
+                    />
+                  )
+                  : (
+                    <Title>
+                      {allItems[id].content}
+                    </Title>
                   )}
-                  <HandleDrag {...providedDrag.dragHandleProps} />
-                  {allItems[id].entity || allItems[id].attribute
-                    ? (
-                      <ModelInput
-                        type="text"
-                        onChange={(e) => handleChangeEntity(e, id)}
-                        value={allItems[id].content}
-                      />
-                    )
-                    : (
-                      <Title>
-                        {allItems[id].content}
-                      </Title>
-                    )}
-                  {(item.isDropDisabled || allItems[id].attribute) || (
+                {(item.isDropDisabled || allItems[id].attribute) || (
                   <input
                     name="isRestrictedDrop"
                     type="checkbox"
                     checked={restrictedDropId === id}
                     onChange={(e) => handleCheck(e, id)}
                   />
-                  )}
-                </TitleCheck>
+                )}
+              </TitleCheck>
 
-                {allItems[id].attribute || (
+              {allItems[id].attribute || (
                 <Droppable
                   droppableId={id.toString()}
                   direction={allItems[id].order}
@@ -91,20 +91,17 @@ const Model = ({
                     </DropContainer>
                   )}
                 </Droppable>
-                )}
-              </DragContainer>
-            )}
-          </Draggable>
-        </Container>
-      ))}
-    </SubContainer>
-  </div>
+              )}
+            </DragContainer>
+          )}
+        </Draggable>
+      </Container>
+    ))}
+  </SubContainer>
 );
 const Container = styled.div`
-  
   margin: 10px;
   border-radius: 5px;
-
 `;
 
 const TitleCheck = styled.div`
@@ -153,9 +150,5 @@ const SubContainer = styled.div`
 `;
 
 const Title = styled.h3`
-  /* padding: 8px; */
-  /* width: 200px;
-  height: 200px; */
-  /* background-color: red; */
 `;
 export default Model;

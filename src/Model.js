@@ -11,8 +11,8 @@ const Model = ({
   restrictedDropId,
   handleCheck,
   handleCheckDirection,
-  handleChangeEntity,
-  handleChangeAttribute,
+  handleChangeContent,
+  handleChangeType,
 }) => (
   <SubContainer
     subdirection={item.subdirection}
@@ -45,7 +45,7 @@ const Model = ({
                   ? (
                     <ModelInput
                       type="text"
-                      onChange={(e) => handleChangeEntity(e, id)}
+                      onChange={(e) => handleChangeContent(e, id)}
                       value={allItems[id].content}
                     />
                   )
@@ -57,8 +57,8 @@ const Model = ({
 
                 {(allItems[id].attribute) && (
                   <select
-                    value={allItems[id].value}
-                    onChange={(e) => handleChangeAttribute(e, id)}
+                    value={allItems[id].type}
+                    onChange={(e) => handleChangeType(e, id)}
                   >
                     {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
                       'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
@@ -105,8 +105,8 @@ const Model = ({
                         restrictedDropId={restrictedDropId}
                         handleCheck={handleCheck}
                         handleCheckDirection={handleCheckDirection}
-                        handleChangeEntity={handleChangeEntity}
-                        handleChangeAttribute={handleChangeAttribute}
+                        handleChangeEntity={handleChangeContent}
+                        handleChangeType={handleChangeType}
                       />
                       {providedDrop.placeholder}
                     </DropContainer>
@@ -120,6 +120,7 @@ const Model = ({
     ))}
   </SubContainer>
 );
+
 const Container = styled.div`
   margin: 10px;
   border-radius: 5px;

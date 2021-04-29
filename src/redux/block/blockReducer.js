@@ -65,7 +65,7 @@ const blockSlice = createSlice({
         subdirection: 'column',
         isDropDisabled: true,
         factory: true,
-        value: 'string',
+        type: 'string',
       },
       7: {
         content: 'entity',
@@ -94,9 +94,9 @@ const blockSlice = createSlice({
     },
   },
   reducers: {
-    ChangeAttribute: {
+    changeType: {
       reducer: (state, { payload }) => {
-        state.items[payload.id] = payload.value;
+        state.items[payload.id].type = payload.value;
       },
       prepare: (e, id) => {
         const { value } = e.target;
@@ -104,7 +104,7 @@ const blockSlice = createSlice({
       },
     },
 
-    ChangeEntity: {
+    changeContent: {
       reducer: (state, { payload }) => {
         state.items[payload.id].content = payload.value;
       },
@@ -114,12 +114,12 @@ const blockSlice = createSlice({
       },
     },
 
-    CheckDirection: {
+    checkDirection: {
       reducer: (state, { payload }) => {
         state.items[payload.id].subdirection = payload.subdirection;
         state.items[payload.id].order = payload.order;
       },
-      prepare: (id, order, subdirection) => ({
+      prepare: (id, subdirection, order) => ({
         payload: { id, subdirection, order },
       }),
     },
@@ -183,9 +183,9 @@ const blockSlice = createSlice({
 const { actions, reducer } = blockSlice;
 
 export const {
-  ChangeAttribute,
-  ChangeEntity,
-  CheckDirection,
+  changeType,
+  changeContent,
+  checkDirection,
   removeItem,
   addItem,
   moveItem,

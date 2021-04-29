@@ -13,6 +13,7 @@ import {
   addItem,
   moveItem,
   updateRestrictedDropId,
+  expandItem,
 } from './redux';
 import saveJSON from './saveJSON';
 
@@ -51,6 +52,10 @@ const AppModel = () => {
 
   const handleChangeType = (e, id) => {
     dispatch(changeType(e, id));
+  };
+
+  const handleExpandItem = (id) => {
+    dispatch(expandItem(id));
   };
 
   const onDragStart = (start) => {
@@ -133,6 +138,7 @@ const AppModel = () => {
                   handleCheckDirection={handleCheckDirection}
                   handleChangeContent={handleChangeContent}
                   handleChangeType={handleChangeType}
+                  handleExpandItem={handleExpandItem}
                 />
 
                 {provided.placeholder}

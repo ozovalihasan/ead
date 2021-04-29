@@ -13,6 +13,7 @@ const Model = ({
   handleCheckDirection,
   handleChangeContent,
   handleChangeType,
+  handleExpandItem,
 }) => {
   const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
 
@@ -75,7 +76,14 @@ const Model = ({
 
                   </select>
                   )}
-
+                  {allItems[id].factory || (
+                    <ExpandButton
+                      name="expand"
+                      type="button"
+                      onClick={() => handleExpandItem(id)}
+                      expand={allItems[id].expand}
+                    />
+                  )}
                   {(allItems[id].factory || allItems[id].attribute) || (
                   <input
                     name="isRestrictedDrop"
@@ -100,16 +108,26 @@ const Model = ({
                       factory={allItems[id].factory}
                       isDraggingOver={snapshot.isDraggingOver}
                     >
-                      <Model
-                        id={id}
-                        item={allItems[id]}
-                        allItems={allItems}
-                        index={index}
-                        handleCheck={handleCheck}
-                        handleCheckDirection={handleCheckDirection}
-                        handleChangeContent={handleChangeContent}
-                        handleChangeType={handleChangeType}
-                      />
+
+                      {(allItems[id].expand) ? (
+                        <Model
+                          id={id}
+                          item={allItems[id]}
+                          allItems={allItems}
+                          index={index}
+                          handleCheck={handleCheck}
+                          handleCheckDirection={handleCheckDirection}
+                          handleChangeContent={handleChangeContent}
+                          handleChangeType={handleChangeType}
+                          handleExpandItem={handleExpandItem}
+
+                        />
+                      )
+                        : (
+                          <div>
+                            Collided
+                          </div>
+                        )}
                       {providedDrop.placeholder}
                     </DropContainer>
                   )}
@@ -144,6 +162,12 @@ const ModelInput = styled.input`
 
 const DirectionButton = styled.button`
   background-color: red;
+  width: 20px;
+  height: 20px;
+`;
+
+const ExpandButton = styled.button`
+  background-color: ${(props) => (props.expand ? 'orange' : 'blue')};
   width: 20px;
   height: 20px;
 `;

@@ -12,6 +12,7 @@ const blockSlice = createSlice({
         subdirection: 'row',
         isDropDisabled: true,
         isDragDisabled: true,
+        expand: true,
       },
       1: {
         content: 'Elements',
@@ -20,6 +21,7 @@ const blockSlice = createSlice({
         subdirection: 'column',
         isDropDisabled: true,
         isDragDisabled: true,
+        expand: true,
       },
       2: {
         content: 'has_many',
@@ -29,6 +31,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         factory: true,
         association: true,
+        expand: true,
       },
       3: {
         content: 'has_one',
@@ -38,6 +41,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         factory: true,
         association: true,
+        expand: true,
       },
       4: {
         content: 'belongs_to',
@@ -47,6 +51,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         factory: true,
         association: true,
+        expand: true,
       },
       5: {
         content: 'has_and_belongs_to_many',
@@ -56,6 +61,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         factory: true,
         association: true,
+        expand: true,
       },
       6: {
         content: 'attribute',
@@ -66,6 +72,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         factory: true,
         type: 'string',
+        expand: true,
       },
       7: {
         content: 'entity',
@@ -74,6 +81,7 @@ const blockSlice = createSlice({
         subdirection: 'column',
         factory: true,
         entity: true,
+        expand: true,
       },
       8: {
         content: 'ERD',
@@ -81,6 +89,7 @@ const blockSlice = createSlice({
         order: 'vertical',
         subdirection: 'column',
         isDragDisabled: true,
+        expand: true,
       },
       9: {
         content: 'entity',
@@ -90,6 +99,7 @@ const blockSlice = createSlice({
         factory: false,
         entity: true,
         isDropDisabled: false,
+        expand: true,
       },
     },
     restrictedDropId: -1,
@@ -176,6 +186,7 @@ const blockSlice = createSlice({
         }
       ),
     },
+
     updateRestrictedDropId: {
       reducer: (state, { payload }) => {
         state.restrictedDropId = payload.itemId;
@@ -187,6 +198,13 @@ const blockSlice = createSlice({
           },
         }
       ),
+    },
+
+    expandItem: {
+      reducer: (state, { payload }) => {
+        state.items[payload.id].expand = !state.items[payload.id].expand;
+      },
+      prepare: (id) => ({ payload: { id } }),
     },
 
   },
@@ -203,6 +221,7 @@ export const {
   addItem,
   moveItem,
   updateRestrictedDropId,
+  expandItem,
 } = actions;
 
 export default reducer;

@@ -149,7 +149,7 @@ const blockSlice = createSlice({
         };
         state.items[payload.newId] = newItem;
         state.items[payload.containerId].subItemIds.splice(
-          payload.newId, 0, payload.newId,
+          payload.containerIndex, 0, payload.newId,
         );
       },
       prepare: (itemId, containerId, containerIndex, newId) => (

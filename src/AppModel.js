@@ -3,11 +3,21 @@
 /* eslint-disable react/no-this-in-sfc */
 import React, { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import modelData from './modelData';
+import { useDispatch, useSelector } from 'react-redux';
 import Model from './Model';
+import {
+  handleChangeAttribute,
+  handleChangeEntity,
+  handleCheckDirection,
+  removeItem,
+  addItem,
+} from './redux';
 
 const AppModel = () => {
-  const [data, setData] = useState({ ...modelData });
+  const items = useSelector((state) => state.block.items);
+  const data = { items };
+
+  // const [data, setData] = useState({ ...modelData });
   const [idCount, setIdCount] = useState(Object.keys(data.items).length);
 
   const [restrictedDropId, setRestrictedDropId] = useState(-1);
@@ -17,6 +27,8 @@ const AppModel = () => {
   };
 
   const id = 0;
+  const dispatch = useDispatch();
+
   const handleCheck = (e, id) => {
     const { target } = e;
     if (target.checked) {
@@ -25,51 +37,21 @@ const AppModel = () => {
       setRestrictedDropId(-1);
     }
   };
-  const handleCheckDirection = (id) => {
-    const newData = {
-      ...data,
-
-      items: {
-        ...data.items,
-        [id]: {
-          ...data.items[id],
-          subdirection: (data.items[id].subdirection === 'column' ? 'row' : 'column'),
-          order: (data.items[id].order === 'vertical' ? 'horizontal' : 'vertical'),
-        },
-      },
-    };
-    setData(newData);
+  const handleCheckDirection1 = (id) => {
+    const subdirection = (data.items[id].subdirection === 'column' ? 'row' : 'column');
+    const order = (data.items[id].order === 'vertical' ? 'horizontal' : 'vertical');
+    dispatch(handleCheckDirection(id, subdirection, order));
   };
 
-  const handleChangeEntity = (e, id) => {
+  const handleChangeEntity1 = (e, id) => {
     if (!data.items[id].factory) {
-      const newData = {
-        ...data,
-        items: {
-          ...data.items,
-          [id]: {
-            ...data.items[id],
-            content: e.target.value,
-          },
-        },
-      };
-      setData(newData);
+      dispatch(handleChangeEntity(e.id));
     }
   };
 
-  const handleChangeAttribute = (e, id) => {
-    console.warn(e);
-    const newData = {
-      ...data,
-      items: {
-        ...data.items,
-        [id]: {
-          ...data.items[id],
-          value: e.target.value,
-        },
-      },
-    };
-    setData(newData);
+  const handleChangeAttribute1 = (e, id) => {
+    console.warn({ e, id });
+    dispatch(handleChangeAttribute(e, id));
   };
 
   const onDragStart = (start) => {
@@ -84,10 +66,7 @@ const AppModel = () => {
 
     if (!destination) {
       if (!(data.items[draggableId].factory)) {
-        const newData = data;
-        newData.items[source.droppableId].subItemIds.splice(source.index, 1);
-        delete newData[draggableId];
-        setData(newData);
+        dispatch(removeItem(source.droppableId, source.index, draggableId));
       }
       return;
     }
@@ -101,39 +80,22 @@ const AppModel = () => {
     }
 
     if (data.items[draggableId].factory) {
-      const newData = { ...data };
-      const newItem = {
-        ...newData.items[draggableId],
-        subItemIds: [],
-        factory: false,
-        isDropDisabled: false,
-      };
-      newData.items[destination.droppableId].subItemIds.splice(
-        destination.index, 0, idCount,
-      );
-      newData.items[idCount] = newItem;
+      dispatch(addItem(draggableId, destination.droppableId, destination.index, idCount));
       if (data.items[draggableId].association) {
         const entityId = 7;
-        const newSubitem = {
-          ...newData.items[entityId],
-          subItemIds: [],
-          factory: false,
-          isDropDisabled: false,
-        };
-        newItem.subItemIds.push(idCount + 1);
-        newData.items[idCount + 1] = newSubitem;
+        dispatch(addItem(entityId, idCount, destination.index, idCount + 1));
         idCountIncrease();
       }
       idCountIncrease();
-      setData(newData);
       return;
     }
-
-    const newData = { ...data };
-    newData.items[source.droppableId].subItemIds.splice(source.index, 1);
-    newData.items[destination.droppableId].subItemIds.splice(
-      destination.index, 0, parseInt(draggableId, 10),
-    );
+    dispatch(addItem(
+      draggableId,
+      destination.droppableId,
+      destination.index,
+      source.droppableId,
+      source.index,
+    ));
   };
 
   function saveJSON(data, filename) {
@@ -193,9 +155,9 @@ const AppModel = () => {
                   index={id}
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
-                  handleCheckDirection={handleCheckDirection}
-                  handleChangeEntity={handleChangeEntity}
-                  handleChangeAttribute={handleChangeAttribute}
+                  handleCheckDirection={handleCheckDirection1}
+                  handleChangeEntity={handleChangeEntity1}
+                  handleChangeAttribute={handleChangeAttribute1}
                 />
 
                 {provided.placeholder}

@@ -18,9 +18,8 @@ import {
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
   const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
-  const data = { items };
 
-  const [idCount, setIdCount] = useState(Object.keys(data.items).length);
+  const [idCount, setIdCount] = useState(Object.keys(items).length);
 
   const idCountIncrease = () => {
     setIdCount((prevIdCount) => prevIdCount + 1);
@@ -38,13 +37,13 @@ const AppModel = () => {
     }
   };
   const handleCheckDirection = (id) => {
-    const subdirection = (data.items[id].subdirection === 'column' ? 'row' : 'column');
-    const order = (data.items[id].order === 'vertical' ? 'horizontal' : 'vertical');
+    const subdirection = (items[id].subdirection === 'column' ? 'row' : 'column');
+    const order = (items[id].order === 'vertical' ? 'horizontal' : 'vertical');
     dispatch(checkDirection(id, subdirection, order));
   };
 
   const handleChangeContent = (e, id) => {
-    if (!data.items[id].factory) {
+    if (!items[id].factory) {
       dispatch(changeContent(e, id));
     }
   };
@@ -64,23 +63,23 @@ const AppModel = () => {
     console.warn({ result, source });
 
     if (!destination) {
-      if (!(data.items[draggableId].factory)) {
+      if (!(items[draggableId].factory)) {
         dispatch(removeItem(source.droppableId, source.index, draggableId));
       }
       return;
     }
 
-    if (data.items[draggableId].association && !data.items[destination.droppableId].entity) {
+    if (items[draggableId].association && !items[destination.droppableId].entity) {
       return;
     }
 
-    if (data.items[draggableId].entity && data.items[destination.droppableId].entity) {
+    if (items[draggableId].entity && items[destination.droppableId].entity) {
       return;
     }
 
-    if (data.items[draggableId].factory) {
+    if (items[draggableId].factory) {
       dispatch(addItem(draggableId, destination.droppableId, destination.index, idCount));
-      if (data.items[draggableId].association) {
+      if (items[draggableId].association) {
         const entityId = 7;
         dispatch(addItem(entityId, idCount, destination.index, idCount + 1));
         idCountIncrease();
@@ -123,7 +122,7 @@ const AppModel = () => {
   return (
     <div className="App">
       <button
-        onClick={() => saveJSON(data.items, 'test.json')}
+        onClick={() => saveJSON(items, 'test.json')}
         type="button"
       >
         Download Json
@@ -149,8 +148,8 @@ const AppModel = () => {
 
                 <Model
                   id={startingId}
-                  item={data.items[startingId]}
-                  allItems={data.items}
+                  item={items[startingId]}
+                  allItems={items}
                   index={startingId}
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}

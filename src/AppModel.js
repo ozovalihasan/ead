@@ -83,6 +83,10 @@ const AppModel = () => {
       return;
     }
 
+    if (items[draggableId].attributeContainer && !items[destination.droppableId].entity) {
+      return;
+    }
+
     if (items[draggableId].factory) {
       dispatch(addItem(draggableId, destination.droppableId, destination.index, idCount));
       if (items[draggableId].association) {

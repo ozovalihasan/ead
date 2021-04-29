@@ -12,6 +12,7 @@ const Model = ({
   handleCheck,
   handleCheckDirection,
   handleChangeEntity,
+  handleChangeAttribute,
 }) => (
   <SubContainer
     subdirection={item.subdirection}
@@ -54,6 +55,24 @@ const Model = ({
                     </Title>
                   )}
 
+                {(allItems[id].attribute) && (
+                  <select
+                    value={allItems[id].value}
+                    onChange={(e) => handleChangeAttribute(e, id)}
+                  >
+                    {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
+                      'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
+                        <option
+                          key={item}
+                          value={item}
+                        >
+                          {item}
+                        </option>
+                    ))}
+
+                  </select>
+                )}
+
                 {(allItems[id].factory || allItems[id].attribute) || (
                   <input
                     name="isRestrictedDrop"
@@ -87,6 +106,7 @@ const Model = ({
                         handleCheck={handleCheck}
                         handleCheckDirection={handleCheckDirection}
                         handleChangeEntity={handleChangeEntity}
+                        handleChangeAttribute={handleChangeAttribute}
                       />
                       {providedDrop.placeholder}
                     </DropContainer>

@@ -56,12 +56,13 @@ const modelData = {
     },
     6: {
       content: 'attribute',
-      attribute: true,
       subItemIds: [],
+      attribute: true,
       order: 'vertical',
       subdirection: 'column',
       isDropDisabled: true,
       factory: true,
+      value: 'string',
     },
     7: {
       content: 'entity',

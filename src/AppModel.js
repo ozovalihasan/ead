@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
 /* eslint-disable react/no-this-in-sfc */
 import React, { useState } from 'react';
@@ -44,7 +45,6 @@ const AppModel = () => {
     if (!data.items[id].factory) {
       const newData = {
         ...data,
-
         items: {
           ...data.items,
           [id]: {
@@ -55,6 +55,21 @@ const AppModel = () => {
       };
       setData(newData);
     }
+  };
+
+  const handleChangeAttribute = (e, id) => {
+    console.warn(e);
+    const newData = {
+      ...data,
+      items: {
+        ...data.items,
+        [id]: {
+          ...data.items[id],
+          value: e.target.value,
+        },
+      },
+    };
+    setData(newData);
   };
 
   const onDragStart = (start) => {
@@ -121,8 +136,37 @@ const AppModel = () => {
     );
   };
 
+  function saveJSON(data, filename) {
+    if (!data) {
+      console.error('No data');
+      return;
+    }
+
+    if (!filename) { filename = 'console.json'; }
+
+    if (typeof data === 'object') {
+      data = JSON.stringify(data, undefined, 4);
+    }
+
+    const blob = new Blob([data], { type: 'text/json' });
+    const e = document.createEvent('MouseEvents');
+    const a = document.createElement('a');
+
+    a.download = filename;
+    a.href = window.URL.createObjectURL(blob);
+    a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
+    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    a.dispatchEvent(e);
+  }
+
   return (
     <div className="App">
+      <button
+        onClick={() => saveJSON(data.items, 'test.json')}
+        type="button"
+      >
+        Download Json
+      </button>
       <DragDropContext
         onDragStart={onDragStart}
         // onDragUpdate={onDragUpdate}
@@ -151,6 +195,7 @@ const AppModel = () => {
                   handleCheck={handleCheck}
                   handleCheckDirection={handleCheckDirection}
                   handleChangeEntity={handleChangeEntity}
+                  handleChangeAttribute={handleChangeAttribute}
                 />
 
                 {provided.placeholder}

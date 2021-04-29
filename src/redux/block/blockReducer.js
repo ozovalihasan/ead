@@ -94,7 +94,7 @@ const blockSlice = createSlice({
     },
   },
   reducers: {
-    handleChangeAttribute: {
+    ChangeAttribute: {
       reducer: (state, { payload }) => {
         state.items[payload.id] = payload.value;
       },
@@ -103,7 +103,7 @@ const blockSlice = createSlice({
         return { payload: { value, id } };
       },
     },
-    handleChangeEntity: {
+    ChangeEntity: {
       reducer: (state, { payload }) => {
         state.items[payload.id].content = payload.value;
       },
@@ -112,7 +112,7 @@ const blockSlice = createSlice({
         return { payload: { value, id } };
       },
     },
-    handleCheckDirection: {
+    CheckDirection: {
       reducer: (state, { payload }) => {
         state.items[payload.id].subdirection = payload.subdirection;
         state.items[payload.id].order = payload.order;
@@ -185,9 +185,9 @@ const blockSlice = createSlice({
 const { actions, reducer } = blockSlice;
 
 export const {
-  handleChangeAttribute,
-  handleChangeEntity,
-  handleCheckDirection,
+  ChangeAttribute,
+  ChangeEntity,
+  CheckDirection,
   removeItem,
   addItem,
   moveItem,

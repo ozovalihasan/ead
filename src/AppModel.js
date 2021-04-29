@@ -6,9 +6,9 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import Model from './Model';
 import {
-  handleChangeAttribute,
-  handleChangeEntity,
-  handleCheckDirection,
+  ChangeAttribute,
+  ChangeEntity,
+  CheckDirection,
   removeItem,
   addItem,
 } from './redux';
@@ -37,21 +37,21 @@ const AppModel = () => {
       setRestrictedDropId(-1);
     }
   };
-  const handleCheckDirection1 = (id) => {
+  const handleCheckDirection = (id) => {
     const subdirection = (data.items[id].subdirection === 'column' ? 'row' : 'column');
     const order = (data.items[id].order === 'vertical' ? 'horizontal' : 'vertical');
-    dispatch(handleCheckDirection(id, subdirection, order));
+    dispatch(CheckDirection(id, subdirection, order));
   };
 
-  const handleChangeEntity1 = (e, id) => {
+  const handleChangeEntity = (e, id) => {
     if (!data.items[id].factory) {
-      dispatch(handleChangeEntity(e.id));
+      dispatch(ChangeEntity(e, id));
     }
   };
 
-  const handleChangeAttribute1 = (e, id) => {
+  const handleChangeAttribute = (e, id) => {
     console.warn({ e, id });
-    dispatch(handleChangeAttribute(e, id));
+    dispatch(ChangeAttribute(e, id));
   };
 
   const onDragStart = (start) => {
@@ -155,9 +155,9 @@ const AppModel = () => {
                   index={id}
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
-                  handleCheckDirection={handleCheckDirection1}
-                  handleChangeEntity={handleChangeEntity1}
-                  handleChangeAttribute={handleChangeAttribute1}
+                  handleCheckDirection={handleCheckDirection}
+                  handleChangeEntity={handleChangeEntity}
+                  handleChangeAttribute={handleChangeAttribute}
                 />
 
                 {provided.placeholder}

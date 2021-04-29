@@ -17,7 +17,6 @@ import {
 
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
-  const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
 
   const [idCount, setIdCount] = useState(Object.keys(items).length);
 
@@ -36,6 +35,7 @@ const AppModel = () => {
       dispatch(updateRestrictedDropId(-1));
     }
   };
+
   const handleCheckDirection = (id) => {
     const subdirection = (items[id].subdirection === 'column' ? 'row' : 'column');
     const order = (items[id].order === 'vertical' ? 'horizontal' : 'vertical');
@@ -151,7 +151,6 @@ const AppModel = () => {
                   item={items[startingId]}
                   allItems={items}
                   index={startingId}
-                  restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
                   handleCheckDirection={handleCheckDirection}
                   handleChangeContent={handleChangeContent}

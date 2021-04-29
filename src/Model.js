@@ -4,58 +4,61 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
+import { useSelector } from 'react-redux';
 
 const Model = ({
   item,
   allItems,
-  restrictedDropId,
   handleCheck,
   handleCheckDirection,
   handleChangeContent,
   handleChangeType,
-}) => (
-  <SubContainer
-    subdirection={item.subdirection}
-    factory={item.factory}
-  >
-    {item.subItemIds.map((id, index) => (
-      <Container key={id}>
-        <Draggable
-          draggableId={id.toString()}
-          index={index}
-          isDragDisabled={allItems[id].isDragDisabled}
-        >
-          {(providedDrag, snapshot) => (
-            <DragContainer
-              {...providedDrag.draggableProps}
-              {...providedDrag.dragHandleProps}
-              ref={providedDrag.innerRef}
-              isDragging={snapshot.isDragging}
-            >
-              <TitleCheck>
-                {allItems[id].factory || (
+}) => {
+  const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
+
+  return (
+    <SubContainer
+      subdirection={item.subdirection}
+      factory={item.factory}
+    >
+      {item.subItemIds.map((id, index) => (
+        <Container key={id}>
+          <Draggable
+            draggableId={id.toString()}
+            index={index}
+            isDragDisabled={allItems[id].isDragDisabled}
+          >
+            {(providedDrag, snapshot) => (
+              <DragContainer
+                {...providedDrag.draggableProps}
+                {...providedDrag.dragHandleProps}
+                ref={providedDrag.innerRef}
+                isDragging={snapshot.isDragging}
+              >
+                <TitleCheck>
+                  {allItems[id].factory || (
                   <DirectionButton
                     name="direction"
                     type="button"
                     onClick={() => handleCheckDirection(id)}
                   />
-                )}
-                <HandleDrag {...providedDrag.dragHandleProps} />
-                {allItems[id].entity || allItems[id].attribute
-                  ? (
-                    <ModelInput
-                      type="text"
-                      onChange={(e) => handleChangeContent(e, id)}
-                      value={allItems[id].content}
-                    />
-                  )
-                  : (
-                    <Title>
-                      {allItems[id].content}
-                    </Title>
                   )}
+                  <HandleDrag {...providedDrag.dragHandleProps} />
+                  {allItems[id].entity || allItems[id].attribute
+                    ? (
+                      <ModelInput
+                        type="text"
+                        onChange={(e) => handleChangeContent(e, id)}
+                        value={allItems[id].content}
+                      />
+                    )
+                    : (
+                      <Title>
+                        {allItems[id].content}
+                      </Title>
+                    )}
 
-                {(allItems[id].attribute) && (
+                  {(allItems[id].attribute) && (
                   <select
                     value={allItems[id].type}
                     onChange={(e) => handleChangeType(e, id)}
@@ -71,19 +74,19 @@ const Model = ({
                     ))}
 
                   </select>
-                )}
+                  )}
 
-                {(allItems[id].factory || allItems[id].attribute) || (
+                  {(allItems[id].factory || allItems[id].attribute) || (
                   <input
                     name="isRestrictedDrop"
                     type="checkbox"
                     checked={restrictedDropId === id}
                     onChange={(e) => handleCheck(e, id)}
                   />
-                )}
-              </TitleCheck>
+                  )}
+                </TitleCheck>
 
-              {allItems[id].attribute || (
+                {allItems[id].attribute || (
                 <Droppable
                   droppableId={id.toString()}
                   direction={allItems[id].order}
@@ -102,7 +105,6 @@ const Model = ({
                         item={allItems[id]}
                         allItems={allItems}
                         index={index}
-                        restrictedDropId={restrictedDropId}
                         handleCheck={handleCheck}
                         handleCheckDirection={handleCheckDirection}
                         handleChangeEntity={handleChangeContent}
@@ -112,14 +114,15 @@ const Model = ({
                     </DropContainer>
                   )}
                 </Droppable>
-              )}
-            </DragContainer>
-          )}
-        </Draggable>
-      </Container>
-    ))}
-  </SubContainer>
-);
+                )}
+              </DragContainer>
+            )}
+          </Draggable>
+        </Container>
+      ))}
+    </SubContainer>
+  );
+};
 
 const Container = styled.div`
   margin: 10px;

@@ -103,6 +103,7 @@ const blockSlice = createSlice({
         return { payload: { value, id } };
       },
     },
+
     ChangeEntity: {
       reducer: (state, { payload }) => {
         state.items[payload.id].content = payload.value;
@@ -112,13 +113,17 @@ const blockSlice = createSlice({
         return { payload: { value, id } };
       },
     },
+
     CheckDirection: {
       reducer: (state, { payload }) => {
         state.items[payload.id].subdirection = payload.subdirection;
         state.items[payload.id].order = payload.order;
       },
-      prepare: (id, order, subdirection) => ({ payload: { id, subdirection, order } }),
+      prepare: (id, order, subdirection) => ({
+        payload: { id, subdirection, order },
+      }),
     },
+
     removeItem: {
       reducer: (state, { payload }) => {
         state.items[payload.parentId].subItemIds.splice(payload.itemIndexInSource, 1);
@@ -127,13 +132,12 @@ const blockSlice = createSlice({
       prepare: (parentId, itemIndexInSource, itemId) => (
         {
           payload: {
-            parentId,
-            itemIndexInSource,
-            itemId,
+            parentId, itemIndexInSource, itemId,
           },
         }
       ),
     },
+
     addItem: {
       reducer: (state, { payload }) => {
         const newItem = {
@@ -150,14 +154,12 @@ const blockSlice = createSlice({
       prepare: (itemId, containerId, containerIndex, newId) => (
         {
           payload: {
-            itemId,
-            containerId,
-            containerIndex,
-            newId,
+            itemId, containerId, containerIndex, newId,
           },
         }
       ),
     },
+
     moveItem: {
       reducer: (state, { payload }) => {
         state.items[payload.prevContainerId].subItemIds.splice(payload.prevContainerIndex, 1);
@@ -168,11 +170,7 @@ const blockSlice = createSlice({
       prepare: (itemId, containerId, containerIndex, prevContainerId, prevContainerIndex) => (
         {
           payload: {
-            itemId,
-            containerId,
-            containerIndex,
-            prevContainerId,
-            prevContainerIndex,
+            itemId, containerId, containerIndex, prevContainerId, prevContainerIndex,
           },
         }
       ),

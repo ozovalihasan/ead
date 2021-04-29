@@ -11,6 +11,7 @@ import {
   CheckDirection,
   removeItem,
   addItem,
+  moveItem,
 } from './redux';
 
 const AppModel = () => {
@@ -26,7 +27,7 @@ const AppModel = () => {
     setIdCount((prevIdCount) => prevIdCount + 1);
   };
 
-  const id = 0;
+  const startingId = 0;
   const dispatch = useDispatch();
 
   const handleCheck = (e, id) => {
@@ -89,7 +90,7 @@ const AppModel = () => {
       idCountIncrease();
       return;
     }
-    dispatch(addItem(
+    dispatch(moveItem(
       draggableId,
       destination.droppableId,
       destination.index,
@@ -149,10 +150,10 @@ const AppModel = () => {
               >
 
                 <Model
-                  id={id}
-                  item={data.items[id]}
+                  id={startingId}
+                  item={data.items[startingId]}
                   allItems={data.items}
-                  index={id}
+                  index={startingId}
                   restrictedDropId={restrictedDropId}
                   handleCheck={handleCheck}
                   handleCheckDirection={handleCheckDirection}

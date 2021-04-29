@@ -12,16 +12,15 @@ import {
   removeItem,
   addItem,
   moveItem,
+  updateRestrictedDropId,
 } from './redux';
 
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
+  const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
   const data = { items };
 
-  // const [data, setData] = useState({ ...modelData });
   const [idCount, setIdCount] = useState(Object.keys(data.items).length);
-
-  const [restrictedDropId, setRestrictedDropId] = useState(-1);
 
   const idCountIncrease = () => {
     setIdCount((prevIdCount) => prevIdCount + 1);
@@ -33,9 +32,9 @@ const AppModel = () => {
   const handleCheck = (e, id) => {
     const { target } = e;
     if (target.checked) {
-      setRestrictedDropId(id);
+      dispatch(updateRestrictedDropId(id));
     } else {
-      setRestrictedDropId(-1);
+      dispatch(updateRestrictedDropId(-1));
     }
   };
   const handleCheckDirection = (id) => {

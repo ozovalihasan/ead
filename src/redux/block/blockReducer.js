@@ -92,6 +92,7 @@ const blockSlice = createSlice({
         isDropDisabled: false,
       },
     },
+    restrictedDropId: -1,
   },
   reducers: {
     changeType: {
@@ -175,6 +176,18 @@ const blockSlice = createSlice({
         }
       ),
     },
+    updateRestrictedDropId: {
+      reducer: (state, { payload }) => {
+        state.restrictedDropId = payload.itemId;
+      },
+      prepare: (itemId) => (
+        {
+          payload: {
+            itemId,
+          },
+        }
+      ),
+    },
 
   },
 
@@ -189,6 +202,7 @@ export const {
   removeItem,
   addItem,
   moveItem,
+  updateRestrictedDropId,
 } = actions;
 
 export default reducer;

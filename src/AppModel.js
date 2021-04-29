@@ -94,7 +94,7 @@ const AppModel = () => {
     if (items[draggableId].factory) {
       dispatch(addItem(draggableId, destination.droppableId, destination.index, idCount));
       if (items[draggableId].association) {
-        const entityId = 6;
+        const entityId = 7;
         dispatch(addItem(entityId, idCount, destination.index, idCount + 1));
         idCountIncrease();
       }

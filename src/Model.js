@@ -44,7 +44,7 @@ const Model = ({
                     onClick={() => handleCheckDirection(id)}
                   />
                   )}
-                  <HandleDrag {...providedDrag.dragHandleProps} />
+                  {allItems[id].isDragDisabled || <HandleDrag {...providedDrag.dragHandleProps} />}
                   {(allItems[id].entity || allItems[id].attribute) && !allItems[id].factory
                     ? (
                       <ModelInput
@@ -76,7 +76,8 @@ const Model = ({
 
                   </select>
                   )}
-                  {allItems[id].factory || (
+                  {allItems[id].factory || allItems[id].attribute || allItems[id].isDragDisabled
+                  || (
                     <ExpandButton
                       name="expand"
                       type="button"

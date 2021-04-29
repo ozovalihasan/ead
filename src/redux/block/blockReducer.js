@@ -7,7 +7,7 @@ const blockSlice = createSlice({
     items: {
       0: {
         content: 'Initialize your project from ERD',
-        subItemIds: [1, 7],
+        subItemIds: [1, 8],
         order: 'vertical',
         subdirection: 'row',
         isDropDisabled: true,
@@ -16,12 +16,13 @@ const blockSlice = createSlice({
       },
       1: {
         content: 'Elements',
-        subItemIds: [2, 3, 4, 5, 6],
+        subItemIds: [2, 3, 4, 5, 6, 7],
         order: 'vertical',
         subdirection: 'column',
         isDropDisabled: true,
         isDragDisabled: true,
         expand: true,
+        factory: true,
       },
       2: {
         content: 'has_many',
@@ -54,6 +55,17 @@ const blockSlice = createSlice({
         expand: true,
       },
       5: {
+        content: 'attribute container',
+        subItemIds: [],
+        order: 'vertical',
+        subdirection: 'column',
+        isDropDisabled: true,
+        factory: true,
+        type: 'string',
+        expand: true,
+        attributeContainer: true,
+      },
+      6: {
         content: 'attribute',
         subItemIds: [],
         attribute: true,
@@ -64,7 +76,7 @@ const blockSlice = createSlice({
         type: 'string',
         expand: true,
       },
-      6: {
+      7: {
         content: 'entity',
         subItemIds: [],
         order: 'vertical',
@@ -72,16 +84,17 @@ const blockSlice = createSlice({
         factory: true,
         entity: true,
         expand: true,
+        isDropDisabled: true,
       },
-      7: {
+      8: {
         content: 'ERD',
-        subItemIds: [8],
+        subItemIds: [9],
         order: 'vertical',
         subdirection: 'column',
         isDragDisabled: true,
         expand: true,
       },
-      8: {
+      9: {
         content: 'entity',
         subItemIds: [],
         order: 'vertical',

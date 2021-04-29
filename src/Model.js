@@ -125,7 +125,9 @@ const Model = ({
                       )
                         : (
                           <div>
-                            Collided
+                            {allItems[id].subItemIds.length}
+                            {' '}
+                            item(s) collided
                           </div>
                         )}
                       {providedDrop.placeholder}

@@ -107,7 +107,7 @@ const Model = ({
                         index={index}
                         handleCheck={handleCheck}
                         handleCheckDirection={handleCheckDirection}
-                        handleChangeEntity={handleChangeContent}
+                        handleChangeContent={handleChangeContent}
                         handleChangeType={handleChangeType}
                       />
                       {providedDrop.placeholder}

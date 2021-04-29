@@ -44,7 +44,7 @@ const Model = ({
                   />
                   )}
                   <HandleDrag {...providedDrag.dragHandleProps} />
-                  {allItems[id].entity || allItems[id].attribute
+                  {(allItems[id].entity || allItems[id].attribute) && !allItems[id].factory
                     ? (
                       <ModelInput
                         type="text"

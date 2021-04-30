@@ -41,27 +41,28 @@ const Model = ({
 
                 <TitleCheck>
 
-                  {allItems[id].isDragDisabled || (
-                    <HandleDrag
-                      {...providedDrag.dragHandleProps}
-                      title="Drag to move this item"
-                    >
-                      <FontAwesomeIcon icon="arrows-alt" size="lg" />
-                    </HandleDrag>
-                  )}
+                  {allItems[id].isDragDisabled
+                    || (
+                      <HandleDrag
+                        {...providedDrag.dragHandleProps}
+                        title="Drag to move this item"
+                      >
+                        <FontAwesomeIcon icon="arrows-alt" size="lg" />
+                      </HandleDrag>
+                    )}
 
                   {allItems[id].factory || allItems[id].attribute || allItems[id].isDragDisabled
-                  || (
-                    <ExpandButton
-                      name="expand"
-                      type="button"
-                      title="Expand or shrink this item"
-                      onClick={() => dispatch(expandItem(id))}
-                      expand={allItems[id].expand}
-                    >
-                      <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
-                    </ExpandButton>
-                  )}
+                    || (
+                      <ExpandButton
+                        name="expand"
+                        type="button"
+                        title="Expand or shrink this item"
+                        onClick={() => dispatch(expandItem(id))}
+                        expand={allItems[id].expand}
+                      >
+                        <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
+                      </ExpandButton>
+                    )}
                   {allItems[id].factory || (
                   <DirectionButton
                     name="direction"
@@ -70,7 +71,6 @@ const Model = ({
                     onClick={() => dispatch(checkDirection(id, allItems))}
                   >
                     <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
-
                   </DirectionButton>
                   )}
 
@@ -252,14 +252,14 @@ const HandleDrag = styled.button`
 const DropContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
-  background-color: ${(props) => (props.isDraggingOver ? '#9EF01A' : 'white')};
+  background-color: ${(props) => (props.isDraggingOver ? '#8AC926' : 'white')};
 
 `;
 const DragContainer = styled.div`
   padding: 2px;
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
-  background-color: ${(props) => (props.isDragging && '#9EF01A')};
+  background-color: ${(props) => (props.isDragging && '#8AC926')};
   border: 1px solid gray;
 `;
 

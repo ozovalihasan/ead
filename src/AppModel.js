@@ -31,10 +31,6 @@ const AppModel = () => {
   const startingId = 0;
   const dispatch = useDispatch();
 
-  const onDragStart = (start) => {
-    console.warn({ start });
-  };
-
   const onDragEnd = (result) => {
     const {
       destination, draggableId, source,
@@ -94,13 +90,12 @@ const AppModel = () => {
   return (
     <App className="App">
       <button
-        onClick={() => saveJSON(items, 'test.json')}
+        onClick={() => saveJSON(items, 'EAD.json')}
         type="button"
       >
         Download EAD
       </button>
       <DragDropContext
-        onDragStart={onDragStart}
         onDragEnd={onDragEnd}
       >
         <Droppable

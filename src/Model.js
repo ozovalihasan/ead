@@ -36,9 +36,9 @@ const Model = ({
                 {...providedDrag.dragHandleProps}
                 ref={providedDrag.innerRef}
                 isDragging={snapshot.isDragging}
+                isDraggingOver={snapshot.draggingOver}
                 backgroundColor={allItems[id].color}
               >
-
                 <TitleCheck>
 
                   {allItems[id].isDragDisabled
@@ -260,6 +260,7 @@ const DragContainer = styled.div`
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
   background-color: ${(props) => (props.isDragging && '#8AC926')};
+  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && '#F94144')};
   border: 1px solid gray;
 `;
 

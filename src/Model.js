@@ -5,6 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Model = ({
   item,
@@ -22,6 +23,7 @@ const Model = ({
       subdirection={item.subdirection}
       factory={item.factory}
     >
+
       {item.subItemIds.map((id, index) => (
         <Container key={id}>
           <Draggable
@@ -35,16 +37,17 @@ const Model = ({
                 {...providedDrag.dragHandleProps}
                 ref={providedDrag.innerRef}
                 isDragging={snapshot.isDragging}
+                backgroundColor={allItems[id].color}
               >
+
                 <TitleCheck>
-                  {allItems[id].factory || (
-                  <DirectionButton
-                    name="direction"
-                    type="button"
-                    onClick={() => handleCheckDirection(id)}
-                  />
+
+                  {allItems[id].isDragDisabled || (
+                    <HandleDrag {...providedDrag.dragHandleProps}>
+                      <FontAwesomeIcon icon="arrows-alt" size="lg" />
+                    </HandleDrag>
                   )}
-                  {allItems[id].isDragDisabled || <HandleDrag {...providedDrag.dragHandleProps} />}
+
                   {(allItems[id].entity || allItems[id].attribute) && !allItems[id].factory
                     ? (
                       <ModelInput
@@ -83,10 +86,24 @@ const Model = ({
                       type="button"
                       onClick={() => handleExpandItem(id)}
                       expand={allItems[id].expand}
-                    />
+                    >
+                      {allItems[id].expand
+                        ? <FontAwesomeIcon icon="compress-alt" size="2x" />
+                        : <FontAwesomeIcon icon="expand-alt" size="2x" />}
+                    </ExpandButton>
+                  )}
+                  {allItems[id].factory || (
+                  <DirectionButton
+                    name="direction"
+                    type="button"
+                    onClick={() => handleCheckDirection(id)}
+                  >
+                    <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="2x" />
+
+                  </DirectionButton>
                   )}
                   {(allItems[id].factory || allItems[id].attribute) || (
-                  <input
+                  <RestrictedDrop
                     name="isRestrictedDrop"
                     type="checkbox"
                     checked={restrictedDropId === id}
@@ -146,12 +163,13 @@ const Model = ({
 };
 
 const Container = styled.div`
-  margin: 10px;
+  margin: 1px;
   border-radius: 5px;
 `;
 
 const TitleCheck = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const ModelInput = styled.input`
@@ -164,40 +182,71 @@ const ModelInput = styled.input`
 `;
 
 const DirectionButton = styled.button`
-  background-color: red;
-  width: 20px;
-  height: 20px;
+  background-color: #FF595E;
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const RestrictedDrop = styled.input`
+  /* width: 30px; */
+  /* height: 30px; */
+  /* border-radius: 50%; */
+  /* transform: scale(2); */
 `;
 
 const ExpandButton = styled.button`
-  background-color: ${(props) => (props.expand ? 'orange' : 'blue')};
-  width: 20px;
-  height: 20px;
+  background-color: #FFCA3A; 
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const HandleDrag = styled.div`
-  background-color: green;
+  background-color: #8AC926;
   width: 30px;
   height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const DropContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
-  background-color: ${(props) => (props.isDraggingOver ? 'skyblue' : 'white')};
+  background-color: ${(props) => (props.isDraggingOver ? '#9EF01A' : 'white')};
 
 `;
 const DragContainer = styled.div`
-  padding: 10px;
+  padding: 2px;
   border-radius: 5px;
-  background-color: ${(props) => (props.isDragging ? 'green' : 'white')};
-  border: 3px solid gray;
+  background-color: ${(props) => (props.backgroundColor)};
+  background-color: ${(props) => (props.isDragging && '#9EF01A')};
+  border: 1px solid gray;
 `;
 
 const SubContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => props.subdirection};
   min-height: ${(props) => (props.factory ? '0' : '100px')};
+  /* background-color: ${(props) => (props.factory ? 'transparent' : 'pink')}; */
   border-radius: 5px;
 `;
 

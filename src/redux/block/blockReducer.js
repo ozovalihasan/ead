@@ -13,6 +13,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         isDragDisabled: true,
         expand: true,
+        color: '##fff',
       },
       1: {
         content: 'Elements',
@@ -23,6 +24,7 @@ const blockSlice = createSlice({
         isDragDisabled: true,
         expand: true,
         factory: true,
+        color: '##fff',
       },
       2: {
         content: 'has_many',
@@ -33,6 +35,7 @@ const blockSlice = createSlice({
         factory: true,
         association: true,
         expand: true,
+        color: '#CAF0F8',
       },
       3: {
         content: 'has_one',
@@ -43,6 +46,7 @@ const blockSlice = createSlice({
         factory: true,
         association: true,
         expand: true,
+        color: '#CAF0F8',
       },
       4: {
         content: 'belongs_to',
@@ -53,6 +57,7 @@ const blockSlice = createSlice({
         factory: true,
         association: true,
         expand: true,
+        color: '#CAF0F8',
       },
       5: {
         content: 'attribute container',
@@ -64,6 +69,7 @@ const blockSlice = createSlice({
         type: 'string',
         expand: true,
         attributeContainer: true,
+        color: '#90E0EF',
       },
       6: {
         content: 'attribute',
@@ -75,6 +81,7 @@ const blockSlice = createSlice({
         factory: true,
         type: 'string',
         expand: true,
+        color: '#90E0EF',
       },
       7: {
         content: 'entity',
@@ -85,6 +92,7 @@ const blockSlice = createSlice({
         entity: true,
         expand: true,
         isDropDisabled: true,
+        color: '#00B4D8',
       },
       8: {
         content: 'ERD',
@@ -93,6 +101,7 @@ const blockSlice = createSlice({
         subdirection: 'column',
         isDragDisabled: true,
         expand: true,
+        color: '##fff',
       },
       9: {
         content: 'entity',
@@ -101,8 +110,9 @@ const blockSlice = createSlice({
         subdirection: 'column',
         factory: false,
         entity: true,
-        isDropDisabled: false,
         expand: true,
+        isDropDisabled: false,
+        color: '#00B4D8',
       },
     },
     restrictedDropId: -1,

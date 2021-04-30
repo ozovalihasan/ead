@@ -4,6 +4,10 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV,
+} from '@fortawesome/free-solid-svg-icons';
 import Model from './Model';
 import {
   changeType,
@@ -16,6 +20,8 @@ import {
   expandItem,
 } from './redux';
 import saveJSON from './saveJSON';
+
+library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV);
 
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
@@ -66,7 +72,6 @@ const AppModel = () => {
     const {
       destination, draggableId, source,
     } = result;
-    console.warn({ result, source });
 
     if (!destination) {
       if (!(items[draggableId].factory)) {

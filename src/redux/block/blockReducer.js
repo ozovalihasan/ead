@@ -14,7 +14,10 @@ const removeConnectedItems = (state, payload) => {
   if (state.restrictedDropId === parseInt(payload.itemId, 10)) {
     state.restrictedDropId = -1;
   }
-  state.items[payload.parentId.toString()].subItemIds.splice(payload.itemIndexInSource, 1);
+
+  if (payload.updateParent) {
+    state.items[payload.parentId.toString()].subItemIds.splice(payload.itemIndexInSource, 1);
+  }
   delete state.items[payload.itemId.toString()];
 };
 
@@ -176,7 +179,7 @@ const blockSlice = createSlice({
       prepare: (parentId, itemIndexInSource, itemId) => (
         {
           payload: {
-            parentId, itemIndexInSource, itemId,
+            parentId, itemIndexInSource, itemId, updateParent: true,
           },
         }
       ),

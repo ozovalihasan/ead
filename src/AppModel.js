@@ -131,7 +131,7 @@ const AppModel = () => {
         onClick={() => saveJSON(items, 'test.json')}
         type="button"
       >
-        Download Json
+        Download EAD
       </button>
       <DragDropContext
         onDragStart={onDragStart}

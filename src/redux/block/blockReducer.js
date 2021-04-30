@@ -23,7 +23,7 @@ const blockSlice = createSlice({
   initialState: {
     items: {
       0: {
-        content: 'Initialize your project from ERD',
+        content: 'Initialize your project from EAD',
         subItemIds: [1, 8],
         order: 'vertical',
         subdirection: 'row',
@@ -112,7 +112,7 @@ const blockSlice = createSlice({
         color: '#00B4D8',
       },
       8: {
-        content: 'ERD',
+        content: 'EAD',
         subItemIds: [9],
         order: 'vertical',
         subdirection: 'column',

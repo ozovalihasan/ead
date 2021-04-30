@@ -82,8 +82,8 @@ const blockSlice = createSlice({
       5: {
         content: 'attribute container',
         subItemIds: [],
-        order: 'vertical',
-        subdirection: 'column',
+        order: 'horizontal',
+        subdirection: 'row',
         isDropDisabled: true,
         factory: true,
         type: 'string',
@@ -106,8 +106,8 @@ const blockSlice = createSlice({
       7: {
         content: 'entity',
         subItemIds: [],
-        order: 'vertical',
-        subdirection: 'column',
+        order: 'horizontal',
+        subdirection: 'row',
         factory: true,
         entity: true,
         expand: true,
@@ -126,8 +126,8 @@ const blockSlice = createSlice({
       9: {
         content: 'entity',
         subItemIds: [],
-        order: 'vertical',
-        subdirection: 'column',
+        order: 'horizontal',
+        subdirection: 'row',
         factory: false,
         entity: true,
         expand: true,

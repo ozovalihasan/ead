@@ -160,9 +160,13 @@ const blockSlice = createSlice({
         state.items[payload.id].subdirection = payload.subdirection;
         state.items[payload.id].order = payload.order;
       },
-      prepare: (id, subdirection, order) => ({
-        payload: { id, subdirection, order },
-      }),
+      prepare: (id, allItems) => {
+        const subdirection = (allItems[id].subdirection === 'column' ? 'row' : 'column');
+        const order = (allItems[id].order === 'vertical' ? 'horizontal' : 'vertical');
+        return ({
+          payload: { id, subdirection, order },
+        });
+      },
     },
 
     removeItem: {
@@ -220,13 +224,17 @@ const blockSlice = createSlice({
       reducer: (state, { payload }) => {
         state.restrictedDropId = payload.itemId;
       },
-      prepare: (itemId) => (
-        {
-          payload: {
-            itemId,
-          },
-        }
-      ),
+      prepare: (itemId, restrictedDropId) => {
+        const resultId = (itemId === restrictedDropId) ? -1 : itemId;
+
+        return (
+          {
+            payload: {
+              itemId: resultId,
+            },
+          }
+        );
+      },
     },
 
     expandItem: {

@@ -11,14 +11,9 @@ import {
 import styled from 'styled-components';
 import Model from './Model';
 import {
-  changeType,
-  changeContent,
-  checkDirection,
   removeItem,
   addItem,
   moveItem,
-  updateRestrictedDropId,
-  expandItem,
 } from './redux';
 import saveJSON from './saveJSON';
 
@@ -26,7 +21,6 @@ library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, f
 
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
-  const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
 
   const [idCount, setIdCount] = useState(Object.keys(items).length);
 
@@ -36,34 +30,6 @@ const AppModel = () => {
 
   const startingId = 0;
   const dispatch = useDispatch();
-
-  const handleCheck = (id) => {
-    if (id === restrictedDropId) {
-      dispatch(updateRestrictedDropId(-1));
-    } else {
-      dispatch(updateRestrictedDropId(id));
-    }
-  };
-
-  const handleCheckDirection = (id) => {
-    const subdirection = (items[id].subdirection === 'column' ? 'row' : 'column');
-    const order = (items[id].order === 'vertical' ? 'horizontal' : 'vertical');
-    dispatch(checkDirection(id, subdirection, order));
-  };
-
-  const handleChangeContent = (e, id) => {
-    if (!items[id].factory) {
-      dispatch(changeContent(e, id));
-    }
-  };
-
-  const handleChangeType = (e, id) => {
-    dispatch(changeType(e, id));
-  };
-
-  const handleExpandItem = (id) => {
-    dispatch(expandItem(id));
-  };
 
   const onDragStart = (start) => {
     console.warn({ start });
@@ -135,7 +101,6 @@ const AppModel = () => {
       </button>
       <DragDropContext
         onDragStart={onDragStart}
-        // onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
         <Droppable
@@ -145,27 +110,17 @@ const AppModel = () => {
         >
 
           { (provided) => (
-            <div>
-
-              <div
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-              >
-
-                <Model
-                  id={startingId}
-                  item={items[startingId]}
-                  allItems={items}
-                  index={startingId}
-                  handleCheck={handleCheck}
-                  handleCheckDirection={handleCheckDirection}
-                  handleChangeContent={handleChangeContent}
-                  handleChangeType={handleChangeType}
-                  handleExpandItem={handleExpandItem}
-                />
-
-                {provided.placeholder}
-              </div>
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              <Model
+                id={startingId}
+                item={items[startingId]}
+                allItems={items}
+                index={startingId}
+              />
+              {provided.placeholder}
             </div>
           )}
 

@@ -4,19 +4,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  changeContent, changeType, checkDirection, expandItem, updateRestrictedDropId,
+} from './redux';
 
 const Model = ({
   item,
   allItems,
-  handleCheck,
-  handleCheckDirection,
-  handleChangeContent,
-  handleChangeType,
-  handleExpandItem,
 }) => {
   const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
+  const dispatch = useDispatch();
 
   return (
     <SubContainer
@@ -57,7 +56,7 @@ const Model = ({
                       name="expand"
                       type="button"
                       title="Expand or shrink this item"
-                      onClick={() => handleExpandItem(id)}
+                      onClick={() => dispatch(expandItem(id))}
                       expand={allItems[id].expand}
                     >
                       <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
@@ -68,7 +67,7 @@ const Model = ({
                     name="direction"
                     type="button"
                     title="Align items vertically or horizontally"
-                    onClick={() => handleCheckDirection(id)}
+                    onClick={() => dispatch(checkDirection(id, allItems))}
                   >
                     <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
 
@@ -79,7 +78,7 @@ const Model = ({
                     ? (
                       <ModelInput
                         type="text"
-                        onChange={(e) => handleChangeContent(e, id)}
+                        onChange={(e) => (!allItems[id].factory) && dispatch(changeContent(e, id))}
                         value={allItems[id].content}
                       />
                     )
@@ -92,7 +91,7 @@ const Model = ({
                   {(allItems[id].attribute) && (
                   <select
                     value={allItems[id].type}
-                    onChange={(e) => handleChangeType(e, id)}
+                    onChange={(e) => dispatch(changeType(e, id))}
                   >
                     {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
                       'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
@@ -107,15 +106,15 @@ const Model = ({
                   </select>
                   )}
                   {(allItems[id].factory || allItems[id].attribute) || (
-                  <RestrictedDrop
-                    name="isRestrictedDrop"
-                    type="button"
-                    title="Click to drop any item into this element"
-                    restricted={restrictedDropId === id}
-                    onClick={() => handleCheck(id)}
-                  >
-                    <FontAwesomeIcon icon="flag" />
-                  </RestrictedDrop>
+                    <RestrictedDrop
+                      name="isRestrictedDrop"
+                      type="button"
+                      title="Click to drop any item into this element"
+                      restricted={restrictedDropId === id}
+                      onClick={() => dispatch(updateRestrictedDropId(id, restrictedDropId))}
+                    >
+                      <FontAwesomeIcon icon="flag" />
+                    </RestrictedDrop>
                   )}
                 </TitleCheck>
 
@@ -134,20 +133,15 @@ const Model = ({
                       isDraggingOver={snapshot.isDraggingOver}
                     >
 
-                      {(allItems[id].expand) ? (
-                        <Model
-                          id={id}
-                          item={allItems[id]}
-                          allItems={allItems}
-                          index={index}
-                          handleCheck={handleCheck}
-                          handleCheckDirection={handleCheckDirection}
-                          handleChangeContent={handleChangeContent}
-                          handleChangeType={handleChangeType}
-                          handleExpandItem={handleExpandItem}
-
-                        />
-                      )
+                      {(allItems[id].expand)
+                        ? (
+                          <Model
+                            id={id}
+                            item={allItems[id]}
+                            allItems={allItems}
+                            index={index}
+                          />
+                        )
                         : (
                           <div>
                             {allItems[id].subItemIds.length}
@@ -182,7 +176,6 @@ const TitleCheck = styled.div`
 
 const ModelInput = styled.input`
   outline: none;
-  /* border: 3px red solid ; */
   border: none ;
   border-radius: 2px;
   color: black;
@@ -190,7 +183,6 @@ const ModelInput = styled.input`
   font-weight: 700;
   width: 150px;
   margin: 0 3px;  
-
 `;
 
 const DirectionButton = styled.button`
@@ -212,10 +204,6 @@ const DirectionButton = styled.button`
 `;
 
 const RestrictedDrop = styled.button`
-  /* width: 30px; */
-  /* height: 30px; */
-  /* border-radius: 50%; */
-  /* transform: scale(2); */
   color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
   background-color: white; 
   outline: none;
@@ -255,7 +243,6 @@ const HandleDrag = styled.button`
   border: 3px solid #8AC926;
   width: 30px;
   height: 30px;
-  /* padding: 4px; */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -280,7 +267,6 @@ const SubContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => props.subdirection};
   min-height: ${(props) => (props.factory ? '0' : '100px')};
-  /* background-color: ${(props) => (props.factory ? 'transparent' : 'pink')}; */
   border-radius: 5px;
 `;
 

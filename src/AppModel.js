@@ -85,7 +85,12 @@ const AppModel = () => {
       return;
     }
 
-    if (items[draggableId].entity && items[destination.droppableId].entity) {
+    if (items[draggableId].entity
+      && (
+        items[destination.droppableId].entity
+        || items[destination.droppableId].attribute
+        || items[destination.droppableId].attributeContainer
+      )) {
       return;
     }
 
@@ -93,7 +98,11 @@ const AppModel = () => {
       return;
     }
 
-    if (!items[draggableId].attribute && items[destination.droppableId].attributeContainer) {
+    if (items[draggableId].attribute
+      && !(
+        items[destination.droppableId].attributeContainer
+        || items[destination.droppableId].entity
+      )) {
       return;
     }
 

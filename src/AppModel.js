@@ -6,8 +6,9 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV,
+  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag,
 } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 import Model from './Model';
 import {
   changeType,
@@ -21,10 +22,11 @@ import {
 } from './redux';
 import saveJSON from './saveJSON';
 
-library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV);
+library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);
 
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
+  const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
 
   const [idCount, setIdCount] = useState(Object.keys(items).length);
 
@@ -35,12 +37,11 @@ const AppModel = () => {
   const startingId = 0;
   const dispatch = useDispatch();
 
-  const handleCheck = (e, id) => {
-    const { target } = e;
-    if (target.checked) {
-      dispatch(updateRestrictedDropId(id));
-    } else {
+  const handleCheck = (id) => {
+    if (id === restrictedDropId) {
       dispatch(updateRestrictedDropId(-1));
+    } else {
+      dispatch(updateRestrictedDropId(id));
     }
   };
 
@@ -116,7 +117,7 @@ const AppModel = () => {
   };
 
   return (
-    <div className="App">
+    <App className="App">
       <button
         onClick={() => saveJSON(items, 'test.json')}
         type="button"
@@ -161,8 +162,12 @@ const AppModel = () => {
 
         </Droppable>
       </DragDropContext>
-    </div>
+    </App>
   );
 };
+
+const App = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
+`;
 
 export default AppModel;

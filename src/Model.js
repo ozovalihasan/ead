@@ -43,9 +43,36 @@ const Model = ({
                 <TitleCheck>
 
                   {allItems[id].isDragDisabled || (
-                    <HandleDrag {...providedDrag.dragHandleProps}>
+                    <HandleDrag
+                      {...providedDrag.dragHandleProps}
+                      title="Drag to move this item"
+                    >
                       <FontAwesomeIcon icon="arrows-alt" size="lg" />
                     </HandleDrag>
+                  )}
+
+                  {allItems[id].factory || allItems[id].attribute || allItems[id].isDragDisabled
+                  || (
+                    <ExpandButton
+                      name="expand"
+                      type="button"
+                      title="Expand or shrink this item"
+                      onClick={() => handleExpandItem(id)}
+                      expand={allItems[id].expand}
+                    >
+                      <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
+                    </ExpandButton>
+                  )}
+                  {allItems[id].factory || (
+                  <DirectionButton
+                    name="direction"
+                    type="button"
+                    title="Align items vertically or horizontally"
+                    onClick={() => handleCheckDirection(id)}
+                  >
+                    <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
+
+                  </DirectionButton>
                   )}
 
                   {(allItems[id].entity || allItems[id].attribute) && !allItems[id].factory
@@ -79,36 +106,16 @@ const Model = ({
 
                   </select>
                   )}
-                  {allItems[id].factory || allItems[id].attribute || allItems[id].isDragDisabled
-                  || (
-                    <ExpandButton
-                      name="expand"
-                      type="button"
-                      onClick={() => handleExpandItem(id)}
-                      expand={allItems[id].expand}
-                    >
-                      {allItems[id].expand
-                        ? <FontAwesomeIcon icon="compress-alt" size="2x" />
-                        : <FontAwesomeIcon icon="expand-alt" size="2x" />}
-                    </ExpandButton>
-                  )}
-                  {allItems[id].factory || (
-                  <DirectionButton
-                    name="direction"
-                    type="button"
-                    onClick={() => handleCheckDirection(id)}
-                  >
-                    <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="2x" />
-
-                  </DirectionButton>
-                  )}
                   {(allItems[id].factory || allItems[id].attribute) || (
                   <RestrictedDrop
                     name="isRestrictedDrop"
-                    type="checkbox"
-                    checked={restrictedDropId === id}
-                    onChange={(e) => handleCheck(e, id)}
-                  />
+                    type="button"
+                    title="Click to drop any item into this element"
+                    restricted={restrictedDropId === id}
+                    onClick={() => handleCheck(id)}
+                  >
+                    <FontAwesomeIcon icon="flag" />
+                  </RestrictedDrop>
                   )}
                 </TitleCheck>
 
@@ -170,58 +177,85 @@ const Container = styled.div`
 const TitleCheck = styled.div`
   display: flex;
   align-items: center;
+  padding: 0 3px;
 `;
 
 const ModelInput = styled.input`
   outline: none;
-  border: 3px red dotted ;
+  /* border: 3px red solid ; */
+  border: none ;
+  border-radius: 2px;
   color: black;
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 700;
   width: 150px;
+  margin: 0 3px;  
+
 `;
 
 const DirectionButton = styled.button`
-  background-color: #FF595E;
+  background-color: white;
+  background-color: white; 
+  border: 3px solid #1982C4;
   outline: none;
-  border: none;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 3px;
+
   &:hover {
     cursor: pointer;
   }
 `;
 
-const RestrictedDrop = styled.input`
+const RestrictedDrop = styled.button`
   /* width: 30px; */
   /* height: 30px; */
   /* border-radius: 50%; */
   /* transform: scale(2); */
+  color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
+  background-color: white; 
+  outline: none;
+  border-radius: 10px;
+  border: #CCC5B9 solid 4px;
+  margin: 0 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 const ExpandButton = styled.button`
-  background-color: #FFCA3A; 
+  background-color: white; 
+  border: 3px solid #FFCA3A;
   outline: none;
-  border: none;
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  margin: 0 3px;
+
   &:hover {
     cursor: pointer;
   }
 `;
 
-const HandleDrag = styled.div`
-  background-color: #8AC926;
+const HandleDrag = styled.button`
+  background-color: white;
+  border: 3px solid #8AC926;
   width: 30px;
   height: 30px;
+  /* padding: 4px; */
   border-radius: 50%;
   display: flex;
   align-items: center;

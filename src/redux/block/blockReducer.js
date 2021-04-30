@@ -1,6 +1,23 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+const removeConnectedItems = (state, payload) => {
+  state.items[payload.itemId].subItemIds.forEach((id, index) => {
+    const payloadSubItem = {
+      parentId: payload.itemId,
+      itemIndexInSource: index,
+      itemId: id,
+    };
+    removeConnectedItems(state, payloadSubItem);
+  });
+
+  if (state.restrictedDropId === parseInt(payload.itemId, 10)) {
+    state.restrictedDropId = -1;
+  }
+  state.items[payload.parentId.toString()].subItemIds.splice(payload.itemIndexInSource, 1);
+  delete state.items[payload.itemId.toString()];
+};
+
 const blockSlice = createSlice({
   name: 'block',
   initialState: {
@@ -150,8 +167,7 @@ const blockSlice = createSlice({
 
     removeItem: {
       reducer: (state, { payload }) => {
-        state.items[payload.parentId].subItemIds.splice(payload.itemIndexInSource, 1);
-        delete state.items[payload.itemId];
+        removeConnectedItems(state, payload);
       },
       prepare: (parentId, itemIndexInSource, itemId) => (
         {

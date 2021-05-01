@@ -35,7 +35,9 @@ const Model = ({
             draggableId={id.toString()}
             index={index}
             isDragDisabled={allItems[id].isDragDisabled || (
-              restrictedDropId !== -1 && !checkDragDropCategory(id, restrictedDropId)
+              restrictedDropId !== -1 && (
+                !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
+              )
             )}
 
           >

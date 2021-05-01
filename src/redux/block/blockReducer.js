@@ -45,6 +45,7 @@ const blockSlice = createSlice({
         expand: true,
         factory: true,
         color: '##fff',
+        category: 'factory',
       },
       2: {
         content: 'has_many',
@@ -56,6 +57,7 @@ const blockSlice = createSlice({
         association: true,
         expand: true,
         color: '#CAF0F8',
+        category: 'association',
       },
       3: {
         content: 'has_one',
@@ -67,6 +69,7 @@ const blockSlice = createSlice({
         association: true,
         expand: true,
         color: '#CAF0F8',
+        category: 'association',
       },
       4: {
         content: 'belongs_to',
@@ -78,6 +81,7 @@ const blockSlice = createSlice({
         association: true,
         expand: true,
         color: '#CAF0F8',
+        category: 'association',
       },
       5: {
         content: 'attribute container',
@@ -90,6 +94,7 @@ const blockSlice = createSlice({
         expand: true,
         attributeContainer: true,
         color: '#90E0EF',
+        category: 'attributeContainer',
       },
       6: {
         content: 'attribute',
@@ -102,6 +107,7 @@ const blockSlice = createSlice({
         type: 'string',
         expand: true,
         color: '#90E0EF',
+        category: 'attribute',
       },
       7: {
         content: 'entity',
@@ -113,6 +119,7 @@ const blockSlice = createSlice({
         expand: true,
         isDropDisabled: true,
         color: '#00B4D8',
+        category: 'entity',
       },
       8: {
         content: 'EAD',
@@ -122,6 +129,7 @@ const blockSlice = createSlice({
         isDragDisabled: true,
         expand: true,
         color: '##fff',
+        category: 'EAD',
       },
       9: {
         content: 'entity',
@@ -133,9 +141,19 @@ const blockSlice = createSlice({
         expand: true,
         isDropDisabled: false,
         color: '#00B4D8',
+        category: 'entity',
       },
     },
     restrictedDropId: -1,
+    draggedItemId: -1,
+    dragDropCategory: {
+      entity: ['EAD', 'association'],
+      association: ['entity'],
+      attribute: ['entity', 'attributeContainer'],
+      attributeContainer: ['entity'],
+      EAD: ['entity'],
+      factory: [],
+    },
   },
   reducers: {
     changeType: {
@@ -247,6 +265,13 @@ const blockSlice = createSlice({
       prepare: (id) => ({ payload: { id } }),
     },
 
+    updateDraggedItemId: {
+      reducer: (state, { payload }) => {
+        state.draggedItemId = payload.id;
+      },
+      prepare: (id) => ({ payload: { id } }),
+    },
+
   },
 
 });
@@ -262,6 +287,7 @@ export const {
   moveItem,
   updateRestrictedDropId,
   expandItem,
+  updateDraggedItemId,
 } = actions;
 
 export default reducer;

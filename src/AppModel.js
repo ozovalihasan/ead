@@ -14,6 +14,7 @@ import {
   removeItem,
   addItem,
   moveItem,
+  updateDraggedItemId,
 } from './redux';
 import saveJSON from './saveJSON';
 
@@ -31,7 +32,11 @@ const AppModel = () => {
   const startingId = 0;
   const dispatch = useDispatch();
 
+  const onDragStart = (result) => {
+    dispatch(updateDraggedItemId(result.draggableId));
+  };
   const onDragEnd = (result) => {
+    dispatch(updateDraggedItemId(-1));
     const {
       destination, draggableId, source,
     } = result;
@@ -96,6 +101,7 @@ const AppModel = () => {
         Download EAD
       </button>
       <DragDropContext
+        onDragStart={onDragStart}
         onDragEnd={onDragEnd}
       >
         <Droppable

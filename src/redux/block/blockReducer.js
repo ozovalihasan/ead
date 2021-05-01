@@ -72,7 +72,7 @@ const blockSlice = createSlice({
         factory: true,
         association: true,
         expand: true,
-        color: '#CAF0F8',
+        color: '#C7FDED',
         category: 'association',
       },
       3: {
@@ -84,7 +84,7 @@ const blockSlice = createSlice({
         factory: true,
         association: true,
         expand: true,
-        color: '#CAF0F8',
+        color: '#C7FDED',
         category: 'association',
       },
       4: {
@@ -96,7 +96,7 @@ const blockSlice = createSlice({
         factory: true,
         association: true,
         expand: true,
-        color: '#CAF0F8',
+        color: '#C7FDED',
         category: 'association',
       },
       5: {
@@ -109,7 +109,7 @@ const blockSlice = createSlice({
         type: 'string',
         expand: true,
         attributeContainer: true,
-        color: '#90E0EF',
+        color: '#AAFAE9',
         category: 'attributeContainer',
       },
       6: {
@@ -122,7 +122,7 @@ const blockSlice = createSlice({
         factory: true,
         type: 'string',
         expand: true,
-        color: '#90E0EF',
+        color: '#AAFAE9',
         category: 'attribute',
       },
       7: {
@@ -134,7 +134,7 @@ const blockSlice = createSlice({
         entity: true,
         expand: true,
         isDropDisabled: true,
-        color: '#00B4D8',
+        color: '#94F6EA',
         category: 'entity',
       },
       8: {
@@ -156,7 +156,7 @@ const blockSlice = createSlice({
         entity: true,
         expand: true,
         isDropDisabled: false,
-        color: '#00B4D8',
+        color: '#94F6EA',
         category: 'entity',
       },
     },

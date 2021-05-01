@@ -211,14 +211,14 @@ const ModelInput = styled.input`
   color: black;
   font-size: 16px;
   font-weight: 700;
-  width: 150px;
+  width: 75px;
   margin: 0 3px;  
 `;
 
 const DirectionButton = styled.button`
   background-color: white;
   background-color: white; 
-  border: 3px solid #1982C4;
+  border: 1px solid #1982C4;
   outline: none;
   width: 30px;
   height: 30px;
@@ -253,7 +253,7 @@ const RestrictedDrop = styled.button`
 
 const ExpandButton = styled.button`
   background-color: white; 
-  border: 3px solid #FFCA3A;
+  border: 1px solid #FFCA3A;
   outline: none;
   width: 30px;
   height: 30px;
@@ -270,7 +270,7 @@ const ExpandButton = styled.button`
 
 const HandleDrag = styled.button`
   background-color: white;
-  border: 3px solid #8AC926;
+  border: 1px solid #8AC926;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -282,20 +282,19 @@ const HandleDrag = styled.button`
 
 const DropContainer = styled.div`
   margin: 10px;
-  padding: 10px;
   border-radius: 5px;
-  background-color: ${(props) => (props.isDraggingOver ? '#8AC926' : 'white')};
-  background-color: ${(props) => (props.isDropDisabled && '#F94144')};
+  background-color: ${(props) => (props.isDraggingOver ? '#F4FECD' : 'white')};
+  background-color: ${(props) => (props.isDropDisabled && '#CFDBD5')};
 
 `;
 const DragContainer = styled.div`
   padding: 2px;
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
-  background-color: ${(props) => (props.isDragging && '#8AC926')};
+  background-color: ${(props) => (props.isDragging && '#F4FECD')};
   background-color: ${(props) => (!props.isDraggingOver && props.isDragging && '#F94144')};
-  background-color: ${(props) => (props.isRestrictedDrag && '#F94144')};
-  background-color: ${(props) => (props.isRestrictedDrop && '#255C99')};
+  background-color: ${(props) => (props.isRestrictedDrag && '#CFDBD5')};
+  background-color: ${(props) => (props.isRestrictedDrop && '#52C9CF')};
   border: 1px solid gray;
 `;
 

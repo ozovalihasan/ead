@@ -65,6 +65,10 @@ const Model = ({
                       <HandleDrag
                         {...providedDrag.dragHandleProps}
                         title="Drag to move this item"
+                        isRestrictedDrag={(restrictedDropId !== -1 && (
+                          !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
+                          || restrictedParentIds.includes(id)
+                        ))}
                       >
                         <FontAwesomeIcon icon="arrows-alt" size="lg" />
                       </HandleDrag>
@@ -273,6 +277,7 @@ const HandleDrag = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${(props) => (props.isRestrictedDrag && '#CFDBD5')};
 `;
 
 const DropContainer = styled.div`

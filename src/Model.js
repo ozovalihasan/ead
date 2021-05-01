@@ -17,6 +17,7 @@ const Model = ({
   const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
   const draggedItemId = useSelector((state) => state.block.draggedItemId);
   const dragDropCategory = useSelector((state) => state.block.dragDropCategory);
+  const restrictedParentIds = useSelector((state) => state.block.restrictedParentIds);
   const dispatch = useDispatch();
 
   const checkDragDropCategory = (dragId, dropId) => (
@@ -37,6 +38,7 @@ const Model = ({
             isDragDisabled={allItems[id].isDragDisabled || (
               restrictedDropId !== -1 && (
                 !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
+                || restrictedParentIds.includes(id)
               )
             )}
 
@@ -49,8 +51,9 @@ const Model = ({
                 isDragging={snapshot.isDragging}
                 isDraggingOver={snapshot.draggingOver}
                 backgroundColor={allItems[id].color}
-                isRestrictedDrag={(restrictedDropId !== -1 && !(
-                  checkDragDropCategory(id, restrictedDropId)
+                isRestrictedDrag={(restrictedDropId !== -1 && (
+                  !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
+                  || restrictedParentIds.includes(id)
                 ))}
                 isRestrictedDrop={restrictedDropId === id}
                 name="isRestrictedDrop"

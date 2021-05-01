@@ -21,6 +21,22 @@ const removeConnectedItems = (state, payload) => {
   delete state.items[payload.itemId.toString()];
 };
 
+const findParentIds = (state, id, parentIds) => {
+  if ((id === state.restrictedDropId)) {
+    return parentIds;
+  }
+  let result = [];
+  state.items[id].subItemIds.forEach((subItemId) => {
+    if (result.length !== 0) {
+      return [];
+    }
+    const updatedParentIds = [...parentIds, id];
+    result = findParentIds(state, subItemId, updatedParentIds);
+    return [];
+  });
+  return result;
+};
+
 const blockSlice = createSlice({
   name: 'block',
   initialState: {
@@ -154,6 +170,7 @@ const blockSlice = createSlice({
       EAD: ['entity'],
       factory: [],
     },
+    restrictedParentIds: [],
   },
   reducers: {
     changeType: {
@@ -244,9 +261,15 @@ const blockSlice = createSlice({
     updateRestrictedDropId: {
       reducer: (state, { payload }) => {
         state.restrictedDropId = payload.itemId;
+        if (payload.itemId === -1) {
+          state.restrictedParentIds = [];
+        } else {
+          const EADId = 8;
+          state.restrictedParentIds = findParentIds(state, EADId, []);
+        }
       },
       prepare: (itemId, restrictedDropId) => {
-        const resultId = (itemId === restrictedDropId) ? -1 : itemId;
+        const resultId = itemId === restrictedDropId ? -1 : itemId;
 
         return (
           {

@@ -37,6 +37,7 @@ const Model = ({
             isDragDisabled={allItems[id].isDragDisabled || (
               restrictedDropId !== -1 && !checkDragDropCategory(id, restrictedDropId)
             )}
+
           >
             {(providedDrag, snapshot) => (
               <DragContainer
@@ -49,6 +50,8 @@ const Model = ({
                 isRestrictedDrag={(restrictedDropId !== -1 && !(
                   checkDragDropCategory(id, restrictedDropId)
                 ))}
+                isRestrictedDrop={restrictedDropId === id}
+                name="isRestrictedDrop"
               >
                 <TitleCheck>
 
@@ -118,7 +121,6 @@ const Model = ({
                   )}
                   {(allItems[id].factory || allItems[id].attribute) || (
                     <RestrictedDrop
-                      name="isRestrictedDrop"
                       type="button"
                       title="Click to drop any item into this element"
                       restricted={restrictedDropId === id}
@@ -145,6 +147,11 @@ const Model = ({
                       ref={providedDrop.innerRef}
                       factory={allItems[id].factory}
                       isDraggingOver={snapshot.isDraggingOver}
+                      isDropDisabled={!allItems[id].factory
+                        && ((restrictedDropId !== -1 && restrictedDropId !== id)
+                        || (draggedItemId !== -1
+                          && !checkDragDropCategory(draggedItemId, id)
+                        ))}
                     >
 
                       {(allItems[id].expand)
@@ -265,8 +272,10 @@ const HandleDrag = styled.button`
 
 const DropContainer = styled.div`
   margin: 10px;
+  padding: 10px;
   border-radius: 5px;
   background-color: ${(props) => (props.isDraggingOver ? '#8AC926' : 'white')};
+  background-color: ${(props) => (props.isDropDisabled && '#F94144')};
 
 `;
 const DragContainer = styled.div`
@@ -276,6 +285,7 @@ const DragContainer = styled.div`
   background-color: ${(props) => (props.isDragging && '#8AC926')};
   background-color: ${(props) => (!props.isDraggingOver && props.isDragging && '#F94144')};
   background-color: ${(props) => (props.isRestrictedDrag && '#F94144')};
+  background-color: ${(props) => (props.isRestrictedDrop && '#255C99')};
   border: 1px solid gray;
 `;
 

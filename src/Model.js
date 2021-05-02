@@ -18,6 +18,7 @@ const Model = ({
   const draggedItemId = useSelector((state) => state.block.draggedItemId);
   const dragDropCategory = useSelector((state) => state.block.dragDropCategory);
   const restrictedParentIds = useSelector((state) => state.block.restrictedParentIds);
+  const disabledChildIds = useSelector((state) => state.block.disabledChildIds);
   const dispatch = useDispatch();
 
   const checkDragDropCategory = (dragId, dropId) => (
@@ -144,7 +145,8 @@ const Model = ({
                 <Droppable
                   droppableId={id.toString()}
                   direction={allItems[id].order}
-                  isDropDisabled={allItems[id].isDropDisabled
+                  isDropDisabled={disabledChildIds.includes(id) || allItems[id].isDropDisabled
+                        || allItems[id].factory
                         || (restrictedDropId !== -1 && restrictedDropId !== id)
                         || (draggedItemId !== -1
                           && !checkDragDropCategory(draggedItemId, id)
@@ -156,8 +158,9 @@ const Model = ({
                       ref={providedDrop.innerRef}
                       factory={allItems[id].factory}
                       isDraggingOver={snapshot.isDraggingOver}
-                      isDropDisabled={!allItems[id].factory
-                        && ((restrictedDropId !== -1 && restrictedDropId !== id)
+                      isDropDisabled={disabledChildIds.includes(id)
+                        || allItems[id].isDropDisabled || allItems[id].factory
+                        || ((restrictedDropId !== -1 && restrictedDropId !== id)
                         || (draggedItemId !== -1
                           && !checkDragDropCategory(draggedItemId, id)
                         ))}

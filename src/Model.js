@@ -14,11 +14,10 @@ const Model = ({
   item,
   allItems,
 }) => {
-  const restrictedDropId = useSelector((state) => state.block.restrictedDropId);
-  const draggedItemId = useSelector((state) => state.block.draggedItemId);
-  const dragDropCategory = useSelector((state) => state.block.dragDropCategory);
-  const restrictedParentIds = useSelector((state) => state.block.restrictedParentIds);
-  const disabledChildIds = useSelector((state) => state.block.disabledChildIds);
+  const {
+    restrictedDropId, draggedItemId, dragDropCategory, restrictedParentIds, disabledChildIds,
+  } = useSelector((state) => state.block);
+
   const dispatch = useDispatch();
 
   const checkDragDropCategory = (dragId, dropId) => (

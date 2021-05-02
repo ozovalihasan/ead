@@ -23,6 +23,12 @@ const Model = ({
   const checkDragDropCategory = (dragId, dropId) => (
     dragDropCategory[allItems[dragId].category].includes(allItems[dropId].category)
   );
+  const existRestrictedDrop = restrictedDropId !== -1;
+
+  const isRestrictedDrag = (id) => (existRestrictedDrop && (
+    !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
+      || restrictedParentIds.includes(id)
+  ));
 
   return (
     <SubContainer
@@ -35,12 +41,7 @@ const Model = ({
           <Draggable
             draggableId={id.toString()}
             index={index}
-            isDragDisabled={allItems[id].isDragDisabled || (
-              restrictedDropId !== -1 && (
-                !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
-                || restrictedParentIds.includes(id)
-              )
-            )}
+            isDragDisabled={allItems[id].isDragDisabled || isRestrictedDrag(id)}
 
           >
             {(providedDrag, snapshot) => (
@@ -51,10 +52,7 @@ const Model = ({
                 isDragging={snapshot.isDragging}
                 isDraggingOver={snapshot.draggingOver}
                 backgroundColor={allItems[id].color}
-                isRestrictedDrag={(restrictedDropId !== -1 && (
-                  !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
-                  || restrictedParentIds.includes(id)
-                ))}
+                isRestrictedDrag={isRestrictedDrag(id)}
                 isRestrictedDrop={restrictedDropId === id}
                 name="isRestrictedDrop"
               >
@@ -65,10 +63,7 @@ const Model = ({
                       <HandleDrag
                         {...providedDrag.dragHandleProps}
                         title="Drag to move this item"
-                        isRestrictedDrag={(restrictedDropId !== -1 && (
-                          !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
-                          || restrictedParentIds.includes(id)
-                        ))}
+                        isRestrictedDrag={isRestrictedDrag(id)}
                       >
                         <FontAwesomeIcon icon="arrows-alt" size="lg" />
                       </HandleDrag>
@@ -145,11 +140,11 @@ const Model = ({
                   droppableId={id.toString()}
                   direction={allItems[id].order}
                   isDropDisabled={disabledChildIds.includes(id) || allItems[id].isDropDisabled
-                        || allItems[id].factory
-                        || (restrictedDropId !== -1 && restrictedDropId !== id)
-                        || (draggedItemId !== -1
-                          && !checkDragDropCategory(draggedItemId, id)
-                        )}
+                    || allItems[id].factory
+                    || (existRestrictedDrop && restrictedDropId !== id)
+                    || (draggedItemId !== -1
+                      && !checkDragDropCategory(draggedItemId, id)
+                    )}
                 >
                   { (providedDrop, snapshot) => (
                     <DropContainer
@@ -159,7 +154,7 @@ const Model = ({
                       isDraggingOver={snapshot.isDraggingOver}
                       isDropDisabled={disabledChildIds.includes(id)
                         || allItems[id].isDropDisabled || allItems[id].factory
-                        || ((restrictedDropId !== -1 && restrictedDropId !== id)
+                        || ((existRestrictedDrop && restrictedDropId !== id)
                         || (draggedItemId !== -1
                           && !checkDragDropCategory(draggedItemId, id)
                         ))}

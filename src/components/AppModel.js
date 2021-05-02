@@ -12,7 +12,7 @@ import {
   addItem,
   moveItem,
   updateDraggedItemId,
-} from './redux';
+} from '../redux';
 import saveJSON from './saveJSON';
 
 library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);

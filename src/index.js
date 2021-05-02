@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import AppModel from './AppModel';
+import AppModel from './components/AppModel';
 import store from './redux/store';
 
 ReactDOM.render(

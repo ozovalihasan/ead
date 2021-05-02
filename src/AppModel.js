@@ -23,7 +23,9 @@ library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, f
 const AppModel = () => {
   const items = useSelector((state) => state.block.items);
 
-  const [idCount, setIdCount] = useState(Object.keys(items).length);
+  const [idCount, setIdCount] = useState(
+    Math.max(...Object.keys(items).map((item) => parseInt(item, 10))) + 1,
+  );
 
   const idCountIncrease = () => {
     setIdCount((prevIdCount) => prevIdCount + 1);

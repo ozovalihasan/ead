@@ -17,7 +17,7 @@ import saveJSON from './saveJSON';
 
 library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);
 
-const AppModel = () => {
+const App = () => {
   const { items, dragDropCategory } = useSelector((state) => state.block);
 
   const [idCount, setIdCount] = useState(
@@ -75,7 +75,7 @@ const AppModel = () => {
   };
 
   return (
-    <App className="App">
+    <MainContainer className="App">
       <button
         onClick={() => saveJSON(items, 'EAD.json')}
         type="button"
@@ -109,12 +109,12 @@ const AppModel = () => {
 
         </Droppable>
       </DragDropContext>
-    </App>
+    </MainContainer>
   );
 };
 
-const App = styled.div`
+const MainContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
 `;
 
-export default AppModel;
+export default App;

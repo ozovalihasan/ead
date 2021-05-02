@@ -1,7 +1,5 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable no-console */
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
@@ -327,4 +325,11 @@ const SubContainer = styled.div`
 
 const Title = styled.h3`
 `;
+
+Model.propTypes = {
+  item: PropTypes.shape().isRequired,
+  allItems: PropTypes.shape().isRequired,
+  checkDragDropCategory: PropTypes.func.isRequired,
+};
+
 export default Model;

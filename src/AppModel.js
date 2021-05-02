@@ -101,7 +101,6 @@ const AppModel = () => {
               ref={provided.innerRef}
             >
               <Model
-                id={startingId}
                 item={items[startingId]}
                 allItems={items}
                 index={startingId}

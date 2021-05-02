@@ -21,12 +21,16 @@ const Model = ({
 
   const dispatch = useDispatch();
 
-  const existRestrictedDrop = restrictedDropId !== -1;
+  const existRestrictedDrop = (restrictedDropId !== -1);
 
-  const isRestrictedDrag = (id) => (existRestrictedDrop && (
-    !checkDragDropCategory(id, restrictedDropId) || restrictedDropId === id
+  const isRestrictedDrag = (id) => (
+    existRestrictedDrop
+    && (
+      !checkDragDropCategory(id, restrictedDropId)
+      || restrictedDropId === id
       || restrictedParentIds.includes(id)
-  ));
+    )
+  );
 
   return (
     <SubContainer
@@ -56,8 +60,8 @@ const Model = ({
               >
                 <TitleCheck>
 
-                  {allItems[id].isDragDisabled
-                    || (
+                  {
+                    allItems[id].isDragDisabled || (
                       <HandleDrag
                         {...providedDrag.dragHandleProps}
                         title="Drag to move this item"
@@ -65,9 +69,13 @@ const Model = ({
                       >
                         <FontAwesomeIcon icon="arrows-alt" size="lg" />
                       </HandleDrag>
-                    )}
+                    )
+                  }
 
-                  {allItems[id].factory || allItems[id].attribute || allItems[id].isDragDisabled
+                  {
+                    allItems[id].factory
+                    || allItems[id].attribute
+                    || allItems[id].isDragDisabled
                     || (
                       <ExpandButton
                         name="expand"
@@ -78,112 +86,129 @@ const Model = ({
                       >
                         <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
                       </ExpandButton>
-                    )}
-                  {allItems[id].factory || (
-                    <DirectionButton
-                      name="direction"
-                      type="button"
-                      title="Align items vertically or horizontally"
-                      onClick={() => dispatch(checkDirection(id, allItems))}
-                    >
-                      <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
-                    </DirectionButton>
-                  )}
-
-                  {(allItems[id].entity || allItems[id].attribute) && !allItems[id].factory
-                    ? (
-                      <ModelInput
-                        type="text"
-                        onChange={(e) => (!allItems[id].factory) && dispatch(changeContent(e, id))}
-                        value={allItems[id].content}
-                      />
                     )
-                    : (
-                      <Title>
-                        {allItems[id].content}
-                      </Title>
-                    )}
+                  }
 
-                  {(allItems[id].attribute) && (
-                  <select
-                    value={allItems[id].type}
-                    onChange={(e) => dispatch(changeType(e, id))}
-                  >
-                    {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
-                      'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
-                        <option
-                          key={item}
-                          value={item}
-                        >
-                          {item}
-                        </option>
-                    ))}
+                  {
+                    allItems[id].factory || (
+                      <DirectionButton
+                        name="direction"
+                        type="button"
+                        title="Align items vertically or horizontally"
+                        onClick={() => dispatch(checkDirection(id, allItems))}
+                      >
+                        <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
+                      </DirectionButton>
+                    )
+                  }
 
-                  </select>
-                  )}
-                  {(allItems[id].factory || allItems[id].attribute) || (
-                    <RestrictedDrop
-                      type="button"
-                      title="Click to drop any item into this element"
-                      restricted={restrictedDropId === id}
-                      onClick={() => dispatch(updateRestrictedDropId(id, restrictedDropId))}
-                    >
-                      <FontAwesomeIcon icon="flag" />
-                    </RestrictedDrop>
-                  )}
+                  {
+                    (
+                      ((allItems[id].entity || allItems[id].attribute) && !allItems[id].factory) ? (
+                        <ModelInput
+                          type="text"
+                          onChange={
+                            (e) => (!allItems[id].factory) && dispatch(changeContent(e, id))
+                          }
+                          value={allItems[id].content}
+                        />
+                      ) : (
+                        <Title>
+                          {allItems[id].content}
+                        </Title>
+                      )
+                    )
+                  }
+
+                  {
+                    (allItems[id].attribute) && (
+                      <select
+                        value={allItems[id].type}
+                        onChange={(e) => dispatch(changeType(e, id))}
+                      >
+                        {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
+                          'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
+                            <option
+                              key={item}
+                              value={item}
+                            >
+                              {item}
+                            </option>
+                        ))}
+
+                      </select>
+                    )
+                  }
+
+                  {
+                    (allItems[id].factory || allItems[id].attribute) || (
+                      <RestrictedDrop
+                        type="button"
+                        title="Click to drop any item into this element"
+                        restricted={restrictedDropId === id}
+                        onClick={() => dispatch(updateRestrictedDropId(id, restrictedDropId))}
+                      >
+                        <FontAwesomeIcon icon="flag" />
+                      </RestrictedDrop>
+                    )
+                  }
                 </TitleCheck>
 
                 {allItems[id].attribute || (
-                <Droppable
-                  droppableId={id.toString()}
-                  direction={allItems[id].order}
-                  isDropDisabled={disabledChildIds.includes(id) || allItems[id].isDropDisabled
-                    || allItems[id].factory
-                    || (existRestrictedDrop && restrictedDropId !== id)
-                    || (draggedItemId !== -1
-                      && !checkDragDropCategory(draggedItemId, id)
+                  <Droppable
+                    droppableId={id.toString()}
+                    direction={allItems[id].order}
+                    isDropDisabled={disabledChildIds.includes(id)
+                      || allItems[id].isDropDisabled
+                      || allItems[id].factory
+                      || (existRestrictedDrop && restrictedDropId !== id)
+                      || (draggedItemId !== -1
+                        && !checkDragDropCategory(draggedItemId, id)
+                      )}
+                  >
+                    {(providedDrop, snapshot) => (
+                      <DropContainer
+                        {...providedDrop.droppableProps}
+                        ref={providedDrop.innerRef}
+                        factory={allItems[id].factory}
+                        isDraggingOver={snapshot.isDraggingOver}
+                        isDropDisabled={
+                          disabledChildIds.includes(id)
+                          || allItems[id].isDropDisabled
+                          || allItems[id].factory
+                          || (existRestrictedDrop && restrictedDropId !== id)
+                          || (draggedItemId !== -1
+                            && !checkDragDropCategory(draggedItemId, id)
+                          )
+                        }
+                      >
+                        {(allItems[id].expand)
+                          ? (
+                            <Model
+                              item={allItems[id]}
+                              allItems={allItems}
+                              index={index}
+                              checkDragDropCategory={checkDragDropCategory}
+                            />
+                          )
+                          : (
+                            <div>
+                              {allItems[id].subItemIds.length}
+                              {' '}
+                              item(s) collided
+                            </div>
+                          )}
+                        {providedDrop.placeholder}
+                      </DropContainer>
                     )}
-                >
-                  { (providedDrop, snapshot) => (
-                    <DropContainer
-                      {...providedDrop.droppableProps}
-                      ref={providedDrop.innerRef}
-                      factory={allItems[id].factory}
-                      isDraggingOver={snapshot.isDraggingOver}
-                      isDropDisabled={disabledChildIds.includes(id)
-                        || allItems[id].isDropDisabled || allItems[id].factory
-                        || ((existRestrictedDrop && restrictedDropId !== id)
-                        || (draggedItemId !== -1
-                          && !checkDragDropCategory(draggedItemId, id)
-                        ))}
-                    >
-                      {(allItems[id].expand)
-                        ? (
-                          <Model
-                            id={id}
-                            item={allItems[id]}
-                            allItems={allItems}
-                            index={index}
-                            checkDragDropCategory={checkDragDropCategory}
-                          />
-                        )
-                        : (
-                          <div>
-                            {allItems[id].subItemIds.length}
-                            {' '}
-                            item(s) collided
-                          </div>
-                        )}
-                      {providedDrop.placeholder}
-                    </DropContainer>
-                  )}
-                </Droppable>
+                  </Droppable>
                 )}
               </DragContainer>
             )}
           </Draggable>
         </Container>
       ))}
+
     </SubContainer>
   );
 };

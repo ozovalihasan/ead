@@ -13,16 +13,14 @@ import {
 const Model = ({
   item,
   allItems,
+  checkDragDropCategory,
 }) => {
   const {
-    restrictedDropId, draggedItemId, dragDropCategory, restrictedParentIds, disabledChildIds,
+    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds,
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
 
-  const checkDragDropCategory = (dragId, dropId) => (
-    dragDropCategory[allItems[dragId].category].includes(allItems[dropId].category)
-  );
   const existRestrictedDrop = restrictedDropId !== -1;
 
   const isRestrictedDrag = (id) => (existRestrictedDrop && (
@@ -82,14 +80,14 @@ const Model = ({
                       </ExpandButton>
                     )}
                   {allItems[id].factory || (
-                  <DirectionButton
-                    name="direction"
-                    type="button"
-                    title="Align items vertically or horizontally"
-                    onClick={() => dispatch(checkDirection(id, allItems))}
-                  >
-                    <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
-                  </DirectionButton>
+                    <DirectionButton
+                      name="direction"
+                      type="button"
+                      title="Align items vertically or horizontally"
+                      onClick={() => dispatch(checkDirection(id, allItems))}
+                    >
+                      <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
+                    </DirectionButton>
                   )}
 
                   {(allItems[id].entity || allItems[id].attribute) && !allItems[id].factory
@@ -159,7 +157,6 @@ const Model = ({
                           && !checkDragDropCategory(draggedItemId, id)
                         ))}
                     >
-
                       {(allItems[id].expand)
                         ? (
                           <Model
@@ -167,6 +164,7 @@ const Model = ({
                             item={allItems[id]}
                             allItems={allItems}
                             index={index}
+                            checkDragDropCategory={checkDragDropCategory}
                           />
                         )
                         : (

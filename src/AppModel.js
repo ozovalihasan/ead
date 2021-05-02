@@ -21,7 +21,7 @@ import saveJSON from './saveJSON';
 library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);
 
 const AppModel = () => {
-  const items = useSelector((state) => state.block.items);
+  const { items, dragDropCategory } = useSelector((state) => state.block);
 
   const [idCount, setIdCount] = useState(
     Math.max(...Object.keys(items).map((item) => parseInt(item, 10))) + 1,
@@ -33,6 +33,10 @@ const AppModel = () => {
 
   const startingId = 0;
   const dispatch = useDispatch();
+
+  const checkDragDropCategory = (dragId, dropId) => (
+    dragDropCategory[items[dragId].category].includes(items[dropId].category)
+  );
 
   const onDragStart = (result) => {
     dispatch(updateDraggedItemId(result.draggableId));
@@ -47,6 +51,10 @@ const AppModel = () => {
       if (!(items[draggableId].factory)) {
         dispatch(removeItem(source.droppableId, source.index, draggableId));
       }
+      return;
+    }
+
+    if (!checkDragDropCategory(draggableId, destination.droppableId)) {
       return;
     }
 
@@ -97,6 +105,7 @@ const AppModel = () => {
                 item={items[startingId]}
                 allItems={items}
                 index={startingId}
+                checkDragDropCategory={checkDragDropCategory}
               />
               {provided.placeholder}
             </div>

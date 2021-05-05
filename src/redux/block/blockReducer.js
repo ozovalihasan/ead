@@ -58,7 +58,7 @@ const blockSlice = createSlice({
         isDropDisabled: true,
         isDragDisabled: true,
         expand: true,
-        color: '##fff',
+        color: '#FFF',
       },
       1: {
         content: 'Elements',
@@ -69,7 +69,7 @@ const blockSlice = createSlice({
         isDragDisabled: true,
         expand: true,
         factory: true,
-        color: '##fff',
+        color: '#FFF',
         category: 'factory',
       },
       2: {
@@ -153,7 +153,7 @@ const blockSlice = createSlice({
         subdirection: 'column',
         isDragDisabled: true,
         expand: true,
-        color: '##fff',
+        color: '#FFF',
         category: 'EAD',
       },
       9: {

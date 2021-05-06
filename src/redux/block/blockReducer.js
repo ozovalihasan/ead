@@ -1,51 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
-const removeConnectedItems = (state, payload) => {
-  state.items[payload.itemId].subItemIds.forEach((id, index) => {
-    const payloadSubItem = {
-      parentId: payload.itemId,
-      itemIndexInSource: index,
-      itemId: id,
-    };
-    removeConnectedItems(state, payloadSubItem);
-  });
-
-  if (state.restrictedDropId === parseInt(payload.itemId, 10)) {
-    state.restrictedDropId = -1;
-  }
-
-  if (payload.updateParent) {
-    state.items[payload.parentId.toString()].subItemIds.splice(payload.itemIndexInSource, 1);
-  }
-  delete state.items[payload.itemId.toString()];
-};
-
-const findParentIds = (state, id, parentIds, childId) => {
-  if ((id.toString() === childId.toString())) {
-    return parentIds;
-  }
-  let result = [];
-  state.items[id].subItemIds.forEach((subItemId) => {
-    if (result.length !== 0) {
-      return [];
-    }
-    const updatedParentIds = [...parentIds, id];
-    result = findParentIds(state, subItemId, updatedParentIds, childId);
-    return [];
-  });
-  return result;
-};
-
-const findChildIds = (items, id, childIds) => {
-  const idString = id.toString();
-  items[idString].subItemIds.forEach((subItemId) => {
-    childIds.push(subItemId);
-    findChildIds(items, subItemId, childIds);
-  });
-  return childIds;
-};
-
 const blockSlice = createSlice({
   name: 'block',
   initialState: {
@@ -219,6 +174,26 @@ const blockSlice = createSlice({
 
     removeItem: {
       reducer: (state, { payload }) => {
+        const removeConnectedItems = (state, payload) => {
+          state.items[payload.itemId].subItemIds.forEach((id, index) => {
+            const payloadSubItem = {
+              parentId: payload.itemId,
+              itemIndexInSource: index,
+              itemId: id,
+            };
+            removeConnectedItems(state, payloadSubItem);
+          });
+
+          if (state.restrictedDropId === parseInt(payload.itemId, 10)) {
+            state.restrictedDropId = -1;
+          }
+
+          if (payload.updateParent) {
+            state.items[payload.parentId.toString()]
+              .subItemIds.splice(payload.itemIndexInSource, 1);
+          }
+          delete state.items[payload.itemId.toString()];
+        };
         removeConnectedItems(state, payload);
       },
       prepare: (parentId, itemIndexInSource, itemId) => (
@@ -270,6 +245,21 @@ const blockSlice = createSlice({
 
     updateRestrictedDropId: {
       reducer: (state, { payload }) => {
+        const findParentIds = (state, id, parentIds, childId) => {
+          if ((id.toString() === childId.toString())) {
+            return parentIds;
+          }
+          let result = [];
+          state.items[id].subItemIds.forEach((subItemId) => {
+            if (result.length !== 0) {
+              return [];
+            }
+            const updatedParentIds = [...parentIds, id];
+            result = findParentIds(state, subItemId, updatedParentIds, childId);
+            return [];
+          });
+          return result;
+        };
         state.restrictedDropId = payload.itemId;
         if (payload.itemId === -1) {
           state.restrictedParentIds = [];
@@ -300,6 +290,14 @@ const blockSlice = createSlice({
 
     updateDraggedItemId: {
       reducer: (state, { payload }) => {
+        const findChildIds = (items, id, childIds) => {
+          const idString = id.toString();
+          items[idString].subItemIds.forEach((subItemId) => {
+            childIds.push(subItemId);
+            findChildIds(items, subItemId, childIds);
+          });
+          return childIds;
+        };
         state.draggedItemId = payload.id;
         if (payload.id === -1) {
           state.disabledChildIds = [];

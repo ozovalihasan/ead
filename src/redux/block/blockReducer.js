@@ -184,10 +184,6 @@ const blockSlice = createSlice({
             removeConnectedItems(state, payloadSubItem);
           });
 
-          if (state.restrictedDropId === parseInt(payload.itemId, 10)) {
-            state.restrictedDropId = -1;
-          }
-
           if (payload.updateParent) {
             state.items[payload.parentId.toString()]
               .subItemIds.splice(payload.itemIndexInSource, 1);

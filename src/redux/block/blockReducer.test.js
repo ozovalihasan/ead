@@ -1,7 +1,4 @@
-// import { createMockStore } from 'redux-test-utils';
-// import { render, fireEvent, screen } from './test-utils';
-
-// import { useDispatch } from 'react-redux';
+/* eslint-disable global-require */
 import { configureStore } from '@reduxjs/toolkit';
 
 import blockReducer, {
@@ -16,13 +13,18 @@ import blockReducer, {
   updateDraggedItemId,
 } from './blockReducer';
 
+jest.mock('./initialState', () => {
+  const testInitialState = require('./testInitialState');
+  return testInitialState;
+});
+
 const createTestStore = () => {
-  const store = configureStore({
+  const testStore = configureStore({
     reducer: { block: blockReducer },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     devTools: false,
   });
-  return store;
+  return testStore;
 };
 
 let store;
@@ -56,7 +58,6 @@ describe('blockReducer', () => {
     it('toggles the order of items inside of any item ', () => {
       expect(store.getState().block.items['6'].order).toBe('vertical');
       expect(store.getState().block.items['6'].subdirection).toBe('column');
-
       const { items } = store.getState().block;
       store.dispatch(checkDirection('6', items));
 

@@ -38,6 +38,7 @@ const App = () => {
   const onDragStart = (result) => {
     dispatch(updateDraggedItemId(result.draggableId));
   };
+
   const onDragEnd = (result) => {
     dispatch(updateDraggedItemId(-1));
     const {

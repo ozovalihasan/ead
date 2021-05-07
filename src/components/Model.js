@@ -34,6 +34,7 @@ const Model = ({
     <SubContainer
       subdirection={item.subdirection}
       factory={item.factory}
+      data-testid="subContainer"
     >
 
       {item.subItemIds.map((id, index) => (

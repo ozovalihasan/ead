@@ -69,10 +69,9 @@ describe('blockReducer', () => {
   describe('<App />', () => {
     it('renders Model component', () => {
       render(renderReadyComponent);
-      screen.debug();
       expect(screen.getByText(/Mock Model/i)).toBeInTheDocument();
-      userEvent.click(screen.getByText(/{"0":{"content":"mock content"}}/i));
-      userEvent.click(screen.getByText(/{"content":"mock content"}/i));
+      expect(screen.getByText(/{"0":{"content":"mock content"}}/i)).toBeInTheDocument();
+      expect(screen.getByText(/{"content":"mock content"}/i)).toBeInTheDocument();
     });
 
     it('calls saveJSON function if \'Download EAD\' button is clicked', () => {

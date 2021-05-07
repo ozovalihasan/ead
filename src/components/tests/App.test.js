@@ -80,5 +80,10 @@ describe('blockReducer', () => {
       userEvent.click(screen.getByText(/Download EAD/i));
       expect(saveJSONClick.mock.calls.length).toBe(1);
     });
+
+    it('renders correctly', () => {
+      const renderedContainer = render(renderReadyComponent);
+      expect(renderedContainer).toMatchSnapshot();
+    });
   });
 });

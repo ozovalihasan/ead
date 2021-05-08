@@ -31,3 +31,45 @@ In the remainder of this documentation, you'll learn how to declare and use the 
 ### The `belongs_to` Association
 
 belongs_to association is added automatically.
+
+### The `has_one` Association
+
+For example, if each supplier in your application has only one account, you'd declare the supplier model like this:
+
+```ruby
+class Supplier < ApplicationRecord
+  has_one :account
+end
+
+class Account < ApplicationRecord
+  belongs_to :supplier
+end
+```
+
+![has_one Association Diagram](./images/has_one.png)
+![has_one EAD](./images/has_one_ead.png)
+
+The corresponding migration might look like this:
+
+```ruby
+class CreateSuppliers < ActiveRecord::Migration[6.1]
+  def change
+    create_table :suppliers do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateAccounts < ActiveRecord::Migration[6.1]
+  def change
+    create_table :accounts do |t|
+      t.string :account_number
+      t.references :supplier, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
+```

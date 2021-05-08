@@ -120,3 +120,69 @@ end
 
 ```
 
+
+### The `has_many :through` Association
+
+ For example, consider a medical practice where patients make appointments to see physicians. The relevant association declarations could look like this:
+
+```ruby
+class Physician < ApplicationRecord
+  has_many :appointments
+  has_many :patients, through: :appointments
+end
+
+class Appointment < ApplicationRecord
+  belongs_to :physician
+  belongs_to :patient
+end
+
+class Patient < ApplicationRecord
+  has_many :appointments
+  has_many :physicians, through: :appointments
+end
+
+```
+
+
+![has_many :through Association Diagram](./images/has_many_through.png)
+![has_many :through EAD](./images/has_many_through_ead.png)
+
+
+The corresponding migration might look like this:
+
+```ruby
+class CreatePhysicians < ActiveRecord::Migration[6.1]
+  def change
+    create_table :physicians do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+class CreatePatients < ActiveRecord::Migration[6.1]
+  def change
+    create_table :patients do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateAppointments < ActiveRecord::Migration[6.1]
+  def change
+    create_table :appointments do |t|
+      t.datetime :appointment_date
+      t.references :physician, null: false, foreign_key: true
+      t.references :patient, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
+
+```
+
+WARNING: The official Ruby on Rails documentation suggesting one more feature of `has_many :through` as "shortcut" for nested `has_many` associations. But, this feature should be added manually for nest `has_many` associations.

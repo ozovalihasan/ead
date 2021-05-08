@@ -246,3 +246,21 @@ class CreateAccountHistories < ActiveRecord::Migration[6.1]
   end
 end
 ```
+
+### The `has_and_belongs_to_many` Association
+
+`has_and_belongs_to_many` association isn't implemented to make codebase simpler. 
+
+NOTE: If it is necessary, it can be added with the next versions.
+
+### Polymorphic Associations
+
+Polymorphic associations aren't implemented, yet.
+
+NOTE: It is planned to be added with the next versions.
+
+### Self Joins
+
+Self joins aren't implemented, yet.
+
+NOTE: It is planned to be added with the next versions.

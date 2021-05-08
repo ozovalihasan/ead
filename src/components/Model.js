@@ -230,7 +230,7 @@ const ModelInput = styled.input`
   color: black;
   font-size: 16px;
   font-weight: 700;
-  width: 75px;
+  width: 125px;
   margin: 0 3px;  
 `;
 

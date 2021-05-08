@@ -186,3 +186,63 @@ end
 ```
 
 WARNING: The official Ruby on Rails documentation suggesting one more feature of `has_many :through` as "shortcut" for nested `has_many` associations. But, this feature should be added manually for nest `has_many` associations.
+
+### The `has_one :through` Association
+
+For example, if each supplier has one account, and each account is associated with one account history, then the
+supplier model could look like this:
+
+```ruby
+class Supplier < ApplicationRecord
+  has_one :account
+  has_one :account_history, through: :account
+end
+
+class Account < ApplicationRecord
+  belongs_to :supplier
+  has_one :account_history
+end
+
+class AccountHistory < ApplicationRecord
+  belongs_to :account
+end
+```
+
+![has_one :through Association Diagram](./images/has_one_through.png)
+![has_one :through EAD](./images/has_one_through_ead.png)
+
+The corresponding migration might look like this:
+
+```ruby
+class CreateSuppliers < ActiveRecord::Migration[6.1]
+  def change
+    create_table :suppliers do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateAccounts < ActiveRecord::Migration[6.1]
+  def change
+    create_table :accounts do |t|
+      t.string :account_number
+      t.references :supplier, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateAccountHistories < ActiveRecord::Migration[6.1]
+  def change
+    create_table :account_histories do |t|
+      t.integer :credit_rating
+      t.references :account, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
+```

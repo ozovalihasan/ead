@@ -6,7 +6,7 @@ This documentation explains how to use EAD(Entity Association Diagram )
 
 After reading this document, you will know:
 
-* How to generate associations for Ruby on Rails
+* How to generate basic associations for Ruby on Rails
 
 --------------------------------------------------------------------------------
 
@@ -15,11 +15,11 @@ The Types of Associations
 
 EAD supports five types of associations:
 
-* [`belongs_to`][]
-* [`has_one`][]
-* [`has_many`][]
-* [`has_many :through`][`has_many`]
-* [`has_one :through`][`has_one`]
+* [`belongs_to`](#The-belongs_to-Association)
+* [`has_one`](#The-has_one-Association)
+* [`has_many`](#The-has_many-Association)
+* [`has_many :through`](#The-has_many-:through-Association)
+* [`has_one :through`](#The-has_one-:through-Association)
 
 
 In the remainder of this documentation, you'll learn how to declare and use the various forms of associations. But first, a quick introduction to the situations where each association type is appropriate.

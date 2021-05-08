@@ -73,3 +73,50 @@ class CreateAccounts < ActiveRecord::Migration[6.1]
   end
 end
 ```
+
+
+### The `has_many` Association
+
+ For example, in an application containing authors and books, the author model could be declared like this:
+
+```ruby
+class Author < ApplicationRecord
+  has_many :books
+end
+
+class Book < ApplicationRecord
+  belongs_to :author
+end
+```
+
+
+![has_many Association Diagram](./images/has_many.png)
+![has_many EAD](./images/has_many_ead.png)
+
+
+The corresponding migration might look like this:
+
+```ruby
+class CreateAuthors < ActiveRecord::Migration[6.1]
+  def change
+    create_table :authors do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateBooks < ActiveRecord::Migration[6.1]
+  def change
+    create_table :books do |t|
+      t.datetime :published_at
+      t.references :author, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
+
+```
+

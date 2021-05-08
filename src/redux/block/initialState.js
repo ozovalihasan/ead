@@ -47,7 +47,7 @@ const initialState = {
       category: 'association',
     },
     4: {
-      content: 'belongs_to',
+      content: ':through',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',

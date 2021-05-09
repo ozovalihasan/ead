@@ -241,7 +241,7 @@ Object {
                         <h3
                           class="sc-jrQzUz fdGtSQ"
                         >
-                          belongs_to
+                          :through
                         </h3>
                       </div>
                       <div
@@ -931,7 +931,7 @@ Object {
                       <h3
                         class="sc-jrQzUz fdGtSQ"
                       >
-                        belongs_to
+                        :through
                       </h3>
                     </div>
                     <div

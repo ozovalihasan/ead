@@ -662,7 +662,7 @@ Object {
                           </svg>
                         </button>
                         <input
-                          class="sc-dkPtyc eyDiiw"
+                          class="sc-dkPtyc bRsZck"
                           type="text"
                           value="entity"
                         />
@@ -1352,7 +1352,7 @@ Object {
                         </svg>
                       </button>
                       <input
-                        class="sc-dkPtyc eyDiiw"
+                        class="sc-dkPtyc bRsZck"
                         type="text"
                         value="entity"
                       />

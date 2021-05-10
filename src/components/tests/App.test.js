@@ -45,6 +45,9 @@ jest.mock('../Model', () => {
   return MockModel;
 });
 
+const localStorageMock = {};
+Object.defineProperty(window, 'localStorage', { value: localStorageMock });
+
 const createTestStore = () => {
   const testStore = configureStore({
     reducer: { block: blockReducer },
@@ -59,6 +62,8 @@ let renderReadyComponent;
 describe('blockReducer', () => {
   beforeEach(() => {
     store = createTestStore();
+    store.dispatch = jest.fn();
+
     renderReadyComponent = (
       <Provider store={store}>
         <App />
@@ -78,6 +83,26 @@ describe('blockReducer', () => {
       render(renderReadyComponent);
       userEvent.click(screen.getByText(/Download EAD/i));
       expect(saveJSONClick.mock.calls.length).toBe(1);
+    });
+
+    it('save state to local storage if \'Save\' button is clicked', () => {
+      render(renderReadyComponent);
+      userEvent.click(screen.getByText('Save'));
+      expect(localStorageMock.block === JSON.stringify(store.getState().block)).toBe(true);
+    });
+
+    it('dispatches installState action if \'Install Saved Data\' button is clicked', () => {
+      render(renderReadyComponent);
+      userEvent.click(screen.getByText('Install Saved Data'));
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/installState');
+    });
+
+    it('dispatches resetState action if \'Install Saved Data\' button is clicked', () => {
+      render(renderReadyComponent);
+      userEvent.click(screen.getByText('Reset'));
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/resetState');
     });
 
     it('renders correctly', () => {

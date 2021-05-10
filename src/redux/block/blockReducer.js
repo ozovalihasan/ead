@@ -172,6 +172,8 @@ const blockSlice = createSlice({
       prepare: (id) => ({ payload: { id } }),
     },
 
+    installState: () => JSON.parse(localStorage.block),
+
   },
 
 });

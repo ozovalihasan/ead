@@ -12,6 +12,7 @@ import {
   addItem,
   moveItem,
   updateDraggedItemId,
+  installState,
 } from '../redux';
 import saveJSON from './saveJSON';
 
@@ -94,6 +95,12 @@ const App = () => {
         type="button"
       >
         Save
+      </button>
+      <button
+        onClick={() => dispatch(installState())}
+        type="button"
+      >
+        Install Saved Data
       </button>
       <DragDropContext
         onDragStart={onDragStart}

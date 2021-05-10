@@ -264,3 +264,9 @@ NOTE: It is planned to be added with the next versions.
 Self joins aren't implemented, yet.
 
 NOTE: It is planned to be added with the next versions.
+
+## Extra Features
+
+EAD has 'attribute' container to add attribute to any entity.
+
+More, it has 'attribute container' container to put all attributes in a organized container. There is no any difference between putting all attributes into 'entity' container and 'attribute container' in terms of gem.

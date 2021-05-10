@@ -2,7 +2,7 @@
 Entity Association Diagram
 ==========================
 
-This documentation explains how to use EAD(Entity Association Diagram )
+This document explains how to use EAD(Entity Association Diagram )
 
 After reading this document, you will know:
 
@@ -249,9 +249,9 @@ end
 
 ### The `has_and_belongs_to_many` Association
 
-`has_and_belongs_to_many` association isn't implemented to make codebase simpler. 
+`has_and_belongs_to_many` association isn't implemented to make the codebase simpler. 
 
-NOTE: If it is necessary, it can be added with the next versions.
+NOTE: If it is requested, it can be added with the next versions.
 
 ### Polymorphic Associations
 
@@ -267,12 +267,12 @@ NOTE: It is planned to be added with the next versions.
 
 ## Extra Features
 
-EAD has 'attribute' container to add attribute to any entity.
+EAD has 'attribute' container to add an attribute to any entity.
 
-More, it has 'attribute container' container to put all attributes in a organized container. There is no any difference between putting all attributes into 'entity' container and 'attribute container' in terms of gem.
+More, it has 'attribute container' container to put all attributes in a organized container. There is no difference between putting all attributes into an 'entity' container and an 'attribute container' in terms of gem.
 
 ## Warnings
 
-- The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories' and 'account_histories', but space between words is not allowed.
+- The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', and 'account_histories', but space between words is not allowed.
 
-- EAD gem allows to use only one ':through' container inside of 'entity' container. This logic isn't implemented by EAD.
+- EAD gem allows to using only one ':through' container inside of 'entity' container. This logic isn't implemented by EAD.

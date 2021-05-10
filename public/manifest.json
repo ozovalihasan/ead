@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "EAD",
+  "name": "EAD is a tool to start a Ruby on Rails project quickly.",
   "icons": [
     {
       "src": "favicon.ico",

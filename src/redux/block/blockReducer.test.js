@@ -11,6 +11,7 @@ import blockReducer, {
   updateRestrictedDropId,
   expandItem,
   updateDraggedItemId,
+  resetState,
 } from './blockReducer';
 
 jest.mock('./initialState', () => {
@@ -147,6 +148,16 @@ describe('blockReducer', () => {
 
       expect(store.getState().block.draggedItemId).toBe(-1);
       expect(store.getState().block.disabledChildIds).toStrictEqual([]);
+    });
+  });
+  describe('resetState', () => {
+    it('resets all data', () => {
+      store.dispatch(addItem('2', '9', 0, 10));
+      store.dispatch(addItem(7, 10, 0, 11));
+
+      expect(Object.keys(store.getState().block.items).length).toBe(12);
+      store.dispatch(resetState());
+      expect(Object.keys(store.getState().block.items).length).toBe(10);
     });
   });
 });

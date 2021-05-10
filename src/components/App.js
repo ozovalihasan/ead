@@ -12,6 +12,7 @@ import {
   addItem,
   moveItem,
   updateDraggedItemId,
+  resetState,
   installState,
 } from '../redux';
 import saveJSON from './saveJSON';
@@ -89,6 +90,12 @@ const App = () => {
         type="button"
       >
         Download EAD
+      </button>
+      <button
+        onClick={() => dispatch(resetState())}
+        type="button"
+      >
+        Reset
       </button>
       <button
         onClick={() => saveItems()}

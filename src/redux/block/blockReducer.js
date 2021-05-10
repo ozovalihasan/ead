@@ -172,6 +172,7 @@ const blockSlice = createSlice({
       prepare: (id) => ({ payload: { id } }),
     },
 
+    resetState: () => initialState,
     installState: () => JSON.parse(localStorage.block),
 
   },
@@ -190,6 +191,8 @@ export const {
   updateRestrictedDropId,
   expandItem,
   updateDraggedItemId,
+  resetState,
+  installState,
 } = actions;
 
 export default reducer;

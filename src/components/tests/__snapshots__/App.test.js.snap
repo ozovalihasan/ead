@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blockReducer <App /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-0"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-1"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-2"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-3"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-4"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div>
+      <div
+        class="sc-bdvvaa bqALdu App"
+      >
+        <button
+          type="button"
+        >
+          Download EAD
+        </button>
+        <button
+          type="button"
+        >
+          Reset
+        </button>
+        <button
+          type="button"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+        >
+          Install Saved Data
+        </button>
+        <div
+          data-rbd-droppable-context-id="5"
+          data-rbd-droppable-id="OuterDrop"
+        >
+          <div>
+            Mock Model
+            {"0":{"content":"mock content"}}
+            hasan
+            {"content":"mock content"}
+            hasan
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-5"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      id="rbd-hidden-text-5-hidden-text-10"
+      style="display: none;"
+    >
+      
+  Press space bar to start a drag.
+  When dragging you can use the arrow keys to move the item around and escape to cancel.
+  Some screen readers may require you to be in focus mode or to use your pass through key
+
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-bdvvaa bqALdu App"
+    >
+      <button
+        type="button"
+      >
+        Download EAD
+      </button>
+      <button
+        type="button"
+      >
+        Reset
+      </button>
+      <button
+        type="button"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+      >
+        Install Saved Data
+      </button>
+      <div
+        data-rbd-droppable-context-id="5"
+        data-rbd-droppable-id="OuterDrop"
+      >
+        <div>
+          Mock Model
+          {"0":{"content":"mock content"}}
+          hasan
+          {"content":"mock content"}
+          hasan
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

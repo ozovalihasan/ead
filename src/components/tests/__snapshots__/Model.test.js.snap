@@ -1,0 +1,1452 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blockReducer <Model  /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-0"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-1"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-2"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-3"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-4"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div>
+      <div
+        data-rbd-droppable-context-id="5"
+        data-rbd-droppable-id="OuterDrop"
+      >
+        <div
+          class="sc-pVTma cupJbn"
+          data-testid="subContainer"
+        >
+          <div
+            class="sc-bdvvaa iuYcCd"
+          >
+            <div
+              class="sc-furvIG bbXKyU"
+              data-rbd-draggable-context-id="5"
+              data-rbd-draggable-id="1"
+              name="isRestrictedDrop"
+            >
+              <div
+                class="sc-gsDJrp blhZhJ"
+              >
+                <h3
+                  class="sc-jrQzUz fdGtSQ"
+                >
+                  Elements
+                </h3>
+              </div>
+              <div
+                class="sc-iCfLBT ctdPAZ"
+                data-rbd-droppable-context-id="5"
+                data-rbd-droppable-id="1"
+              >
+                <div
+                  class="sc-pVTma eSSWiK"
+                  data-testid="subContainer"
+                >
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG fHbyNZ"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="2"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="2"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="2"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-jrQzUz fdGtSQ"
+                        >
+                          has_many
+                        </h3>
+                      </div>
+                      <div
+                        class="sc-iCfLBT ctdPAZ"
+                        data-rbd-droppable-context-id="5"
+                        data-rbd-droppable-id="2"
+                      >
+                        <div
+                          class="sc-pVTma eSSWiK"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG fHbyNZ"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="3"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="3"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="3"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-jrQzUz fdGtSQ"
+                        >
+                          has_one
+                        </h3>
+                      </div>
+                      <div
+                        class="sc-iCfLBT ctdPAZ"
+                        data-rbd-droppable-context-id="5"
+                        data-rbd-droppable-id="3"
+                      >
+                        <div
+                          class="sc-pVTma eSSWiK"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG fHbyNZ"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="4"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="4"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="4"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-jrQzUz fdGtSQ"
+                        >
+                          :through
+                        </h3>
+                      </div>
+                      <div
+                        class="sc-iCfLBT ctdPAZ"
+                        data-rbd-droppable-context-id="5"
+                        data-rbd-droppable-id="4"
+                      >
+                        <div
+                          class="sc-pVTma eSSWiK"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG cvyqgB"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="5"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="5"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="5"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-jrQzUz fdGtSQ"
+                        >
+                          attribute container
+                        </h3>
+                      </div>
+                      <div
+                        class="sc-iCfLBT ctdPAZ"
+                        data-rbd-droppable-context-id="5"
+                        data-rbd-droppable-id="5"
+                      >
+                        <div
+                          class="sc-pVTma irRLai"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG cvyqgB"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="6"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="6"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="6"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-jrQzUz fdGtSQ"
+                        >
+                          attribute
+                        </h3>
+                        <select>
+                          <option
+                            value="primary_key"
+                          >
+                            primary_key
+                          </option>
+                          <option
+                            value="string"
+                          >
+                            string
+                          </option>
+                          <option
+                            value="text"
+                          >
+                            text
+                          </option>
+                          <option
+                            value="integer"
+                          >
+                            integer
+                          </option>
+                          <option
+                            value="float"
+                          >
+                            float
+                          </option>
+                          <option
+                            value="decimal"
+                          >
+                            decimal
+                          </option>
+                          <option
+                            value="datetime"
+                          >
+                            datetime
+                          </option>
+                          <option
+                            value="timestamp"
+                          >
+                            timestamp
+                          </option>
+                          <option
+                            value="time"
+                          >
+                            time
+                          </option>
+                          <option
+                            value="date"
+                          >
+                            date
+                          </option>
+                          <option
+                            value="binary"
+                          >
+                            binary
+                          </option>
+                          <option
+                            value="boolean"
+                          >
+                            boolean
+                          </option>
+                          <option
+                            value="references"
+                          >
+                            references
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG dpkDbn"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="7"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="7"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="7"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-jrQzUz fdGtSQ"
+                        >
+                          entity
+                        </h3>
+                      </div>
+                      <div
+                        class="sc-iCfLBT ctdPAZ"
+                        data-rbd-droppable-context-id="5"
+                        data-rbd-droppable-id="7"
+                      >
+                        <div
+                          class="sc-pVTma irRLai"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-bdvvaa iuYcCd"
+          >
+            <div
+              class="sc-furvIG bbXKyU"
+              data-rbd-draggable-context-id="5"
+              data-rbd-draggable-id="8"
+              name="isRestrictedDrop"
+            >
+              <div
+                class="sc-gsDJrp blhZhJ"
+              >
+                <button
+                  class="sc-hKwCoD ctGUmD"
+                  name="direction"
+                  title="Align items vertically or horizontally"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-ellipsis-h fa-w-16 fa-lg "
+                    data-icon="ellipsis-h"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <h3
+                  class="sc-jrQzUz fdGtSQ"
+                >
+                  EAD
+                </h3>
+                <button
+                  class="sc-eCImvq jYSOg"
+                  title="Click to drop any item into this element"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-flag fa-w-16 "
+                    data-icon="flag"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="sc-iCfLBT bSlkzM"
+                data-rbd-droppable-context-id="5"
+                data-rbd-droppable-id="8"
+              >
+                <div
+                  class="sc-pVTma dbWbZb"
+                  data-testid="subContainer"
+                >
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                      class="sc-furvIG dpkDbn"
+                      data-rbd-drag-handle-context-id="5"
+                      data-rbd-drag-handle-draggable-id="9"
+                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-id="9"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                          class="sc-gKckTs inFpSx"
+                          data-rbd-drag-handle-context-id="5"
+                          data-rbd-drag-handle-draggable-id="9"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          class="sc-jRQAMF kceyOf"
+                          name="expand"
+                          title="Expand or shrink this item"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-compress-alt fa-w-14 fa-lg "
+                            data-icon="compress-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 448 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4.686 427.314L104 328l-32.922-31.029C55.958 281.851 66.666 256 88.048 256h112C213.303 256 224 266.745 224 280v112c0 21.382-25.803 32.09-40.922 16.971L152 376l-99.314 99.314c-6.248 6.248-16.379 6.248-22.627 0L4.686 449.941c-6.248-6.248-6.248-16.379 0-22.627zM443.314 84.686L344 184l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C234.697 256 224 245.255 224 232V120c0-21.382 25.803-32.09 40.922-16.971L296 136l99.314-99.314c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.248 6.248 6.248 16.379 0 22.627z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          class="sc-hKwCoD ctGUmD"
+                          name="direction"
+                          title="Align items vertically or horizontally"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-ellipsis-v fa-w-6 fa-lg "
+                            data-icon="ellipsis-v"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 192 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <input
+                          class="sc-dkPtyc bRsZck"
+                          type="text"
+                          value="entity"
+                        />
+                        <button
+                          class="sc-eCImvq jYSOg"
+                          title="Click to drop any item into this element"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-flag fa-w-16 "
+                            data-icon="flag"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="sc-iCfLBT bSlkzM"
+                        data-rbd-droppable-context-id="5"
+                        data-rbd-droppable-id="9"
+                      >
+                        <div
+                          class="sc-pVTma cupJbn"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-5"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
+    <div
+      id="rbd-hidden-text-5-hidden-text-95"
+      style="display: none;"
+    >
+      
+  Press space bar to start a drag.
+  When dragging you can use the arrow keys to move the item around and escape to cancel.
+  Some screen readers may require you to be in focus mode or to use your pass through key
+
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      data-rbd-droppable-context-id="5"
+      data-rbd-droppable-id="OuterDrop"
+    >
+      <div
+        class="sc-pVTma cupJbn"
+        data-testid="subContainer"
+      >
+        <div
+          class="sc-bdvvaa iuYcCd"
+        >
+          <div
+            class="sc-furvIG bbXKyU"
+            data-rbd-draggable-context-id="5"
+            data-rbd-draggable-id="1"
+            name="isRestrictedDrop"
+          >
+            <div
+              class="sc-gsDJrp blhZhJ"
+            >
+              <h3
+                class="sc-jrQzUz fdGtSQ"
+              >
+                Elements
+              </h3>
+            </div>
+            <div
+              class="sc-iCfLBT ctdPAZ"
+              data-rbd-droppable-context-id="5"
+              data-rbd-droppable-id="1"
+            >
+              <div
+                class="sc-pVTma eSSWiK"
+                data-testid="subContainer"
+              >
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG fHbyNZ"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="2"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="2"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="2"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-jrQzUz fdGtSQ"
+                      >
+                        has_many
+                      </h3>
+                    </div>
+                    <div
+                      class="sc-iCfLBT ctdPAZ"
+                      data-rbd-droppable-context-id="5"
+                      data-rbd-droppable-id="2"
+                    >
+                      <div
+                        class="sc-pVTma eSSWiK"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG fHbyNZ"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="3"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="3"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="3"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-jrQzUz fdGtSQ"
+                      >
+                        has_one
+                      </h3>
+                    </div>
+                    <div
+                      class="sc-iCfLBT ctdPAZ"
+                      data-rbd-droppable-context-id="5"
+                      data-rbd-droppable-id="3"
+                    >
+                      <div
+                        class="sc-pVTma eSSWiK"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG fHbyNZ"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="4"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="4"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="4"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-jrQzUz fdGtSQ"
+                      >
+                        :through
+                      </h3>
+                    </div>
+                    <div
+                      class="sc-iCfLBT ctdPAZ"
+                      data-rbd-droppable-context-id="5"
+                      data-rbd-droppable-id="4"
+                    >
+                      <div
+                        class="sc-pVTma eSSWiK"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG cvyqgB"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="5"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="5"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="5"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-jrQzUz fdGtSQ"
+                      >
+                        attribute container
+                      </h3>
+                    </div>
+                    <div
+                      class="sc-iCfLBT ctdPAZ"
+                      data-rbd-droppable-context-id="5"
+                      data-rbd-droppable-id="5"
+                    >
+                      <div
+                        class="sc-pVTma irRLai"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG cvyqgB"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="6"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="6"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="6"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-jrQzUz fdGtSQ"
+                      >
+                        attribute
+                      </h3>
+                      <select>
+                        <option
+                          value="primary_key"
+                        >
+                          primary_key
+                        </option>
+                        <option
+                          value="string"
+                        >
+                          string
+                        </option>
+                        <option
+                          value="text"
+                        >
+                          text
+                        </option>
+                        <option
+                          value="integer"
+                        >
+                          integer
+                        </option>
+                        <option
+                          value="float"
+                        >
+                          float
+                        </option>
+                        <option
+                          value="decimal"
+                        >
+                          decimal
+                        </option>
+                        <option
+                          value="datetime"
+                        >
+                          datetime
+                        </option>
+                        <option
+                          value="timestamp"
+                        >
+                          timestamp
+                        </option>
+                        <option
+                          value="time"
+                        >
+                          time
+                        </option>
+                        <option
+                          value="date"
+                        >
+                          date
+                        </option>
+                        <option
+                          value="binary"
+                        >
+                          binary
+                        </option>
+                        <option
+                          value="boolean"
+                        >
+                          boolean
+                        </option>
+                        <option
+                          value="references"
+                        >
+                          references
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG dpkDbn"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="7"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="7"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="7"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-jrQzUz fdGtSQ"
+                      >
+                        entity
+                      </h3>
+                    </div>
+                    <div
+                      class="sc-iCfLBT ctdPAZ"
+                      data-rbd-droppable-context-id="5"
+                      data-rbd-droppable-id="7"
+                    >
+                      <div
+                        class="sc-pVTma irRLai"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-bdvvaa iuYcCd"
+        >
+          <div
+            class="sc-furvIG bbXKyU"
+            data-rbd-draggable-context-id="5"
+            data-rbd-draggable-id="8"
+            name="isRestrictedDrop"
+          >
+            <div
+              class="sc-gsDJrp blhZhJ"
+            >
+              <button
+                class="sc-hKwCoD ctGUmD"
+                name="direction"
+                title="Align items vertically or horizontally"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-ellipsis-h fa-w-16 fa-lg "
+                  data-icon="ellipsis-h"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <h3
+                class="sc-jrQzUz fdGtSQ"
+              >
+                EAD
+              </h3>
+              <button
+                class="sc-eCImvq jYSOg"
+                title="Click to drop any item into this element"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-flag fa-w-16 "
+                  data-icon="flag"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="sc-iCfLBT bSlkzM"
+              data-rbd-droppable-context-id="5"
+              data-rbd-droppable-id="8"
+            >
+              <div
+                class="sc-pVTma dbWbZb"
+                data-testid="subContainer"
+              >
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                    class="sc-furvIG dpkDbn"
+                    data-rbd-drag-handle-context-id="5"
+                    data-rbd-drag-handle-draggable-id="9"
+                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-id="9"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
+                        class="sc-gKckTs inFpSx"
+                        data-rbd-drag-handle-context-id="5"
+                        data-rbd-drag-handle-draggable-id="9"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="sc-jRQAMF kceyOf"
+                        name="expand"
+                        title="Expand or shrink this item"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-compress-alt fa-w-14 fa-lg "
+                          data-icon="compress-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 448 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4.686 427.314L104 328l-32.922-31.029C55.958 281.851 66.666 256 88.048 256h112C213.303 256 224 266.745 224 280v112c0 21.382-25.803 32.09-40.922 16.971L152 376l-99.314 99.314c-6.248 6.248-16.379 6.248-22.627 0L4.686 449.941c-6.248-6.248-6.248-16.379 0-22.627zM443.314 84.686L344 184l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C234.697 256 224 245.255 224 232V120c0-21.382 25.803-32.09 40.922-16.971L296 136l99.314-99.314c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.248 6.248 6.248 16.379 0 22.627z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="sc-hKwCoD ctGUmD"
+                        name="direction"
+                        title="Align items vertically or horizontally"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-ellipsis-v fa-w-6 fa-lg "
+                          data-icon="ellipsis-v"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 192 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <input
+                        class="sc-dkPtyc bRsZck"
+                        type="text"
+                        value="entity"
+                      />
+                      <button
+                        class="sc-eCImvq jYSOg"
+                        title="Click to drop any item into this element"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-flag fa-w-16 "
+                          data-icon="flag"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="sc-iCfLBT bSlkzM"
+                      data-rbd-droppable-context-id="5"
+                      data-rbd-droppable-id="9"
+                    >
+                      <div
+                        class="sc-pVTma cupJbn"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

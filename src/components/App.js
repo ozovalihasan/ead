@@ -39,7 +39,7 @@ const App = () => {
 
   const stateBlock = useSelector((state) => state.block);
 
-  const saveItems = () => {
+  const saveBlocks = () => {
     localStorage.block = JSON.stringify(stateBlock);
   };
 
@@ -98,7 +98,7 @@ const App = () => {
         Reset
       </button>
       <button
-        onClick={() => saveItems()}
+        onClick={() => saveBlocks()}
         type="button"
       >
         Save

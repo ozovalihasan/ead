@@ -35,6 +35,12 @@ const App = () => {
     dragDropCategory[items[dragId].category].includes(items[dropId].category)
   );
 
+  const stateBlock = useSelector((state) => state.block);
+
+  const saveItems = () => {
+    localStorage.block = JSON.stringify(stateBlock);
+  };
+
   const onDragStart = (result) => {
     dispatch(updateDraggedItemId(result.draggableId));
   };
@@ -82,6 +88,12 @@ const App = () => {
         type="button"
       >
         Download EAD
+      </button>
+      <button
+        onClick={() => saveItems()}
+        type="button"
+      >
+        Save
       </button>
       <DragDropContext
         onDragStart={onDragStart}

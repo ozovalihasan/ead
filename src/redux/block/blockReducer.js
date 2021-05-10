@@ -173,7 +173,12 @@ const blockSlice = createSlice({
     },
 
     resetState: () => initialState,
-    installState: () => JSON.parse(localStorage.block),
+    installState: () => {
+      if (localStorage.block) {
+        return JSON.parse(localStorage.block);
+      }
+      return initialState;
+    },
 
   },
 

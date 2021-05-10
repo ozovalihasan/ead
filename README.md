@@ -14,6 +14,7 @@ EAD gem can be accessible from [this repository](https://github.com/ozovalihasan
 ![project-gif](./documents/images/project.gif)
 
 ## Live Demo
+
 Please check [live demo of EAD.](https://ead.ozovalihasan.com/)
 
 ## Built With
@@ -66,8 +67,12 @@ Then, there are two choices to use the generated JSON file;
   * Disabled containers and drop areas are shown with ![gray](./documents/images/gray.png).
   * Coupled dragged containers and drop areas are shown with ![yellow](./documents/images/yellow.png).
   * Dragged containers being removed are shown with ![red](./documents/images/red.png).
+- EAD can be reset to initial state by clicking 'Reset' button.
+- EAD can be saved to localStorage by clicking 'Save' button.
+- EAD can be installed with data from localStorage by clicking 'Install Saved Data' button.
 
 Note: EAD allows to use any drag containers and drop areas by default. But, it is suggested to select a drop area with flag and then drag any enabled container.
+
 ## Test EAD
 
 - Clone this repository

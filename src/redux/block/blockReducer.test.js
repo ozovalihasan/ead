@@ -12,12 +12,18 @@ import blockReducer, {
   expandItem,
   updateDraggedItemId,
   resetState,
+  installState,
 } from './blockReducer';
 
 jest.mock('./initialState', () => {
   const testInitialState = require('./testInitialState');
   return testInitialState;
 });
+
+const localStorageMock = {
+  block: JSON.stringify('mockBlock'),
+};
+Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
 const createTestStore = () => {
   const testStore = configureStore({
@@ -150,6 +156,7 @@ describe('blockReducer', () => {
       expect(store.getState().block.disabledChildIds).toStrictEqual([]);
     });
   });
+
   describe('resetState', () => {
     it('resets all data', () => {
       store.dispatch(addItem('2', '9', 0, 10));
@@ -158,6 +165,13 @@ describe('blockReducer', () => {
       expect(Object.keys(store.getState().block.items).length).toBe(12);
       store.dispatch(resetState());
       expect(Object.keys(store.getState().block.items).length).toBe(10);
+    });
+  });
+
+  describe('installState', () => {
+    it('install saved state from localStorage', () => {
+      store.dispatch(installState());
+      expect(store.getState()).toStrictEqual({ block: 'mockBlock' });
     });
   });
 });

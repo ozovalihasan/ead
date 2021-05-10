@@ -85,30 +85,30 @@ const App = () => {
 
   return (
     <MainContainer className="App">
-      <button
+      <Button
         onClick={() => saveJSON(items, 'EAD.json')}
         type="button"
       >
         Download EAD
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => dispatch(resetState())}
         type="button"
       >
         Reset
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => saveBlocks()}
         type="button"
       >
         Save
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => dispatch(installState())}
         type="button"
       >
         Install Saved Data
-      </button>
+      </Button>
       <DragDropContext
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -144,4 +144,17 @@ const MainContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
 `;
 
+const Button = styled.button`
+  border-radius: 5px;
+  border: 1px solid gray;
+  background-color: transparent;
+  margin: 10px;
+  padding: 10px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #C7FDED;
+  }
+`;
 export default App;

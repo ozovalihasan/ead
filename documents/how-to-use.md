@@ -270,3 +270,9 @@ NOTE: It is planned to be added with the next versions.
 EAD has 'attribute' container to add attribute to any entity.
 
 More, it has 'attribute container' container to put all attributes in a organized container. There is no any difference between putting all attributes into 'entity' container and 'attribute container' in terms of gem.
+
+## Warnings
+
+- The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories' and 'account_histories', but space between words is not allowed.
+
+- EAD gem allows to use only one ':through' container inside of 'entity' container. This logic isn't implemented by EAD.

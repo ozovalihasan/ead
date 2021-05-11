@@ -5,7 +5,12 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  changeContent, changeType, checkDirection, expandItem, updateRestrictedDropId,
+  changeContent,
+  changeType,
+  checkDirection,
+  expandItem,
+  updateRestrictedDropId,
+  changeDragHandleClone,
 } from '../redux';
 
 const Model = ({
@@ -58,7 +63,21 @@ const Model = ({
                 name="isRestrictedDrop"
               >
                 <TitleCheck>
-
+                  {
+                    !allItems[id].isDragDisabled
+                    && allItems[id].entity
+                    && !allItems[id].factory
+                    && (
+                      <HandleDrag
+                        {...providedDrag.dragHandleProps}
+                        title="Drag to clone this item"
+                        onMouseDown={() => dispatch(changeDragHandleClone(true))}
+                        isRestrictedDrag={isRestrictedDrag(id)}
+                      >
+                        <FontAwesomeIcon icon="clone" size="lg" />
+                      </HandleDrag>
+                    )
+                  }
                   {
                     allItems[id].isDragDisabled || (
                       <HandleDrag
@@ -75,6 +94,7 @@ const Model = ({
                     allItems[id].factory
                     || allItems[id].attribute
                     || allItems[id].isDragDisabled
+
                     || (
                       <ExpandButton
                         name="expand"
@@ -89,7 +109,10 @@ const Model = ({
                   }
 
                   {
-                    allItems[id].factory || (
+                    !(allItems[id].factory
+                      || allItems[id].attribute
+                      || allItems[id].entityClone)
+                    && (
                       <DirectionButton
                         name="direction"
                         type="button"
@@ -103,7 +126,8 @@ const Model = ({
 
                   {
                     (
-                      ((allItems[id].entity || allItems[id].attribute) && !allItems[id].factory) ? (
+                      ((allItems[id].entity || allItems[id].attribute || allItems[id].entityClone)
+                      && !allItems[id].factory) ? (
                         <ModelInput
                           type="text"
                           onChange={
@@ -111,14 +135,15 @@ const Model = ({
                           }
                           value={allItems[id].content}
                         />
-                      ) : (
-                        <Title>
-                          {allItems[id].content}
-                        </Title>
-                      )
+                        ) : (
+                          <Title>
+                            {allItems[id].content}
+                          </Title>
+                        )
                     )
                   }
-
+                  { allItems[id].entityClone
+                     && (allItems[(allItems[id].cloneParent)].content)}
                   {
                     (allItems[id].attribute) && (
                       <select
@@ -157,13 +182,18 @@ const Model = ({
                   <Droppable
                     droppableId={id.toString()}
                     direction={allItems[id].order}
-                    isDropDisabled={disabledChildIds.includes(id)
+                    isDropDisabled={
+                      disabledChildIds.includes(id)
                       || allItems[id].isDropDisabled
                       || allItems[id].factory
-                      || (existRestrictedDrop && restrictedDropId !== id)
-                      || (draggedItemId !== -1
+                      || (
+                        existRestrictedDrop && restrictedDropId !== id
+                      )
+                      || (
+                        draggedItemId !== -1
                         && !checkDragDropCategory(draggedItemId, id)
-                      )}
+                      )
+                    }
                   >
                     {(providedDrop, snapshot) => (
                       <DropContainer

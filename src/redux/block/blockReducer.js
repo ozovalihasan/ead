@@ -173,11 +173,47 @@ const blockSlice = createSlice({
     },
 
     resetState: () => initialState,
+
     installState: () => {
       if (localStorage.block) {
         return JSON.parse(localStorage.block);
       }
       return initialState;
+    },
+
+    changeDragHandleClone: {
+      reducer: (state, { payload }) => {
+        state.dragHandleClone = payload.isClone;
+      },
+      prepare: (isClone) => ({ payload: { isClone } }),
+    },
+
+    cloneItem: {
+      reducer: (state, { payload }) => {
+        const newItem = {
+          ...state.items[payload.itemId],
+          subItemIds: [],
+          category: 'entityClone',
+          entity: false,
+          entityClone: true,
+          cloneParent: payload.itemId,
+          color: 'orange',
+          cloneable: false,
+        };
+        state.items[payload.newId] = newItem;
+        state.items[payload.containerId].subItemIds.splice(
+          payload.containerIndex, 0, payload.newId,
+        );
+        state.items[payload.itemId].cloneChildren.push(payload.newId);
+      },
+      prepare: (itemId, containerId,
+        containerIndex, newId) => (
+        {
+          payload: {
+            itemId, containerId, containerIndex, newId,
+          },
+        }
+      ),
     },
 
   },
@@ -198,6 +234,8 @@ export const {
   updateDraggedItemId,
   resetState,
   installState,
+  changeDragHandleClone,
+  cloneItem,
 } = actions;
 
 export default reducer;

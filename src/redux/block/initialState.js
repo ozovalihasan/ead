@@ -1,4 +1,5 @@
 const initialState = {
+  version: '0.2.0',
   items: {
     0: {
       content: 'Initialize your project from EAD',
@@ -95,6 +96,9 @@ const initialState = {
       isDropDisabled: true,
       color: '#94F6EA',
       category: 'entity',
+      cloneable: true,
+      cloneParent: null,
+      cloneChildren: [],
     },
     8: {
       content: 'EAD',
@@ -117,20 +121,25 @@ const initialState = {
       isDropDisabled: false,
       color: '#94F6EA',
       category: 'entity',
+      cloneable: true,
+      cloneParent: null,
+      cloneChildren: [],
     },
   },
   restrictedDropId: -1,
   draggedItemId: -1,
   dragDropCategory: {
     entity: ['EAD', 'association'],
-    association: ['entity'],
+    association: ['entity', 'entityClone'],
     attribute: ['entity', 'attributeContainer'],
     attributeContainer: ['entity'],
     EAD: ['entity'],
     factory: [],
+    entityClone: ['association', 'EAD'],
   },
   restrictedParentIds: [],
   disabledChildIds: [],
+  dragHandleClone: false,
 };
 
 export default initialState;

@@ -3,7 +3,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag,
+  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import Model from './Model';
@@ -14,13 +14,15 @@ import {
   updateDraggedItemId,
   resetState,
   installState,
+  cloneItem,
+  changeDragHandleClone,
 } from '../redux';
 import saveJSON from './saveJSON';
 
-library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);
+library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone);
 
 const App = () => {
-  const { items, dragDropCategory } = useSelector((state) => state.block);
+  const { items, dragDropCategory, dragHandleClone } = useSelector((state) => state.block);
 
   const [idCount, setIdCount] = useState(
     Math.max(...Object.keys(items).map((item) => parseInt(item, 10))) + 1,
@@ -61,6 +63,13 @@ const App = () => {
     }
 
     if (!checkDragDropCategory(draggableId, destination.droppableId)) {
+      return;
+    }
+
+    if (dragHandleClone) {
+      dispatch(cloneItem(draggableId, destination.droppableId, destination.index, idCount));
+      dispatch(changeDragHandleClone(false));
+      idCountIncrease();
       return;
     }
 

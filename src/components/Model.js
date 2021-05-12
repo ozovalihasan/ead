@@ -94,7 +94,6 @@ const Model = ({
                     allItems[id].factory
                     || allItems[id].attribute
                     || allItems[id].isDragDisabled
-
                     || (
                       <ExpandButton
                         name="expand"
@@ -111,7 +110,7 @@ const Model = ({
                   {
                     !(allItems[id].factory
                       || allItems[id].attribute
-                      || allItems[id].entityClone)
+                    )
                     && (
                       <DirectionButton
                         name="direction"

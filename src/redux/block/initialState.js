@@ -97,7 +97,6 @@ const initialState = {
       color: '#94F6EA',
       category: 'entity',
       cloneable: true,
-      cloneParent: null,
       cloneChildren: [],
     },
     8: {
@@ -122,7 +121,6 @@ const initialState = {
       color: '#94F6EA',
       category: 'entity',
       cloneable: true,
-      cloneParent: null,
       cloneChildren: [],
     },
   },

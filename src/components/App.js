@@ -56,7 +56,7 @@ const App = () => {
     } = result;
 
     if (!destination) {
-      if (!(items[draggableId].factory)) {
+      if (!(items[draggableId].factory || dragHandleClone)) {
         dispatch(removeItem(source.droppableId, source.index, draggableId));
       }
       return;

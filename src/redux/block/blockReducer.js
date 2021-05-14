@@ -246,6 +246,8 @@ const blockSlice = createSlice({
       ),
     },
 
+    idCountIncrease: (state) => { state.idCount += 1; },
+
   },
 
 });
@@ -266,6 +268,7 @@ export const {
   installState,
   changeDragHandleClone,
   cloneItem,
+  idCountIncrease,
 } = actions;
 
 export default reducer;

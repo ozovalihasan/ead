@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -16,21 +16,16 @@ import {
   installState,
   cloneItem,
   changeDragHandleClone,
+  idCountIncrease,
 } from '../redux';
 import saveJSON from './saveJSON';
 
 library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone);
 
 const App = () => {
-  const { items, dragDropCategory, dragHandleClone } = useSelector((state) => state.block);
-
-  const [idCount, setIdCount] = useState(
-    Math.max(...Object.keys(items).map((item) => parseInt(item, 10))) + 1,
-  );
-
-  const idCountIncrease = () => {
-    setIdCount((prevIdCount) => prevIdCount + 1);
-  };
+  const {
+    items, dragDropCategory, dragHandleClone, idCount,
+  } = useSelector((state) => state.block);
 
   const startingId = 0;
   const dispatch = useDispatch();
@@ -69,7 +64,7 @@ const App = () => {
     if (dragHandleClone) {
       dispatch(cloneItem(draggableId, destination.droppableId, destination.index, idCount));
       dispatch(changeDragHandleClone(false));
-      idCountIncrease();
+      dispatch(idCountIncrease());
       return;
     }
 
@@ -78,9 +73,9 @@ const App = () => {
       if (items[draggableId].association) {
         const entityId = 7;
         dispatch(addItem(entityId, idCount, destination.index, idCount + 1));
-        idCountIncrease();
+        dispatch(idCountIncrease());
       }
-      idCountIncrease();
+      dispatch(idCountIncrease());
       return;
     }
     dispatch(moveItem(

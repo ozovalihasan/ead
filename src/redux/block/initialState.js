@@ -138,6 +138,7 @@ const initialState = {
   restrictedParentIds: [],
   disabledChildIds: [],
   dragHandleClone: false,
+  idCount: 10,
 };
 
 export default initialState;

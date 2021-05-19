@@ -3,7 +3,7 @@ const initialState = {
   items: {
     0: {
       content: 'Initialize your project from EAD',
-      subItemIds: [1, 8],
+      subItemIds: [1, 9],
       order: 'vertical',
       subdirection: 'row',
       isDropDisabled: true,
@@ -13,7 +13,7 @@ const initialState = {
     },
     1: {
       content: 'Elements',
-      subItemIds: [2, 3, 4, 5, 6, 7],
+      subItemIds: [2, 3, 4, 5, 6, 7, 8],
       order: 'vertical',
       subdirection: 'column',
       isDropDisabled: true,
@@ -100,8 +100,20 @@ const initialState = {
       cloneChildren: [],
     },
     8: {
+      content: 'entity container',
+      subItemIds: [],
+      order: 'horizontal',
+      subdirection: 'row',
+      factory: true,
+      entityContainer: true,
+      expand: true,
+      isDropDisabled: true,
+      color: '#94F6EA',
+      category: 'entityContainer',
+    },
+    9: {
       content: 'EAD',
-      subItemIds: [9],
+      subItemIds: [10],
       order: 'vertical',
       subdirection: 'column',
       isDragDisabled: true,
@@ -109,7 +121,7 @@ const initialState = {
       color: '#FFF',
       category: 'EAD',
     },
-    9: {
+    10: {
       content: 'entity',
       subItemIds: [],
       order: 'horizontal',
@@ -127,18 +139,19 @@ const initialState = {
   restrictedDropId: -1,
   draggedItemId: -1,
   dragDropCategory: {
-    entity: ['EAD', 'association'],
+    entity: ['EAD', 'association', 'entityContainer'],
     association: ['entity', 'entityClone'],
     attribute: ['entity', 'attributeContainer'],
     attributeContainer: ['entity'],
     EAD: ['entity'],
     factory: [],
-    entityClone: ['association', 'EAD'],
+    entityClone: ['association', 'EAD', 'entityContainer'],
+    entityContainer: ['association', 'EAD'],
   },
   restrictedParentIds: [],
   disabledChildIds: [],
   dragHandleClone: false,
-  idCount: 10,
+  idCount: 11,
   expandAll: false,
 };
 

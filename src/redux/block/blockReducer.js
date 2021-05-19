@@ -152,7 +152,7 @@ const blockSlice = createSlice({
         if (payload.itemId === -1) {
           state.restrictedParentIds = [];
         } else {
-          const EADId = 8;
+          const EADId = 9;
           state.restrictedParentIds = findParentIds(state, EADId, [], state.restrictedDropId);
         }
       },

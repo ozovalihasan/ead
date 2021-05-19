@@ -19,7 +19,7 @@ const Model = ({
   checkDragDropCategory,
 }) => {
   const {
-    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds,
+    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds, expandAll,
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
@@ -101,6 +101,7 @@ const Model = ({
                         title="Expand or shrink this item"
                         onClick={() => dispatch(expandItem(id))}
                         expand={allItems[id].expand}
+                        expandAll={expandAll}
                       >
                         <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
                       </ExpandButton>
@@ -210,7 +211,7 @@ const Model = ({
                           )
                         }
                       >
-                        {(allItems[id].expand)
+                        {(expandAll || allItems[id].expand)
                           ? (
                             <Model
                               item={allItems[id]}
@@ -310,6 +311,7 @@ const ExpandButton = styled.button`
   justify-content: center;
   border-radius: 50%;
   margin: 0 3px;
+  background-color: ${(props) => (props.expandAll && '#C7FDED')};
 
   &:hover {
     cursor: pointer;

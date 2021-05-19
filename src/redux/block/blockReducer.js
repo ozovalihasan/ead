@@ -171,6 +171,7 @@ const blockSlice = createSlice({
 
     expandItem: {
       reducer: (state, { payload }) => {
+        state.expandAll = false;
         state.items[payload.id].expand = !state.items[payload.id].expand;
       },
       prepare: (id) => ({ payload: { id } }),
@@ -248,6 +249,8 @@ const blockSlice = createSlice({
 
     idCountIncrease: (state) => { state.idCount += 1; },
 
+    toggleExpandAll: (state) => { state.expandAll = !state.expandAll; },
+
   },
 
 });
@@ -269,6 +272,7 @@ export const {
   changeDragHandleClone,
   cloneItem,
   idCountIncrease,
+  toggleExpandAll,
 } = actions;
 
 export default reducer;

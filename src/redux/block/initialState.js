@@ -139,6 +139,7 @@ const initialState = {
   disabledChildIds: [],
   dragHandleClone: false,
   idCount: 10,
+  expandAll: false,
 };
 
 export default initialState;

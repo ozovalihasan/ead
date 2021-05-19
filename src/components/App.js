@@ -17,6 +17,7 @@ import {
   cloneItem,
   changeDragHandleClone,
   idCountIncrease,
+  toggleExpandAll,
 } from '../redux';
 import saveJSON from './saveJSON';
 
@@ -24,7 +25,7 @@ library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, f
 
 const App = () => {
   const {
-    items, dragDropCategory, dragHandleClone, idCount,
+    items, dragDropCategory, dragHandleClone, idCount, expandAll,
   } = useSelector((state) => state.block);
 
   const startingId = 0;
@@ -113,6 +114,13 @@ const App = () => {
       >
         Install Saved Data
       </Button>
+      <ExpandAllButton
+        onClick={() => dispatch(toggleExpandAll())}
+        type="button"
+        expandAll={expandAll}
+      >
+        Expand All
+      </ExpandAllButton>
       <DragDropContext
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -161,4 +169,9 @@ const Button = styled.button`
     background-color: #C7FDED;
   }
 `;
+
+const ExpandAllButton = styled(Button)`
+  background-color: ${(props) => (props.expandAll && '#C7FDED')};
+`;
+
 export default App;

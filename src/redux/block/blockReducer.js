@@ -78,6 +78,16 @@ const blockSlice = createSlice({
 
           delete state.items[payload.itemId.toString()];
         };
+
+        const item = state.items[payload.itemId];
+
+        if (item.entityClone) {
+          const index = state.items[item.cloneParent.toString()]
+            .cloneChildren.findIndex((id) => payload.itemId.toString() === id.toString());
+          state.items[item.cloneParent.toString()]
+            .cloneChildren.splice(index, 1);
+        }
+
         removeConnectedItems(state, payload);
       },
       prepare: (parentId, itemIndexInSource, itemId) => (

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import {
-  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag,
+  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -15,7 +15,7 @@ import configureStore from 'redux-mock-store';
 import Model from '../Model';
 import testInitialState from '../../redux/block/testInitialState';
 
-library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);
+library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone);
 
 const initStoreReducer = { block: testInitialState };
 const mockStore = configureStore();
@@ -62,7 +62,7 @@ describe('blockReducer', () => {
   describe('<Model  />', () => {
     it('renders all sub-containers correctly', () => {
       render(renderReadyComponent);
-      expect(screen.getAllByTestId('subContainer').length).toBe(9);
+      expect(screen.getAllByTestId('subContainer').length).toBe(10);
     });
 
     it('renders a button to dispatch with block/checkDirection', () => {
@@ -96,8 +96,8 @@ describe('blockReducer', () => {
       expect(store.dispatch.mock.calls[0][0].type).toBe('block/updateRestrictedDropId');
     });
 
-    it("doensn't render the rest part of any item if item.expand is false", () => {
-      items['9'].expand = false;
+    it("doesn't render the rest part of any item if item.expand is false", () => {
+      items['10'].expand = false;
       render(
         <Provider store={store}>
           <DragDropContext>
@@ -125,7 +125,7 @@ describe('blockReducer', () => {
       );
 
       expect(screen.getByText('0 item(s) collided')).toBeInTheDocument();
-      items['9'].expand = true;
+      items['10'].expand = true;
     });
 
     it('renders correctly', () => {

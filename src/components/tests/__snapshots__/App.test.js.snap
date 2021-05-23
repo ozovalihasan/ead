@@ -34,32 +34,48 @@ Object {
       id="rbd-announcement-4"
       style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
     />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-5"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
     <div>
       <div
         class="sc-bdvvaa bqALdu App"
       >
         <button
+          class="sc-gsDJrp qnnxF"
           type="button"
         >
           Download EAD
         </button>
         <button
+          class="sc-gsDJrp qnnxF"
           type="button"
         >
           Reset
         </button>
         <button
+          class="sc-gsDJrp qnnxF"
           type="button"
         >
           Save
         </button>
         <button
+          class="sc-gsDJrp qnnxF"
           type="button"
         >
           Install Saved Data
         </button>
+        <button
+          class="sc-gsDJrp sc-dkPtyc qnnxF bDqtzn"
+          type="button"
+        >
+          Expand All
+        </button>
         <div
-          data-rbd-droppable-context-id="5"
+          data-rbd-droppable-context-id="6"
           data-rbd-droppable-id="OuterDrop"
         >
           <div>
@@ -75,11 +91,11 @@ Object {
     <div
       aria-atomic="true"
       aria-live="assertive"
-      id="rbd-announcement-5"
+      id="rbd-announcement-6"
       style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
     />
     <div
-      id="rbd-hidden-text-5-hidden-text-10"
+      id="rbd-hidden-text-6-hidden-text-12"
       style="display: none;"
     >
       
@@ -94,27 +110,37 @@ Object {
       class="sc-bdvvaa bqALdu App"
     >
       <button
+        class="sc-gsDJrp qnnxF"
         type="button"
       >
         Download EAD
       </button>
       <button
+        class="sc-gsDJrp qnnxF"
         type="button"
       >
         Reset
       </button>
       <button
+        class="sc-gsDJrp qnnxF"
         type="button"
       >
         Save
       </button>
       <button
+        class="sc-gsDJrp qnnxF"
         type="button"
       >
         Install Saved Data
       </button>
+      <button
+        class="sc-gsDJrp sc-dkPtyc qnnxF bDqtzn"
+        type="button"
+      >
+        Expand All
+      </button>
       <div
-        data-rbd-droppable-context-id="5"
+        data-rbd-droppable-context-id="6"
         data-rbd-droppable-id="OuterDrop"
       >
         <div>

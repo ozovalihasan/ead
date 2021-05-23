@@ -1,8 +1,9 @@
 const testInitialState = {
+  version: '0.2.0',
   items: {
     0: {
       content: 'Initialize your project from EAD',
-      subItemIds: [1, 8],
+      subItemIds: [1, 9],
       order: 'vertical',
       subdirection: 'row',
       isDropDisabled: true,
@@ -12,7 +13,7 @@ const testInitialState = {
     },
     1: {
       content: 'Elements',
-      subItemIds: [2, 3, 4, 5, 6, 7],
+      subItemIds: [2, 3, 4, 5, 6, 7, 8],
       order: 'vertical',
       subdirection: 'column',
       isDropDisabled: true,
@@ -95,10 +96,24 @@ const testInitialState = {
       isDropDisabled: true,
       color: '#94F6EA',
       category: 'entity',
+      cloneable: true,
+      cloneChildren: [],
     },
     8: {
+      content: 'entity container',
+      subItemIds: [],
+      order: 'horizontal',
+      subdirection: 'row',
+      factory: true,
+      entityContainer: true,
+      expand: true,
+      isDropDisabled: true,
+      color: '#94F6EA',
+      category: 'entityContainer',
+    },
+    9: {
       content: 'EAD',
-      subItemIds: [9],
+      subItemIds: [10],
       order: 'vertical',
       subdirection: 'column',
       isDragDisabled: true,
@@ -106,7 +121,7 @@ const testInitialState = {
       color: '#FFF',
       category: 'EAD',
     },
-    9: {
+    10: {
       content: 'entity',
       subItemIds: [],
       order: 'horizontal',
@@ -117,20 +132,27 @@ const testInitialState = {
       isDropDisabled: false,
       color: '#94F6EA',
       category: 'entity',
+      cloneable: true,
+      cloneChildren: [],
     },
   },
   restrictedDropId: -1,
   draggedItemId: -1,
   dragDropCategory: {
-    entity: ['EAD', 'association'],
-    association: ['entity'],
+    entity: ['EAD', 'association', 'entityContainer'],
+    association: ['entity', 'entityClone'],
     attribute: ['entity', 'attributeContainer'],
     attributeContainer: ['entity'],
     EAD: ['entity'],
     factory: [],
+    entityClone: ['association', 'EAD', 'entityContainer'],
+    entityContainer: ['association', 'EAD'],
   },
   restrictedParentIds: [],
   disabledChildIds: [],
+  dragHandleClone: false,
+  idCount: 11,
+  expandAll: false,
 };
 
 export default testInitialState;

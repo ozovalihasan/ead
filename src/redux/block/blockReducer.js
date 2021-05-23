@@ -84,6 +84,7 @@ const blockSlice = createSlice({
         if (item.entityClone) {
           const index = state.items[item.cloneParent.toString()]
             .cloneChildren.findIndex((id) => payload.itemId.toString() === id.toString());
+
           state.items[item.cloneParent.toString()]
             .cloneChildren.splice(index, 1);
         }
@@ -229,11 +230,9 @@ const blockSlice = createSlice({
           ...state.items[payload.itemId],
           subItemIds: [],
           category: 'entityClone',
-          entity: false,
           entityClone: true,
           cloneParent: parseInt(payload.itemId, 10),
           color: 'orange',
-          cloneable: false,
           parentId: parseInt(payload.containerId, 10),
           parentIndex: payload.containerIndex,
         };
@@ -247,8 +246,7 @@ const blockSlice = createSlice({
         );
         state.items[payload.itemId].cloneChildren.push(payload.newId);
       },
-      prepare: (itemId, containerId,
-        containerIndex, newId) => (
+      prepare: (itemId, containerId, containerIndex, newId) => (
         {
           payload: {
             itemId, containerId, containerIndex, newId,

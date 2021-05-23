@@ -13,6 +13,10 @@ import blockReducer, {
   updateDraggedItemId,
   resetState,
   installState,
+  cloneItem,
+  changeDragHandleClone,
+  idCountIncrease,
+  toggleExpandAll,
 } from './blockReducer';
 
 jest.mock('./initialState', () => {
@@ -77,10 +81,17 @@ describe('blockReducer', () => {
     it('removes any item from store and its id from its parent item', () => {
       expect(store.getState().block.items['1'].subItemIds).toStrictEqual([2, 3, 4, 5, 6, 7, 8]);
 
-      store.dispatch(removeItem('1', '4', '6', true));
+      store.dispatch(addItem('7', '9', 0, 11));
+      store.dispatch(updateRestrictedDropId('11'));
 
-      expect(store.getState().block.items['6']).toBe(undefined);
-      expect(store.getState().block.items['1'].subItemIds).toStrictEqual([2, 3, 4, 5, 7, 8]);
+      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([11, 10]);
+      expect(store.getState().block.restrictedDropId).toStrictEqual('11');
+
+      store.dispatch(removeItem('9', '0', '11', true));
+
+      expect(store.getState().block.items['11']).toBe(undefined);
+      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([10]);
+      expect(store.getState().block.restrictedDropId).toStrictEqual(-1);
     });
   });
 
@@ -110,6 +121,13 @@ describe('blockReducer', () => {
       expect(store.getState().block.items['10'].subItemIds).toStrictEqual([]);
       expect(store.getState().block.items['11']).not.toBe(undefined);
       expect(store.getState().block.items['12'].subItemIds).toStrictEqual([11]);
+
+      store.dispatch(addItem('8', '10', 0, 13));
+      store.dispatch(cloneItem('12', '9', 0, 14));
+      store.dispatch(moveItem('14', '13', 0, '9', 0));
+
+      expect(store.getState().block.items['14'].parentId).toStrictEqual('13');
+      expect(store.getState().block.items['14'].parentIndex).toStrictEqual(0);
     });
   });
 
@@ -172,6 +190,56 @@ describe('blockReducer', () => {
     it('install saved state from localStorage', () => {
       store.dispatch(installState());
       expect(store.getState()).toStrictEqual({ block: 'mockBlock' });
+    });
+  });
+
+  describe('changeDragHandleClone', () => {
+    it('changes dragHandleClone', () => {
+      store.dispatch(changeDragHandleClone(true));
+      expect(store.getState().block.dragHandleClone).toBe(true);
+      store.dispatch(changeDragHandleClone(false));
+      expect(store.getState().block.dragHandleClone).toBe(false);
+    });
+  });
+
+  describe('cloneItem', () => {
+    it('clones an item', () => {
+      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([10]);
+      store.dispatch(cloneItem('10', '9', 0, 11));
+      expect(store.getState().block.items['11']).toStrictEqual({
+        category: 'entityClone',
+        cloneParent: 10,
+        color: 'orange',
+        content: 'entity',
+        entityClone: true,
+        expand: true,
+        factory: false,
+        isDropDisabled: false,
+        order: 'horizontal',
+        parentId: 9,
+        parentIndex: 0,
+        subItemIds: [],
+        subdirection: 'row',
+      });
+      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([11, 10]);
+    });
+  });
+
+  describe('idCountIncrease', () => {
+    it('increases idCount', () => {
+      expect(store.getState().block.idCount).toBe(11);
+      store.dispatch(idCountIncrease());
+      expect(store.getState().block.idCount).toBe(12);
+    });
+  });
+
+  describe('toggleExpandAll', () => {
+    it('toggles expandAll', () => {
+      expect(store.getState().block.expandAll).toBe(false);
+      store.dispatch(toggleExpandAll());
+      expect(store.getState().block.expandAll).toBe(true);
+      store.dispatch(toggleExpandAll());
+      expect(store.getState().block.expandAll).toBe(false);
     });
   });
 });

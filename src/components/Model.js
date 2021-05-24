@@ -91,11 +91,12 @@ const Model = ({
                     && !allItems[id].factory
                     && (
                       <CloneButton
-                        title="Click to clone this entity"
+                        title="Clone this entity"
                         type="button"
-                        onClick={() => handleClone(id, parentId, index)}
+                        onClick={() => handleClone(id, index)}
                         isRestrictedDrag={isRestrictedDrag(id)}
                       >
+
                         <FontAwesomeIcon icon="clone" size="lg" />
                       </CloneButton>
                     )

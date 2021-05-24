@@ -101,7 +101,7 @@ describe('blockReducer', () => {
       render(renderReadyComponent);
       expect(store.dispatch).toHaveBeenCalledTimes(0);
 
-      userEvent.click(screen.getAllByTitle(/Click to clone this entity/i)[0]);
+      userEvent.click(screen.getAllByTitle(/Clone this entity/i)[0]);
 
       expect(store.dispatch).toHaveBeenCalledTimes(2);
       expect(store.dispatch.mock.calls[0][0].type).toBe('block/cloneItem');

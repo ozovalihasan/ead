@@ -687,7 +687,7 @@ Object {
                         </button>
                         <button
                           class="sc-hKwCoD sc-jRQAMF noWg bmRimC"
-                          title="Click to clone this entity"
+                          title="Clone this entity"
                           type="button"
                         >
                           <svg
@@ -1460,7 +1460,7 @@ Object {
                       </button>
                       <button
                         class="sc-hKwCoD sc-jRQAMF noWg bmRimC"
-                        title="Click to clone this entity"
+                        title="Clone this entity"
                         type="button"
                       >
                         <svg

@@ -82,37 +82,41 @@ const App = () => {
 
   return (
     <MainContainer className="App">
-      <Button
-        onClick={() => saveJSON(items, 'EAD.json')}
-        type="button"
-      >
-        Download EAD
-      </Button>
-      <Button
-        onClick={() => dispatch(resetState())}
-        type="button"
-      >
-        Reset
-      </Button>
-      <Button
-        onClick={() => saveBlocks()}
-        type="button"
-      >
-        Save
-      </Button>
-      <Button
-        onClick={() => dispatch(installState())}
-        type="button"
-      >
-        Install Saved Data
-      </Button>
-      <ExpandAllButton
-        onClick={() => dispatch(toggleExpandAll())}
-        type="button"
-        expandAll={expandAll}
-      >
-        Expand All
-      </ExpandAllButton>
+      <LogoButtons>
+        <Logo src={`${process.env.PUBLIC_URL}/images/ead-logo.svg`} alt="EAD logo" />
+        <Button
+          onClick={() => saveJSON(items, 'EAD.json')}
+          type="button"
+        >
+          Download EAD
+        </Button>
+        <Button
+          onClick={() => dispatch(resetState())}
+          type="button"
+        >
+          Reset
+        </Button>
+        <Button
+          onClick={() => saveBlocks()}
+          type="button"
+        >
+          Save
+        </Button>
+        <Button
+          onClick={() => dispatch(installState())}
+          type="button"
+        >
+          Install Saved Data
+        </Button>
+
+        <ExpandAllButton
+          onClick={() => dispatch(toggleExpandAll())}
+          type="button"
+          expandAll={expandAll}
+        >
+          Expand All
+        </ExpandAllButton>
+      </LogoButtons>
       <DragDropContext
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -147,6 +151,17 @@ const App = () => {
 
 const MainContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
+`;
+
+const LogoButtons = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  width: 60px;
+  padding-right: 40px;
 `;
 
 const Button = styled.button`

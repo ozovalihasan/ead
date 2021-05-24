@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./documents/images/ead-logo.svg" alt="EAD Logo" style="height: 200px; width: 200px"/>
+</p>
+
 # EAD (Entity Association Diagram)
 
 EAD is a tool to initialize any Ruby on Rails project quickly by implementing associations from a generated JSON file.
@@ -57,6 +61,9 @@ Then, there are two choices to use the generated JSON file;
 
 ⚠️⚠️⚠️: EAD is still under development. So, it is not recommended to use this gem with ongoing projects. 
 
+
+- If all files are generated as expected, run `bundle exec rails db:migrate`
+
 ### Features
 
 - Any container can be collided by using ![collide button](./documents/images/collide.png) and expanded ![expand button](./documents/images/expand.png).
@@ -68,11 +75,19 @@ Then, there are two choices to use the generated JSON file;
   * The color of disabled containers and drop areas is ![gray](./documents/images/gray.png).
   * The color of coupled dragged containers and drop areas is ![yellow](./documents/images/yellow.png).
   * The color of dragged containers being removed is ![red](./documents/images/red.png).
+- All entities can be cloned by using ![clone](./documents/images/clone.png). The color of clone entities is ![orange](./documents/images/orange.png). 
 - EAD can be reset to the initial state by clicking the 'Reset' button.
 - EAD can be saved to localStorage by clicking the 'Save' button.
 - EAD can be installed with data from localStorage by clicking the 'Install Saved Data' button.
+- All containers can be expanded by clicking the 'Expand All' button.
 
-Note: EAD allows to use of any drag containers and drop areas by default. But, it is suggested to select a drop area with the flag and then drag any enabled container.
+⚠️⚠️⚠️: EAD allows to use of any drag containers and drop areas by default. But, it is suggested to select a drop area with the flag ![flag-check](./documents/images/flag-check.png) and then drag any enabled container.
+
+## Run EAD tool locally
+
+- Download [Node.js](https://nodejs.org/en/download/)
+- Run `npm install`
+- Run `npm start`
 
 ## Test EAD
 
@@ -97,7 +112,7 @@ Reach out to me at one of the following places!
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues and feature requests are welcome! 
 
 Feel free to check the [issues page](https://github.com/ozovalihasan/ead/issues).
 

@@ -74,7 +74,6 @@ class CreateAccounts < ActiveRecord::Migration[6.1]
 end
 ```
 
-
 ### The `has_many` Association
 
  For example, in an application containing authors and books, the author model could be declared like this:
@@ -189,8 +188,7 @@ WARNING: The official Ruby on Rails documentation suggesting one more feature of
 
 ### The `has_one :through` Association
 
-For example, if each supplier has one account, and each account is associated with one account history, then the
-supplier model could look like this:
+For example, if each supplier has one account, and each account is associated with one account history, then the supplier model could look like this:
 
 ```ruby
 class Supplier < ApplicationRecord
@@ -255,24 +253,104 @@ NOTE: If it is requested, it can be added with the next versions.
 
 ### Polymorphic Associations
 
-Polymorphic associations aren't implemented, yet.
+For example, you might have a picture model that belongs to either an employee model or a product model. Here's how this could be declared:
 
-NOTE: It is planned to be added with the next versions.
+```ruby
+class Picture < ApplicationRecord
+  belongs_to :imageable, polymorphic: true
+end
+
+class Employee < ApplicationRecord
+  has_many :pictures, as: :imageable
+end
+
+class Product < ApplicationRecord
+  has_many :pictures, as: :imageable
+end
+```
+
+
+![polymorphic Association Diagram](./images/polymorphic.png)
+![polymorphic EAD](./images/polymorphic_ead.png)
+
+The corresponding migration might look like this:
+
+```ruby
+class CreatePictures < ActiveRecord::Migration[6.1]
+  def change
+    create_table :pictures do |t|
+      t.references :imageable, polymorphic: true, null: false  
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateEmployees < ActiveRecord::Migration[6.1]
+  def change
+    create_table :employees do |t|
+
+      t.timestamps
+    end
+  end
+end
+
+class CreateProducts < ActiveRecord::Migration[6.1]
+  def change
+    create_table :products do |t|
+
+      t.timestamps
+    end
+  end
+end
+
+```
 
 ### Self Joins
 
-Self joins aren't implemented, yet.
+```ruby
+class Employee < ApplicationRecord
+  belongs_to :subordinate , optional: true, class_name: "Employee"
+  has_many :managers, class_name: "Employee", foreign_key: "subordinate_id"
+end
+```
 
-NOTE: It is planned to be added with the next versions.
 
+![self joins EAD](./images/self_joins_ead.png)
+
+The corresponding migration might look like this:
+
+```ruby
+class CreateEmployees < ActiveRecord::Migration[6.1]
+  def change
+    create_table :employees do |t|
+      t.references :subordinate, null: true, foreign_key: { to_table: :employees }
+
+      t.timestamps
+    end
+  end
+end
+
+```
 ## Extra Features
 
 EAD has 'attribute' container to add an attribute to any entity.
 
-More, it has 'attribute container' container to put all attributes in a organized container. There is no difference between putting all attributes into an 'entity' container and an 'attribute container' in terms of gem.
+EAD has 'attribute container' container to put all attributes in an organized container. There is no difference between putting all attributes into an 'entity' container and an 'attribute container' in terms of gem and generated result.
+
+EAD has 'entity container' container to put all entities in an organized container. There is no difference between putting all entities into any container and an 'entity container' in terms of gem and generated result.
+
+EAD has entity clones. Entity clones are referring real entities(simply entities).
+
 
 ## Warnings
 
 - The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', and 'account_histories', but space between words is not allowed.
 
-- EAD gem allows to using only one ':through' container inside of 'entity' container. This logic isn't implemented by EAD.
+- EAD gem allows to use only one ':through' container inside of 'entity' container. It is planned to fix this issue.
+
+## Edge Cases
+
+- The name of entities cannot contain space. But, there is only one exception. If, "has_many :through" association is used between clones of same entities, the middle entity should be 'one_entity || second_entity'. 
+
+![same entities has many trough EAD](./images/same_entities_has_many_trough.png)

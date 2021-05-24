@@ -217,13 +217,6 @@ const blockSlice = createSlice({
       return initialState;
     },
 
-    changeDragHandleClone: {
-      reducer: (state, { payload }) => {
-        state.dragHandleClone = payload.isClone;
-      },
-      prepare: (isClone) => ({ payload: { isClone } }),
-    },
-
     cloneItem: {
       reducer: (state, { payload }) => {
         const newItem = {
@@ -276,7 +269,6 @@ export const {
   updateDraggedItemId,
   resetState,
   installState,
-  changeDragHandleClone,
   cloneItem,
   idCountIncrease,
   toggleExpandAll,

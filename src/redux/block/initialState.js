@@ -139,7 +139,6 @@ const initialState = {
   },
   restrictedParentIds: [],
   disabledChildIds: [],
-  dragHandleClone: false,
   idCount: 11,
   expandAll: false,
 };

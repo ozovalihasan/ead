@@ -14,8 +14,6 @@ import {
   updateDraggedItemId,
   resetState,
   installState,
-  cloneItem,
-  changeDragHandleClone,
   idCountIncrease,
   toggleExpandAll,
 } from '../redux';
@@ -26,7 +24,7 @@ library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, f
 
 const App = () => {
   const {
-    items, dragDropCategory, dragHandleClone, idCount, expandAll,
+    items, dragDropCategory, idCount, expandAll,
   } = useSelector((state) => state.block);
 
   const startingId = 0;
@@ -53,20 +51,13 @@ const App = () => {
     } = result;
 
     if (!destination) {
-      if (!(items[draggableId].factory || dragHandleClone)) {
+      if (!(items[draggableId].factory)) {
         dispatch(removeItem(source.droppableId, source.index, draggableId));
       }
       return;
     }
 
     if (!checkDragDropCategory(draggableId, destination.droppableId)) {
-      return;
-    }
-
-    if (dragHandleClone) {
-      dispatch(cloneItem(draggableId, destination.droppableId, destination.index, idCount));
-      dispatch(changeDragHandleClone(false));
-      dispatch(idCountIncrease());
       return;
     }
 
@@ -138,6 +129,7 @@ const App = () => {
               ref={provided.innerRef}
             >
               <Model
+                parentId={startingId}
                 item={items[startingId]}
                 allItems={items}
                 index={startingId}

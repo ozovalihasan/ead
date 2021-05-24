@@ -8,19 +8,21 @@ import {
   changeContent,
   changeType,
   checkDirection,
+  cloneItem,
   expandItem,
+  idCountIncrease,
   updateRestrictedDropId,
-  changeDragHandleClone,
 } from '../redux';
 import colors from './colors';
 
 const Model = ({
+  parentId,
   item,
   allItems,
   checkDragDropCategory,
 }) => {
   const {
-    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds, expandAll,
+    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds, expandAll, idCount,
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
@@ -35,6 +37,11 @@ const Model = ({
       || restrictedParentIds.includes(id)
     )
   );
+
+  const handleClone = (id, index) => {
+    dispatch(cloneItem(id, parentId, index + 1, idCount));
+    dispatch(idCountIncrease());
+  };
 
   return (
     <SubContainer
@@ -64,21 +71,7 @@ const Model = ({
                 name="isRestrictedDrop"
               >
                 <TitleCheck>
-                  {
-                    !allItems[id].isDragDisabled
-                    && allItems[id].entity
-                    && !allItems[id].factory
-                    && (
-                      <HandleDrag
-                        {...providedDrag.dragHandleProps}
-                        title="Drag to clone this item"
-                        onMouseDown={() => dispatch(changeDragHandleClone(true))}
-                        isRestrictedDrag={isRestrictedDrag(id)}
-                      >
-                        <FontAwesomeIcon icon="clone" size="lg" />
-                      </HandleDrag>
-                    )
-                  }
+
                   {
                     allItems[id].isDragDisabled || (
                       <HandleDrag
@@ -88,6 +81,22 @@ const Model = ({
                       >
                         <FontAwesomeIcon icon="arrows-alt" size="lg" />
                       </HandleDrag>
+                    )
+                  }
+
+                  {
+                    !allItems[id].isDragDisabled
+                    && allItems[id].entity
+                    && !allItems[id].factory
+                    && (
+                      <CloneButton
+                        title="Drag to clone this entity"
+                        type="button"
+                        onClick={() => handleClone(id, parentId, index)}
+                        isRestrictedDrag={isRestrictedDrag(id)}
+                      >
+                        <FontAwesomeIcon icon="clone" size="lg" />
+                      </CloneButton>
                     )
                   }
 
@@ -215,6 +224,7 @@ const Model = ({
                         {(expandAll || allItems[id].expand)
                           ? (
                             <Model
+                              parentId={id}
                               item={allItems[id]}
                               allItems={allItems}
                               index={index}
@@ -265,10 +275,8 @@ const ModelInput = styled.input`
   margin: 0 3px;  
 `;
 
-const DirectionButton = styled.button`
+const ActionButton = styled.button`
   background-color: white;
-  background-color: white; 
-  border: 1px solid #1982C4;
   outline: none;
   width: 30px;
   height: 30px;
@@ -277,13 +285,22 @@ const DirectionButton = styled.button`
   align-items: center;
   justify-content: center;
   margin: 0 3px;
+`;
+
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-const RestrictedDrop = styled.button`
+const CloneButton = styled(ActionButton)`
+  border: 1px solid #1982C4;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
   color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
   background-color: white; 
   outline: none;
@@ -360,6 +377,7 @@ const Title = styled.h3`
 `;
 
 Model.propTypes = {
+  parentId: PropTypes.number.isRequired,
   item: PropTypes.shape().isRequired,
   allItems: PropTypes.shape().isRequired,
   checkDragDropCategory: PropTypes.func.isRequired,

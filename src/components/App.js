@@ -94,6 +94,15 @@ const App = () => {
         >
           Download EAD
         </Button>
+
+        <CompactMode
+          onClick={() => dispatch(toggleCompactMode())}
+          type="button"
+          compactMode={compactMode}
+        >
+          Compact Mode
+        </CompactMode>
+
         {compactMode
         || (
           <>
@@ -123,20 +132,12 @@ const App = () => {
             >
               Expand All
             </ExpandAllButton>
+
+            <GithubLink href="https://github.com/ozovalihasan/ead">
+              <FontAwesomeIcon icon={faGithub} size="2x" />
+            </GithubLink>
           </>
         )}
-
-        <CompactMode
-          onClick={() => dispatch(toggleCompactMode())}
-          type="button"
-          compactMode={compactMode}
-        >
-          Compact Mode
-        </CompactMode>
-
-        <GithubLink href="https://github.com/ozovalihasan/ead">
-          <FontAwesomeIcon icon={faGithub} size="2x" />
-        </GithubLink>
       </LogoButtons>
       <DragDropContext
         onDragStart={onDragStart}

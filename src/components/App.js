@@ -5,7 +5,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone,
 } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Model from './Model';
 import {
   removeItem,
@@ -20,7 +22,8 @@ import {
 import saveJSON from './saveJSON';
 import colors from './colors';
 
-library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone);
+library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH,
+  faEllipsisV, faFlag, faClone, faGithub);
 
 const App = () => {
   const {
@@ -116,6 +119,10 @@ const App = () => {
         >
           Expand All
         </ExpandAllButton>
+
+        <GithubLink href="https://github.com/ozovalihasan/ead">
+          <FontAwesomeIcon icon={faGithub} size="2x" />
+        </GithubLink>
       </LogoButtons>
       <DragDropContext
         onDragStart={onDragStart}
@@ -182,4 +189,12 @@ const ExpandAllButton = styled(Button)`
   background-color: ${(props) => (props.expandAll && colors.association)};
 `;
 
+const GithubLink = styled.a`
+  margin: 0 10px;
+  color: #000;
+
+  &:hover {
+    color: ${colors.chosen};
+  }
+`;
 export default App;

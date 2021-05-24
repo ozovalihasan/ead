@@ -74,7 +74,9 @@ const Model = ({
                 <TitleCheck>
 
                   {
-                    allItems[id].isDragDisabled || (
+                    allItems[id].isDragDisabled
+                    || compactMode
+                    || (
                       <HandleDrag
                         {...providedDrag.dragHandleProps}
                         title="Drag to move this item"

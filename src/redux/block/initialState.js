@@ -9,7 +9,6 @@ const initialState = {
       isDropDisabled: true,
       isDragDisabled: true,
       expand: true,
-      color: '#FFF',
     },
     1: {
       content: 'Elements',
@@ -20,7 +19,6 @@ const initialState = {
       isDragDisabled: true,
       expand: true,
       factory: true,
-      color: '#FFF',
       category: 'factory',
     },
     2: {
@@ -32,7 +30,6 @@ const initialState = {
       factory: true,
       association: true,
       expand: true,
-      color: '#C7FDED',
       category: 'association',
     },
     3: {
@@ -44,7 +41,6 @@ const initialState = {
       factory: true,
       association: true,
       expand: true,
-      color: '#C7FDED',
       category: 'association',
     },
     4: {
@@ -56,7 +52,6 @@ const initialState = {
       factory: true,
       association: true,
       expand: true,
-      color: '#C7FDED',
       category: 'association',
     },
     5: {
@@ -69,7 +64,6 @@ const initialState = {
       type: 'string',
       expand: true,
       attributeContainer: true,
-      color: '#AAFAE9',
       category: 'attributeContainer',
     },
     6: {
@@ -82,7 +76,6 @@ const initialState = {
       factory: true,
       type: 'string',
       expand: true,
-      color: '#AAFAE9',
       category: 'attribute',
     },
     7: {
@@ -94,7 +87,6 @@ const initialState = {
       entity: true,
       expand: true,
       isDropDisabled: true,
-      color: '#94F6EA',
       category: 'entity',
       cloneable: true,
       cloneChildren: [],
@@ -108,7 +100,6 @@ const initialState = {
       entityContainer: true,
       expand: true,
       isDropDisabled: true,
-      color: '#94F6EA',
       category: 'entityContainer',
     },
     9: {
@@ -118,7 +109,6 @@ const initialState = {
       subdirection: 'column',
       isDragDisabled: true,
       expand: true,
-      color: '#FFF',
       category: 'EAD',
     },
     10: {
@@ -130,7 +120,6 @@ const initialState = {
       entity: true,
       expand: true,
       isDropDisabled: false,
-      color: '#94F6EA',
       category: 'entity',
       cloneable: true,
       cloneChildren: [],

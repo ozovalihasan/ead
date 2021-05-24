@@ -209,7 +209,6 @@ describe('blockReducer', () => {
       expect(store.getState().block.items['11']).toStrictEqual({
         category: 'entityClone',
         cloneParent: 10,
-        color: 'orange',
         content: 'entity',
         entityClone: true,
         expand: true,

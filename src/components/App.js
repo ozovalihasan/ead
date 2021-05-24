@@ -20,6 +20,7 @@ import {
   toggleExpandAll,
 } from '../redux';
 import saveJSON from './saveJSON';
+import colors from './colors';
 
 library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone);
 
@@ -158,7 +159,7 @@ const MainContainer = styled.div`
 
 const Button = styled.button`
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid ${colors.disabled};
   background-color: transparent;
   margin: 10px;
   padding: 10px;
@@ -166,12 +167,12 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #C7FDED;
+    background-color: ${colors.association};
   }
 `;
 
 const ExpandAllButton = styled(Button)`
-  background-color: ${(props) => (props.expandAll && '#C7FDED')};
+  background-color: ${(props) => (props.expandAll && colors.association)};
 `;
 
 export default App;

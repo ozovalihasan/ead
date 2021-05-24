@@ -232,7 +232,6 @@ const blockSlice = createSlice({
           category: 'entityClone',
           entityClone: true,
           cloneParent: parseInt(payload.itemId, 10),
-          color: 'orange',
           parentId: parseInt(payload.containerId, 10),
           parentIndex: payload.containerIndex,
         };

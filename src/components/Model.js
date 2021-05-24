@@ -12,6 +12,7 @@ import {
   updateRestrictedDropId,
   changeDragHandleClone,
 } from '../redux';
+import colors from './colors';
 
 const Model = ({
   item,
@@ -57,7 +58,7 @@ const Model = ({
                 ref={providedDrag.innerRef}
                 isDragging={snapshot.isDragging}
                 isDraggingOver={snapshot.draggingOver}
-                backgroundColor={allItems[id].color}
+                backgroundColor={colors[allItems[id].category]}
                 isRestrictedDrag={isRestrictedDrag(id)}
                 isRestrictedDrop={restrictedDropId === id}
                 name="isRestrictedDrop"
@@ -311,7 +312,7 @@ const ExpandButton = styled.button`
   justify-content: center;
   border-radius: 50%;
   margin: 0 3px;
-  background-color: ${(props) => (props.expandAll && '#C7FDED')};
+  background-color: ${(props) => (props.expandAll && colors.association)};
 
   &:hover {
     cursor: pointer;
@@ -327,24 +328,24 @@ const HandleDrag = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.isRestrictedDrag && '#CFDBD5')};
+  background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
 `;
 
 const DropContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
-  background-color: ${(props) => (props.isDraggingOver ? '#F4FECD' : 'white')};
-  background-color: ${(props) => (props.isDropDisabled && '#CFDBD5')};
+  background-color: ${(props) => (props.isDraggingOver ? colors.suitable : colors.EAD)};
+  background-color: ${(props) => (props.isDropDisabled && colors.disabled)};
 
 `;
 const DragContainer = styled.div`
   padding: 2px;
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
-  background-color: ${(props) => (props.isDragging && '#F4FECD')};
-  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && '#F94144')};
-  background-color: ${(props) => (props.isRestrictedDrag && '#CFDBD5')};
-  background-color: ${(props) => (props.isRestrictedDrop && '#52C9CF')};
+  background-color: ${(props) => (props.isDragging && colors.suitable)};
+  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && colors.warning)};
+  background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
+  background-color: ${(props) => (props.isRestrictedDrop && colors.chosen)};
   border: 1px solid gray;
 `;
 

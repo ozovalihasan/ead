@@ -18,6 +18,7 @@ import {
   installState,
   idCountIncrease,
   toggleExpandAll,
+  toggleCompactMode,
 } from '../redux';
 import saveJSON from './saveJSON';
 import colors from './colors';
@@ -27,7 +28,7 @@ library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH,
 
 const App = () => {
   const {
-    items, dragDropCategory, idCount, expandAll,
+    items, dragDropCategory, idCount, expandAll, compactMode,
   } = useSelector((state) => state.block);
 
   const startingId = 0;
@@ -93,32 +94,45 @@ const App = () => {
         >
           Download EAD
         </Button>
-        <Button
-          onClick={() => dispatch(resetState())}
-          type="button"
-        >
-          Reset
-        </Button>
-        <Button
-          onClick={() => saveBlocks()}
-          type="button"
-        >
-          Save
-        </Button>
-        <Button
-          onClick={() => dispatch(installState())}
-          type="button"
-        >
-          Install Saved Data
-        </Button>
+        {compactMode
+        || (
+          <>
+            <Button
+              onClick={() => dispatch(resetState())}
+              type="button"
+            >
+              Reset
+            </Button>
+            <Button
+              onClick={() => saveBlocks()}
+              type="button"
+            >
+              Save
+            </Button>
+            <Button
+              onClick={() => dispatch(installState())}
+              type="button"
+            >
+              Install Saved Data
+            </Button>
 
-        <ExpandAllButton
-          onClick={() => dispatch(toggleExpandAll())}
+            <ExpandAllButton
+              onClick={() => dispatch(toggleExpandAll())}
+              type="button"
+              expandAll={expandAll}
+            >
+              Expand All
+            </ExpandAllButton>
+          </>
+        )}
+
+        <CompactMode
+          onClick={() => dispatch(toggleCompactMode())}
           type="button"
-          expandAll={expandAll}
+          compactMode={compactMode}
         >
-          Expand All
-        </ExpandAllButton>
+          Compact Mode
+        </CompactMode>
 
         <GithubLink href="https://github.com/ozovalihasan/ead">
           <FontAwesomeIcon icon={faGithub} size="2x" />
@@ -187,6 +201,10 @@ const Button = styled.button`
 
 const ExpandAllButton = styled(Button)`
   background-color: ${(props) => (props.expandAll && colors.association)};
+`;
+
+const CompactMode = styled(Button)`
+  background-color: ${(props) => (props.compactMode && colors.association)};
 `;
 
 const GithubLink = styled.a`

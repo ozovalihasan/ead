@@ -141,6 +141,7 @@ const initialState = {
   disabledChildIds: [],
   idCount: 11,
   expandAll: false,
+  compactMode: false,
 };
 
 export default initialState;

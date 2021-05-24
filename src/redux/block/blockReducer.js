@@ -251,6 +251,8 @@ const blockSlice = createSlice({
 
     toggleExpandAll: (state) => { state.expandAll = !state.expandAll; },
 
+    toggleCompactMode: (state) => { state.compactMode = !state.compactMode; },
+
   },
 
 });
@@ -272,6 +274,7 @@ export const {
   cloneItem,
   idCountIncrease,
   toggleExpandAll,
+  toggleCompactMode,
 } = actions;
 
 export default reducer;

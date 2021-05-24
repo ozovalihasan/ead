@@ -22,7 +22,8 @@ const Model = ({
   checkDragDropCategory,
 }) => {
   const {
-    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds, expandAll, idCount,
+    restrictedDropId, draggedItemId, restrictedParentIds,
+    disabledChildIds, expandAll, idCount, compactMode,
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
@@ -104,6 +105,7 @@ const Model = ({
                     allItems[id].factory
                     || allItems[id].attribute
                     || allItems[id].isDragDisabled
+                    || compactMode
                     || (
                       <ExpandButton
                         name="expand"
@@ -121,6 +123,7 @@ const Model = ({
                   {
                     !(allItems[id].factory
                       || allItems[id].attribute
+                      || compactMode
                     )
                     && (
                       <DirectionButton

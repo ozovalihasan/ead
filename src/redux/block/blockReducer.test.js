@@ -14,7 +14,6 @@ import blockReducer, {
   resetState,
   installState,
   cloneItem,
-  changeDragHandleClone,
   idCountIncrease,
   toggleExpandAll,
 } from './blockReducer';
@@ -190,15 +189,6 @@ describe('blockReducer', () => {
     it('install saved state from localStorage', () => {
       store.dispatch(installState());
       expect(store.getState()).toStrictEqual({ block: 'mockBlock' });
-    });
-  });
-
-  describe('changeDragHandleClone', () => {
-    it('changes dragHandleClone', () => {
-      store.dispatch(changeDragHandleClone(true));
-      expect(store.getState().block.dragHandleClone).toBe(true);
-      store.dispatch(changeDragHandleClone(false));
-      expect(store.getState().block.dragHandleClone).toBe(false);
     });
   });
 

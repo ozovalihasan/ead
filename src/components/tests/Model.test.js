@@ -96,6 +96,17 @@ describe('blockReducer', () => {
       expect(store.dispatch.mock.calls[0][0].type).toBe('block/updateRestrictedDropId');
     });
 
+    it('renders a button to dispatch with block/cloneItem and block/idCountIncrease', () => {
+      render(renderReadyComponent);
+      expect(store.dispatch).toHaveBeenCalledTimes(0);
+
+      userEvent.click(screen.getAllByTitle(/Click to clone this entity/i)[0]);
+
+      expect(store.dispatch).toHaveBeenCalledTimes(2);
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/cloneItem');
+      expect(store.dispatch.mock.calls[1][0].type).toBe('block/idCountIncrease');
+    });
+
     it("doesn't render the rest part of any item if item.expand is false", () => {
       items['10'].expand = false;
       render(

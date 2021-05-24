@@ -44,6 +44,7 @@ describe('blockReducer', () => {
                 ref={provided.innerRef}
               >
                 <Model
+                  parentId={startingId}
                   item={items[startingId]}
                   allItems={items}
                   index={startingId}
@@ -121,6 +122,7 @@ describe('blockReducer', () => {
                   ref={provided.innerRef}
                 >
                   <Model
+                    parentId={startingId}
                     item={items[startingId]}
                     allItems={items}
                     index={startingId}

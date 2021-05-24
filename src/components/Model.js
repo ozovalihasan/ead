@@ -276,7 +276,7 @@ const ModelInput = styled.input`
 `;
 
 const ActionButton = styled.button`
-  background-color: white;
+  background-color: white; 
   outline: none;
   width: 30px;
   height: 30px;
@@ -287,6 +287,8 @@ const ActionButton = styled.button`
   margin: 0 3px;
 `;
 
+const DirectionButton = styled(ActionButton)`
+  border: 1px solid #1982C4;
 
   &:hover {
     cursor: pointer;
@@ -301,34 +303,19 @@ const CloneButton = styled(ActionButton)`
   }
 `;
 
+const RestrictedDrop = styled(ActionButton)`
   color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
-  background-color: white; 
-  outline: none;
   border-radius: 10px;
   border: #CCC5B9 solid 4px;
   margin: 0 4px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &:hover{
     cursor: pointer;
   }
 `;
 
-const ExpandButton = styled.button`
-  background-color: white; 
+const ExpandButton = styled(ActionButton)`
   border: 1px solid #FFCA3A;
-  outline: none;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 3px;
   background-color: ${(props) => (props.expandAll && colors.association)};
 
   &:hover {
@@ -336,15 +323,9 @@ const ExpandButton = styled.button`
   }
 `;
 
-const HandleDrag = styled.button`
-  background-color: white;
+const HandleDrag = styled(ActionButton)`
   border: 1px solid #8AC926;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 5px;
   background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
 `;
 

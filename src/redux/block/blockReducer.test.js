@@ -16,6 +16,7 @@ import blockReducer, {
   cloneItem,
   idCountIncrease,
   toggleExpandAll,
+  toggleCompactMode,
 } from './blockReducer';
 
 jest.mock('./initialState', () => {
@@ -229,6 +230,16 @@ describe('blockReducer', () => {
       expect(store.getState().block.expandAll).toBe(true);
       store.dispatch(toggleExpandAll());
       expect(store.getState().block.expandAll).toBe(false);
+    });
+  });
+
+  describe('toggleCompactMode', () => {
+    it('toggles compactMode', () => {
+      expect(store.getState().block.compactMode).toBe(false);
+      store.dispatch(toggleCompactMode());
+      expect(store.getState().block.compactMode).toBe(true);
+      store.dispatch(toggleCompactMode());
+      expect(store.getState().block.compactMode).toBe(false);
     });
   });
 });

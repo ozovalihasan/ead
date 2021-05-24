@@ -112,6 +112,13 @@ describe('blockReducer', () => {
       expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleExpandAll');
     });
 
+    it('dispatches toggleCompactMode action if \'Compact Mode\' button is clicked', () => {
+      render(renderReadyComponent);
+      userEvent.click(screen.getByText('Compact Mode'));
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleCompactMode');
+    });
+
     it('renders correctly', () => {
       const renderedContainer = render(renderReadyComponent);
       expect(renderedContainer).toMatchSnapshot();

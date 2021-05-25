@@ -1,4 +1,3 @@
-
 Entity Association Diagram
 ==========================
 
@@ -184,7 +183,7 @@ end
 
 ```
 
-WARNING: The official Ruby on Rails documentation suggesting one more feature of `has_many :through` as "shortcut" for nested `has_many` associations. But, this feature should be added manually for nest `has_many` associations.
+WARNING: The official Ruby on Rails documentation is suggesting one more feature of `has_many :through` as "shortcut" for nested `has_many` associations. But, this feature should be added manually for nest `has_many` associations.
 
 ### The `has_one :through` Association
 
@@ -332,25 +331,109 @@ class CreateEmployees < ActiveRecord::Migration[6.1]
 end
 
 ```
+
 ## Extra Features
 
-EAD has 'attribute' container to add an attribute to any entity.
+EAD has 'attribute' block to add an attribute to any entity.
 
-EAD has 'attribute container' container to put all attributes in an organized container. There is no difference between putting all attributes into an 'entity' container and an 'attribute container' in terms of gem and generated result.
+EAD has 'attribute container' block to put all attributes in an organized block. There is no difference between putting all attributes into an 'entity' block and an 'attribute block' in terms of gem and generated results.
 
-EAD has 'entity container' container to put all entities in an organized container. There is no difference between putting all entities into any container and an 'entity container' in terms of gem and generated result.
+EAD has 'entity container' block to put all entities in an organized block. There is no difference between putting all entities into any block and an 'entity block' in terms of gem and generated results.
 
-EAD has entity clones. Entity clones are referring real entities(simply entities).
+## Entity Clones
+
+There is no difference between a clone and real entities if their names are the same for the gem.
+
+![same names of real and clone entities EAD](./images/clone-and-real.png)
+
+Clones are used to reference real entities.
 
 
+- Model and migration files are generated for name real and clone names;
+
+  ![same names of real and clone entities in an association EAD](./images/same-name-clone-real.png)
+
+  ```ruby
+  class User < ApplicationRecord
+    has_many :relations
+  end
+
+  class Relation < ApplicationRecord
+    belongs_to :user 
+  end
+
+  class CreateUsers < ActiveRecord::Migration[6.1]
+    def change
+      create_table :users do |t|
+
+        t.timestamps
+      end
+    end
+  end
+
+  class CreateRelations < ActiveRecord::Migration[6.1]
+    def change
+      create_table :relations do |t|
+        t.references :user, null: false, foreign_key: true 
+
+        t.timestamps
+      end
+    end
+  end
+  ```
+
+- Model and migration files are generated for different real and clone entity names;
+
+  ![different names of real and clone entities in an association EAD](./images/different-name-clone-real.png)
+
+  ```ruby
+  class User < ApplicationRecord
+    has_many :following_relations, class_name: "Relation", foreign_key: "famous_person_id"
+  end
+
+  class Relation < ApplicationRecord
+    belongs_to :famous_person , class_name: "User"
+  end
+
+  class CreateUsers < ActiveRecord::Migration[6.1]
+    def change
+      create_table :users do |t|
+
+        t.timestamps
+      end
+    end
+  end
+
+  class CreateRelations < ActiveRecord::Migration[6.1]
+    def change
+      create_table :relations do |t|
+        t.references :famous_person, null: false, foreign_key: { to_table: :users }
+
+        t.timestamps
+      end
+    end
+  end
+  ```
+
+## Delete Blocks
+
+A dragged block is deleted if it is not paired with another block. They are shown with ![removed block](./images/red.png). 
 ## Warnings
 
-- The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', and 'account_histories', but space between words is not allowed.
+⚠️ The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
 
-- EAD gem allows to use only one ':through' container inside of 'entity' container. It is planned to fix this issue.
+⚠️ EAD gem allows using only one ':through' block inside of 'entity' block. It is planned to fix this issue.
+
+⚠️⚠️⚠️ If any real entity is put into one of its clones, it may cause different problems(For example, deleting a real entity inside of one of its clones breaks EAD). It is planned to fix this issue with the next versions.
+
+## Suggested Approach
+
+It is highly suggested to put all real entities into one block and use clones for associations. But, this approach isn't mandatory.
+
+![suggested approach EAD](./images/separate-blocks.png)
 
 ## Edge Cases
 
-- The name of entities cannot contain space. But, there is only one exception. If, "has_many :through" association is used between clones of same entities, the middle entity should be 'one_entity || second_entity'. 
+- The name of entities cannot contain space. But, there is only one exception. If, "has_many :through" association is used between clones of the same entities, the middle entity should be 'one_entity || second_entity'. 
 
 ![same entities has many trough EAD](./images/same_entities_has_many_trough.png)

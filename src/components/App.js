@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag,
+  faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone,
 } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Model from './Model';
 import {
   removeItem,
@@ -14,21 +16,20 @@ import {
   updateDraggedItemId,
   resetState,
   installState,
+  idCountIncrease,
+  toggleExpandAll,
+  toggleCompactMode,
 } from '../redux';
 import saveJSON from './saveJSON';
+import colors from './colors';
 
-library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag);
+library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH,
+  faEllipsisV, faFlag, faClone, faGithub);
 
 const App = () => {
-  const { items, dragDropCategory } = useSelector((state) => state.block);
-
-  const [idCount, setIdCount] = useState(
-    Math.max(...Object.keys(items).map((item) => parseInt(item, 10))) + 1,
-  );
-
-  const idCountIncrease = () => {
-    setIdCount((prevIdCount) => prevIdCount + 1);
-  };
+  const {
+    items, dragDropCategory, idCount, expandAll, compactMode,
+  } = useSelector((state) => state.block);
 
   const startingId = 0;
   const dispatch = useDispatch();
@@ -69,9 +70,9 @@ const App = () => {
       if (items[draggableId].association) {
         const entityId = 7;
         dispatch(addItem(entityId, idCount, destination.index, idCount + 1));
-        idCountIncrease();
+        dispatch(idCountIncrease());
       }
-      idCountIncrease();
+      dispatch(idCountIncrease());
       return;
     }
     dispatch(moveItem(
@@ -85,30 +86,59 @@ const App = () => {
 
   return (
     <MainContainer className="App">
-      <Button
-        onClick={() => saveJSON(items, 'EAD.json')}
-        type="button"
-      >
-        Download EAD
-      </Button>
-      <Button
-        onClick={() => dispatch(resetState())}
-        type="button"
-      >
-        Reset
-      </Button>
-      <Button
-        onClick={() => saveBlocks()}
-        type="button"
-      >
-        Save
-      </Button>
-      <Button
-        onClick={() => dispatch(installState())}
-        type="button"
-      >
-        Install Saved Data
-      </Button>
+      <LogoButtons>
+        <Logo src={`${process.env.PUBLIC_URL}/images/ead-logo.svg`} alt="EAD logo" />
+        <Button
+          onClick={() => saveJSON(items, 'EAD.json')}
+          type="button"
+        >
+          Download EAD
+        </Button>
+
+        <CompactMode
+          onClick={() => dispatch(toggleCompactMode())}
+          type="button"
+          compactMode={compactMode}
+        >
+          Compact Mode
+        </CompactMode>
+
+        {compactMode
+        || (
+          <>
+            <Button
+              onClick={() => dispatch(resetState())}
+              type="button"
+            >
+              Reset
+            </Button>
+            <Button
+              onClick={() => saveBlocks()}
+              type="button"
+            >
+              Save
+            </Button>
+            <Button
+              onClick={() => dispatch(installState())}
+              type="button"
+            >
+              Install Saved Data
+            </Button>
+
+            <ExpandAllButton
+              onClick={() => dispatch(toggleExpandAll())}
+              type="button"
+              expandAll={expandAll}
+            >
+              Expand All
+            </ExpandAllButton>
+
+            <GithubLink href="https://github.com/ozovalihasan/ead">
+              <FontAwesomeIcon icon={faGithub} size="2x" />
+            </GithubLink>
+          </>
+        )}
+      </LogoButtons>
       <DragDropContext
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -125,6 +155,7 @@ const App = () => {
               ref={provided.innerRef}
             >
               <Model
+                parentId={startingId}
                 item={items[startingId]}
                 allItems={items}
                 index={startingId}
@@ -144,9 +175,20 @@ const MainContainer = styled.div`
   font-family: Arial, Helvetica, sans-serif;
 `;
 
+const LogoButtons = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  width: 60px;
+  padding-right: 40px;
+`;
+
 const Button = styled.button`
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid ${colors.disabled};
   background-color: transparent;
   margin: 10px;
   padding: 10px;
@@ -154,7 +196,24 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #C7FDED;
+    background-color: ${colors.association};
+  }
+`;
+
+const ExpandAllButton = styled(Button)`
+  background-color: ${(props) => (props.expandAll && colors.association)};
+`;
+
+const CompactMode = styled(Button)`
+  background-color: ${(props) => (props.compactMode && colors.association)};
+`;
+
+const GithubLink = styled.a`
+  margin: 0 10px;
+  color: #000;
+
+  &:hover {
+    color: ${colors.chosen};
   }
 `;
 export default App;

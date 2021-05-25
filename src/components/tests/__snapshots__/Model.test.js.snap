@@ -34,21 +34,27 @@ Object {
       id="rbd-announcement-4"
       style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
     />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-5"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
     <div>
       <div
-        data-rbd-droppable-context-id="5"
+        data-rbd-droppable-context-id="6"
         data-rbd-droppable-id="OuterDrop"
       >
         <div
-          class="sc-pVTma cupJbn"
+          class="sc-kDThTU cHvQFr"
           data-testid="subContainer"
         >
           <div
             class="sc-bdvvaa iuYcCd"
           >
             <div
-              class="sc-furvIG bbXKyU"
-              data-rbd-draggable-context-id="5"
+              class="sc-jrQzUz gyRIjx"
+              data-rbd-draggable-context-id="6"
               data-rbd-draggable-id="1"
               name="isRestrictedDrop"
             >
@@ -56,29 +62,29 @@ Object {
                 class="sc-gsDJrp blhZhJ"
               >
                 <h3
-                  class="sc-jrQzUz fdGtSQ"
+                  class="sc-iqsfdx cuTrvZ"
                 >
                   Elements
                 </h3>
               </div>
               <div
-                class="sc-iCfLBT ctdPAZ"
-                data-rbd-droppable-context-id="5"
+                class="sc-pVTma bWSGYz"
+                data-rbd-droppable-context-id="6"
                 data-rbd-droppable-id="1"
               >
                 <div
-                  class="sc-pVTma eSSWiK"
+                  class="sc-kDThTU gUNvOy"
                   data-testid="subContainer"
                 >
                   <div
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG fHbyNZ"
-                      data-rbd-drag-handle-context-id="5"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz eiwoxU"
+                      data-rbd-drag-handle-context-id="6"
                       data-rbd-drag-handle-draggable-id="2"
-                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-context-id="6"
                       data-rbd-draggable-id="2"
                       draggable="false"
                       name="isRestrictedDrop"
@@ -89,9 +95,9 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
                           data-rbd-drag-handle-draggable-id="2"
                           draggable="false"
                           role="button"
@@ -115,18 +121,18 @@ Object {
                           </svg>
                         </button>
                         <h3
-                          class="sc-jrQzUz fdGtSQ"
+                          class="sc-iqsfdx cuTrvZ"
                         >
                           has_many
                         </h3>
                       </div>
                       <div
-                        class="sc-iCfLBT ctdPAZ"
-                        data-rbd-droppable-context-id="5"
+                        class="sc-pVTma bWSGYz"
+                        data-rbd-droppable-context-id="6"
                         data-rbd-droppable-id="2"
                       >
                         <div
-                          class="sc-pVTma eSSWiK"
+                          class="sc-kDThTU gUNvOy"
                           data-testid="subContainer"
                         />
                       </div>
@@ -136,11 +142,11 @@ Object {
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG fHbyNZ"
-                      data-rbd-drag-handle-context-id="5"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz eiwoxU"
+                      data-rbd-drag-handle-context-id="6"
                       data-rbd-drag-handle-draggable-id="3"
-                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-context-id="6"
                       data-rbd-draggable-id="3"
                       draggable="false"
                       name="isRestrictedDrop"
@@ -151,9 +157,9 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
                           data-rbd-drag-handle-draggable-id="3"
                           draggable="false"
                           role="button"
@@ -177,18 +183,18 @@ Object {
                           </svg>
                         </button>
                         <h3
-                          class="sc-jrQzUz fdGtSQ"
+                          class="sc-iqsfdx cuTrvZ"
                         >
                           has_one
                         </h3>
                       </div>
                       <div
-                        class="sc-iCfLBT ctdPAZ"
-                        data-rbd-droppable-context-id="5"
+                        class="sc-pVTma bWSGYz"
+                        data-rbd-droppable-context-id="6"
                         data-rbd-droppable-id="3"
                       >
                         <div
-                          class="sc-pVTma eSSWiK"
+                          class="sc-kDThTU gUNvOy"
                           data-testid="subContainer"
                         />
                       </div>
@@ -198,11 +204,11 @@ Object {
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG fHbyNZ"
-                      data-rbd-drag-handle-context-id="5"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz eiwoxU"
+                      data-rbd-drag-handle-context-id="6"
                       data-rbd-drag-handle-draggable-id="4"
-                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-context-id="6"
                       data-rbd-draggable-id="4"
                       draggable="false"
                       name="isRestrictedDrop"
@@ -213,9 +219,9 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
                           data-rbd-drag-handle-draggable-id="4"
                           draggable="false"
                           role="button"
@@ -239,18 +245,18 @@ Object {
                           </svg>
                         </button>
                         <h3
-                          class="sc-jrQzUz fdGtSQ"
+                          class="sc-iqsfdx cuTrvZ"
                         >
                           :through
                         </h3>
                       </div>
                       <div
-                        class="sc-iCfLBT ctdPAZ"
-                        data-rbd-droppable-context-id="5"
+                        class="sc-pVTma bWSGYz"
+                        data-rbd-droppable-context-id="6"
                         data-rbd-droppable-id="4"
                       >
                         <div
-                          class="sc-pVTma eSSWiK"
+                          class="sc-kDThTU gUNvOy"
                           data-testid="subContainer"
                         />
                       </div>
@@ -260,11 +266,11 @@ Object {
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG cvyqgB"
-                      data-rbd-drag-handle-context-id="5"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz fKQoYU"
+                      data-rbd-drag-handle-context-id="6"
                       data-rbd-drag-handle-draggable-id="5"
-                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-context-id="6"
                       data-rbd-draggable-id="5"
                       draggable="false"
                       name="isRestrictedDrop"
@@ -275,9 +281,9 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
                           data-rbd-drag-handle-draggable-id="5"
                           draggable="false"
                           role="button"
@@ -301,18 +307,18 @@ Object {
                           </svg>
                         </button>
                         <h3
-                          class="sc-jrQzUz fdGtSQ"
+                          class="sc-iqsfdx cuTrvZ"
                         >
                           attribute container
                         </h3>
                       </div>
                       <div
-                        class="sc-iCfLBT ctdPAZ"
-                        data-rbd-droppable-context-id="5"
+                        class="sc-pVTma bWSGYz"
+                        data-rbd-droppable-context-id="6"
                         data-rbd-droppable-id="5"
                       >
                         <div
-                          class="sc-pVTma irRLai"
+                          class="sc-kDThTU lnfdpy"
                           data-testid="subContainer"
                         />
                       </div>
@@ -322,11 +328,11 @@ Object {
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG cvyqgB"
-                      data-rbd-drag-handle-context-id="5"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz fKQoYU"
+                      data-rbd-drag-handle-context-id="6"
                       data-rbd-drag-handle-draggable-id="6"
-                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-context-id="6"
                       data-rbd-draggable-id="6"
                       draggable="false"
                       name="isRestrictedDrop"
@@ -337,9 +343,9 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
                           data-rbd-drag-handle-draggable-id="6"
                           draggable="false"
                           role="button"
@@ -363,7 +369,7 @@ Object {
                           </svg>
                         </button>
                         <h3
-                          class="sc-jrQzUz fdGtSQ"
+                          class="sc-iqsfdx cuTrvZ"
                         >
                           attribute
                         </h3>
@@ -441,11 +447,11 @@ Object {
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG dpkDbn"
-                      data-rbd-drag-handle-context-id="5"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz ezjtJO"
+                      data-rbd-drag-handle-context-id="6"
                       data-rbd-drag-handle-draggable-id="7"
-                      data-rbd-draggable-context-id="5"
+                      data-rbd-draggable-context-id="6"
                       data-rbd-draggable-id="7"
                       draggable="false"
                       name="isRestrictedDrop"
@@ -456,9 +462,9 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
                           data-rbd-drag-handle-draggable-id="7"
                           draggable="false"
                           role="button"
@@ -482,18 +488,80 @@ Object {
                           </svg>
                         </button>
                         <h3
-                          class="sc-jrQzUz fdGtSQ"
+                          class="sc-iqsfdx cuTrvZ"
                         >
                           entity
                         </h3>
                       </div>
                       <div
-                        class="sc-iCfLBT ctdPAZ"
-                        data-rbd-droppable-context-id="5"
+                        class="sc-pVTma bWSGYz"
+                        data-rbd-droppable-context-id="6"
                         data-rbd-droppable-id="7"
                       >
                         <div
-                          class="sc-pVTma irRLai"
+                          class="sc-kDThTU lnfdpy"
+                          data-testid="subContainer"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="sc-bdvvaa iuYcCd"
+                  >
+                    <div
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz ezjtJO"
+                      data-rbd-drag-handle-context-id="6"
+                      data-rbd-drag-handle-draggable-id="8"
+                      data-rbd-draggable-context-id="6"
+                      data-rbd-draggable-id="8"
+                      draggable="false"
+                      name="isRestrictedDrop"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="sc-gsDJrp blhZhJ"
+                      >
+                        <button
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
+                          data-rbd-drag-handle-draggable-id="8"
+                          draggable="false"
+                          role="button"
+                          tabindex="0"
+                          title="Drag to move this item"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                            data-icon="arrows-alt"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <h3
+                          class="sc-iqsfdx cuTrvZ"
+                        >
+                          entity container
+                        </h3>
+                      </div>
+                      <div
+                        class="sc-pVTma bWSGYz"
+                        data-rbd-droppable-context-id="6"
+                        data-rbd-droppable-id="8"
+                      >
+                        <div
+                          class="sc-kDThTU lnfdpy"
                           data-testid="subContainer"
                         />
                       </div>
@@ -507,16 +575,16 @@ Object {
             class="sc-bdvvaa iuYcCd"
           >
             <div
-              class="sc-furvIG bbXKyU"
-              data-rbd-draggable-context-id="5"
-              data-rbd-draggable-id="8"
+              class="sc-jrQzUz gyRIjx"
+              data-rbd-draggable-context-id="6"
+              data-rbd-draggable-id="9"
               name="isRestrictedDrop"
             >
               <div
                 class="sc-gsDJrp blhZhJ"
               >
                 <button
-                  class="sc-hKwCoD ctGUmD"
+                  class="sc-hKwCoD sc-eCImvq noWg WBsNE"
                   name="direction"
                   title="Align items vertically or horizontally"
                   type="button"
@@ -538,12 +606,12 @@ Object {
                   </svg>
                 </button>
                 <h3
-                  class="sc-jrQzUz fdGtSQ"
+                  class="sc-iqsfdx cuTrvZ"
                 >
                   EAD
                 </h3>
                 <button
-                  class="sc-eCImvq jYSOg"
+                  class="sc-hKwCoD sc-gKckTs noWg dJURoy"
                   title="Click to drop any item into this element"
                   type="button"
                 >
@@ -565,24 +633,24 @@ Object {
                 </button>
               </div>
               <div
-                class="sc-iCfLBT bSlkzM"
-                data-rbd-droppable-context-id="5"
-                data-rbd-droppable-id="8"
+                class="sc-pVTma kkHOki"
+                data-rbd-droppable-context-id="6"
+                data-rbd-droppable-id="9"
               >
                 <div
-                  class="sc-pVTma dbWbZb"
+                  class="sc-kDThTU fzvZeH"
                   data-testid="subContainer"
                 >
                   <div
                     class="sc-bdvvaa iuYcCd"
                   >
                     <div
-                      aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                      class="sc-furvIG dpkDbn"
-                      data-rbd-drag-handle-context-id="5"
-                      data-rbd-drag-handle-draggable-id="9"
-                      data-rbd-draggable-context-id="5"
-                      data-rbd-draggable-id="9"
+                      aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                      class="sc-jrQzUz ezjtJO"
+                      data-rbd-drag-handle-context-id="6"
+                      data-rbd-drag-handle-draggable-id="10"
+                      data-rbd-draggable-context-id="6"
+                      data-rbd-draggable-id="10"
                       draggable="false"
                       name="isRestrictedDrop"
                       role="button"
@@ -592,10 +660,10 @@ Object {
                         class="sc-gsDJrp blhZhJ"
                       >
                         <button
-                          aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                          class="sc-gKckTs inFpSx"
-                          data-rbd-drag-handle-context-id="5"
-                          data-rbd-drag-handle-draggable-id="9"
+                          aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                          class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                          data-rbd-drag-handle-context-id="6"
+                          data-rbd-drag-handle-draggable-id="10"
                           draggable="false"
                           role="button"
                           tabindex="0"
@@ -618,7 +686,28 @@ Object {
                           </svg>
                         </button>
                         <button
-                          class="sc-jRQAMF kceyOf"
+                          class="sc-hKwCoD sc-jRQAMF noWg bmRimC"
+                          title="Clone this entity"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="svg-inline--fa fa-clone fa-w-16 fa-lg "
+                            data-icon="clone"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M464 0c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48H176c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h288M176 416c-44.112 0-80-35.888-80-80V128H48c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-48H176z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          class="sc-hKwCoD sc-iCfLBT noWg LVlVo"
                           name="expand"
                           title="Expand or shrink this item"
                           type="button"
@@ -640,7 +729,7 @@ Object {
                           </svg>
                         </button>
                         <button
-                          class="sc-hKwCoD ctGUmD"
+                          class="sc-hKwCoD sc-eCImvq noWg WBsNE"
                           name="direction"
                           title="Align items vertically or horizontally"
                           type="button"
@@ -667,7 +756,7 @@ Object {
                           value="entity"
                         />
                         <button
-                          class="sc-eCImvq jYSOg"
+                          class="sc-hKwCoD sc-gKckTs noWg dJURoy"
                           title="Click to drop any item into this element"
                           type="button"
                         >
@@ -689,12 +778,12 @@ Object {
                         </button>
                       </div>
                       <div
-                        class="sc-iCfLBT bSlkzM"
-                        data-rbd-droppable-context-id="5"
-                        data-rbd-droppable-id="9"
+                        class="sc-pVTma kkHOki"
+                        data-rbd-droppable-context-id="6"
+                        data-rbd-droppable-id="10"
                       >
                         <div
-                          class="sc-pVTma cupJbn"
+                          class="sc-kDThTU cHvQFr"
                           data-testid="subContainer"
                         />
                       </div>
@@ -710,11 +799,11 @@ Object {
     <div
       aria-atomic="true"
       aria-live="assertive"
-      id="rbd-announcement-5"
+      id="rbd-announcement-6"
       style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
     />
     <div
-      id="rbd-hidden-text-5-hidden-text-95"
+      id="rbd-hidden-text-6-hidden-text-126"
       style="display: none;"
     >
       
@@ -726,19 +815,19 @@ Object {
   </body>,
   "container": <div>
     <div
-      data-rbd-droppable-context-id="5"
+      data-rbd-droppable-context-id="6"
       data-rbd-droppable-id="OuterDrop"
     >
       <div
-        class="sc-pVTma cupJbn"
+        class="sc-kDThTU cHvQFr"
         data-testid="subContainer"
       >
         <div
           class="sc-bdvvaa iuYcCd"
         >
           <div
-            class="sc-furvIG bbXKyU"
-            data-rbd-draggable-context-id="5"
+            class="sc-jrQzUz gyRIjx"
+            data-rbd-draggable-context-id="6"
             data-rbd-draggable-id="1"
             name="isRestrictedDrop"
           >
@@ -746,29 +835,29 @@ Object {
               class="sc-gsDJrp blhZhJ"
             >
               <h3
-                class="sc-jrQzUz fdGtSQ"
+                class="sc-iqsfdx cuTrvZ"
               >
                 Elements
               </h3>
             </div>
             <div
-              class="sc-iCfLBT ctdPAZ"
-              data-rbd-droppable-context-id="5"
+              class="sc-pVTma bWSGYz"
+              data-rbd-droppable-context-id="6"
               data-rbd-droppable-id="1"
             >
               <div
-                class="sc-pVTma eSSWiK"
+                class="sc-kDThTU gUNvOy"
                 data-testid="subContainer"
               >
                 <div
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG fHbyNZ"
-                    data-rbd-drag-handle-context-id="5"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz eiwoxU"
+                    data-rbd-drag-handle-context-id="6"
                     data-rbd-drag-handle-draggable-id="2"
-                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-context-id="6"
                     data-rbd-draggable-id="2"
                     draggable="false"
                     name="isRestrictedDrop"
@@ -779,9 +868,9 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
                         data-rbd-drag-handle-draggable-id="2"
                         draggable="false"
                         role="button"
@@ -805,18 +894,18 @@ Object {
                         </svg>
                       </button>
                       <h3
-                        class="sc-jrQzUz fdGtSQ"
+                        class="sc-iqsfdx cuTrvZ"
                       >
                         has_many
                       </h3>
                     </div>
                     <div
-                      class="sc-iCfLBT ctdPAZ"
-                      data-rbd-droppable-context-id="5"
+                      class="sc-pVTma bWSGYz"
+                      data-rbd-droppable-context-id="6"
                       data-rbd-droppable-id="2"
                     >
                       <div
-                        class="sc-pVTma eSSWiK"
+                        class="sc-kDThTU gUNvOy"
                         data-testid="subContainer"
                       />
                     </div>
@@ -826,11 +915,11 @@ Object {
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG fHbyNZ"
-                    data-rbd-drag-handle-context-id="5"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz eiwoxU"
+                    data-rbd-drag-handle-context-id="6"
                     data-rbd-drag-handle-draggable-id="3"
-                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-context-id="6"
                     data-rbd-draggable-id="3"
                     draggable="false"
                     name="isRestrictedDrop"
@@ -841,9 +930,9 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
                         data-rbd-drag-handle-draggable-id="3"
                         draggable="false"
                         role="button"
@@ -867,18 +956,18 @@ Object {
                         </svg>
                       </button>
                       <h3
-                        class="sc-jrQzUz fdGtSQ"
+                        class="sc-iqsfdx cuTrvZ"
                       >
                         has_one
                       </h3>
                     </div>
                     <div
-                      class="sc-iCfLBT ctdPAZ"
-                      data-rbd-droppable-context-id="5"
+                      class="sc-pVTma bWSGYz"
+                      data-rbd-droppable-context-id="6"
                       data-rbd-droppable-id="3"
                     >
                       <div
-                        class="sc-pVTma eSSWiK"
+                        class="sc-kDThTU gUNvOy"
                         data-testid="subContainer"
                       />
                     </div>
@@ -888,11 +977,11 @@ Object {
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG fHbyNZ"
-                    data-rbd-drag-handle-context-id="5"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz eiwoxU"
+                    data-rbd-drag-handle-context-id="6"
                     data-rbd-drag-handle-draggable-id="4"
-                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-context-id="6"
                     data-rbd-draggable-id="4"
                     draggable="false"
                     name="isRestrictedDrop"
@@ -903,9 +992,9 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
                         data-rbd-drag-handle-draggable-id="4"
                         draggable="false"
                         role="button"
@@ -929,18 +1018,18 @@ Object {
                         </svg>
                       </button>
                       <h3
-                        class="sc-jrQzUz fdGtSQ"
+                        class="sc-iqsfdx cuTrvZ"
                       >
                         :through
                       </h3>
                     </div>
                     <div
-                      class="sc-iCfLBT ctdPAZ"
-                      data-rbd-droppable-context-id="5"
+                      class="sc-pVTma bWSGYz"
+                      data-rbd-droppable-context-id="6"
                       data-rbd-droppable-id="4"
                     >
                       <div
-                        class="sc-pVTma eSSWiK"
+                        class="sc-kDThTU gUNvOy"
                         data-testid="subContainer"
                       />
                     </div>
@@ -950,11 +1039,11 @@ Object {
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG cvyqgB"
-                    data-rbd-drag-handle-context-id="5"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz fKQoYU"
+                    data-rbd-drag-handle-context-id="6"
                     data-rbd-drag-handle-draggable-id="5"
-                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-context-id="6"
                     data-rbd-draggable-id="5"
                     draggable="false"
                     name="isRestrictedDrop"
@@ -965,9 +1054,9 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
                         data-rbd-drag-handle-draggable-id="5"
                         draggable="false"
                         role="button"
@@ -991,18 +1080,18 @@ Object {
                         </svg>
                       </button>
                       <h3
-                        class="sc-jrQzUz fdGtSQ"
+                        class="sc-iqsfdx cuTrvZ"
                       >
                         attribute container
                       </h3>
                     </div>
                     <div
-                      class="sc-iCfLBT ctdPAZ"
-                      data-rbd-droppable-context-id="5"
+                      class="sc-pVTma bWSGYz"
+                      data-rbd-droppable-context-id="6"
                       data-rbd-droppable-id="5"
                     >
                       <div
-                        class="sc-pVTma irRLai"
+                        class="sc-kDThTU lnfdpy"
                         data-testid="subContainer"
                       />
                     </div>
@@ -1012,11 +1101,11 @@ Object {
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG cvyqgB"
-                    data-rbd-drag-handle-context-id="5"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz fKQoYU"
+                    data-rbd-drag-handle-context-id="6"
                     data-rbd-drag-handle-draggable-id="6"
-                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-context-id="6"
                     data-rbd-draggable-id="6"
                     draggable="false"
                     name="isRestrictedDrop"
@@ -1027,9 +1116,9 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
                         data-rbd-drag-handle-draggable-id="6"
                         draggable="false"
                         role="button"
@@ -1053,7 +1142,7 @@ Object {
                         </svg>
                       </button>
                       <h3
-                        class="sc-jrQzUz fdGtSQ"
+                        class="sc-iqsfdx cuTrvZ"
                       >
                         attribute
                       </h3>
@@ -1131,11 +1220,11 @@ Object {
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG dpkDbn"
-                    data-rbd-drag-handle-context-id="5"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz ezjtJO"
+                    data-rbd-drag-handle-context-id="6"
                     data-rbd-drag-handle-draggable-id="7"
-                    data-rbd-draggable-context-id="5"
+                    data-rbd-draggable-context-id="6"
                     data-rbd-draggable-id="7"
                     draggable="false"
                     name="isRestrictedDrop"
@@ -1146,9 +1235,9 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
                         data-rbd-drag-handle-draggable-id="7"
                         draggable="false"
                         role="button"
@@ -1172,18 +1261,80 @@ Object {
                         </svg>
                       </button>
                       <h3
-                        class="sc-jrQzUz fdGtSQ"
+                        class="sc-iqsfdx cuTrvZ"
                       >
                         entity
                       </h3>
                     </div>
                     <div
-                      class="sc-iCfLBT ctdPAZ"
-                      data-rbd-droppable-context-id="5"
+                      class="sc-pVTma bWSGYz"
+                      data-rbd-droppable-context-id="6"
                       data-rbd-droppable-id="7"
                     >
                       <div
-                        class="sc-pVTma irRLai"
+                        class="sc-kDThTU lnfdpy"
+                        data-testid="subContainer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="sc-bdvvaa iuYcCd"
+                >
+                  <div
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz ezjtJO"
+                    data-rbd-drag-handle-context-id="6"
+                    data-rbd-drag-handle-draggable-id="8"
+                    data-rbd-draggable-context-id="6"
+                    data-rbd-draggable-id="8"
+                    draggable="false"
+                    name="isRestrictedDrop"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="sc-gsDJrp blhZhJ"
+                    >
+                      <button
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
+                        data-rbd-drag-handle-draggable-id="8"
+                        draggable="false"
+                        role="button"
+                        tabindex="0"
+                        title="Drag to move this item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-arrows-alt fa-w-16 fa-lg "
+                          data-icon="arrows-alt"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <h3
+                        class="sc-iqsfdx cuTrvZ"
+                      >
+                        entity container
+                      </h3>
+                    </div>
+                    <div
+                      class="sc-pVTma bWSGYz"
+                      data-rbd-droppable-context-id="6"
+                      data-rbd-droppable-id="8"
+                    >
+                      <div
+                        class="sc-kDThTU lnfdpy"
                         data-testid="subContainer"
                       />
                     </div>
@@ -1197,16 +1348,16 @@ Object {
           class="sc-bdvvaa iuYcCd"
         >
           <div
-            class="sc-furvIG bbXKyU"
-            data-rbd-draggable-context-id="5"
-            data-rbd-draggable-id="8"
+            class="sc-jrQzUz gyRIjx"
+            data-rbd-draggable-context-id="6"
+            data-rbd-draggable-id="9"
             name="isRestrictedDrop"
           >
             <div
               class="sc-gsDJrp blhZhJ"
             >
               <button
-                class="sc-hKwCoD ctGUmD"
+                class="sc-hKwCoD sc-eCImvq noWg WBsNE"
                 name="direction"
                 title="Align items vertically or horizontally"
                 type="button"
@@ -1228,12 +1379,12 @@ Object {
                 </svg>
               </button>
               <h3
-                class="sc-jrQzUz fdGtSQ"
+                class="sc-iqsfdx cuTrvZ"
               >
                 EAD
               </h3>
               <button
-                class="sc-eCImvq jYSOg"
+                class="sc-hKwCoD sc-gKckTs noWg dJURoy"
                 title="Click to drop any item into this element"
                 type="button"
               >
@@ -1255,24 +1406,24 @@ Object {
               </button>
             </div>
             <div
-              class="sc-iCfLBT bSlkzM"
-              data-rbd-droppable-context-id="5"
-              data-rbd-droppable-id="8"
+              class="sc-pVTma kkHOki"
+              data-rbd-droppable-context-id="6"
+              data-rbd-droppable-id="9"
             >
               <div
-                class="sc-pVTma dbWbZb"
+                class="sc-kDThTU fzvZeH"
                 data-testid="subContainer"
               >
                 <div
                   class="sc-bdvvaa iuYcCd"
                 >
                   <div
-                    aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                    class="sc-furvIG dpkDbn"
-                    data-rbd-drag-handle-context-id="5"
-                    data-rbd-drag-handle-draggable-id="9"
-                    data-rbd-draggable-context-id="5"
-                    data-rbd-draggable-id="9"
+                    aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                    class="sc-jrQzUz ezjtJO"
+                    data-rbd-drag-handle-context-id="6"
+                    data-rbd-drag-handle-draggable-id="10"
+                    data-rbd-draggable-context-id="6"
+                    data-rbd-draggable-id="10"
                     draggable="false"
                     name="isRestrictedDrop"
                     role="button"
@@ -1282,10 +1433,10 @@ Object {
                       class="sc-gsDJrp blhZhJ"
                     >
                       <button
-                        aria-describedby="rbd-hidden-text-5-hidden-text-95"
-                        class="sc-gKckTs inFpSx"
-                        data-rbd-drag-handle-context-id="5"
-                        data-rbd-drag-handle-draggable-id="9"
+                        aria-describedby="rbd-hidden-text-6-hidden-text-126"
+                        class="sc-hKwCoD sc-furvIG noWg hqowhf"
+                        data-rbd-drag-handle-context-id="6"
+                        data-rbd-drag-handle-draggable-id="10"
                         draggable="false"
                         role="button"
                         tabindex="0"
@@ -1308,7 +1459,28 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="sc-jRQAMF kceyOf"
+                        class="sc-hKwCoD sc-jRQAMF noWg bmRimC"
+                        title="Clone this entity"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="svg-inline--fa fa-clone fa-w-16 fa-lg "
+                          data-icon="clone"
+                          data-prefix="fas"
+                          focusable="false"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M464 0c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48H176c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h288M176 416c-44.112 0-80-35.888-80-80V128H48c-26.51 0-48 21.49-48 48v288c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-48H176z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="sc-hKwCoD sc-iCfLBT noWg LVlVo"
                         name="expand"
                         title="Expand or shrink this item"
                         type="button"
@@ -1330,7 +1502,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="sc-hKwCoD ctGUmD"
+                        class="sc-hKwCoD sc-eCImvq noWg WBsNE"
                         name="direction"
                         title="Align items vertically or horizontally"
                         type="button"
@@ -1357,7 +1529,7 @@ Object {
                         value="entity"
                       />
                       <button
-                        class="sc-eCImvq jYSOg"
+                        class="sc-hKwCoD sc-gKckTs noWg dJURoy"
                         title="Click to drop any item into this element"
                         type="button"
                       >
@@ -1379,12 +1551,12 @@ Object {
                       </button>
                     </div>
                     <div
-                      class="sc-iCfLBT bSlkzM"
-                      data-rbd-droppable-context-id="5"
-                      data-rbd-droppable-id="9"
+                      class="sc-pVTma kkHOki"
+                      data-rbd-droppable-context-id="6"
+                      data-rbd-droppable-id="10"
                     >
                       <div
-                        class="sc-pVTma cupJbn"
+                        class="sc-kDThTU cHvQFr"
                         data-testid="subContainer"
                       />
                     </div>

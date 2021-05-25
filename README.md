@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./documents/images/ead-logo.svg" alt="EAD Logo"/>
+</p>
+
 # EAD (Entity Association Diagram)
 
 EAD is a tool to initialize any Ruby on Rails project quickly by implementing associations from a generated JSON file.
@@ -27,11 +31,11 @@ Please check [live demo of EAD.](https://ead.ozovalihasan.com/)
 
 ## Getting Started
 
-Producing ERD is the first starting point of any Ruby on Rails project. But, implementing ERD to a Ruby on Rails project can be time-consuming and repetitive. 
+Preparing ERD is the first step of any Ruby on Rails project. But, implementing ERD to a Ruby on Rails project can be time-consuming and repetitive. 
 
 More, arrows are used to represent associations on ERD. It can be hard to follow these arrows if any entity has a lot of associations.
 
-EAD is designed to solve these two problems. Firstly, EAD is using containers moved by the drag-and-drop gesture. Any container can be collided and expanded. It allows to read associations by going from outer containers to inner ones easily.
+EAD is designed to solve these two problems. Firstly, EAD is using blocks moved by the drag-and-drop gesture. Any block can be collided and expanded. It allows reading associations by going from outer blocks to inner ones easily(this order may change for advanced blocks.).
 
 Secondly, a JSON file can be produced by using EAD quickly and this JSON file can be implemented into a Ruby on Rails project by EAD gem. So, any project can be started with ready associations without consuming any time.
 
@@ -57,22 +61,36 @@ Then, there are two choices to use the generated JSON file;
 
 ⚠️⚠️⚠️: EAD is still under development. So, it is not recommended to use this gem with ongoing projects. 
 
+
+- If all files are generated as expected, run `bundle exec rails db:migrate`
+
+- Three [videos](https://drive.google.com/drive/folders/1PrS0zW3H-ZKMjhHDAXTN2vRz-flhLDdE?usp=sharing) are provided as example
+
 ### Features
 
-- Any container can be collided by using ![collide button](./documents/images/collide.png) and expanded ![expand button](./documents/images/expand.png).
-- Containers in another container can be aligned vertically by using ![vertical button](./documents/images/align-vertical.png) and horizontally by using ![horizontal button](./documents/images/align-horizontal.png).
+- Any block can be collided by using ![collide button](./documents/images/collide.png) and expanded ![expand button](./documents/images/expand.png).
+- Blocks in another block can be aligned vertically by using ![vertical button](./documents/images/align-vertical.png) and horizontally by using ![horizontal button](./documents/images/align-horizontal.png).
 - Any drop area can be chosen to work by using flag (checkbox without flag ![flag-uncheck](./documents/images/flag-uncheck.png) and with flag ![flag-check](./documents/images/flag-check.png) ).
-  * Selected containers' color is ![blue-selected](./documents/images/blue-selected.png).
-- All enabled containers can be moved with ![move-enable](./documents/images/move-enable.png). Disabled containers cannot be moved(![move-disable](./documents/images/move-disable.png)). 
-  * Enabled containers' color can be any of ![blue-1](./documents/images/blue-1.png) ![blue-2](./documents/images/blue-2.png) ![blue-3](./documents/images/blue-3.png).
-  * The color of disabled containers and drop areas is ![gray](./documents/images/gray.png).
-  * The color of coupled dragged containers and drop areas is ![yellow](./documents/images/yellow.png).
-  * The color of dragged containers being removed is ![red](./documents/images/red.png).
+  * Selected blocks' color is ![blue-selected](./documents/images/blue-selected.png).
+- All enabled blocks can be moved with a move cursor ![move-enable](./documents/images/move-enable.png). Disabled blocks cannot be moved(![move-disable](./documents/images/move-disable.png)). Also, each block can be moved with other blocks inside of them.
+  * Enabled blocks' color can be any of ![blue-1](./documents/images/blue-1.png) ![blue-2](./documents/images/blue-2.png) ![blue-3](./documents/images/blue-3.png).
+  * The color of disabled blocks and drop areas is ![gray](./documents/images/gray.png).
+  * The color of coupled dragged blocks and drop areas is ![yellow](./documents/images/yellow.png).
+  * The color of dragged blocks being removed is ![red](./documents/images/red.png).
+- All entities can be cloned by using ![clone](./documents/images/clone.png). The color of clone entities is ![orange](./documents/images/orange.png). 
+- EAD can be used in compact mode by clicking the 'Compact Mode' button. Compact mode hides buttons used rarely to provide a better working environment.
 - EAD can be reset to the initial state by clicking the 'Reset' button.
 - EAD can be saved to localStorage by clicking the 'Save' button.
 - EAD can be installed with data from localStorage by clicking the 'Install Saved Data' button.
+- All blocks can be expanded by clicking the 'Expand All' button.
 
-Note: EAD allows to use of any drag containers and drop areas by default. But, it is suggested to select a drop area with the flag and then drag any enabled container.
+⚠️⚠️⚠️: EAD allows to use of any drag blocks and drop areas by default. But, it is suggested to select a drop area with the flag ![flag-check](./documents/images/flag-check.png) and then drag any enabled block.
+
+## Run EAD locally
+
+- Download [Node.js](https://nodejs.org/en/download/)
+- Run `npm install`
+- Run `npm start`
 
 ## Test EAD
 
@@ -97,7 +115,7 @@ Reach out to me at one of the following places!
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues and feature requests are welcome! 
 
 Feel free to check the [issues page](https://github.com/ozovalihasan/ead/issues).
 

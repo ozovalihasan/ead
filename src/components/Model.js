@@ -5,16 +5,25 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  changeContent, changeType, checkDirection, expandItem, updateRestrictedDropId,
+  changeContent,
+  changeType,
+  checkDirection,
+  cloneItem,
+  expandItem,
+  idCountIncrease,
+  updateRestrictedDropId,
 } from '../redux';
+import colors from './colors';
 
 const Model = ({
+  parentId,
   item,
   allItems,
   checkDragDropCategory,
 }) => {
   const {
-    restrictedDropId, draggedItemId, restrictedParentIds, disabledChildIds,
+    restrictedDropId, draggedItemId, restrictedParentIds,
+    disabledChildIds, expandAll, idCount, compactMode,
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
@@ -29,6 +38,11 @@ const Model = ({
       || restrictedParentIds.includes(id)
     )
   );
+
+  const handleClone = (id, index) => {
+    dispatch(cloneItem(id, parentId, index + 1, idCount));
+    dispatch(idCountIncrease());
+  };
 
   return (
     <SubContainer
@@ -52,7 +66,7 @@ const Model = ({
                 ref={providedDrag.innerRef}
                 isDragging={snapshot.isDragging}
                 isDraggingOver={snapshot.draggingOver}
-                backgroundColor={allItems[id].color}
+                backgroundColor={colors[allItems[id].category]}
                 isRestrictedDrag={isRestrictedDrag(id)}
                 isRestrictedDrop={restrictedDropId === id}
                 name="isRestrictedDrop"
@@ -60,7 +74,9 @@ const Model = ({
                 <TitleCheck>
 
                   {
-                    allItems[id].isDragDisabled || (
+                    allItems[id].isDragDisabled
+                    || compactMode
+                    || (
                       <HandleDrag
                         {...providedDrag.dragHandleProps}
                         title="Drag to move this item"
@@ -72,9 +88,27 @@ const Model = ({
                   }
 
                   {
+                    !allItems[id].isDragDisabled
+                    && allItems[id].entity
+                    && !allItems[id].factory
+                    && (
+                      <CloneButton
+                        title="Clone this entity"
+                        type="button"
+                        onClick={() => handleClone(id, index)}
+                        isRestrictedDrag={isRestrictedDrag(id)}
+                      >
+
+                        <FontAwesomeIcon icon="clone" size="lg" />
+                      </CloneButton>
+                    )
+                  }
+
+                  {
                     allItems[id].factory
                     || allItems[id].attribute
                     || allItems[id].isDragDisabled
+                    || compactMode
                     || (
                       <ExpandButton
                         name="expand"
@@ -82,6 +116,7 @@ const Model = ({
                         title="Expand or shrink this item"
                         onClick={() => dispatch(expandItem(id))}
                         expand={allItems[id].expand}
+                        expandAll={expandAll}
                       >
                         <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
                       </ExpandButton>
@@ -89,7 +124,11 @@ const Model = ({
                   }
 
                   {
-                    allItems[id].factory || (
+                    !(allItems[id].factory
+                      || allItems[id].attribute
+                      || compactMode
+                    )
+                    && (
                       <DirectionButton
                         name="direction"
                         type="button"
@@ -103,7 +142,8 @@ const Model = ({
 
                   {
                     (
-                      ((allItems[id].entity || allItems[id].attribute) && !allItems[id].factory) ? (
+                      ((allItems[id].entity || allItems[id].attribute || allItems[id].entityClone)
+                      && !allItems[id].factory) ? (
                         <ModelInput
                           type="text"
                           onChange={
@@ -111,14 +151,15 @@ const Model = ({
                           }
                           value={allItems[id].content}
                         />
-                      ) : (
-                        <Title>
-                          {allItems[id].content}
-                        </Title>
-                      )
+                        ) : (
+                          <Title>
+                            {allItems[id].content}
+                          </Title>
+                        )
                     )
                   }
-
+                  { allItems[id].entityClone
+                     && (allItems[(allItems[id].cloneParent)].content)}
                   {
                     (allItems[id].attribute) && (
                       <select
@@ -157,13 +198,18 @@ const Model = ({
                   <Droppable
                     droppableId={id.toString()}
                     direction={allItems[id].order}
-                    isDropDisabled={disabledChildIds.includes(id)
+                    isDropDisabled={
+                      disabledChildIds.includes(id)
                       || allItems[id].isDropDisabled
                       || allItems[id].factory
-                      || (existRestrictedDrop && restrictedDropId !== id)
-                      || (draggedItemId !== -1
+                      || (
+                        existRestrictedDrop && restrictedDropId !== id
+                      )
+                      || (
+                        draggedItemId !== -1
                         && !checkDragDropCategory(draggedItemId, id)
-                      )}
+                      )
+                    }
                   >
                     {(providedDrop, snapshot) => (
                       <DropContainer
@@ -181,9 +227,10 @@ const Model = ({
                           )
                         }
                       >
-                        {(allItems[id].expand)
+                        {(expandAll || allItems[id].expand)
                           ? (
                             <Model
+                              parentId={id}
                               item={allItems[id]}
                               allItems={allItems}
                               index={index}
@@ -234,10 +281,8 @@ const ModelInput = styled.input`
   margin: 0 3px;  
 `;
 
-const DirectionButton = styled.button`
-  background-color: white;
+const ActionButton = styled.button`
   background-color: white; 
-  border: 1px solid #1982C4;
   outline: none;
   width: 30px;
   height: 30px;
@@ -246,74 +291,65 @@ const DirectionButton = styled.button`
   align-items: center;
   justify-content: center;
   margin: 0 3px;
+`;
+
+const DirectionButton = styled(ActionButton)`
+  border: 1px solid #1982C4;
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-const RestrictedDrop = styled.button`
+const CloneButton = styled(ActionButton)`
+  border: 1px solid #1982C4;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const RestrictedDrop = styled(ActionButton)`
   color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
-  background-color: white; 
-  outline: none;
   border-radius: 10px;
   border: #CCC5B9 solid 4px;
   margin: 0 4px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &:hover{
     cursor: pointer;
   }
 `;
 
-const ExpandButton = styled.button`
-  background-color: white; 
+const ExpandButton = styled(ActionButton)`
   border: 1px solid #FFCA3A;
-  outline: none;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 3px;
+  background-color: ${(props) => (props.expandAll && colors.association)};
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-const HandleDrag = styled.button`
-  background-color: white;
+const HandleDrag = styled(ActionButton)`
   border: 1px solid #8AC926;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${(props) => (props.isRestrictedDrag && '#CFDBD5')};
+  border-radius: 5px;
+  background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
 `;
 
 const DropContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
-  background-color: ${(props) => (props.isDraggingOver ? '#F4FECD' : 'white')};
-  background-color: ${(props) => (props.isDropDisabled && '#CFDBD5')};
+  background-color: ${(props) => (props.isDraggingOver ? colors.suitable : colors.EAD)};
+  background-color: ${(props) => (props.isDropDisabled && colors.disabled)};
 
 `;
 const DragContainer = styled.div`
   padding: 2px;
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
-  background-color: ${(props) => (props.isDragging && '#F4FECD')};
-  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && '#F94144')};
-  background-color: ${(props) => (props.isRestrictedDrag && '#CFDBD5')};
-  background-color: ${(props) => (props.isRestrictedDrop && '#52C9CF')};
+  background-color: ${(props) => (props.isDragging && colors.suitable)};
+  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && colors.warning)};
+  background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
+  background-color: ${(props) => (props.isRestrictedDrop && colors.chosen)};
   border: 1px solid gray;
 `;
 
@@ -328,6 +364,7 @@ const Title = styled.h3`
 `;
 
 Model.propTypes = {
+  parentId: PropTypes.number.isRequired,
   item: PropTypes.shape().isRequired,
   allItems: PropTypes.shape().isRequired,
   checkDragDropCategory: PropTypes.func.isRequired,

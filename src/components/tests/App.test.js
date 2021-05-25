@@ -85,6 +85,13 @@ describe('blockReducer', () => {
       expect(saveJSONClick.mock.calls.length).toBe(1);
     });
 
+    it('dispatches resetState action if \'Reset\' button is clicked', () => {
+      render(renderReadyComponent);
+      userEvent.click(screen.getByText('Reset'));
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/resetState');
+    });
+
     it('save state to local storage if \'Save\' button is clicked', () => {
       render(renderReadyComponent);
       userEvent.click(screen.getByText('Save'));
@@ -98,11 +105,18 @@ describe('blockReducer', () => {
       expect(store.dispatch.mock.calls[0][0].type).toBe('block/installState');
     });
 
-    it('dispatches resetState action if \'Install Saved Data\' button is clicked', () => {
+    it('dispatches toggleExpandAll action if \'Expand All\' button is clicked', () => {
       render(renderReadyComponent);
-      userEvent.click(screen.getByText('Reset'));
+      userEvent.click(screen.getByText('Expand All'));
       expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(store.dispatch.mock.calls[0][0].type).toBe('block/resetState');
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleExpandAll');
+    });
+
+    it('dispatches toggleCompactMode action if \'Compact Mode\' button is clicked', () => {
+      render(renderReadyComponent);
+      userEvent.click(screen.getByText('Compact Mode'));
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
+      expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleCompactMode');
     });
 
     it('renders correctly', () => {

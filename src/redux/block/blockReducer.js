@@ -43,21 +43,52 @@ const blockSlice = createSlice({
     removeItem: {
       reducer: (state, { payload }) => {
         const removeConnectedItems = (state, payload) => {
-          state.items[payload.itemId].subItemIds.forEach((id, index) => {
+          if (state.items[payload.itemId].entity) {
+            state.items[payload.itemId].cloneChildren.forEach((id) => {
+              if (state.items[id.toString()]) {
+                const payloadCloneChild = {
+                  itemId: id,
+                  parentId: state.items[id].parentId,
+                  itemIndexInSource: state.items[id].parentIndex,
+                  updateParent: true,
+                };
+
+                removeConnectedItems(state, payloadCloneChild);
+              }
+            });
+          }
+
+          state.items[payload.itemId].subItemIds.forEach((id) => {
             const payloadSubItem = {
-              parentId: payload.itemId,
-              itemIndexInSource: index,
               itemId: id,
             };
             removeConnectedItems(state, payloadSubItem);
           });
 
           if (payload.updateParent) {
+            const index = state.items[payload.parentId.toString()]
+              .subItemIds.findIndex((id) => payload.itemId.toString() === id.toString());
             state.items[payload.parentId.toString()]
-              .subItemIds.splice(payload.itemIndexInSource, 1);
+              .subItemIds.splice(index, 1);
           }
+
+          if (payload.itemId === state.restrictedDropId) {
+            state.restrictedDropId = -1;
+          }
+
           delete state.items[payload.itemId.toString()];
         };
+
+        const item = state.items[payload.itemId];
+
+        if (item.entityClone) {
+          const index = state.items[item.cloneParent.toString()]
+            .cloneChildren.findIndex((id) => payload.itemId.toString() === id.toString());
+
+          state.items[item.cloneParent.toString()]
+            .cloneChildren.splice(index, 1);
+        }
+
         removeConnectedItems(state, payload);
       },
       prepare: (parentId, itemIndexInSource, itemId) => (
@@ -97,6 +128,10 @@ const blockSlice = createSlice({
         state.items[payload.containerId].subItemIds.splice(
           payload.containerIndex, 0, parseInt(payload.itemId, 10),
         );
+        if (state.items[payload.itemId].entityClone) {
+          state.items[payload.itemId].parentId = payload.containerId;
+          state.items[payload.itemId].parentIndex = payload.containerIndex;
+        }
       },
       prepare: (itemId, containerId, containerIndex, prevContainerId, prevContainerIndex) => (
         {
@@ -128,7 +163,7 @@ const blockSlice = createSlice({
         if (payload.itemId === -1) {
           state.restrictedParentIds = [];
         } else {
-          const EADId = 8;
+          const EADId = 9;
           state.restrictedParentIds = findParentIds(state, EADId, [], state.restrictedDropId);
         }
       },
@@ -147,6 +182,7 @@ const blockSlice = createSlice({
 
     expandItem: {
       reducer: (state, { payload }) => {
+        state.expandAll = false;
         state.items[payload.id].expand = !state.items[payload.id].expand;
       },
       prepare: (id) => ({ payload: { id } }),
@@ -173,12 +209,49 @@ const blockSlice = createSlice({
     },
 
     resetState: () => initialState,
+
     installState: () => {
       if (localStorage.block) {
         return JSON.parse(localStorage.block);
       }
       return initialState;
     },
+
+    cloneItem: {
+      reducer: (state, { payload }) => {
+        const newItem = {
+          ...state.items[payload.itemId],
+          subItemIds: [],
+          category: 'entityClone',
+          entityClone: true,
+          cloneParent: parseInt(payload.itemId, 10),
+          parentId: parseInt(payload.containerId, 10),
+          parentIndex: payload.containerIndex,
+        };
+        delete newItem.cloneChildren;
+        delete newItem.entity;
+        delete newItem.cloneable;
+
+        state.items[payload.newId] = newItem;
+        state.items[payload.containerId].subItemIds.splice(
+          payload.containerIndex, 0, payload.newId,
+        );
+        state.items[payload.itemId].cloneChildren.push(payload.newId);
+      },
+      prepare: (itemId, containerId, containerIndex, newId) => (
+        {
+          payload: {
+            itemId, containerId, containerIndex, newId,
+          },
+        }
+      ),
+    },
+
+    idCountIncrease: (state) => { state.idCount += 1; },
+
+    toggleExpandAll: (state) => { state.expandAll = !state.expandAll; },
+
+    toggleCompactMode: (state) => { state.compactMode = !state.compactMode; },
 
   },
 
@@ -198,6 +271,10 @@ export const {
   updateDraggedItemId,
   resetState,
   installState,
+  cloneItem,
+  idCountIncrease,
+  toggleExpandAll,
+  toggleCompactMode,
 } = actions;
 
 export default reducer;

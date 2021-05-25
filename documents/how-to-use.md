@@ -45,8 +45,8 @@ class Account < ApplicationRecord
 end
 ```
 
-![has_one Association Diagram](./images/has_one.png)
-![has_one EAD](./images/has_one_ead.png)
+![has_one Association Diagram](./images/has-one.png)
+![has_one EAD](./images/has-one-ead.png)
 
 The corresponding migration might look like this:
 
@@ -88,8 +88,8 @@ end
 ```
 
 
-![has_many Association Diagram](./images/has_many.png)
-![has_many EAD](./images/has_many_ead.png)
+![has_many Association Diagram](./images/has-many.png)
+![has_many EAD](./images/has-many-ead.png)
 
 
 The corresponding migration might look like this:
@@ -142,8 +142,8 @@ end
 ```
 
 
-![has_many :through Association Diagram](./images/has_many_through.png)
-![has_many :through EAD](./images/has_many_through_ead.png)
+![has_many :through Association Diagram](./images/has-many-through.png)
+![has_many :through EAD](./images/has-many-through-ead.png)
 
 
 The corresponding migration might look like this:
@@ -205,8 +205,8 @@ class AccountHistory < ApplicationRecord
 end
 ```
 
-![has_one :through Association Diagram](./images/has_one_through.png)
-![has_one :through EAD](./images/has_one_through_ead.png)
+![has_one :through Association Diagram](./images/has-one-through.png)
+![has_one :through EAD](./images/has-one-through-ead.png)
 
 The corresponding migration might look like this:
 
@@ -270,7 +270,7 @@ end
 
 
 ![polymorphic Association Diagram](./images/polymorphic.png)
-![polymorphic EAD](./images/polymorphic_ead.png)
+![polymorphic EAD](./images/polymorphic-ead.png)
 
 The corresponding migration might look like this:
 
@@ -315,7 +315,7 @@ end
 ```
 
 
-![self joins EAD](./images/self_joins_ead.png)
+![self joins EAD](./images/self-joins-ead.png)
 
 The corresponding migration might look like this:
 
@@ -436,4 +436,4 @@ It is highly suggested to put all real entities into one block and use clones fo
 
 - The name of entities cannot contain space. But, there is only one exception. If, "has_many :through" association is used between clones of the same entities, the middle entity should be 'one_entity || second_entity'. 
 
-![same entities has many trough EAD](./images/same_entities_has_many_trough.png)
+![same entities has many trough EAD](./images/same-entities-has-many-trough.png)

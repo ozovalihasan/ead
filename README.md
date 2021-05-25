@@ -64,6 +64,8 @@ Then, there are two choices to use the generated JSON file;
 
 - If all files are generated as expected, run `bundle exec rails db:migrate`
 
+- Three [videos](./documents/videos) are provided as example
+
 ### Features
 
 - Any block can be collided by using ![collide button](./documents/images/collide.png) and expanded ![expand button](./documents/images/expand.png).

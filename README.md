@@ -64,7 +64,7 @@ Then, there are two choices to use the generated JSON file;
 
 - If all files are generated as expected, run `bundle exec rails db:migrate`
 
-- Three [videos](./documents/videos) are provided as example
+- Three [videos](https://drive.google.com/drive/folders/1PrS0zW3H-ZKMjhHDAXTN2vRz-flhLDdE?usp=sharing) are provided as example
 
 ### Features
 

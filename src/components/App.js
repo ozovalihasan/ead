@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH, faEllipsisV, faFlag, faClone,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
@@ -25,7 +26,7 @@ import saveJSON from './saveJSON';
 import colors from './colors';
 
 library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH,
-  faEllipsisV, faFlag, faClone, faGithub);
+  faEllipsisV, faFlag, faClone, faGithub, faPlus);
 
 const App = () => {
   const {

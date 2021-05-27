@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
@@ -27,6 +27,8 @@ const Model = ({
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
+
+  const [expandContainer, setExpandContainer] = useState(-1);
 
   const existRestrictedDrop = (restrictedDropId !== -1);
 
@@ -82,74 +84,104 @@ const Model = ({
                 <TitleCheck
                   association={allItems[id].association}
                 >
+                  <ButtonContainer
+                    onFocus={() => setExpandContainer(id)}
+                    onMouseOver={() => setExpandContainer(id)}
+                    onMouseLeave={() => setExpandContainer(-1)}
+                  >
+                    <HoverIcon>
+                      <FontAwesomeIcon icon="plus" size="md" />
+                    </HoverIcon>
 
-                  {
-                    allItems[id].isDragDisabled
-                    // || compactMode
-                    || (
-                      <HandleDrag
-                        {...providedDrag.dragHandleProps}
-                        title="Drag to move this item"
-                        isRestrictedDrag={isRestrictedDrag(id)}
-                      >
-                        <FontAwesomeIcon icon="arrows-alt" size="lg" />
-                      </HandleDrag>
-                    )
-                  }
-
-                  {
-                    !allItems[id].isDragDisabled
-                    && allItems[id].entity
-                    && !allItems[id].factory
-                    // && !compactMode
+                    {
+                    (expandContainer === id)
                     && (
-                      <CloneButton
-                        title="Clone this entity"
-                        type="button"
-                        onClick={() => handleClone(id, index)}
-                        isRestrictedDrag={isRestrictedDrag(id)}
-                      >
+                    <HoverContainer>
+                      {
+                        (allItems[id].factory || allItems[id].attribute)
+                        // || compactMode
+                        || (
+                          <RestrictedDrop
+                            type="button"
+                            title="Click to drop any item into this element"
+                            restricted={restrictedDropId === id}
+                            onClick={() => dispatch(updateRestrictedDropId(id, restrictedDropId))}
+                          >
+                            <FontAwesomeIcon icon="flag" />
+                          </RestrictedDrop>
+                        )
+                      }
+                      {
+                        allItems[id].isDragDisabled
+                        // || compactMode
+                        || (
+                          <HandleDrag
+                            {...providedDrag.dragHandleProps}
+                            title="Drag to move this item"
+                            isRestrictedDrag={isRestrictedDrag(id)}
 
-                        <FontAwesomeIcon icon="clone" size="lg" />
-                      </CloneButton>
+                          >
+                            <FontAwesomeIcon icon="arrows-alt" size="lg" />
+                          </HandleDrag>
+                        )
+                      }
+
+                      {
+                        !allItems[id].isDragDisabled
+                        && allItems[id].entity
+                        && !allItems[id].factory
+                        // && !compactMode
+                        && (
+                          <CloneButton
+                            title="Clone this entity"
+                            type="button"
+                            onClick={() => handleClone(id, index)}
+                            isRestrictedDrag={isRestrictedDrag(id)}
+                          >
+
+                            <FontAwesomeIcon icon="clone" size="lg" />
+                          </CloneButton>
+                        )
+                      }
+
+                      {
+                        allItems[id].factory
+                        || allItems[id].attribute
+                        || allItems[id].isDragDisabled
+                        || compactMode
+                        || (
+                          <ExpandButton
+                            name="expand"
+                            type="button"
+                            title="Expand or shrink this item"
+                            onClick={() => dispatch(expandItem(id))}
+                            expand={allItems[id].expand}
+                            expandAll={expandAll}
+                          >
+                            <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
+                          </ExpandButton>
+                        )
+                      }
+
+                      {
+                        !(allItems[id].factory || allItems[id].attribute || compactMode)
+                        && (
+                          <DirectionButton
+                            name="direction"
+                            type="button"
+                            title="Align items vertically or horizontally"
+                            onClick={() => dispatch(checkDirection(id, allItems))}
+                          >
+                            <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
+                          </DirectionButton>
+                        )
+                      }
+
+                    </HoverContainer>
                     )
                   }
 
-                  {
-                    allItems[id].factory
-                    || allItems[id].attribute
-                    || allItems[id].isDragDisabled
-                    || compactMode
-                    || (
-                      <ExpandButton
-                        name="expand"
-                        type="button"
-                        title="Expand or shrink this item"
-                        onClick={() => dispatch(expandItem(id))}
-                        expand={allItems[id].expand}
-                        expandAll={expandAll}
-                      >
-                        <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
-                      </ExpandButton>
-                    )
-                  }
-
-                  {
-                    !(allItems[id].factory
-                      || allItems[id].attribute
-                      || compactMode
-                    )
-                    && (
-                      <DirectionButton
-                        name="direction"
-                        type="button"
-                        title="Align items vertically or horizontally"
-                        onClick={() => dispatch(checkDirection(id, allItems))}
-                      >
-                        <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
-                      </DirectionButton>
-                    )
-                  }
+                  </ButtonContainer>
 
                   {
                     (
@@ -171,11 +203,10 @@ const Model = ({
                                     <Flex>
 
                                       <svg height={60} width="100%" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                        {allItems[id].subItemIds.map((subId) => (
+                                        {(
                                           (
                                             allItems[id].content === '|' && (
                                             <path
-                                              key={subId}
                                               d="M 9,0 9,18"
                                               stroke="black"
                                               fill="transparent"
@@ -184,7 +215,6 @@ const Model = ({
                                           ) || (
                                             allItems[id].content === '/|\\' && (
                                             <path
-                                              key={subId}
                                               d="M 9,13.5 9,18 m 0,-4.5 9,4.5 M 9,0 V 13.5 L 0,18"
                                               stroke="black"
                                               fill="transparent"
@@ -193,7 +223,6 @@ const Model = ({
                                           ) || (
                                             allItems[id].content === ':' && (
                                               <path
-                                                key={subId}
                                                 d="m 9,0 -0,3.25 m 0,3.5 -0,3.75 m 0,4.25 L 9,18"
                                                 stroke="black"
                                                 fill="transparent"
@@ -201,7 +230,7 @@ const Model = ({
                                             )
                                           )
 
-                                        ))}
+                                        )}
 
                                       </svg>
 
@@ -240,20 +269,6 @@ const Model = ({
                     )
                   }
 
-                  {
-                    (allItems[id].factory || allItems[id].attribute)
-                    // || compactMode
-                    || (
-                      <RestrictedDrop
-                        type="button"
-                        title="Click to drop any item into this element"
-                        restricted={restrictedDropId === id}
-                        onClick={() => dispatch(updateRestrictedDropId(id, restrictedDropId))}
-                      >
-                        <FontAwesomeIcon icon="flag" />
-                      </RestrictedDrop>
-                    )
-                  }
                 </TitleCheck>
 
                 {allItems[id].attribute || (
@@ -338,6 +353,31 @@ const TitleCheck = styled.div`
   border: 1px solid gray;
   border: ${((props) => props.association && 'none')};
 
+`;
+
+const HoverContainer = styled.div`
+  display: flex;
+  position: absolute;
+  transform: translateX(-3px);
+  z-index: 1;
+  background-color: ${colors.factory};
+  transition: width 1s; 
+  border-radius: 3px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+`;
+
+const HoverIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
 `;
 
 const ModelInput = styled.input`

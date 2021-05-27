@@ -227,6 +227,9 @@ const blockSlice = createSlice({
           cloneParent: parseInt(payload.itemId, 10),
           parentId: parseInt(payload.containerId, 10),
           parentIndex: payload.containerIndex,
+          order: 'horizontal',
+          subdirection: 'row',
+          expand: true,
         };
         delete newItem.cloneChildren;
         delete newItem.entity;

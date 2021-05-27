@@ -19,6 +19,7 @@ import {
   idCountIncrease,
   toggleExpandAll,
   toggleCompactMode,
+  updateRestrictedDropId,
 } from '../redux';
 import saveJSON from './saveJSON';
 import colors from './colors';
@@ -68,9 +69,7 @@ const App = () => {
     if (items[draggableId].factory) {
       dispatch(addItem(draggableId, destination.droppableId, destination.index, idCount));
       if (items[draggableId].association) {
-        const entityId = 7;
-        dispatch(addItem(entityId, idCount, destination.index, idCount + 1));
-        dispatch(idCountIncrease());
+        dispatch(updateRestrictedDropId(idCount, null));
       }
       dispatch(idCountIncrease());
       return;

@@ -196,7 +196,7 @@ const Button = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: ${colors.association};
+    background-color: ${colors.entity};
   }
 `;
 
@@ -205,7 +205,7 @@ const ExpandAllButton = styled(Button)`
 `;
 
 const CompactMode = styled(Button)`
-  background-color: ${(props) => (props.compactMode && colors.association)};
+  background-color: ${(props) => (props.compactMode && colors.entity)};
 `;
 
 const GithubLink = styled.a`

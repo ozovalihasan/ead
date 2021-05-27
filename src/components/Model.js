@@ -49,10 +49,17 @@ const Model = ({
       subdirection={item.subdirection}
       factory={item.factory}
       data-testid="subContainer"
-    >
 
+    >
       {item.subItemIds.map((id, index) => (
-        <Container key={id}>
+        <Container
+          ead={item.category === 'EAD'}
+          association={item.association}
+          subdirection={item.subdirection}
+          key={id}
+          entity={item.entity || item.entityClone}
+        >
+
           <Draggable
             draggableId={id.toString()}
             index={index}
@@ -71,11 +78,14 @@ const Model = ({
                 isRestrictedDrop={restrictedDropId === id}
                 name="isRestrictedDrop"
               >
-                <TitleCheck>
+
+                <TitleCheck
+                  association={allItems[id].association}
+                >
 
                   {
                     allItems[id].isDragDisabled
-                    || compactMode
+                    // || compactMode
                     || (
                       <HandleDrag
                         {...providedDrag.dragHandleProps}
@@ -91,6 +101,7 @@ const Model = ({
                     !allItems[id].isDragDisabled
                     && allItems[id].entity
                     && !allItems[id].factory
+                    // && !compactMode
                     && (
                       <CloneButton
                         title="Clone this entity"
@@ -152,9 +163,58 @@ const Model = ({
                           value={allItems[id].content}
                         />
                         ) : (
-                          <Title>
-                            {allItems[id].content}
-                          </Title>
+                          <TitleContainer>
+                            <Title>
+                              {
+                                allItems[id].association && !allItems[id].factory
+                                  ? (
+                                    <Flex>
+
+                                      <svg height={60} width="100%" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                        {allItems[id].subItemIds.map((subId) => (
+                                          (
+                                            allItems[id].content === '|' && (
+                                            <path
+                                              key={subId}
+                                              d="M 9,0 9,18"
+                                              stroke="black"
+                                              fill="transparent"
+                                            />
+                                            )
+                                          ) || (
+                                            allItems[id].content === '/|\\' && (
+                                            <path
+                                              key={subId}
+                                              d="M 9,13.5 9,18 m 0,-4.5 9,4.5 M 9,0 V 13.5 L 0,18"
+                                              stroke="black"
+                                              fill="transparent"
+                                            />
+                                            )
+                                          ) || (
+                                            allItems[id].content === ':' && (
+                                              <path
+                                                key={subId}
+                                                d="m 9,0 -0,3.25 m 0,3.5 -0,3.75 m 0,4.25 L 9,18"
+                                                stroke="black"
+                                                fill="transparent"
+                                              />
+                                            )
+                                          )
+
+                                        ))}
+
+                                      </svg>
+
+                                    </Flex>
+                                  )
+
+                                  : (
+                                    allItems[id].content
+                                  )
+                              }
+
+                            </Title>
+                          </TitleContainer>
                         )
                     )
                   }
@@ -181,7 +241,9 @@ const Model = ({
                   }
 
                   {
-                    (allItems[id].factory || allItems[id].attribute) || (
+                    (allItems[id].factory || allItems[id].attribute)
+                    // || compactMode
+                    || (
                       <RestrictedDrop
                         type="button"
                         title="Click to drop any item into this element"
@@ -261,13 +323,21 @@ const Model = ({
 
 const Container = styled.div`
   margin: 1px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
+  margin: ${(props) => (props.ead ? '25px' : '0')};
+  /* margin: ${(props) => ((props.subdirection === 'column') && '0 0 0 10px')}; */
+  padding: 0 0 0 10px;
+  border-left: ${(props) => (!props.ead && props.subdirection === 'column' && 'solid 2px gray')};
+  
 `;
 
 const TitleCheck = styled.div`
   display: flex;
   align-items: center;
   padding: 0 3px;
+  border: 1px solid gray;
+  border: ${((props) => props.association && 'none')};
+
 `;
 
 const ModelInput = styled.input`
@@ -291,6 +361,14 @@ const ActionButton = styled.button`
   align-items: center;
   justify-content: center;
   margin: 0 3px;
+`;
+
+const Flex = styled.div`
+  width: 100%;
+  display: flex;
+  height: 0;
+  justify-content: space-between; 
+  transform: translateY(-30px);
 `;
 
 const DirectionButton = styled(ActionButton)`
@@ -336,31 +414,42 @@ const HandleDrag = styled(ActionButton)`
 `;
 
 const DropContainer = styled.div`
-  margin: 10px;
-  border-radius: 5px;
+  
+  /* border-radius: 5px; */
   background-color: ${(props) => (props.isDraggingOver ? colors.suitable : colors.EAD)};
-  background-color: ${(props) => (props.isDropDisabled && colors.disabled)};
+  background-color: ${(props) => (props.isDropDisabled && !props.factory && colors.disabled)};
 
 `;
 const DragContainer = styled.div`
-  padding: 2px;
+  /* padding: 2px; */
+  margin-top: 10px;
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
   background-color: ${(props) => (props.isDragging && colors.suitable)};
   background-color: ${(props) => (!props.isDraggingOver && props.isDragging && colors.warning)};
   background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
   background-color: ${(props) => (props.isRestrictedDrop && colors.chosen)};
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 `;
 
 const SubContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => props.subdirection};
   min-height: ${(props) => (props.factory ? '0' : '100px')};
-  border-radius: 5px;
+  /* border-radius: 5px; */
+`;
+
+const TitleContainer = styled.div`
+width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
 `;
 
 const Title = styled.h3`
+  width: 100%;
+  /* margin: 0 auto; */
 `;
 
 Model.propTypes = {

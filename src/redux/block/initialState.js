@@ -22,7 +22,7 @@ const initialState = {
       category: 'factory',
     },
     2: {
-      content: 'has_many',
+      content: '/|\\',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',
@@ -33,7 +33,7 @@ const initialState = {
       category: 'association',
     },
     3: {
-      content: 'has_one',
+      content: '|',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',
@@ -44,7 +44,7 @@ const initialState = {
       category: 'association',
     },
     4: {
-      content: ':through',
+      content: ':',
       subItemIds: [],
       order: 'vertical',
       subdirection: 'column',

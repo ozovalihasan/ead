@@ -106,7 +106,7 @@ const Model = ({
                   entity={allItems[id].entity}
                 >
 
-                  { !(allItems[id].category === 'factory') && (
+                  { !(allItems[id].category === 'factory') && !compactMode && (
                     <ButtonContainer
                       onFocus={() => setExpandContainer(id)}
                       onMouseOver={() => setExpandContainer(id)}

@@ -383,7 +383,7 @@ const Container = styled.div`
   margin: ${(props) => (props.ead ? '25px' : '0')};
   /* margin: ${(props) => ((props.subdirection === 'column') && '0 0 0 10px')}; */
   padding: 0 0 0 10px;
-  border-left: ${(props) => (!props.ead && props.subdirection === 'column' && 'solid 2px gray')};
+  border-left: ${(props) => (!props.ead && props.subdirection === 'column' && 'solid 1px gray')};
   
 `;
 
@@ -391,7 +391,7 @@ const TitleCheck = styled.div`
   display: flex;
   align-items: center;
   padding: 0 3px;
-  border: 1px solid gray;
+  border-bottom: 1px solid gray;
   border: ${((props) => props.association && 'none')};
 
 `;
@@ -479,7 +479,7 @@ const CloneButton = styled(ActionButton)`
 const RestrictedDrop = styled(ActionButton)`
   color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
   border-radius: 10px;
-  border: #CCC5B9 solid 4px;
+  border: #CCC5B9 solid 1px;
   margin: 0 4px;
 
   &:hover{
@@ -500,6 +500,10 @@ const HandleDrag = styled(ActionButton)`
   border: 1px solid #8AC926;
   border-radius: 5px;
   background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
+
+  &:hover {
+    cursor: inherit;
+  }
 `;
 
 const DropContainer = styled.div`

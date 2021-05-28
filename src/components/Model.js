@@ -43,12 +43,17 @@ const Model = ({
   );
 
   const handleClone = (id, index) => {
+    const restictedArea = ((restrictedDropId !== -1
+      && (
+        allItems[restrictedDropId].association
+        || allItems[restrictedDropId].entityContainer
+      )
+    ));
     dispatch(cloneItem(
       id,
-      (restrictedDropId !== -1 && allItems[restrictedDropId].association)
-        ? restrictedDropId
+      restictedArea ? restrictedDropId
         : parentId,
-      index + 1,
+      restictedArea ? 0 : (index + 1),
       idCount,
     ));
     if (

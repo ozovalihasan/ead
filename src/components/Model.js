@@ -248,10 +248,15 @@ const Model = ({
 
                   {
                     (
-                      ((allItems[id].entity || allItems[id].attribute || allItems[id].entityClone)
-                      && !allItems[id].factory) ? (
+                      (
+                        (
+                          allItems[id].entity || allItems[id].attribute || allItems[id].entityClone
+                        )
+                        && !allItems[id].factory
+                      ) ? (
                         <ModelInput
                           type="text"
+                          disabled={allItems[id].isDragDisabled || isRestrictedDrag(id)}
                           onChange={
                             (e) => (!allItems[id].factory) && dispatch(changeContent(e, id))
                           }

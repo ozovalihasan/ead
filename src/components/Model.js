@@ -102,6 +102,8 @@ const Model = ({
 
                 <TitleCheck
                   association={allItems[id].association}
+                  factory={allItems[id].factory}
+                  entity={allItems[id].entity}
                 >
 
                   { !(allItems[id].category === 'factory') && (
@@ -413,7 +415,7 @@ const TitleCheck = styled.div`
   padding: 0 3px;
   border-bottom: 1px solid gray;
   border: ${((props) => props.association && 'none')};
-
+  border: ${((props) => (props.factory || props.entity) && 'none')};
 `;
 
 const HoverContainer = styled.div`

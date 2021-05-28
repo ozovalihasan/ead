@@ -202,10 +202,10 @@ const Model = ({
                                   ? (
                                     <Flex>
 
-                                      <svg height={60} width="100%" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                      <svg height={60} width="auto" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                                         {(
                                           (
-                                            allItems[id].content === '|' && (
+                                            allItems[id].content === 'has_one' && (
                                             <path
                                               d="M 9,0 9,18"
                                               stroke="black"
@@ -213,15 +213,15 @@ const Model = ({
                                             />
                                             )
                                           ) || (
-                                            allItems[id].content === '/|\\' && (
+                                            allItems[id].content === 'has_many' && (
                                             <path
-                                              d="M 9,13.5 9,18 m 0,-4.5 9,4.5 M 9,0 V 13.5 L 0,18"
+                                              d="M 0,18 9,9 M 18,18 9,9 M 9,0 v 18"
                                               stroke="black"
                                               fill="transparent"
                                             />
                                             )
                                           ) || (
-                                            allItems[id].content === ':' && (
+                                            allItems[id].content === ':through' && (
                                               <path
                                                 d="m 9,0 -0,3.25 m 0,3.5 -0,3.75 m 0,4.25 L 9,18"
                                                 stroke="black"

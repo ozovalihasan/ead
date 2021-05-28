@@ -75,6 +75,14 @@ const App = () => {
       dispatch(idCountIncrease());
       return;
     }
+
+    if (items[destination.droppableId].entityContainer
+      && items[destination.droppableId].subItemIds.length > 0
+      && (items[items[destination.droppableId].subItemIds[0]].category
+        !== items[draggableId].category
+      )) {
+      return;
+    }
     dispatch(moveItem(
       draggableId,
       destination.droppableId,

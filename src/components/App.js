@@ -33,7 +33,7 @@ const App = () => {
     items, dragDropCategory, idCount, expandAll, compactMode,
   } = useSelector((state) => state.block);
 
-  const startingId = 0;
+  const startingId = compactMode ? 9 : 0;
   const dispatch = useDispatch();
 
   const checkDragDropCategory = (dragId, dropId) => (

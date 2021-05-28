@@ -247,7 +247,56 @@ const Model = ({
                       </CloneButton>
                     )
                   }
+                  { (restrictedDropId !== -1)
+                    && allItems[restrictedDropId].entityClone
+                    && (id === restrictedDropId)
+                    && (
+                    <AssociationButtons>
+                      <AddAssociation onClick={() => {
+                        dispatch(addItem(2, id, 0, idCount));
+                        dispatch(updateRestrictedDropId(idCount, null));
+                        dispatch(idCountIncrease());
+                      }}
+                      >
+                        <svg height={30} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M 0,18 9,9 M 18,18 9,9 M 9,0 v 18"
+                            stroke="black"
+                            fill="transparent"
+                          />
+                        </svg>
+                      </AddAssociation>
+                      <AddAssociation onClick={() => {
+                        dispatch(addItem(3, id, 0, idCount));
+                        dispatch(updateRestrictedDropId(idCount, null));
+                        dispatch(idCountIncrease());
+                      }}
+                      >
+                        <svg height={30} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M 9,0 9,18"
+                            stroke="black"
+                            fill="transparent"
+                          />
+                        </svg>
+                      </AddAssociation>
+                      <AddAssociation onClick={() => {
+                        dispatch(addItem(4, id, 0, idCount));
+                        dispatch(updateRestrictedDropId(idCount, null));
+                        dispatch(idCountIncrease());
+                      }}
+                      >
+                        <svg height={30} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="m 9,0 -0,3.25 m 0,3.5 -0,3.75 m 0,4.25 L 9,18"
+                            stroke="black"
+                            fill="transparent"
+                          />
+                        </svg>
+                      </AddAssociation>
 
+                    </AssociationButtons>
+                    )}
                   {
                     (
                       (
@@ -414,6 +463,27 @@ const Container = styled.div`
   padding: 0 0 0 10px;
   border-left: ${(props) => (!props.ead && props.subdirection === 'column' && 'solid 1px gray')};
   
+`;
+
+const AssociationButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const AddAssociation = styled.button`
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: white; 
+  margin: 0 3px;
+  padding: 0; 
+
+  > svg {
+  border-radius: 50%;
+
+  }
 `;
 
 const TitleCheck = styled.div`

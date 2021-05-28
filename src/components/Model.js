@@ -98,16 +98,18 @@ const Model = ({
                 <TitleCheck
                   association={allItems[id].association}
                 >
-                  <ButtonContainer
-                    onFocus={() => setExpandContainer(id)}
-                    onMouseOver={() => setExpandContainer(id)}
-                    onMouseLeave={() => setExpandContainer(-1)}
-                  >
-                    <HoverIcon>
-                      <FontAwesomeIcon icon="plus" size="md" />
-                    </HoverIcon>
 
-                    {
+                  { !(allItems[id].category === 'factory') && (
+                    <ButtonContainer
+                      onFocus={() => setExpandContainer(id)}
+                      onMouseOver={() => setExpandContainer(id)}
+                      onMouseLeave={() => setExpandContainer(-1)}
+                    >
+                      <HoverIcon>
+                        <FontAwesomeIcon icon="plus" />
+                      </HoverIcon>
+
+                      {
                     (expandContainer === id)
                     && (
                     <HoverContainer>
@@ -195,7 +197,7 @@ const Model = ({
                     )
                   }
 
-                  </ButtonContainer>
+                    </ButtonContainer>
                   )}
                   {restrictedDropId !== -1
                     && allItems[restrictedDropId].entityClone

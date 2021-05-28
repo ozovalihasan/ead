@@ -5,6 +5,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  addItem,
   changeContent,
   changeType,
   checkDirection,
@@ -182,6 +183,46 @@ const Model = ({
                   }
 
                   </ButtonContainer>
+                  )}
+                  {restrictedDropId !== -1
+                    && allItems[restrictedDropId].entityClone
+                    && allItems[id].association
+                    && allItems[id].factory
+                    && (
+                      <FastMove
+                        onClick={() => {
+                          dispatch(addItem(id, restrictedDropId, 0, idCount));
+                          if (allItems[id].association) {
+                            dispatch(updateRestrictedDropId(idCount, null));
+                          }
+                          dispatch(idCountIncrease());
+                        }}
+                      >
+                        <FontAwesomeIcon icon="plane-departure" />
+                      </FastMove>
+                    )}
+                  {
+                    !allItems[id].isDragDisabled
+                    && allItems[id].entity
+                    && !allItems[id].factory
+                    // && !compactMode
+                    && restrictedDropId !== -1
+                    && (
+                      allItems[restrictedDropId].association
+                      || allItems[restrictedDropId].entityContainer
+                    )
+                    && (
+                      <CloneButton
+                        title="Clone this entity"
+                        type="button"
+                        onClick={() => handleClone(id, index)}
+                        isRestrictedDrag={isRestrictedDrag(id)}
+                      >
+
+                        <FontAwesomeIcon icon="clone" size="lg" />
+                      </CloneButton>
+                    )
+                  }
 
                   {
                     (
@@ -409,6 +450,14 @@ const Flex = styled.div`
   height: 0;
   justify-content: space-between; 
   transform: translateY(-30px);
+`;
+
+const FastMove = styled(ActionButton)`
+  border: 1px solid #8AC926;
+
+&:hover {
+  cursor: pointer;
+}
 `;
 
 const DirectionButton = styled(ActionButton)`

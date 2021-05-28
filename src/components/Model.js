@@ -258,7 +258,7 @@ const Model = ({
                                   ? (
                                     <Flex>
 
-                                      <svg height={60} width="auto" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                      <svg height={60} width="100%" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                                         {(
                                           (
                                             allItems[id].content === 'has_one' && (

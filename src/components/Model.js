@@ -43,7 +43,20 @@ const Model = ({
   );
 
   const handleClone = (id, index) => {
-    dispatch(cloneItem(id, parentId, index + 1, idCount));
+    dispatch(cloneItem(
+      id,
+      (restrictedDropId !== -1 && allItems[restrictedDropId].association)
+        ? restrictedDropId
+        : parentId,
+      index + 1,
+      idCount,
+    ));
+    if (
+      restrictedDropId !== -1
+      && allItems[restrictedDropId].association
+    ) {
+      dispatch(updateRestrictedDropId(idCount, null));
+    }
     dispatch(idCountIncrease());
   };
 

@@ -230,7 +230,9 @@ const Model = ({
                     // && !compactMode
                     && restrictedDropId !== -1
                     && (
-                      allItems[restrictedDropId].association
+                      (allItems[restrictedDropId].association
+                        && (allItems[restrictedDropId].subItemIds.length === 0)
+                      )
                       || allItems[restrictedDropId].entityContainer
                     )
                     && (

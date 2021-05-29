@@ -464,6 +464,7 @@ const Model = ({
 
 const Container = styled.div`
   margin: 1px;
+  /* width: auto; */
   /* border-radius: 5px; */
   margin: ${(props) => (props.ead ? '25px' : '0')};
   /* margin: ${(props) => ((props.subdirection === 'column') && '0 0 0 10px')}; */
@@ -481,16 +482,33 @@ const AssociationButtons = styled.div`
 const AddAssociation = styled.button`
   width: 30px;
   height: 30px;
-  border: none;
+  border: #CCC5B9 solid 1px;
   border-radius: 50%;
   background-color: white; 
   margin: 0 3px;
   padding: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   > svg {
   border-radius: 50%;
-
   }
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const RestrictedButtons = styled.div`
+  background-color: white;
+  padding-right: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  height: 30px;
+  z-index: 1;
+  transform: translateX(-100%)
 `;
 
 const TitleCheck = styled.div`
@@ -500,6 +518,7 @@ const TitleCheck = styled.div`
   border-bottom: 1px solid gray;
   border: ${((props) => props.association && 'none')};
   border: ${((props) => (props.factory || props.entity) && 'none')};
+  position: relative;
 `;
 
 const HoverContainer = styled.div`

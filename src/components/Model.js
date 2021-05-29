@@ -70,6 +70,14 @@ const Model = ({
     dispatch(removeItem(parentId, index, id));
   };
 
+  const handleAdd = (id) => {
+    dispatch(addItem(id, restrictedDropId, 0, idCount));
+    if (allItems[id].association) {
+      dispatch(updateRestrictedDropId(idCount, null));
+    }
+    dispatch(idCountIncrease());
+  };
+
   const handleAddToItem = (id) => {
     if (allItems[id].entity) {
       const attributeId = 6;
@@ -300,18 +308,15 @@ const Model = ({
                     </ButtonContainer>
                   )}
                   {restrictedDropId !== -1
-                    && allItems[restrictedDropId].entityClone
-                    && allItems[id].association
+                    && !isRestrictedDrag(id)
+                    && !allItems[id].attributeContainer
+                    && !(allItems[allItems[restrictedDropId].subItemIds[0]]
+                      && allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
+                    )
                     && allItems[id].factory
                     && (
                       <FastMove
-                        onClick={() => {
-                          dispatch(addItem(id, restrictedDropId, 0, idCount));
-                          if (allItems[id].association) {
-                            dispatch(updateRestrictedDropId(idCount, null));
-                          }
-                          dispatch(idCountIncrease());
-                        }}
+                        onClick={() => handleAdd(id)}
                       >
                         <FontAwesomeIcon icon="plane-departure" />
                       </FastMove>

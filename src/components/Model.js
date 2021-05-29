@@ -206,24 +206,6 @@ const Model = ({
                       }
 
                       {
-                        !allItems[id].isDragDisabled
-                        && allItems[id].entity
-                        && !allItems[id].factory
-                        // && !compactMode
-                        && (
-                          <CloneButton
-                            title="Clone this entity"
-                            type="button"
-                            onClick={() => handleClone(id, index)}
-                            isRestrictedDrag={isRestrictedDrag(id)}
-                          >
-
-                            <FontAwesomeIcon icon="clone" size="lg" />
-                          </CloneButton>
-                        )
-                      }
-
-                      {
                         allItems[id].factory
                         || allItems[id].attribute
                         || allItems[id].isDragDisabled

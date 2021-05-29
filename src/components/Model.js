@@ -70,6 +70,20 @@ const Model = ({
     dispatch(removeItem(parentId, index, id));
   };
 
+  const handleAddToItem = (id) => {
+    if (allItems[id].entity) {
+      const attributeId = 6;
+      dispatch(addItem(attributeId, id, 0, idCount));
+    } else if (allItems[id].category === 'EAD') {
+      const entityContainerId = 8;
+      dispatch(addItem(entityContainerId, id, 0, idCount));
+    } else if (allItems[id].entityContainer) {
+      const entityId = 7;
+      dispatch(addItem(entityId, id, 0, idCount));
+    }
+    dispatch(idCountIncrease());
+  };
+
   return (
     <SubContainer
       subdirection={item.subdirection}
@@ -195,6 +209,28 @@ const Model = ({
                           </RestrictedDrop>
                         )
                       }
+
+                      {
+                        !allItems[id].factory
+                        && !allItems[id].association
+                        && !allItems[id].entityClone
+                        && !allItems[id].attribute
+                        && !(
+                          allItems[id].entityContainer
+                          && allItems[allItems[id].subItemIds[0]]
+                          && allItems[allItems[id].subItemIds[0]].entityClone
+                        )
+                        && (
+                          <AddButton
+                            title="Remove this block"
+                            type="button"
+                            onClick={() => handleAddToItem(id)}
+                          >
+                            <FontAwesomeIcon icon="plane-arrival" size="lg" />
+                          </AddButton>
+                        )
+                      }
+
                       {
                         allItems[id].isDragDisabled
                         // || compactMode
@@ -579,6 +615,14 @@ const Flex = styled.div`
 `;
 
 const FastMove = styled(ActionButton)`
+  border: 1px solid #8AC926;
+
+&:hover {
+  cursor: pointer;
+}
+`;
+
+const AddButton = styled(ActionButton)`
   border: 1px solid #8AC926;
 
 &:hover {

@@ -326,7 +326,11 @@ const Model = ({
                       (allItems[restrictedDropId].association
                         && (allItems[restrictedDropId].subItemIds.length === 0)
                       )
-                      || allItems[restrictedDropId].entityContainer
+                      || (allItems[restrictedDropId].entityContainer && (
+                        allItems[restrictedDropId].subItemIds.length === 0
+                          || allItems[allItems[restrictedDropId].subItemIds[0]].cloneEntity
+                      )
+                      )
                     )
                     && (
                       <CloneButton

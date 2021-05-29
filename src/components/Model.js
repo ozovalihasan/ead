@@ -12,6 +12,7 @@ import {
   cloneItem,
   expandItem,
   idCountIncrease,
+  removeItem,
   updateRestrictedDropId,
 } from '../redux';
 import colors from './colors';
@@ -63,6 +64,10 @@ const Model = ({
       dispatch(updateRestrictedDropId(idCount, null));
     }
     dispatch(idCountIncrease());
+  };
+
+  const handleRemove = (id, index) => {
+    dispatch(removeItem(parentId, index, id));
   };
 
   return (
@@ -235,6 +240,20 @@ const Model = ({
                           >
                             <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
                           </DirectionButton>
+                        )
+                      }
+
+                      {
+                        !allItems[id].factory
+                        && allItems[id].category !== 'EAD'
+                        && (
+                          <RemoveButton
+                            title="Remove this block"
+                            type="button"
+                            onClick={() => handleRemove(id, index)}
+                          >
+                            <FontAwesomeIcon icon="times" size="lg" />
+                          </RemoveButton>
                         )
                       }
 
@@ -577,6 +596,14 @@ const DirectionButton = styled(ActionButton)`
 
 const CloneButton = styled(ActionButton)`
   border: 1px solid #1982C4;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const RemoveButton = styled(ActionButton)`
+  border: 1px solid red;
 
   &:hover {
     cursor: pointer;

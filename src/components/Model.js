@@ -144,197 +144,195 @@ const Model = ({
                       </HoverIcon>
 
                       {
-                    (expandContainer === id)
-                    && (
-                    <HoverContainer>
-                      {
-                        id === restrictedDropId && (
-                          <RestrictedButtons>
-                              { (restrictedDropId !== -1)
-                            && allItems[restrictedDropId].entityClone
-                            && (id === restrictedDropId)
+                      (expandContainer === id)
+                        && (
+                        <HoverContainer>
+                          <LeftButtons>
+                            {
+                              !allItems[id].factory
+                              && !allItems[id].association
+                              && !allItems[id].entityClone
+                              && !allItems[id].attribute
+                              && !(
+                                allItems[id].entityContainer
+                                && allItems[allItems[id].subItemIds[0]]
+                                && allItems[allItems[id].subItemIds[0]].entityClone
+                              )
+                              && (
+                                <AddButton
+                                  title="Add an allowed block"
+                                  type="button"
+                                  onClick={() => handleAddToItem(id)}
+                                >
+                                  <FontAwesomeIcon icon="plane-arrival" size="lg" />
+                                </AddButton>
+                              )
+                            }
+                            { allItems[id].entityClone
                             && (
-                            <AssociationButtons>
-                              <AddAssociation onClick={() => {
-                                dispatch(addItem(2, id, 0, idCount));
-                                dispatch(updateRestrictedDropId(idCount, null));
-                                dispatch(idCountIncrease());
-                              }}
-                              >
-                                <svg height={20} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                    d="M 0,18 9,9 M 18,18 9,9 M 9,0 v 18"
-                                    stroke="black"
-                                    fill="transparent"
-                                  />
-                                </svg>
-                              </AddAssociation>
-                              <AddAssociation onClick={() => {
-                                dispatch(addItem(3, id, 0, idCount));
-                                dispatch(updateRestrictedDropId(idCount, null));
-                                dispatch(idCountIncrease());
-                              }}
-                              >
-                                <svg height={20} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                    d="M 9,0 9,18"
-                                    stroke="black"
-                                    fill="transparent"
-                                  />
-                                </svg>
-                              </AddAssociation>
-                              <AddAssociation onClick={() => {
-                                dispatch(addItem(4, id, 0, idCount));
-                                dispatch(updateRestrictedDropId(idCount, null));
-                                dispatch(idCountIncrease());
-                              }}
-                              >
-                                <svg height={20} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                    d="m 9,0 -0,3.25 m 0,3.5 -0,3.75 m 0,4.25 L 9,18"
-                                    stroke="black"
-                                    fill="transparent"
-                                  />
-                                </svg>
-                              </AddAssociation>
+                              <AssociationButtons>
+                                <AddAssociation onClick={() => {
+                                  dispatch(addItem(2, id, 0, idCount));
+                                  dispatch(updateRestrictedDropId(idCount, null));
+                                  dispatch(idCountIncrease());
+                                }}
+                                >
+                                  <svg height={20} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M 0,18 9,9 M 18,18 9,9 M 9,0 v 18"
+                                      stroke="black"
+                                      fill="transparent"
+                                    />
+                                  </svg>
+                                </AddAssociation>
+                                <AddAssociation onClick={() => {
+                                  dispatch(addItem(3, id, 0, idCount));
+                                  dispatch(updateRestrictedDropId(idCount, null));
+                                  dispatch(idCountIncrease());
+                                }}
+                                >
+                                  <svg height={20} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M 9,0 9,18"
+                                      stroke="black"
+                                      fill="transparent"
+                                    />
+                                  </svg>
+                                </AddAssociation>
+                                <AddAssociation onClick={() => {
+                                  dispatch(addItem(4, id, 0, idCount));
+                                  dispatch(updateRestrictedDropId(idCount, null));
+                                  dispatch(idCountIncrease());
+                                }}
+                                >
+                                  <svg height={20} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="m 9,0 -0,3.25 m 0,3.5 -0,3.75 m 0,4.25 L 9,18"
+                                      stroke="black"
+                                      fill="transparent"
+                                    />
+                                  </svg>
+                                </AddAssociation>
 
-                            </AssociationButtons>
+                              </AssociationButtons>
                             )}
-                          </RestrictedButtons>
-                        )
-                      }
-                      {
-                        (allItems[id].factory || allItems[id].attribute)
-                        // || compactMode
-                        || (
-                          <RestrictedDrop
-                            type="button"
-                            title="Click to drop any item into this element"
-                            restricted={restrictedDropId === id}
-                            onClick={() => dispatch(updateRestrictedDropId(id, restrictedDropId))}
-                          >
-                            <FontAwesomeIcon icon="flag" />
-                          </RestrictedDrop>
-                        )
-                      }
+                          </LeftButtons>
+                          {
+                            (allItems[id].factory || allItems[id].attribute)
+                            // || compactMode
+                            || (
+                              <RestrictedDrop
+                                type="button"
+                                title="Click to drop any item into this element"
+                                restricted={restrictedDropId === id}
+                                onClick={() => {
+                                  dispatch(updateRestrictedDropId(id, restrictedDropId));
+                                }}
+                              >
+                                <FontAwesomeIcon icon="flag" />
+                              </RestrictedDrop>
+                            )
+                          }
 
-                      {
-                        !allItems[id].factory
-                        && !allItems[id].association
-                        && !allItems[id].entityClone
-                        && !allItems[id].attribute
-                        && !(
-                          allItems[id].entityContainer
-                          && allItems[allItems[id].subItemIds[0]]
-                          && allItems[allItems[id].subItemIds[0]].entityClone
-                        )
-                        && (
-                          <AddButton
-                            title="Remove this block"
-                            type="button"
-                            onClick={() => handleAddToItem(id)}
-                          >
-                            <FontAwesomeIcon icon="plane-arrival" size="lg" />
-                          </AddButton>
-                        )
-                      }
+                          {
+                            allItems[id].isDragDisabled
+                            // || compactMode
+                            || (
+                              <HandleDrag
+                                {...providedDrag.dragHandleProps}
+                                title="Drag to move this item"
+                                isRestrictedDrag={isRestrictedDrag(id)}
 
-                      {
-                        allItems[id].isDragDisabled
-                        // || compactMode
-                        || (
-                          <HandleDrag
-                            {...providedDrag.dragHandleProps}
-                            title="Drag to move this item"
-                            isRestrictedDrag={isRestrictedDrag(id)}
+                              >
+                                <FontAwesomeIcon icon="arrows-alt" size="lg" />
+                              </HandleDrag>
+                            )
+                          }
 
-                          >
-                            <FontAwesomeIcon icon="arrows-alt" size="lg" />
-                          </HandleDrag>
+                          {
+                            allItems[id].factory
+                            || allItems[id].attribute
+                            || allItems[id].isDragDisabled
+                            || compactMode
+                            || (
+                              <ExpandButton
+                                name="expand"
+                                type="button"
+                                title="Expand or shrink this item"
+                                onClick={() => dispatch(expandItem(id))}
+                                expand={allItems[id].expand}
+                                expandAll={expandAll}
+                              >
+                                <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
+                              </ExpandButton>
+                            )
+                          }
+
+                          {
+                            !(allItems[id].factory || allItems[id].attribute || compactMode)
+                            && (
+                              <DirectionButton
+                                name="direction"
+                                type="button"
+                                title="Align items vertically or horizontally"
+                                onClick={() => dispatch(checkDirection(id, allItems))}
+                              >
+                                <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
+                              </DirectionButton>
+                            )
+                          }
+
+                          {
+                            !allItems[id].factory
+                            && allItems[id].category !== 'EAD'
+                            && (
+                              <RemoveButton
+                                title="Remove this block"
+                                type="button"
+                                onClick={() => handleRemove(id, index)}
+                              >
+                                <FontAwesomeIcon icon="times" size="lg" />
+                              </RemoveButton>
+                            )
+                          }
+
+                          {
+                            restrictedDropId !== -1
+                            && !isRestrictedDrag(id)
+                            && !allItems[id].attributeContainer
+                            && !(allItems[allItems[restrictedDropId].subItemIds[0]]
+                              && allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
+                            )
+                            && allItems[id].factory
+                            && (
+                              <FastMove
+                                onClick={() => handleAdd(id)}
+                              >
+                                <FontAwesomeIcon icon="plane-departure" />
+                              </FastMove>
+                            )
+                          }
+
+                        </HoverContainer>
                         )
-                      }
-
-                      {
-                        allItems[id].factory
-                        || allItems[id].attribute
-                        || allItems[id].isDragDisabled
-                        || compactMode
-                        || (
-                          <ExpandButton
-                            name="expand"
-                            type="button"
-                            title="Expand or shrink this item"
-                            onClick={() => dispatch(expandItem(id))}
-                            expand={allItems[id].expand}
-                            expandAll={expandAll}
-                          >
-                            <FontAwesomeIcon icon={allItems[id].expand ? 'compress-alt' : 'expand-alt'} size="lg" />
-                          </ExpandButton>
-                        )
-                      }
-
-                      {
-                        !(allItems[id].factory || allItems[id].attribute || compactMode)
-                        && (
-                          <DirectionButton
-                            name="direction"
-                            type="button"
-                            title="Align items vertically or horizontally"
-                            onClick={() => dispatch(checkDirection(id, allItems))}
-                          >
-                            <FontAwesomeIcon icon={allItems[id].order === 'vertical' ? 'ellipsis-h' : 'ellipsis-v'} size="lg" />
-                          </DirectionButton>
-                        )
-                      }
-
-                      {
-                        !allItems[id].factory
-                        && allItems[id].category !== 'EAD'
-                        && (
-                          <RemoveButton
-                            title="Remove this block"
-                            type="button"
-                            onClick={() => handleRemove(id, index)}
-                          >
-                            <FontAwesomeIcon icon="times" size="lg" />
-                          </RemoveButton>
-                        )
-                      }
-
-                    </HoverContainer>
-                    )
-                  }
+                    }
 
                     </ButtonContainer>
                   )}
-                  {restrictedDropId !== -1
-                    && !isRestrictedDrag(id)
-                    && !allItems[id].attributeContainer
-                    && !(allItems[allItems[restrictedDropId].subItemIds[0]]
-                      && allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
-                    )
-                    && allItems[id].factory
-                    && (
-                      <FastMove
-                        onClick={() => handleAdd(id)}
-                      >
-                        <FontAwesomeIcon icon="plane-departure" />
-                      </FastMove>
-                    )}
                   {
                     !allItems[id].isDragDisabled
                     && allItems[id].entity
                     && !allItems[id].factory
-                    // && !compactMode
                     && restrictedDropId !== -1
                     && (
                       (allItems[restrictedDropId].association
                         && (allItems[restrictedDropId].subItemIds.length === 0)
                       )
-                      || (allItems[restrictedDropId].entityContainer && (
-                        allItems[restrictedDropId].subItemIds.length === 0
-                          || allItems[allItems[restrictedDropId].subItemIds[0]].cloneEntity
-                      )
+                      || (
+                        allItems[restrictedDropId].entityContainer && (
+                          allItems[restrictedDropId].subItemIds.length === 0
+                          || allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
+                        )
                       )
                     )
                     && (
@@ -546,7 +544,7 @@ const AddAssociation = styled.button`
   }
 `;
 
-const RestrictedButtons = styled.div`
+const LeftButtons = styled.div`
   background-color: white;
   padding-right: 3px;
   position: absolute;

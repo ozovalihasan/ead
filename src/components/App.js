@@ -83,6 +83,14 @@ const App = () => {
       )) {
       return;
     }
+
+    if (
+      items[destination.droppableId].association
+      && items[destination.droppableId].subItemIds.length > 0
+    ) {
+      return;
+    }
+
     dispatch(moveItem(
       draggableId,
       destination.droppableId,

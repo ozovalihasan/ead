@@ -156,6 +156,34 @@ const Model = ({
                   factory={allItems[id].factory}
                   entity={allItems[id].entity}
                 >
+                  {
+                    !allItems[id].isDragDisabled
+                    && allItems[id].entity
+                    && !allItems[id].factory
+                    && restrictedDropId !== -1
+                    && (
+                      (allItems[restrictedDropId].association
+                        && (allItems[restrictedDropId].subItemIds.length === 0)
+                      )
+                      || (
+                        allItems[restrictedDropId].entityContainer && (
+                          allItems[restrictedDropId].subItemIds.length === 0
+                          || allItems[allItems[restrictedDropId].subItemIds[0]]
+                            .entityClone
+                        )
+                      )
+                    )
+                    && (
+                      <CloneButton
+                        title="Clone this entity"
+                        type="button"
+                        onClick={() => handleClone(id, index)}
+                      >
+
+                        <FontAwesomeIcon icon="clone" size="lg" />
+                      </CloneButton>
+                    )
+                  }
 
                   { !(allItems[id].category === 'factory') && !compactMode && (
                     <ButtonContainer
@@ -343,33 +371,6 @@ const Model = ({
 
                     </ButtonContainer>
                   )}
-                  {
-                    !allItems[id].isDragDisabled
-                    && allItems[id].entity
-                    && !allItems[id].factory
-                    && restrictedDropId !== -1
-                    && (
-                      (allItems[restrictedDropId].association
-                        && (allItems[restrictedDropId].subItemIds.length === 0)
-                      )
-                      || (
-                        allItems[restrictedDropId].entityContainer && (
-                          allItems[restrictedDropId].subItemIds.length === 0
-                          || allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
-                        )
-                      )
-                    )
-                    && (
-                      <CloneButton
-                        title="Clone this entity"
-                        type="button"
-                        onClick={() => handleClone(id, index)}
-                      >
-
-                        <FontAwesomeIcon icon="clone" size="lg" />
-                      </CloneButton>
-                    )
-                  }
 
                   {
                     (

@@ -94,8 +94,8 @@ const initialState = {
     8: {
       content: 'entity container',
       subItemIds: [],
-      order: 'horizontal',
-      subdirection: 'row',
+      order: 'vertical',
+      subdirection: 'column',
       factory: true,
       entityContainer: true,
       expand: true,

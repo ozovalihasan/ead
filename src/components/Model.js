@@ -220,6 +220,36 @@ const Model = ({
                                 </AddButton>
                               )
                             }
+
+                            {
+                              !allItems[id].isDragDisabled
+                              && allItems[id].entity
+                              && !allItems[id].factory
+                              && restrictedDropId !== -1
+                              && (
+                                (allItems[restrictedDropId].association
+                                  && (allItems[restrictedDropId].subItemIds.length === 0)
+                                )
+                                || (
+                                  allItems[restrictedDropId].entityContainer && (
+                                    allItems[restrictedDropId].subItemIds.length === 0
+                                    || allItems[allItems[restrictedDropId].subItemIds[0]]
+                                      .entityClone
+                                  )
+                                )
+                              )
+                              && (
+                                <HoverCloneButton
+                                  title="Clone this entity"
+                                  type="button"
+                                  onClick={() => handleClone(id, index)}
+                                >
+
+                                  <FontAwesomeIcon icon="clone" size="lg" />
+                                </HoverCloneButton>
+                              )
+                            }
+
                             { allItems[id].entityClone
                             && (
                               <AssociationButtons>
@@ -669,12 +699,17 @@ const DirectionButton = styled(ActionButton)`
   }
 `;
 
-const CloneButton = styled(ActionButton)`
+const HoverCloneButton = styled(ActionButton)`
   border: 1px solid #1982C4;
 
   &:hover {
     cursor: pointer;
   }
+`;
+
+const CloneButton = styled(HoverCloneButton)`
+  transform: translateX(-140%);
+  position: absolute;
 `;
 
 const RemoveButton = styled(ActionButton)`

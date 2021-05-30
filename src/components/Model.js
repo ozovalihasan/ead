@@ -53,6 +53,17 @@ const Model = ({
         allItems[restrictedDropId].subItemIds.length === 0
         || allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
       )
+    ) || (
+      (
+        allItems[id].entityClone
+      ) && (
+        restrictedDropId !== -1
+      ) && (
+        allItems[restrictedDropId].entityContainer
+      ) && (
+        allItems[restrictedDropId].subItemIds.length === 0
+        || allItems[allItems[restrictedDropId].subItemIds[0]].entity
+      )
     )
   );
 

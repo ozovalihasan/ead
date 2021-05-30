@@ -157,6 +157,22 @@ const Model = ({
                   entity={allItems[id].entity}
                 >
                   {
+                    restrictedDropId !== -1
+                    && !isRestrictedDrag(id)
+                    && !allItems[id].attributeContainer
+                    && !(allItems[allItems[restrictedDropId].subItemIds[0]]
+                      && allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
+                    )
+                    && allItems[id].factory
+                    && (
+                      <FastMove
+                        onClick={() => handleAdd(id)}
+                      >
+                        <FontAwesomeIcon icon="plane-departure" />
+                      </FastMove>
+                    )
+                  }
+                  {
                     !allItems[id].isDragDisabled
                     && allItems[id].entity
                     && !allItems[id].factory
@@ -375,23 +391,6 @@ const Model = ({
                               >
                                 <FontAwesomeIcon icon="times" size="lg" />
                               </RemoveButton>
-                            )
-                          }
-
-                          {
-                            restrictedDropId !== -1
-                            && !isRestrictedDrag(id)
-                            && !allItems[id].attributeContainer
-                            && !(allItems[allItems[restrictedDropId].subItemIds[0]]
-                              && allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
-                            )
-                            && allItems[id].factory
-                            && (
-                              <FastMove
-                                onClick={() => handleAdd(id)}
-                              >
-                                <FontAwesomeIcon icon="plane-departure" />
-                              </FastMove>
                             )
                           }
 

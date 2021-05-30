@@ -358,7 +358,11 @@ const Model = ({
                           }
 
                           {
-                            !(allItems[id].factory || allItems[id].attribute || compactMode)
+                            !(allItems[id].factory
+                              || allItems[id].attribute
+                              || compactMode
+                            )
+                            && allItems[id].expand
                             && (
                               <DirectionButton
                                 name="direction"

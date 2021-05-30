@@ -353,7 +353,6 @@ const Model = ({
                         title="Clone this entity"
                         type="button"
                         onClick={() => handleClone(id, index)}
-                        isRestrictedDrag={isRestrictedDrag(id)}
                       >
 
                         <FontAwesomeIcon icon="clone" size="lg" />

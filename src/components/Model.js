@@ -35,11 +35,24 @@ const Model = ({
   const existRestrictedDrop = (restrictedDropId !== -1);
 
   const isRestrictedDrag = (id) => (
-    existRestrictedDrop
-    && (
-      !checkDragDropCategory(id, restrictedDropId)
-      || restrictedDropId === id
-      || restrictedParentIds.includes(id)
+    (
+      existRestrictedDrop
+      && (
+        !checkDragDropCategory(id, restrictedDropId)
+        || restrictedDropId === id
+        || restrictedParentIds.includes(id)
+      )
+    ) || (
+      (
+        allItems[id].entity
+      ) && (
+        restrictedDropId !== -1
+      ) && (
+        allItems[restrictedDropId].entityContainer
+      ) && (
+        allItems[restrictedDropId].subItemIds.length === 0
+        || allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
+      )
     )
   );
 

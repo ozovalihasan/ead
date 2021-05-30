@@ -599,7 +599,7 @@ const AddAssociation = styled.button`
 
 const LeftButtons = styled.div`
   background-color: white;
-  padding-right: 3px;
+  margin-right: 3px;
   position: absolute;
   display: flex;
   justify-content: end;
@@ -624,8 +624,6 @@ const HoverContainer = styled.div`
   transform: translateX(-3px);
   z-index: 1;
   background-color: ${colors.factory};
-  transition: width 1s; 
-  border-radius: 3px;
 `;
 
 const ButtonContainer = styled.div`
@@ -676,6 +674,8 @@ const Flex = styled.div`
 
 const FastMove = styled(ActionButton)`
   border: 1px solid #8AC926;
+  right: 0;
+  position: absolute;
 
 &:hover {
   cursor: pointer;

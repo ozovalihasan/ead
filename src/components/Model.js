@@ -611,6 +611,10 @@ const ActionButton = styled.button`
   align-items: center;
   justify-content: center;
   margin: 0 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Flex = styled.div`
@@ -625,34 +629,18 @@ const FastMove = styled(ActionButton)`
   border: 1px solid #8AC926;
   right: 0;
   position: absolute;
-
-&:hover {
-  cursor: pointer;
-}
 `;
 
 const AddButton = styled(ActionButton)`
   border: 1px solid #8AC926;
-
-&:hover {
-  cursor: pointer;
-}
 `;
 
 const DirectionButton = styled(ActionButton)`
   border: 1px solid #1982C4;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const HoverCloneButton = styled(ActionButton)`
   border: 1px solid #1982C4;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const CloneButton = styled(HoverCloneButton)`
@@ -662,10 +650,6 @@ const CloneButton = styled(HoverCloneButton)`
 
 const RemoveButton = styled(ActionButton)`
   border: 1px solid red;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const RestrictedDrop = styled(ActionButton)`
@@ -720,7 +704,7 @@ const SubContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -267,7 +267,6 @@ const Model = ({
                           </LeftButtons>
                           {
                             (allItems[id].factory || allItems[id].attribute)
-                            // || compactMode
                             || (
                               <RestrictedDrop
                                 type="button"
@@ -284,7 +283,6 @@ const Model = ({
 
                           {
                             allItems[id].isDragDisabled
-                            // || compactMode
                             || (
                               <HandleDrag
                                 {...providedDrag.dragHandleProps}
@@ -515,10 +513,7 @@ const Model = ({
 
 const Container = styled.div`
   margin: 1px;
-  /* width: auto; */
-  /* border-radius: 5px; */
   margin: ${(props) => (props.ead ? '25px' : '0')};
-  /* margin: ${(props) => ((props.subdirection === 'column') && '0 0 0 10px')}; */
   padding: 0 0 0 10px;
   border-left: ${(props) => (!props.ead && props.subdirection === 'column' && 'solid 1px gray')};
   
@@ -704,14 +699,11 @@ const HandleDrag = styled(ActionButton)`
 `;
 
 const DropContainer = styled.div`
-  
-  /* border-radius: 5px; */
   background-color: ${(props) => (props.isDraggingOver ? colors.suitable : colors.EAD)};
   background-color: ${(props) => (props.isDropDisabled && !props.factory && colors.disabled)};
 
 `;
 const DragContainer = styled.div`
-  /* padding: 2px; */
   margin-top: 10px;
   border-radius: 5px;
   background-color: ${(props) => (props.backgroundColor)};
@@ -719,14 +711,12 @@ const DragContainer = styled.div`
   background-color: ${(props) => (!props.isDraggingOver && props.isDragging && colors.warning)};
   background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
   background-color: ${(props) => (props.isRestrictedDrop && colors.chosen)};
-  /* border: 1px solid gray; */
 `;
 
 const SubContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => props.subdirection};
   min-height: ${(props) => (props.factory ? '0' : '100px')};
-  /* border-radius: 5px; */
 `;
 
 const TitleContainer = styled.div`
@@ -734,12 +724,10 @@ width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 100%; */
 `;
 
 const Title = styled.h3`
   width: 100%;
-  /* margin: 0 auto; */
 `;
 
 Model.propTypes = {

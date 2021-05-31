@@ -511,12 +511,107 @@ const Model = ({
   );
 };
 
+const SubContainer = styled.div`
+  display: flex;
+  flex-direction: ${(props) => props.subdirection};
+  min-height: ${(props) => (props.factory ? '0' : '100px')};
+`;
+
 const Container = styled.div`
   margin: 1px;
   margin: ${(props) => (props.ead ? '25px' : '0')};
   padding: 0 0 0 10px;
   border-left: ${(props) => (!props.ead && props.subdirection === 'column' && 'solid 1px gray')};
   
+`;
+
+const DragContainer = styled.div`
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: ${(props) => (props.backgroundColor)};
+  background-color: ${(props) => (props.isDragging && colors.suitable)};
+  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && colors.warning)};
+  background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
+  background-color: ${(props) => (props.isRestrictedDrop && colors.chosen)};
+`;
+
+const TitleCheck = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  border-bottom: 1px solid gray;
+  border: ${((props) => props.association && 'none')};
+  border: ${((props) => (props.factory || props.entity) && 'none')};
+  position: relative;
+`;
+
+const ActionButton = styled.button`
+  background-color: white; 
+  outline: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const FastMove = styled(ActionButton)`
+  border: 1px solid #8AC926;
+  right: 0;
+  position: absolute;
+`;
+
+const HoverCloneButton = styled(ActionButton)`
+  border: 1px solid #1982C4;
+`;
+
+const CloneButton = styled(HoverCloneButton)`
+  transform: translateX(-140%);
+  position: absolute;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 30px;
+  height: 30px;
+`;
+
+const HoverIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+`;
+
+const HoverContainer = styled.div`
+  display: flex;
+  position: absolute;
+  transform: translateX(-3px);
+  z-index: 1;
+  background-color: ${colors.factory};
+`;
+
+const LeftButtons = styled.div`
+  background-color: white;
+  margin-right: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  height: 30px;
+  z-index: 1;
+  transform: translateX(-100%)
+`;
+
+const AddButton = styled(ActionButton)`
+  border: 1px solid #8AC926;
 `;
 
 const AssociationButtons = styled.div`
@@ -546,112 +641,6 @@ const AddAssociation = styled.button`
   }
 `;
 
-const LeftButtons = styled.div`
-  background-color: white;
-  margin-right: 3px;
-  position: absolute;
-  display: flex;
-  justify-content: end;
-  height: 30px;
-  z-index: 1;
-  transform: translateX(-100%)
-`;
-
-const TitleCheck = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 0 3px;
-  border-bottom: 1px solid gray;
-  border: ${((props) => props.association && 'none')};
-  border: ${((props) => (props.factory || props.entity) && 'none')};
-  position: relative;
-`;
-
-const HoverContainer = styled.div`
-  display: flex;
-  position: absolute;
-  transform: translateX(-3px);
-  z-index: 1;
-  background-color: ${colors.factory};
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 30px;
-  height: 30px;
-`;
-
-const HoverIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-`;
-
-const ModelInput = styled.input`
-  outline: none;
-  border: none ;
-  border-radius: 2px;
-  color: black;
-  font-size: 16px;
-  font-weight: 700;
-  width: 125px;
-  margin: 0 3px;  
-`;
-
-const ActionButton = styled.button`
-  background-color: white; 
-  outline: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 3px;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const Flex = styled.div`
-  width: 100%;
-  display: flex;
-  height: 0;
-  justify-content: space-between; 
-  transform: translateY(-30px);
-`;
-
-const FastMove = styled(ActionButton)`
-  border: 1px solid #8AC926;
-  right: 0;
-  position: absolute;
-`;
-
-const AddButton = styled(ActionButton)`
-  border: 1px solid #8AC926;
-`;
-
-const DirectionButton = styled(ActionButton)`
-  border: 1px solid #1982C4;
-`;
-
-const HoverCloneButton = styled(ActionButton)`
-  border: 1px solid #1982C4;
-`;
-
-const CloneButton = styled(HoverCloneButton)`
-  transform: translateX(-140%);
-  position: absolute;
-`;
-
-const RemoveButton = styled(ActionButton)`
-  border: 1px solid red;
-`;
-
 const RestrictedDrop = styled(ActionButton)`
   color: ${(props) => (props.restricted ? 'inherit' : 'transparent')};
   border-radius: 10px;
@@ -659,15 +648,6 @@ const RestrictedDrop = styled(ActionButton)`
   margin: 0 4px;
 
   &:hover{
-    cursor: pointer;
-  }
-`;
-
-const ExpandButton = styled(ActionButton)`
-  border: 1px solid #FFCA3A;
-  background-color: ${(props) => (props.expandAll && colors.association)};
-
-  &:hover {
     cursor: pointer;
   }
 `;
@@ -682,25 +662,32 @@ const HandleDrag = styled(ActionButton)`
   }
 `;
 
-const DropContainer = styled.div`
-  background-color: ${(props) => (props.isDraggingOver ? colors.suitable : colors.EAD)};
-  background-color: ${(props) => (props.isDropDisabled && !props.factory && colors.disabled)};
+const ExpandButton = styled(ActionButton)`
+  border: 1px solid #FFCA3A;
+  background-color: ${(props) => (props.expandAll && colors.association)};
 
-`;
-const DragContainer = styled.div`
-  margin-top: 10px;
-  border-radius: 5px;
-  background-color: ${(props) => (props.backgroundColor)};
-  background-color: ${(props) => (props.isDragging && colors.suitable)};
-  background-color: ${(props) => (!props.isDraggingOver && props.isDragging && colors.warning)};
-  background-color: ${(props) => (props.isRestrictedDrag && colors.disabled)};
-  background-color: ${(props) => (props.isRestrictedDrop && colors.chosen)};
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const SubContainer = styled.div`
-  display: flex;
-  flex-direction: ${(props) => props.subdirection};
-  min-height: ${(props) => (props.factory ? '0' : '100px')};
+const DirectionButton = styled(ActionButton)`
+  border: 1px solid #1982C4;
+`;
+
+const RemoveButton = styled(ActionButton)`
+  border: 1px solid red;
+`;
+
+const ModelInput = styled.input`
+  outline: none;
+  border: none ;
+  border-radius: 2px;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  width: 125px;
+  margin: 0 3px;  
 `;
 
 const TitleContainer = styled.div`
@@ -712,6 +699,20 @@ const TitleContainer = styled.div`
 
 const Title = styled.h3`
   width: 100%;
+`;
+
+const Flex = styled.div`
+  width: 100%;
+  display: flex;
+  height: 0;
+  justify-content: space-between; 
+  transform: translateY(-30px);
+`;
+
+const DropContainer = styled.div`
+  background-color: ${(props) => (props.isDraggingOver ? colors.suitable : colors.EAD)};
+  background-color: ${(props) => (props.isDropDisabled && !props.factory && colors.disabled)};
+
 `;
 
 Model.propTypes = {

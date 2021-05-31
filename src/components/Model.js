@@ -42,28 +42,6 @@ const Model = ({
         || restrictedDropId === id
         || restrictedParentIds.includes(id)
       )
-    ) || (
-      (
-        allItems[id].entity
-      ) && (
-        restrictedDropId !== -1
-      ) && (
-        allItems[restrictedDropId].entityContainer
-      ) && (
-        allItems[restrictedDropId].subItemIds.length === 0
-        || allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
-      )
-    ) || (
-      (
-        allItems[id].entityClone
-      ) && (
-        restrictedDropId !== -1
-      ) && (
-        allItems[restrictedDropId].entityContainer
-      ) && (
-        allItems[restrictedDropId].subItemIds.length === 0
-        || allItems[allItems[restrictedDropId].subItemIds[0]].entity
-      )
     )
   );
 
@@ -71,7 +49,7 @@ const Model = ({
     const restrictedArea = ((restrictedDropId !== -1
       && (
         allItems[restrictedDropId].association
-        || allItems[restrictedDropId].entityContainer
+        || allItems[restrictedDropId].entityAssociation
       )
     ));
     dispatch(cloneItem(
@@ -107,8 +85,8 @@ const Model = ({
       const attributeId = 6;
       dispatch(addItem(attributeId, id, 0, idCount));
     } else if (allItems[id].category === 'EAD') {
-      const entityContainerId = 8;
-      dispatch(addItem(entityContainerId, id, 0, idCount));
+      const entityAssociationId = 5;
+      dispatch(addItem(entityAssociationId, id, 0, idCount));
     } else if (allItems[id].entityContainer) {
       const entityId = 7;
       dispatch(addItem(entityId, id, 0, idCount));
@@ -165,10 +143,7 @@ const Model = ({
                   {
                     restrictedDropId !== -1
                     && !isRestrictedDrag(id)
-                    && !allItems[id].attributeContainer
-                    && !(allItems[allItems[restrictedDropId].subItemIds[0]]
-                      && allItems[allItems[restrictedDropId].subItemIds[0]].entityClone
-                    )
+                    && !allItems[id].entityContainer
                     && allItems[id].factory
                     && (
                       <FastMove
@@ -187,13 +162,7 @@ const Model = ({
                       (allItems[restrictedDropId].association
                         && (allItems[restrictedDropId].subItemIds.length === 0)
                       )
-                      || (
-                        allItems[restrictedDropId].entityContainer && (
-                          allItems[restrictedDropId].subItemIds.length === 0
-                          || allItems[allItems[restrictedDropId].subItemIds[0]]
-                            .entityClone
-                        )
-                      )
+                      || allItems[restrictedDropId].entityAssociation
                     )
                     && (
                       <CloneButton
@@ -227,11 +196,7 @@ const Model = ({
                               && !allItems[id].association
                               && !allItems[id].entityClone
                               && !allItems[id].attribute
-                              && !(
-                                allItems[id].entityContainer
-                                && allItems[allItems[id].subItemIds[0]]
-                                && allItems[allItems[id].subItemIds[0]].entityClone
-                              )
+                              && !allItems[id].entityAssociation
                               && (
                                 <AddButton
                                   title="Add an allowed block"
@@ -252,13 +217,7 @@ const Model = ({
                                 (allItems[restrictedDropId].association
                                   && (allItems[restrictedDropId].subItemIds.length === 0)
                                 )
-                                || (
-                                  allItems[restrictedDropId].entityContainer && (
-                                    allItems[restrictedDropId].subItemIds.length === 0
-                                    || allItems[allItems[restrictedDropId].subItemIds[0]]
-                                      .entityClone
-                                  )
-                                )
+                                || allItems[restrictedDropId].entityAssociation
                               )
                               && (
                                 <HoverCloneButton

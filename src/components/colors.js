@@ -2,7 +2,7 @@ const colors = {
   suitable: '#F4FECD',
   disabled: '#CFDBD5',
   association: '#FFF',
-  attributeContainer: '#FFF',
+  entityAssociation: '#FFF',
   attribute: '#FFF',
   entity: '#94F6EA',
   entityContainer: '#FFF',

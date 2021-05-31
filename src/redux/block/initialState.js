@@ -1,5 +1,5 @@
 const initialState = {
-  version: '0.2.0',
+  version: '0.3.0',
   items: {
     0: {
       content: 'Initialize your project from EAD',

@@ -217,7 +217,7 @@ const Button = styled.button`
 `;
 
 const ExpandAllButton = styled(Button)`
-  background-color: ${(props) => (props.expandAll && colors.association)};
+  background-color: ${(props) => (props.expandAll && colors.entity)};
 `;
 
 const CompactMode = styled(Button)`

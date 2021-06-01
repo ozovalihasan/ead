@@ -658,7 +658,7 @@ const HandleDrag = styled(ActionButton)`
 
 const ExpandButton = styled(ActionButton)`
   border: 1px solid #FFCA3A;
-  background-color: ${(props) => (props.expandAll && colors.association)};
+  background-color: ${(props) => (props.expandAll && colors.entity)};
 
   &:hover {
     cursor: pointer;

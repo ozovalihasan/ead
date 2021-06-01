@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`blockReducer <App /> renders correctly 1`] = `
+exports[`<App /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -46,6 +46,12 @@ Object {
       id="rbd-announcement-6"
       style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
     />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="rbd-announcement-7"
+      style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
+    />
     <div>
       <div
         class="sc-bdvvaa bqALdu App"
@@ -59,44 +65,45 @@ Object {
             src="/images/ead-logo.svg"
           />
           <button
-            class="sc-hKwCoD jCVlCh"
+            class="sc-hKwCoD hkoWwX"
             type="button"
           >
             Download EAD
           </button>
           <button
-            class="sc-hKwCoD jCVlCh"
+            class="sc-hKwCoD sc-jRQAMF hkoWwX lnKFjF"
+            type="button"
+          >
+            Compact Mode
+          </button>
+          <button
+            class="sc-hKwCoD hkoWwX"
             type="button"
           >
             Reset
           </button>
           <button
-            class="sc-hKwCoD jCVlCh"
+            class="sc-hKwCoD hkoWwX"
             type="button"
           >
             Save
           </button>
           <button
-            class="sc-hKwCoD jCVlCh"
+            class="sc-hKwCoD hkoWwX"
             type="button"
           >
             Install Saved Data
           </button>
           <button
-            class="sc-hKwCoD sc-eCImvq jCVlCh hkjzSf"
+            class="sc-hKwCoD sc-eCImvq hkoWwX hkjzSf"
             type="button"
           >
             Expand All
           </button>
-          <button
-            class="sc-hKwCoD sc-jRQAMF jCVlCh lnKFjF"
-            type="button"
-          >
-            Compact Mode
-          </button>
           <a
             class="sc-gKckTs hgZRuK"
             href="https://github.com/ozovalihasan/ead"
+            title="Click to see the repository of the project"
           >
             <svg
               aria-hidden="true"
@@ -116,7 +123,7 @@ Object {
           </a>
         </div>
         <div
-          data-rbd-droppable-context-id="7"
+          data-rbd-droppable-context-id="8"
           data-rbd-droppable-id="OuterDrop"
         >
           <div>
@@ -132,11 +139,11 @@ Object {
     <div
       aria-atomic="true"
       aria-live="assertive"
-      id="rbd-announcement-7"
+      id="rbd-announcement-8"
       style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%);"
     />
     <div
-      id="rbd-hidden-text-7-hidden-text-14"
+      id="rbd-hidden-text-8-hidden-text-16"
       style="display: none;"
     >
       
@@ -159,44 +166,45 @@ Object {
           src="/images/ead-logo.svg"
         />
         <button
-          class="sc-hKwCoD jCVlCh"
+          class="sc-hKwCoD hkoWwX"
           type="button"
         >
           Download EAD
         </button>
         <button
-          class="sc-hKwCoD jCVlCh"
+          class="sc-hKwCoD sc-jRQAMF hkoWwX lnKFjF"
+          type="button"
+        >
+          Compact Mode
+        </button>
+        <button
+          class="sc-hKwCoD hkoWwX"
           type="button"
         >
           Reset
         </button>
         <button
-          class="sc-hKwCoD jCVlCh"
+          class="sc-hKwCoD hkoWwX"
           type="button"
         >
           Save
         </button>
         <button
-          class="sc-hKwCoD jCVlCh"
+          class="sc-hKwCoD hkoWwX"
           type="button"
         >
           Install Saved Data
         </button>
         <button
-          class="sc-hKwCoD sc-eCImvq jCVlCh hkjzSf"
+          class="sc-hKwCoD sc-eCImvq hkoWwX hkjzSf"
           type="button"
         >
           Expand All
         </button>
-        <button
-          class="sc-hKwCoD sc-jRQAMF jCVlCh lnKFjF"
-          type="button"
-        >
-          Compact Mode
-        </button>
         <a
           class="sc-gKckTs hgZRuK"
           href="https://github.com/ozovalihasan/ead"
+          title="Click to see the repository of the project"
         >
           <svg
             aria-hidden="true"
@@ -216,7 +224,7 @@ Object {
         </a>
       </div>
       <div
-        data-rbd-droppable-context-id="7"
+        data-rbd-droppable-context-id="8"
         data-rbd-droppable-id="OuterDrop"
       >
         <div>

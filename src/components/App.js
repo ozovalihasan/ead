@@ -149,7 +149,7 @@ const App = () => {
               Expand All
             </ExpandAllButton>
 
-            <GithubLink href="https://github.com/ozovalihasan/ead">
+            <GithubLink href="https://github.com/ozovalihasan/ead" title="Click to see the repository of the project">
               <FontAwesomeIcon icon={faGithub} size="2x" />
             </GithubLink>
           </>

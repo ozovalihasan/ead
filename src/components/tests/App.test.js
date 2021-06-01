@@ -59,7 +59,7 @@ const createTestStore = () => {
 
 let store;
 let renderReadyComponent;
-describe('blockReducer', () => {
+describe('<App />', () => {
   beforeEach(() => {
     store = createTestStore();
     store.dispatch = jest.fn();
@@ -71,57 +71,68 @@ describe('blockReducer', () => {
     );
   });
 
-  describe('<App />', () => {
-    it('renders Model component', () => {
-      render(renderReadyComponent);
-      expect(screen.getByText(/Mock Model/i)).toBeInTheDocument();
-      expect(screen.getByText(/{"0":{"content":"mock content"}}/i)).toBeInTheDocument();
-      expect(screen.getByText(/{"content":"mock content"}/i)).toBeInTheDocument();
-    });
+  it('renders Model component', () => {
+    render(renderReadyComponent);
 
-    it('calls saveJSON function if \'Download EAD\' button is clicked', () => {
-      render(renderReadyComponent);
-      userEvent.click(screen.getByText(/Download EAD/i));
-      expect(saveJSONClick.mock.calls.length).toBe(1);
-    });
+    expect(screen.getByText(/Mock Model/i)).toBeInTheDocument();
+    expect(screen.getByText(/{"0":{"content":"mock content"}}/i)).toBeInTheDocument();
+    expect(screen.getByText(/{"content":"mock content"}/i)).toBeInTheDocument();
+  });
 
-    it('dispatches resetState action if \'Reset\' button is clicked', () => {
-      render(renderReadyComponent);
-      userEvent.click(screen.getByText('Reset'));
-      expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(store.dispatch.mock.calls[0][0].type).toBe('block/resetState');
-    });
+  it('calls saveJSON function if \'Download EAD\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText(/Download EAD/i));
 
-    it('save state to local storage if \'Save\' button is clicked', () => {
-      render(renderReadyComponent);
-      userEvent.click(screen.getByText('Save'));
-      expect(localStorageMock.block === JSON.stringify(store.getState().block)).toBe(true);
-    });
+    expect(saveJSONClick.mock.calls.length).toBe(1);
+  });
 
-    it('dispatches installState action if \'Install Saved Data\' button is clicked', () => {
-      render(renderReadyComponent);
-      userEvent.click(screen.getByText('Install Saved Data'));
-      expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(store.dispatch.mock.calls[0][0].type).toBe('block/installState');
-    });
+  it('dispatches toggleCompactMode action if \'Compact Mode\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText('Compact Mode'));
 
-    it('dispatches toggleExpandAll action if \'Expand All\' button is clicked', () => {
-      render(renderReadyComponent);
-      userEvent.click(screen.getByText('Expand All'));
-      expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleExpandAll');
-    });
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleCompactMode');
+  });
 
-    it('dispatches toggleCompactMode action if \'Compact Mode\' button is clicked', () => {
-      render(renderReadyComponent);
-      userEvent.click(screen.getByText('Compact Mode'));
-      expect(store.dispatch).toHaveBeenCalledTimes(1);
-      expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleCompactMode');
-    });
+  it('dispatches resetState action if \'Reset\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText('Reset'));
 
-    it('renders correctly', () => {
-      const renderedContainer = render(renderReadyComponent);
-      expect(renderedContainer).toMatchSnapshot();
-    });
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch.mock.calls[0][0].type).toBe('block/resetState');
+  });
+
+  it('save state to local storage if \'Save\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText('Save'));
+
+    expect(localStorageMock.block === JSON.stringify(store.getState().block)).toBe(true);
+  });
+
+  it('dispatches installState action if \'Install Saved Data\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText('Install Saved Data'));
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch.mock.calls[0][0].type).toBe('block/installState');
+  });
+
+  it('dispatches toggleExpandAll action if \'Expand All\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText('Expand All'));
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleExpandAll');
+  });
+
+  it('renders a link to the repository of the project', () => {
+    render(renderReadyComponent);
+    expect(screen.getByTitle('Click to see the repository of the project').closest('a')).toHaveAttribute('href', 'https://github.com/ozovalihasan/ead');
+  });
+
+  it('renders correctly', () => {
+    const renderedContainer = render(renderReadyComponent);
+
+    expect(renderedContainer).toMatchSnapshot();
   });
 });

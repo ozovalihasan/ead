@@ -146,6 +146,7 @@ const Model = ({
                     && (
                       <FastMove
                         onClick={() => handleAdd(id)}
+                        title="Add this item into restricted container"
                       >
                         <FontAwesomeIcon icon="plane-departure" />
                       </FastMove>

@@ -18,6 +18,7 @@ import blockReducer, {
   toggleExpandAll,
   toggleCompactMode,
 } from './blockReducer';
+import testInitialState from './testInitialState';
 
 jest.mock('./initialState', () => {
   const testInitialState = require('./testInitialState');
@@ -47,103 +48,105 @@ describe('blockReducer', () => {
 
   describe('changeType', () => {
     it('changes type of block', () => {
-      expect(store.getState().block.items['6'].type).toBe('string');
+      expect(store.getState().block.items['14'].type).toBe('string');
 
-      store.dispatch(changeType({ target: { value: 'integer' } }, '6'));
+      store.dispatch(changeType({ target: { value: 'integer' } }, '14'));
 
-      expect(store.getState().block.items['6'].type).toBe('integer');
+      expect(store.getState().block.items['14'].type).toBe('integer');
     });
   });
 
   describe('changeContent', () => {
     it('changes type of block', () => {
-      expect(store.getState().block.items['6'].content).toBe('attribute');
+      expect(store.getState().block.items['14'].content).toBe('name');
 
-      store.dispatch(changeContent({ target: { value: 'mockAttribute' } }, '6'));
+      store.dispatch(changeContent({ target: { value: 'mockAttribute' } }, '14'));
 
-      expect(store.getState().block.items['6'].content).toBe('mockAttribute');
+      expect(store.getState().block.items['14'].content).toBe('mockAttribute');
     });
   });
 
   describe('checkDirection', () => {
     it('toggles the order of items inside of any item ', () => {
-      expect(store.getState().block.items['6'].order).toBe('vertical');
-      expect(store.getState().block.items['6'].subdirection).toBe('column');
-      const { items } = store.getState().block;
-      store.dispatch(checkDirection('6', items));
+      expect(store.getState().block.items['11'].order).toBe('horizontal');
+      expect(store.getState().block.items['11'].subdirection).toBe('row');
 
-      expect(store.getState().block.items['6'].order).toBe('horizontal');
-      expect(store.getState().block.items['6'].subdirection).toBe('row');
+      const { items } = store.getState().block;
+      store.dispatch(checkDirection('11', items));
+
+      expect(store.getState().block.items['11'].order).toBe('vertical');
+      expect(store.getState().block.items['11'].subdirection).toBe('column');
     });
   });
 
   describe('removeItem', () => {
-    it('removes any item from store and its id from its parent item', () => {
-      expect(store.getState().block.items['1'].subItemIds).toStrictEqual([2, 3, 4, 5, 6, 7, 8]);
+    it('resets restrictedDropId if the id of deleted item is equal to restrictedDropId', () => {
+      store.dispatch(updateRestrictedDropId('13'));
+      store.dispatch(removeItem('10', 0, '13', true));
 
-      store.dispatch(addItem('7', '9', 0, 11));
-      store.dispatch(updateRestrictedDropId('11'));
-
-      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([11, 10]);
-      expect(store.getState().block.restrictedDropId).toStrictEqual('11');
-
-      store.dispatch(removeItem('9', '0', '11', true));
-
-      expect(store.getState().block.items['11']).toBe(undefined);
-      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([10]);
       expect(store.getState().block.restrictedDropId).toStrictEqual(-1);
+    });
+
+    it('removes any item and its clone children with their children from store if the removed item is real', () => {
+      expect(store.getState().block.items['13'].cloneChildren.length).toBe(1);
+      expect(store.getState().block.items['13']).not.toBe(undefined);
+      expect(store.getState().block.items['17'].subItemIds.length).toBe(1);
+      expect(store.getState().block.items['17']).not.toBe(undefined);
+      expect(Object.keys(store.getState().block.items).length).toBe(25);
+
+      store.dispatch(removeItem('10', 0, '13', true));
+
+      expect(store.getState().block.items['13']).toBe(undefined);
+      expect(store.getState().block.items['17']).toBe(undefined);
+      expect(Object.keys(store.getState().block.items).length).toBe(18);
+    });
+
+    it('removes ids of any item and its clone children from their parents if the removed item is real', () => {
+      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([16, 13, 12]);
+      expect(store.getState().block.items['11'].subItemIds).toStrictEqual([24, 23, 17]);
+
+      store.dispatch(removeItem('10', 0, '13', true));
+
+      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([16, 12]);
+      expect(store.getState().block.items['11'].subItemIds).toStrictEqual([24, 23]);
     });
   });
 
   describe('addItem', () => {
     it('adds any item from store and its id from its parent item', () => {
-      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([]);
-      expect(store.getState().block.items['11']).toBe(undefined);
+      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([10, 11]);
+      expect(store.getState().block.items[testInitialState.idCount.toString()]).toBe(undefined);
 
-      store.dispatch(addItem('6', '10', 0, 11));
+      store.dispatch(addItem(5, 9, 0, 26));
 
-      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([11]);
+      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([26, 10, 11]);
     });
   });
 
   describe('moveItem', () => {
     it('move any item from its parent item to another parent item ', () => {
-      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([]);
-      expect(store.getState().block.items['11']).toBe(undefined);
+      expect(store.getState().block.items['25'].subItemIds).toStrictEqual([]);
+      expect(store.getState().block.items['18'].subItemIds).toStrictEqual([19]);
 
-      store.dispatch(addItem('6', '10', 0, 11));
+      store.dispatch(moveItem('19', '25', 0, '18', 0));
 
-      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([11]);
-
-      store.dispatch(addItem('7', '9', 0, 12));
-      store.dispatch(moveItem('11', '12', 0, '10', 0));
-
-      expect(store.getState().block.items['10'].subItemIds).toStrictEqual([]);
-      expect(store.getState().block.items['11']).not.toBe(undefined);
-      expect(store.getState().block.items['12'].subItemIds).toStrictEqual([11]);
-
-      store.dispatch(addItem('8', '10', 0, 13));
-      store.dispatch(cloneItem('12', '9', 0, 14));
-      store.dispatch(moveItem('14', '13', 0, '9', 0));
-
-      expect(store.getState().block.items['14'].parentId).toStrictEqual('13');
-      expect(store.getState().block.items['14'].parentIndex).toStrictEqual(0);
+      expect(store.getState().block.items['25'].subItemIds).toStrictEqual([19]);
+      expect(store.getState().block.items['18'].subItemIds).toStrictEqual([]);
     });
   });
 
   describe('updateRestrictedDropId', () => {
     it('updates restrictedDropId and restrictedParentIds', () => {
-      store.dispatch(addItem('2', '10', 0, 11));
-      store.dispatch(addItem('7', '11', 0, 12));
-
       expect(store.getState().block.restrictedDropId).toBe(-1);
       expect(store.getState().block.restrictedParentIds).toStrictEqual([]);
 
-      store.dispatch(updateRestrictedDropId(11, -1));
-      expect(store.getState().block.restrictedParentIds).toStrictEqual([9, 10]);
-      expect(store.getState().block.restrictedDropId).toBe(11);
+      store.dispatch(updateRestrictedDropId('19', -1));
 
-      store.dispatch(updateRestrictedDropId(11, 11));
+      expect(store.getState().block.restrictedParentIds).toStrictEqual([9, 11, 17, 18]);
+      expect(store.getState().block.restrictedDropId).toBe('19');
+
+      store.dispatch(updateRestrictedDropId('19', '19'));
+
       expect(store.getState().block.restrictedDropId).toBe(-1);
       expect(store.getState().block.restrictedParentIds).toStrictEqual([]);
     });
@@ -152,21 +155,24 @@ describe('blockReducer', () => {
   describe('expandItem', () => {
     it('toggles expanded and collided item', () => {
       store.dispatch(expandItem('10'));
+
       expect(store.getState().block.items['10'].expand).toBe(false);
 
       store.dispatch(expandItem('10'));
+
       expect(store.getState().block.items['10'].expand).toBe(true);
     });
   });
 
   describe('updateDraggedItemId', () => {
     it('updates draggedItemId and disabledChildIds', () => {
-      store.dispatch(addItem('2', '10', 0, 11));
-      store.dispatch(addItem(7, 11, 0, 12));
+      expect(store.getState().block.draggedItemId).toBe(-1);
+      expect(store.getState().block.disabledChildIds).toStrictEqual([]);
+
       store.dispatch(updateDraggedItemId('10'));
 
       expect(store.getState().block.draggedItemId).toBe('10');
-      expect(store.getState().block.disabledChildIds).toStrictEqual([11, 12]);
+      expect(store.getState().block.disabledChildIds).toStrictEqual([16, 13, 14, 12, 15]);
 
       store.dispatch(updateDraggedItemId(-1));
 
@@ -177,58 +183,70 @@ describe('blockReducer', () => {
 
   describe('resetState', () => {
     it('resets all data', () => {
-      store.dispatch(addItem('2', '10', 0, 11));
-      store.dispatch(addItem(7, 11, 0, 12));
+      expect(Object.keys(store.getState().block.items).length).toBe(25);
 
-      expect(Object.keys(store.getState().block.items).length).toBe(13);
+      store.dispatch(addItem(5, 9, 0, 26));
+
+      expect(Object.keys(store.getState().block.items).length).toBe(26);
+
       store.dispatch(resetState());
-      expect(Object.keys(store.getState().block.items).length).toBe(11);
+
+      expect(Object.keys(store.getState().block.items).length).toBe(25);
     });
   });
 
   describe('installState', () => {
     it('install saved state from localStorage', () => {
       store.dispatch(installState());
+
       expect(store.getState()).toStrictEqual({ block: 'mockBlock' });
     });
   });
 
   describe('cloneItem', () => {
     it('clones an item', () => {
-      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([10]);
-      store.dispatch(cloneItem('10', '9', 0, 11));
-      expect(store.getState().block.items['11']).toStrictEqual({
+      expect(store.getState().block.items['11'].subItemIds).toStrictEqual([24, 23, 17]);
+
+      store.dispatch(cloneItem('16', '11', 0, 26));
+
+      expect(store.getState().block.items['26']).toStrictEqual({
         category: 'entityClone',
-        cloneParent: 10,
-        content: 'entity',
+        cloneParent: 16,
+        content: 'patient',
         entityClone: true,
         expand: true,
         factory: false,
         isDropDisabled: false,
         order: 'horizontal',
-        parentId: 9,
+        parentId: 11,
         parentIndex: 0,
         subItemIds: [],
         subdirection: 'row',
       });
-      expect(store.getState().block.items['9'].subItemIds).toStrictEqual([11, 10]);
+      expect(store.getState().block.items['11'].subItemIds).toStrictEqual([26, 24, 23, 17]);
     });
   });
 
   describe('idCountIncrease', () => {
     it('increases idCount', () => {
-      expect(store.getState().block.idCount).toBe(11);
+      expect(store.getState().block.idCount).toBe(26);
+
       store.dispatch(idCountIncrease());
-      expect(store.getState().block.idCount).toBe(12);
+
+      expect(store.getState().block.idCount).toBe(27);
     });
   });
 
   describe('toggleExpandAll', () => {
     it('toggles expandAll', () => {
       expect(store.getState().block.expandAll).toBe(false);
+
       store.dispatch(toggleExpandAll());
+
       expect(store.getState().block.expandAll).toBe(true);
+
       store.dispatch(toggleExpandAll());
+
       expect(store.getState().block.expandAll).toBe(false);
     });
   });
@@ -236,9 +254,13 @@ describe('blockReducer', () => {
   describe('toggleCompactMode', () => {
     it('toggles compactMode', () => {
       expect(store.getState().block.compactMode).toBe(false);
+
       store.dispatch(toggleCompactMode());
+
       expect(store.getState().block.compactMode).toBe(true);
+
       store.dispatch(toggleCompactMode());
+
       expect(store.getState().block.compactMode).toBe(false);
     });
   });

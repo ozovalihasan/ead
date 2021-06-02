@@ -190,21 +190,21 @@ const Model = ({
                       <HoverContainer>
                         <LeftButtons>
                           {
-                          !allItems[id].factory
-                          && !allItems[id].association
-                          && !allItems[id].entityClone
-                          && !allItems[id].attribute
-                          && !allItems[id].entityAssociation
-                          && (
-                            <AddButton
-                              title="Add an allowed block"
-                              type="button"
-                              onClick={() => handleAddToItem(id)}
-                            >
-                              <FontAwesomeIcon icon="plane-arrival" size="lg" />
-                            </AddButton>
-                          )
-                        }
+                            !allItems[id].factory
+                            && !allItems[id].association
+                            && !allItems[id].entityClone
+                            && !allItems[id].attribute
+                            && !allItems[id].entityAssociation
+                            && (
+                              <AddButton
+                                title="Add an allowed block"
+                                type="button"
+                                onClick={() => handleAddToItem(id)}
+                              >
+                                <FontAwesomeIcon icon="plane-arrival" size="lg" />
+                              </AddButton>
+                            )
+                          }
 
                           {
                             allItems[id].entityClone

@@ -85,7 +85,7 @@ const initialState = {
       subdirection: 'column',
       factory: true,
       entity: true,
-      expand: true,
+      expand: false,
       isDropDisabled: true,
       category: 'entity',
       cloneable: true,

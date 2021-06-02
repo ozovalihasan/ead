@@ -481,23 +481,27 @@ const Model = ({
                           )
                         }
                       >
-                        {(expandAll || allItems[id].expand)
-                          ? (
-                            <Model
-                              parentId={id}
-                              item={allItems[id]}
-                              allItems={allItems}
-                              index={index}
-                              checkDragDropCategory={checkDragDropCategory}
-                            />
+                        {
+                          (
+                            allItems[id].factory
+                            || (expandAll || allItems[id].expand)
                           )
-                          : (
-                            <div>
-                              {allItems[id].subItemIds.length}
-                              {' '}
-                              item(s) collided
-                            </div>
-                          )}
+                            ? (
+                              <Model
+                                parentId={id}
+                                item={allItems[id]}
+                                allItems={allItems}
+                                index={index}
+                                checkDragDropCategory={checkDragDropCategory}
+                              />
+                            ) : (
+                              <div>
+                                {allItems[id].subItemIds.length}
+                                {' '}
+                                item(s) collided
+                              </div>
+                            )
+}
                         {providedDrop.placeholder}
                       </DropContainer>
                     )}

@@ -103,7 +103,12 @@ const App = () => {
   return (
     <MainContainer className="App">
       <LogoButtons>
-        <Logo src={`${process.env.PUBLIC_URL}/images/ead-logo.svg`} alt="EAD logo" />
+        <LogoVersion>
+          <Logo src={`${process.env.PUBLIC_URL}/images/ead-logo.svg`} alt="EAD logo" />
+          <Version>
+            0.3.0
+          </Version>
+        </LogoVersion>
         <Button
           onClick={() => saveJSON(items, 'EAD.json')}
           type="button"
@@ -197,9 +202,21 @@ const LogoButtons = styled.div`
   align-items: center;
 `;
 
+const LogoVersion = styled.div`
+  display: flex;
+  padding-right: 40px;
+`;
+
 const Logo = styled.img`
   width: 60px;
-  padding-right: 40px;
+  padding-right: 5px;
+`;
+
+const Version = styled.div`
+  height: 100%;
+  text-align: end;
+  font-size: 9px;
+  padding-top: 35%;
 `;
 
 const Button = styled.button`

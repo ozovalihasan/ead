@@ -44,14 +44,17 @@ const Model = ({
   );
 
   const handleClone = (id, index) => {
-    const restrictedArea = ((restrictedDropId !== -1
-      && (
-        allItems[restrictedDropId].association
-        || allItems[restrictedDropId].entityAssociation
+    const restrictedArea = (
+      (
+        restrictedDropId !== -1
+        && (
+          allItems[restrictedDropId].association
+          || allItems[restrictedDropId].entityAssociation
+        )
       )
-    ));
+    );
     dispatch(cloneItem(
-      id,
+      allItems[id].entityClone ? allItems[id].cloneParent : id,
       restrictedArea ? restrictedDropId
         : parentId,
       restrictedArea ? 0 : (index + 1),
@@ -154,9 +157,12 @@ const Model = ({
                   }
                   {
                     !allItems[id].isDragDisabled
-                    && allItems[id].entity
                     && !allItems[id].factory
                     && restrictedDropId !== -1
+                    && (
+                      allItems[id].entity
+                      || allItems[id].entityClone
+                    )
                     && (
                       (allItems[restrictedDropId].association
                         && (allItems[restrictedDropId].subItemIds.length === 0)
@@ -201,29 +207,7 @@ const Model = ({
                         }
 
                           {
-                            !allItems[id].isDragDisabled
-                            && allItems[id].entity
-                            && !allItems[id].factory
-                            && restrictedDropId !== -1
-                            && (
-                              (allItems[restrictedDropId].association
-                                && (allItems[restrictedDropId].subItemIds.length === 0)
-                              )
-                              || allItems[restrictedDropId].entityAssociation
-                            )
-                            && (
-                              <HoverCloneButton
-                                title="Clone this entity"
-                                type="button"
-                                onClick={() => handleClone(id, index)}
-                              >
-
-                                <FontAwesomeIcon icon="clone" size="lg" />
-                              </HoverCloneButton>
-                            )
-                          }
-
-                          { allItems[id].entityClone
+                            allItems[id].entityClone
                             && (
                               <AssociationButtons>
                                 <AddAssociation onClick={() => handleAddAssociation(4, id)}>
@@ -255,7 +239,35 @@ const Model = ({
                                 </AddAssociation>
 
                               </AssociationButtons>
-                            )}
+                            )
+                          }
+
+                          {
+                            !allItems[id].isDragDisabled
+                            && (
+                              allItems[id].entity
+                              || allItems[id].entityClone
+                            )
+                            && !allItems[id].factory
+                            && restrictedDropId !== -1
+                            && (
+                              (
+                                allItems[restrictedDropId].association
+                                && (allItems[restrictedDropId].subItemIds.length === 0)
+                              )
+                              || allItems[restrictedDropId].entityAssociation
+                            )
+                            && (
+                              <HoverCloneButton
+                                title="Clone this entity"
+                                type="button"
+                                onClick={() => handleClone(id, index)}
+                              >
+
+                                <FontAwesomeIcon icon="clone" size="lg" />
+                              </HoverCloneButton>
+                            )
+                          }
                         </LeftButtons>
                         {
                           (allItems[id].factory || allItems[id].attribute)

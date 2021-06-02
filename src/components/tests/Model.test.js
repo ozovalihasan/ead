@@ -252,14 +252,24 @@ describe('<Model  />', () => {
     render(renderReadyComponent);
 
     expect(store.dispatch).toHaveBeenCalledTimes(0);
-    expect(screen.getAllByTitle(/Clone this entity/i).length).toBe(6);
+    expect(screen.getAllByTitle(/Clone this entity/i).length).toBe(16);
 
     userEvent.click(screen.getAllByTitle(/Clone this entity/i)[0]);
 
     expect(store.dispatch).toHaveBeenCalledTimes(3);
     expect(store.dispatch.mock.calls[0][0].type).toBe('block/cloneItem');
+    expect(store.dispatch.mock.calls[0][0].payload).toStrictEqual({
+      containerId: 25, containerIndex: 0, itemId: 16, newId: 26,
+    });
     expect(store.dispatch.mock.calls[1][0].type).toBe('block/updateRestrictedDropId');
     expect(store.dispatch.mock.calls[2][0].type).toBe('block/idCountIncrease');
+
+    userEvent.click(screen.getAllByTitle(/Clone this entity/i)[15]);
+
+    expect(store.dispatch.mock.calls[3][0].type).toBe('block/cloneItem');
+    expect(store.dispatch.mock.calls[3][0].payload).toStrictEqual({
+      containerId: 25, containerIndex: 0, itemId: 16, newId: 26,
+    });
   });
 
   it("doesn't render the rest part of any item if item.expand is false", () => {

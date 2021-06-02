@@ -12,14 +12,13 @@ After reading this document, you will know:
 The Types of Associations
 -------------------------
 
-EAD supports five types of associations:
+EAD supports seven types of associations:
 
 * [`belongs_to`](#The-belongs_to-Association)
 * [`has_one`](#The-has_one-Association)
 * [`has_many`](#The-has_many-Association)
 * [`has_many :through`](#The-has_many-:through-Association)
 * [`has_one :through`](#The-has_one-:through-Association)
-
 
 In the remainder of this documentation, you'll learn how to declare and use the various forms of associations. But first, a quick introduction to the situations where each association type is appropriate.
 
@@ -336,101 +335,120 @@ end
 
 EAD has 'attribute' block to add an attribute to any entity.
 
-EAD has 'attribute container' block to put all attributes in an organized block. There is no difference between putting all attributes into an 'entity' block and an 'attribute block' in terms of gem and generated results.
+EAD has 'entity container' block to put all entities in an organized block. Entities and their attributes can be defined in this container.
 
-EAD has 'entity container' block to put all entities in an organized block. There is no difference between putting all entities into any block and an 'entity block' in terms of gem and generated results.
+EAD has 'entities & associations' block to define any association. In this block, only [clone entities](#Clone-Entities) and associations can be used.
+## Clone Entities
 
-## Entity Clones
+Clone entities can be added by selecting any 'entities & associations' or association block inside of 'entities & associations' block and clicking ![clone](./images/clone.png).
 
-There is no difference between a clone and real entities if their names are the same for the gem.
-
+![no selection EAD](./images/no-selection.png)
+![prepare clone EAD](./images/prepare-clone.png)
+![after clone EAD](./images/after-clone.png)
+![deselect block EAD](./images/deselect.png)
 ![same names of real and clone entities EAD](./images/clone-and-real.png)
 
-Clones are used to reference real entities.
+Entity clones are used to define associations between two entity.
+![has_many EAD](./images/has-many-ead.png)
+
+The color of entity(called 'real entity') is ![blue-1](./images/blue-1.png). 
+
+The color of clone entity is ![orange](./images/orange.png). 
 
 
-- Model and migration files are generated for name real and clone names;
+- Model and migration files are generated for same real and clone names;
 
-  ![same names of real and clone entities in an association EAD](./images/same-name-clone-real.png)
+  ![has_many EAD](./images/has-many-ead.png)
 
-  ```ruby
-  class User < ApplicationRecord
-    has_many :relations
+
+```ruby
+  class Author < ApplicationRecord
+    has_many :books
   end
 
-  class Relation < ApplicationRecord
-    belongs_to :user 
+
+  class Book < ApplicationRecord
+    belongs_to :author 
   end
 
-  class CreateUsers < ActiveRecord::Migration[6.1]
+
+  class CreateAuthors < ActiveRecord::Migration[6.1]
     def change
-      create_table :users do |t|
+      create_table :authors do |t|
+        t.string :name
 
         t.timestamps
       end
     end
   end
 
-  class CreateRelations < ActiveRecord::Migration[6.1]
+
+  class CreateBooks < ActiveRecord::Migration[6.1]
     def change
-      create_table :relations do |t|
-        t.references :user, null: false, foreign_key: true 
+      create_table :books do |t|
+        t.datetime :published_at
+        t.references :author, null: false, foreign_key: true 
 
         t.timestamps
       end
     end
   end
-  ```
+```
 
 - Model and migration files are generated for different real and clone entity names;
 
-  ![different names of real and clone entities in an association EAD](./images/different-name-clone-real.png)
+![different names of real and clone entities in an association EAD](./images/different-name-clone-real.png)
 
-  ```ruby
-  class User < ApplicationRecord
-    has_many :following_relations, class_name: "Relation", foreign_key: "famous_person_id"
+```ruby
+  class Author < ApplicationRecord
+    has_many :novels, class_name: "Book", foreign_key: "publisher_id"
   end
 
-  class Relation < ApplicationRecord
-    belongs_to :famous_person , class_name: "User"
+  class Book < ApplicationRecord
+    belongs_to :publisher , class_name: "Author"
   end
 
-  class CreateUsers < ActiveRecord::Migration[6.1]
+  class CreateAuthors < ActiveRecord::Migration[6.1]
     def change
-      create_table :users do |t|
+      create_table :authors do |t|
+        t.string :name
 
         t.timestamps
       end
     end
   end
 
-  class CreateRelations < ActiveRecord::Migration[6.1]
+  class CreateBooks < ActiveRecord::Migration[6.1]
     def change
-      create_table :relations do |t|
-        t.references :famous_person, null: false, foreign_key: { to_table: :users }
+      create_table :books do |t|
+        t.datetime :published_at
+        t.references :publisher, null: false, foreign_key: { to_table: :authors }
 
         t.timestamps
       end
     end
   end
-  ```
+
+```
+
+## How to Add associations
+
+- 'has_many' association can be added by using ![has_many](./images/has_many.png) or has_many block.
+- 'has_one' association can be added by using ![has_one](./images/has_one.png) or has_one block.
+- ':through' association can be added by using ![through](./images/through.png) or :through block.
+
+![association buttons EAD](./images/association-buttons.png)
+![association blocks EAD](./images/association-blocks.png)
 
 ## Delete Blocks
 
 A dragged block is deleted if it is not paired with another block. They are shown with ![removed block](./images/red.png). 
+Also, any block can be deleted by using ![delete](./images/delete.png).
 ## Warnings
 
 ⚠️ The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
 
-⚠️ EAD gem allows using only one ':through' block inside of 'entity' block. It is planned to fix this issue.
-
-⚠️⚠️⚠️ If any real entity is put into one of its clones, it may cause different problems(For example, deleting a real entity inside of one of its clones breaks EAD). It is planned to fix this issue with the next versions.
-
-## Suggested Approach
-
-It is highly suggested to put all real entities into one block and use clones for associations. But, this approach isn't mandatory.
-
-![suggested approach EAD](./images/separate-blocks.png)
+⚠️ EAD allows using only one clone entity inside of any association block.
 
 ## Edge Cases
 

@@ -17,6 +17,7 @@ import blockReducer, {
   idCountIncrease,
   toggleExpandAll,
   toggleCompactMode,
+  uploadAllData,
 } from './blockReducer';
 import testInitialState from './testInitialState';
 
@@ -262,6 +263,17 @@ describe('blockReducer', () => {
       store.dispatch(toggleCompactMode());
 
       expect(store.getState().block.compactMode).toBe(false);
+    });
+  });
+
+  describe('uploadAllData', () => {
+    it('updates all data with data given as parameter', () => {
+      expect(store.getState().block.idCount).toBe(26);
+
+      const data = { idCount: 27 };
+      store.dispatch(uploadAllData(data));
+
+      expect(store.getState().block.idCount).toBe(27);
     });
   });
 });

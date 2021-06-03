@@ -21,6 +21,7 @@ import {
   toggleExpandAll,
   toggleCompactMode,
   updateRestrictedDropId,
+  uploadAllData,
 } from '../redux';
 import saveJSON from './saveJSON';
 import colors from './colors';
@@ -33,6 +34,8 @@ const App = () => {
     items, dragDropCategory, idCount, expandAll, compactMode,
   } = useSelector((state) => state.block);
 
+  const blocks = useSelector((state) => state.block);
+
   const startingId = compactMode ? 9 : 0;
   const dispatch = useDispatch();
 
@@ -44,6 +47,16 @@ const App = () => {
 
   const saveBlocks = () => {
     localStorage.block = JSON.stringify(stateBlock);
+  };
+
+  const handleSubmit = (e) => {
+    const fileReader = new FileReader();
+    dispatch(uploadAllData('hasan'));
+    fileReader.onload = (e) => {
+      dispatch(uploadAllData(JSON.parse(e.target.result)));
+    };
+
+    fileReader.readAsText(e.target.files[0], 'UTF-8');
   };
 
   const onDragStart = (result) => {
@@ -110,11 +123,15 @@ const App = () => {
           </Version>
         </LogoVersion>
         <Button
-          onClick={() => saveJSON(items, 'EAD.json')}
+          onClick={() => saveJSON(blocks, 'EAD.json')}
           type="button"
         >
           Download EAD
         </Button>
+        <UploadButton>
+          Upload EAD
+          <input onChange={handleSubmit} type="file" accept=".json" data-testid="uploadInput" />
+        </UploadButton>
 
         <CompactMode
           onClick={() => dispatch(toggleCompactMode())}
@@ -230,6 +247,24 @@ const Button = styled.button`
   &:hover {
     cursor: pointer;
     background-color: ${colors.entity};
+  }
+`;
+
+const UploadButton = styled(Button)`
+  position: relative;
+  > input {
+    display:  none;
+  }
+  
+  &:hover > input {
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 2;
+    background-color: ${colors.entity};
+    position: absolute;
+    display:  block;
+    left: 0;
+    top: 0;
   }
 `;
 

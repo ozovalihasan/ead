@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 
 import userEvent from '@testing-library/user-event';
+import { Simulate } from 'react-dom/test-utils';
 import blockReducer from '../../redux/block/blockReducer';
 import App from '../App';
 
@@ -92,6 +93,12 @@ describe('<App />', () => {
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleCompactMode');
+  });
+
+  it('dispatches uploadAllData action if \'Browse\' button is clicked and a file is selected', () => {
+    render(renderReadyComponent);
+    Simulate.change(screen.getByTestId('uploadInput'), { target: { files: [new File([{ name: 'mockName' }], 'EAD.json', { type: 'text/json' })] } });
+    expect(store.dispatch.mock.calls[0][0].type).toBe('block/uploadAllData');
   });
 
   it('dispatches resetState action if \'Reset\' button is clicked', () => {

@@ -256,6 +256,14 @@ const blockSlice = createSlice({
 
     toggleCompactMode: (state) => { state.compactMode = !state.compactMode; },
 
+    uploadAllData: {
+      reducer: (state, { payload }) => {
+        Object.keys(payload.file).forEach((key) => {
+          state[key] = payload.file[key];
+        });
+      },
+      prepare: (file) => ({ payload: { file } }),
+    },
   },
 
 });
@@ -278,6 +286,7 @@ export const {
   idCountIncrease,
   toggleExpandAll,
   toggleCompactMode,
+  uploadAllData,
 } = actions;
 
 export default reducer;

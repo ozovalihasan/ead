@@ -32,7 +32,7 @@ library.add(faArrowsAlt, faExpandAlt, faCompressAlt, faEllipsisH,
 
 const App = () => {
   const {
-    items, dragDropCategory, idCount, expandAll, compactMode,
+    items, dragDropCategory, idCount, expandAll, compactMode, moreText,
   } = useSelector((state) => state.block);
 
   const blocks = useSelector((state) => state.block);
@@ -125,18 +125,26 @@ const App = () => {
         <Button
           onClick={() => saveJSON(blocks, 'EAD.json')}
           type="button"
+          title="Download EAD"
         >
           Download EAD
         </Button>
-        <UploadButton>
+        <UploadButton title="Upload EAD">
           Upload EAD
-          <input onChange={handleUpload} type="file" accept=".json" data-testid="uploadInput" />
+          <input
+            onChange={handleUpload}
+            type="file"
+            accept=".json"
+            data-testid="uploadInput"
+            title="Select an uploaded EAD"
+          />
         </UploadButton>
 
         <CompactMode
           onClick={() => dispatch(toggleCompactMode())}
           type="button"
           compactMode={compactMode}
+          title="Toggle 'Compact Mode'"
         >
           Compact Mode
         </CompactMode>
@@ -144,6 +152,8 @@ const App = () => {
         <MoreText
           onClick={() => dispatch(toggleMoreText())}
           type="button"
+          title="Toggle 'More Text'"
+          moreText={moreText}
         >
           More Text
         </MoreText>
@@ -154,18 +164,21 @@ const App = () => {
             <Button
               onClick={() => dispatch(resetState())}
               type="button"
+              title="Reset"
             >
               Reset
             </Button>
             <Button
               onClick={() => saveBlocks()}
               type="button"
+              title="Save to localStorage"
             >
               Save
             </Button>
             <Button
               onClick={() => dispatch(installState())}
               type="button"
+              title="Install saved data from localStorage"
             >
               Install Saved Data
             </Button>
@@ -174,6 +187,7 @@ const App = () => {
               onClick={() => dispatch(toggleExpandAll())}
               type="button"
               expandAll={expandAll}
+              title="Expand all blocks"
             >
               Expand All
             </ExpandAllButton>
@@ -244,12 +258,16 @@ const Version = styled.div`
 `;
 
 const Button = styled.button`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
   border-radius: 5px;
   border: 1px solid ${colors.disabled};
   background-color: transparent;
   margin: 10px;
   padding: 10px;
-  transition: background-color 0.2s;
+  transition: background-color 0.4s;
 
   &:hover {
     cursor: pointer;
@@ -259,19 +277,27 @@ const Button = styled.button`
 
 const UploadButton = styled(Button)`
   position: relative;
+
   > input {
     display:  none;
   }
   
-  &:hover > input {
-    border-radius: 5px;
-    padding: 10px;
-    z-index: 2;
+  &:hover {
     background-color: ${colors.entity};
-    position: absolute;
-    display:  block;
-    left: 0;
-    top: 0;
+
+    > input {
+      border-radius: 5px;
+      padding: 100px;
+      z-index: 2;
+      position: absolute;
+      display:  block;
+      left: 0;
+      top: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 `;
 
@@ -283,7 +309,8 @@ const CompactMode = styled(Button)`
   background-color: ${(props) => (props.compactMode && colors.entity)};
 `;
 
-const MoreText = styled(CompactMode)`
+const MoreText = styled(Button)`
+  background-color: ${(props) => (props.moreText && colors.entity)};
 `;
 
 const GithubLink = styled.a`

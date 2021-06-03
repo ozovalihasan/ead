@@ -22,6 +22,7 @@ import {
   toggleCompactMode,
   updateRestrictedDropId,
   uploadAllData,
+  toggleMoreText,
 } from '../redux';
 import saveJSON from './saveJSON';
 import colors from './colors';
@@ -139,6 +140,13 @@ const App = () => {
         >
           Compact Mode
         </CompactMode>
+
+        <MoreText
+          onClick={() => dispatch(toggleMoreText())}
+          type="button"
+        >
+          More Text
+        </MoreText>
 
         {compactMode
         || (
@@ -273,6 +281,9 @@ const ExpandAllButton = styled(Button)`
 
 const CompactMode = styled(Button)`
   background-color: ${(props) => (props.compactMode && colors.entity)};
+`;
+
+const MoreText = styled(CompactMode)`
 `;
 
 const GithubLink = styled.a`

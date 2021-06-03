@@ -152,6 +152,7 @@ const initialState = {
   idCount: 12,
   expandAll: false,
   compactMode: false,
+  moreText: false,
 };
 
 export default initialState;

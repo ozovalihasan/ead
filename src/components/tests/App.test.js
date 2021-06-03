@@ -95,6 +95,14 @@ describe('<App />', () => {
     expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleCompactMode');
   });
 
+  it('dispatches toggleCompactMode action if \'More Text\' button is clicked', () => {
+    render(renderReadyComponent);
+    userEvent.click(screen.getByText('More Text'));
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch.mock.calls[0][0].type).toBe('block/toggleMoreText');
+  });
+
   it('dispatches uploadAllData action if \'Browse\' button is clicked and a file is selected', () => {
     render(renderReadyComponent);
     Simulate.change(screen.getByTestId('uploadInput'), { target: { files: [new File([{ name: 'mockName' }], 'EAD.json', { type: 'text/json' })] } });

@@ -18,6 +18,7 @@ import blockReducer, {
   toggleExpandAll,
   toggleCompactMode,
   uploadAllData,
+  toggleMoreText,
 } from './blockReducer';
 import testInitialState from './testInitialState';
 
@@ -263,6 +264,20 @@ describe('blockReducer', () => {
       store.dispatch(toggleCompactMode());
 
       expect(store.getState().block.compactMode).toBe(false);
+    });
+  });
+
+  describe('toggleMoreText', () => {
+    it('toggles compactMode', () => {
+      expect(store.getState().block.moreText).toBe(false);
+
+      store.dispatch(toggleMoreText());
+
+      expect(store.getState().block.moreText).toBe(true);
+
+      store.dispatch(toggleMoreText());
+
+      expect(store.getState().block.moreText).toBe(false);
     });
   });
 

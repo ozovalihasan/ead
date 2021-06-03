@@ -380,6 +380,7 @@ const testInitialState = {
   idCount: 26,
   expandAll: false,
   compactMode: false,
+  moreText: false,
 };
 
 export default testInitialState;

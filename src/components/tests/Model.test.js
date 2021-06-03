@@ -280,7 +280,15 @@ describe('<Model  />', () => {
     expect(screen.getByText('1 item(s) collided')).toBeInTheDocument();
   });
 
-  it('renders correctly', () => {
+  it('renders correctly without more text', () => {
+    const renderedContainer = render(renderReadyComponent);
+    expect(renderedContainer).toMatchSnapshot();
+  });
+
+  it('renders correctly with more text', () => {
+    testInitialState.moreText = true;
+    testInitialState.compactMode = true;
+    createStore(testInitialState);
     const renderedContainer = render(renderReadyComponent);
     expect(renderedContainer).toMatchSnapshot();
   });

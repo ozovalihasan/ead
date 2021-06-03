@@ -25,7 +25,7 @@ const Model = ({
 }) => {
   const {
     restrictedDropId, draggedItemId, restrictedParentIds,
-    disabledChildIds, expandAll, idCount, compactMode,
+    disabledChildIds, expandAll, idCount, compactMode, moreText,
   } = useSelector((state) => state.block);
 
   const dispatch = useDispatch();
@@ -375,7 +375,7 @@ const Model = ({
                           <TitleContainer>
                             <Title>
                               {
-                                allItems[id].association && !allItems[id].factory
+                                allItems[id].association && !allItems[id].factory && !moreText
                                   ? (
                                     <Flex>
 

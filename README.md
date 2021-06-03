@@ -82,6 +82,7 @@ Then, there are two choices to use the generated JSON file;
 - 'has_many' association can be added by using ![has_many](./documents/images/has_many.png).
 - 'has_one' association can be added by using ![has_one](./documents/images/has_one.png).
 - ':through' association can be added by using ![through](./documents/images/through.png).
+- Any EAD file can be uploaded by hovering on "Upload EAD" and selecting a file.
 - EAD can be used in compact mode by clicking the 'Compact Mode' button. Compact mode hides almost all buttons to provide an presentation.
 - EAD can be reset to the initial state by clicking the 'Reset' button.
 - EAD can be saved to localStorage by clicking the 'Save' button.

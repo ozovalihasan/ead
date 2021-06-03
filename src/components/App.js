@@ -51,7 +51,6 @@ const App = () => {
 
   const handleUpload = (e) => {
     const fileReader = new FileReader();
-    dispatch(uploadAllData('hasan'));
     fileReader.onload = (e) => {
       dispatch(uploadAllData(JSON.parse(e.target.result)));
     };

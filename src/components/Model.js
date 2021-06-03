@@ -126,7 +126,7 @@ const Model = ({
             {(providedDrag, snapshot) => (
               <DragContainer
                 {...providedDrag.draggableProps}
-                {...(compactMode ? {} : providedDrag.dragHandleProps)}
+                {...providedDrag.dragHandleProps}
                 ref={providedDrag.innerRef}
                 isDragging={snapshot.isDragging}
                 isDraggingOver={snapshot.draggingOver}

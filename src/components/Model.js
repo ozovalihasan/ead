@@ -303,7 +303,6 @@ const Model = ({
                           allItems[id].factory
                           || allItems[id].attribute
                           || allItems[id].isDragDisabled
-                          || compactMode
                           || (
                             <ExpandButton
                               name="expand"
@@ -321,7 +320,6 @@ const Model = ({
                         {
                           !(allItems[id].factory
                             || allItems[id].attribute
-                            || compactMode
                           )
                           && allItems[id].expand
                           && (

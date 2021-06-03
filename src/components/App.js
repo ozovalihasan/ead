@@ -49,7 +49,7 @@ const App = () => {
     localStorage.block = JSON.stringify(stateBlock);
   };
 
-  const handleSubmit = (e) => {
+  const handleUpload = (e) => {
     const fileReader = new FileReader();
     dispatch(uploadAllData('hasan'));
     fileReader.onload = (e) => {
@@ -130,7 +130,7 @@ const App = () => {
         </Button>
         <UploadButton>
           Upload EAD
-          <input onChange={handleSubmit} type="file" accept=".json" data-testid="uploadInput" />
+          <input onChange={handleUpload} type="file" accept=".json" data-testid="uploadInput" />
         </UploadButton>
 
         <CompactMode

@@ -227,6 +227,9 @@ const blockSlice = createSlice({
           cloneParent: parseInt(payload.itemId, 10),
           parentId: parseInt(payload.containerId, 10),
           parentIndex: payload.containerIndex,
+          order: 'horizontal',
+          subdirection: 'row',
+          expand: true,
         };
         delete newItem.cloneChildren;
         delete newItem.entity;
@@ -253,6 +256,16 @@ const blockSlice = createSlice({
 
     toggleCompactMode: (state) => { state.compactMode = !state.compactMode; },
 
+    toggleMoreText: (state) => { state.moreText = !state.moreText; },
+
+    uploadAllData: {
+      reducer: (state, { payload }) => {
+        Object.keys(payload.file).forEach((key) => {
+          state[key] = payload.file[key];
+        });
+      },
+      prepare: (file) => ({ payload: { file } }),
+    },
   },
 
 });
@@ -275,6 +288,8 @@ export const {
   idCountIncrease,
   toggleExpandAll,
   toggleCompactMode,
+  uploadAllData,
+  toggleMoreText,
 } = actions;
 
 export default reducer;

@@ -62,8 +62,9 @@ Then, there are two choices to use the generated JSON file;
 ⚠️⚠️⚠️: EAD is still under development. So, it is not recommended to use this gem with ongoing projects. 
 
 
-- If all files are generated as expected, run `bundle exec rails db:migrate`
+- If all files are generated as expected, run `bundle exec rails db:migrate`.
 
+- Three [videos](https://drive.google.com/drive/folders/1PrS0zW3H-ZKMjhHDAXTN2vRz-flhLDdE?usp=sharing) are provided as example. If you want to check videos for previous versions, please check [this link](https://drive.google.com/drive/folders/1PrS0zW3H-ZKMjhHDAXTN2vRz-flhLDdE?usp=sharing).
 ### Features
 
 - All related buttons of a block is shown when the cursor is hovering on ![plus](./documents/images/plus.png).

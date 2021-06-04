@@ -86,53 +86,62 @@ Object {
             </div>
           </div>
           <button
-            class="sc-jRQAMF kDKvBk"
+            class="sc-jRQAMF dSjkvZ"
+            title="Download EAD"
             type="button"
           >
             Download EAD
           </button>
           <button
-            class="sc-jRQAMF sc-gKckTs kDKvBk gHxtqf"
+            class="sc-jRQAMF sc-gKckTs dSjkvZ kaCJHl"
+            title="Upload EAD"
           >
             Upload EAD
             <input
               accept=".json"
               data-testid="uploadInput"
+              title="Select an uploaded EAD"
               type="file"
             />
           </button>
           <button
-            class="sc-jRQAMF sc-furvIG kDKvBk iOTfuz"
+            class="sc-jRQAMF sc-furvIG dSjkvZ iOTfuz"
+            title="Toggle 'Compact Mode'"
             type="button"
           >
             Compact Mode
           </button>
           <button
-            class="sc-jRQAMF sc-furvIG sc-pVTma kDKvBk iOTfuz fkEXgG"
+            class="sc-jRQAMF sc-pVTma dSjkvZ lkRphI"
+            title="Toggle 'More Text'"
             type="button"
           >
             More Text
           </button>
           <button
-            class="sc-jRQAMF kDKvBk"
+            class="sc-jRQAMF dSjkvZ"
+            title="Reset"
             type="button"
           >
             Reset
           </button>
           <button
-            class="sc-jRQAMF kDKvBk"
+            class="sc-jRQAMF dSjkvZ"
+            title="Save to localStorage"
             type="button"
           >
             Save
           </button>
           <button
-            class="sc-jRQAMF kDKvBk"
+            class="sc-jRQAMF dSjkvZ"
+            title="Install saved data from localStorage"
             type="button"
           >
             Install Saved Data
           </button>
           <button
-            class="sc-jRQAMF sc-iCfLBT kDKvBk bMPkWw"
+            class="sc-jRQAMF sc-iCfLBT dSjkvZ bMPkWw"
+            title="Expand all blocks"
             type="button"
           >
             Expand All
@@ -212,53 +221,62 @@ Object {
           </div>
         </div>
         <button
-          class="sc-jRQAMF kDKvBk"
+          class="sc-jRQAMF dSjkvZ"
+          title="Download EAD"
           type="button"
         >
           Download EAD
         </button>
         <button
-          class="sc-jRQAMF sc-gKckTs kDKvBk gHxtqf"
+          class="sc-jRQAMF sc-gKckTs dSjkvZ kaCJHl"
+          title="Upload EAD"
         >
           Upload EAD
           <input
             accept=".json"
             data-testid="uploadInput"
+            title="Select an uploaded EAD"
             type="file"
           />
         </button>
         <button
-          class="sc-jRQAMF sc-furvIG kDKvBk iOTfuz"
+          class="sc-jRQAMF sc-furvIG dSjkvZ iOTfuz"
+          title="Toggle 'Compact Mode'"
           type="button"
         >
           Compact Mode
         </button>
         <button
-          class="sc-jRQAMF sc-furvIG sc-pVTma kDKvBk iOTfuz fkEXgG"
+          class="sc-jRQAMF sc-pVTma dSjkvZ lkRphI"
+          title="Toggle 'More Text'"
           type="button"
         >
           More Text
         </button>
         <button
-          class="sc-jRQAMF kDKvBk"
+          class="sc-jRQAMF dSjkvZ"
+          title="Reset"
           type="button"
         >
           Reset
         </button>
         <button
-          class="sc-jRQAMF kDKvBk"
+          class="sc-jRQAMF dSjkvZ"
+          title="Save to localStorage"
           type="button"
         >
           Save
         </button>
         <button
-          class="sc-jRQAMF kDKvBk"
+          class="sc-jRQAMF dSjkvZ"
+          title="Install saved data from localStorage"
           type="button"
         >
           Install Saved Data
         </button>
         <button
-          class="sc-jRQAMF sc-iCfLBT kDKvBk bMPkWw"
+          class="sc-jRQAMF sc-iCfLBT dSjkvZ bMPkWw"
+          title="Expand all blocks"
           type="button"
         >
           Expand All

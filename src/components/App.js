@@ -119,7 +119,7 @@ const App = () => {
         <LogoVersion>
           <Logo src={`${process.env.PUBLIC_URL}/images/ead-logo.svg`} alt="EAD logo" />
           <Version>
-            0.3.0
+            0.3.1
           </Version>
         </LogoVersion>
         <Button

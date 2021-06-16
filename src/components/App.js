@@ -53,7 +53,13 @@ const App = () => {
   const handleUpload = (e) => {
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
-      dispatch(uploadAllData(JSON.parse(e.target.result)));
+      const data = JSON.parse(e.target.result);
+
+      if (data.version === '0.3.0') {
+        data.version = '0.3.1';
+      }
+
+      dispatch(uploadAllData(data));
     };
 
     fileReader.readAsText(e.target.files[0], 'UTF-8');

@@ -104,8 +104,19 @@ describe('<App />', () => {
   });
 
   it('dispatches uploadAllData action if \'Browse\' button is clicked and a file is selected', () => {
+    const readAsText = jest.fn();
+    const fileReader = {
+      readAsText,
+    };
+
+    jest.spyOn(window, 'FileReader').mockImplementation(() => fileReader);
     render(renderReadyComponent);
-    Simulate.change(screen.getByTestId('uploadInput'), { target: { files: [new File([{ name: 'mockName' }], 'EAD.json', { type: 'text/json' })] } });
+    Simulate.change(screen.getByTestId('uploadInput'), { target: { files: [new Blob()] } });
+
+    expect(readAsText.mock.calls.length).toBe(1);
+
+    fileReader.onload({ target: { result: JSON.stringify('result') } });
+
     expect(store.dispatch.mock.calls[0][0].type).toBe('block/uploadAllData');
   });
 

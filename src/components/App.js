@@ -53,7 +53,13 @@ const App = () => {
   const handleUpload = (e) => {
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
-      dispatch(uploadAllData(JSON.parse(e.target.result)));
+      const data = JSON.parse(e.target.result);
+
+      if (data.version === '0.3.0') {
+        data.version = '0.3.1';
+      }
+
+      dispatch(uploadAllData(data));
     };
 
     fileReader.readAsText(e.target.files[0], 'UTF-8');
@@ -119,7 +125,7 @@ const App = () => {
         <LogoVersion>
           <Logo src={`${process.env.PUBLIC_URL}/images/ead-logo.svg`} alt="EAD logo" />
           <Version>
-            0.3.0
+            0.3.1
           </Version>
         </LogoVersion>
         <Button

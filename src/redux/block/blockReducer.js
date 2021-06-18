@@ -212,7 +212,11 @@ const blockSlice = createSlice({
 
     installState: () => {
       if (localStorage.block) {
-        return JSON.parse(localStorage.block);
+        const data = JSON.parse(localStorage.block);
+        if (data.version === '0.3.0') {
+          data.version = '0.3.1';
+        }
+        return data;
       }
       return initialState;
     },

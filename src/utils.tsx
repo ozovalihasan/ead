@@ -62,7 +62,7 @@ function getEdgePosition(node: Node, intersectionPoint: NodeIntersectionType) {
 export function getEdgeParams(source: Node, target: Node, isThrough = false, sourceBeginningNode: null | Node = null) {
 
   let sourceIntersectionPoint = null
-  const targetIntersectionPoint = getNodeIntersection(target, source, isThrough);
+  let targetIntersectionPoint = getNodeIntersection(target, source, isThrough);
 
   if (isThrough && sourceBeginningNode){
     sourceIntersectionPoint = getNodeIntersection(source, sourceBeginningNode);
@@ -72,6 +72,18 @@ export function getEdgeParams(source: Node, target: Node, isThrough = false, sou
   
   const sourcePos = getEdgePosition(source, sourceIntersectionPoint);
   const targetPos = getEdgePosition(target, targetIntersectionPoint);
+
+  if (!isThrough){
+    if ( targetPos === Position.Bottom ){
+      targetIntersectionPoint.y += 10 
+    } else if ( targetPos === Position.Top ) {
+      targetIntersectionPoint.y -= 10 
+    } else if ( targetPos === Position.Left ){
+      targetIntersectionPoint.x -= 10 
+    } else if ( targetPos === Position.Right ) {
+      targetIntersectionPoint.x += 10 
+    }
+  }
 
   return {
     sx: sourceIntersectionPoint.x,

@@ -1,4 +1,5 @@
 import { EdgeProps, EdgeText, getBezierEdgeCenter, getBezierPath, Position } from 'react-flow-renderer';
+import ShowEdgeText from './ShowEdgeText';
 import { getEdgeParams } from './utils';
 import useStore from './zustand/store';
 
@@ -18,6 +19,7 @@ const HasManyEdge = ({
 
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) 
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) 
+  const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
 
   if (!sourceNode || !targetNode) { return <div></div> }
 
@@ -54,8 +56,6 @@ const HasManyEdge = ({
     orient = "0deg"
   }
 
-  const showTextOnEdges = useStore(store => store.showTextOnEdges)
-  const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
 
   
   return (
@@ -106,19 +106,7 @@ const HasManyEdge = ({
         </foreignObject> 
       }
 
-
-      { showTextOnEdges &&  
-        <EdgeText
-          x={centerX}
-          y={centerY}
-          label={label}
-          labelStyle={{ fill: 'black' }}
-          labelShowBg
-          labelBgStyle={{ fill: 'transparent' }}
-          labelBgPadding={[2, 4]}
-          labelBgBorderRadius={2}
-        />
-      }
+      <ShowEdgeText label={label} centerX={centerX} centerY={centerY} />
     </>
   );
 }

@@ -19,6 +19,7 @@ const ThroughEdge = ({
   const throughNode = useStore(store => store.nodes.find( node => node.id === data.throughNodeId)) as Node
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
   const showTextOnEdges = useStore(store => store.showTextOnEdges)
+  const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
   
   if (!sourceNode || !throughNode || !targetNode) {
     return <div></div>
@@ -47,7 +48,6 @@ const ThroughEdge = ({
     targetY: ty,
   })
   
-  const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
   
   return (
     <>

@@ -10,7 +10,7 @@ type ShowEdgeTextType = {
 const ShowEdgeText = ({centerX, centerY, label}: ShowEdgeTextType) => {
   const showTextOnEdges = useStore(store => store.showTextOnEdges)
 
-  if (showTextOnEdges ){
+  if (!showTextOnEdges ){
     return (<></> )
   }
   

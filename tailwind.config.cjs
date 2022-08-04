@@ -7,7 +7,11 @@ module.exports = {
   ],
   
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        default: [ 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif'],
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

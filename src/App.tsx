@@ -88,7 +88,7 @@ const App = () => {
 
 
   return (
-    <div  className="h-screen w-screen bg-first-100 flex flex-row flex-grow">
+    <div  className="font-default h-screen w-screen bg-first-100 flex flex-row flex-grow">
       <ReactFlowProvider>
         <div className="h-full flex-grow" ref={reactFlowWrapper}>
 

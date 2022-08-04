@@ -54,6 +54,7 @@ export type State = {
   addTable: (event: React.MouseEvent<HTMLButtonElement, MouseEvent> ) => void;
   addAttribute: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string ) => void;
   removeAttribute: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string, attributeId: string ) => void;
+  removeTable: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string ) => void;
   increaseIdCounter: () => void;
   onConnectStart: () => void;
   onConnectEnd: () => void;
@@ -153,6 +154,12 @@ const useStore = create(devtools<State>((set, get) => ({
     removeAttribute: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string, attributeId: string ) => {
       set(produce((state: State) => {
         delete state.tables[tableId].attributes[attributeId]
+      }))
+    }),
+    removeTable: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string ) => {
+      set(produce((state: State) => {
+        delete state.tables[tableId]
+        state.nodes = state.nodes.filter((node) => (node.data.tableId !== tableId))
       }))
     }),
     increaseIdCounter: (() =>{

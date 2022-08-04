@@ -9,6 +9,7 @@ const Sidebar = () => {
     addTable, 
     addAttribute, 
     removeAttribute,
+    removeTable,
     onAttributeNameChange,
     onAttributeTypeChange,
     resetStore,
@@ -67,6 +68,7 @@ const Sidebar = () => {
                 })
               }
               <button className="p-1 bg-first-500 text-first-50 rounded-full rounded-bl-none aspect-square h-6" onClick={event => addAttribute(event, tableId)}>+</button>
+              <button className="right-0 absolute -translate-x-1/2 translate-y-1/2 p-1 bg-first-500 text-first-50 rounded-full aspect-square h-6" onClick={event => removeTable(event, tableId)}>-</button>
             </div>
           )
         })

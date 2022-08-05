@@ -31,7 +31,7 @@ const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType
       
       <div>
         <label htmlFor="text"></label>
-        <input value={data.name} className="w-32 p-1 rounded-md" id="text" name="text" onChange={(event) => onNodeInputChange(event, id)} />
+        <input placeholder='Entity' value={data.name} className="w-32 p-1 rounded-md" id="text" name="text" onChange={(event) => onNodeInputChange(event, id)} />
       </div>
       <sub>
         {data && <TableName tableId={data.tableId}></TableName>}

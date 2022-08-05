@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   Controls,
@@ -14,6 +14,7 @@ import HasManyEdge from './HasManyEdge';
 import HasOneEdge from './HasOneEdge';
 import ThroughEdge from './ThroughEdge';
 import ConnectionLine from './ConnectionLine';
+import useCustomizationStore from './zustand/customizationStore';
 
 
 
@@ -42,6 +43,10 @@ const App = () => {
     onEdgeMouseEnter, 
     onEdgeMouseLeave,
   } = useStore();
+
+  const {
+    locationSidebar,
+  } = useCustomizationStore()
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
 
@@ -86,10 +91,10 @@ const App = () => {
     [reactFlowInstance]
   );
 
-
   return (
-    <div  className="font-default h-screen w-screen bg-first-100 flex flex-row flex-grow">
+    <div  className={`font-default h-screen w-screen bg-first-100 flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
       <ReactFlowProvider>
+        <Sidebar />
         <div className="h-full flex-grow" ref={reactFlowWrapper}>
 
           <ReactFlow
@@ -120,7 +125,7 @@ const App = () => {
 
           </ReactFlow>
         </div>
-        <Sidebar />
+        
       </ReactFlowProvider>
     </div>
 

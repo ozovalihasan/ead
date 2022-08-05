@@ -24,7 +24,6 @@ import { ButtonHTMLAttributes } from 'react';
 import initialTables, { TablesType } from './tables';
 import { EntityNodeDataType } from '../EntityNode';
 
-
 export type State = {
   version: string;
   idCounter: number;
@@ -64,7 +63,7 @@ export type State = {
   removeEdge: (edgeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  toggleTextMode: () => void,
+  toggleTextMode: () => void;
 };
 
 // this is our useStore hook that we can use in our components to get parts of the store and call actions
@@ -271,7 +270,6 @@ const useStore = create(devtools<State>((set, get) => ({
         let data
         if (event.target && (typeof event.target.result === 'string')){
           data = JSON.parse(event.target.result);
-
           set(
             data
           )

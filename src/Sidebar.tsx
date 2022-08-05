@@ -1,5 +1,6 @@
 import React from 'react';
 import saveJSON from './components/saveJSON';
+import useCustomizationStore from './zustand/customizationStore';
 import useStore from './zustand/store';
 
 const Sidebar = () => {
@@ -14,10 +15,15 @@ const Sidebar = () => {
     onAttributeTypeChange,
     resetStore,
     uploadStore,
-    toggleTextMode
+    toggleTextMode,
   } = useStore();
 
+  const {
+    locationSidebar,
+    toggleLocationSidebar,
+  } = useCustomizationStore()
   
+
   const onDragStart = (
     event: React.DragEvent<HTMLDivElement> , 
     nodeType: string,
@@ -32,9 +38,8 @@ const Sidebar = () => {
   const showTextOnEdges = useStore(store => store.showTextOnEdges)
 
   return (
-    <aside className='border-l-2 border-solid py-3 px-2  w-1/5 overflow-y-scroll' >
+    <aside className='relative border-x-2 border-solid py-3 px-2  w-1/5 overflow-y-scroll' >
       <div className="mb-3 w-full">You can drag these nodes to the pane on the left.</div>
-      
       {
         
         Object.keys(tables).map((tableId: string) => {
@@ -81,6 +86,10 @@ const Sidebar = () => {
         <div className='flex mb-5'>
           Show Association Names
           <input className='ml-6' type="checkbox" onChange={toggleTextMode}/>
+        </div>
+        <div className='flex mb-5'>
+          Show the sidebar at the right of the window
+          <input className='ml-6' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
         </div>
         <button
           className="rounded-md p-3 bg-first-500 border-2 border-first-500 my-1 ml-0 text-first-100"

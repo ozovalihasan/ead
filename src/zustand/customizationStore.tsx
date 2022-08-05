@@ -3,15 +3,27 @@ import { devtools } from 'zustand/middleware'
 
 
 type CustomizationStoreState = {
-  locationSidebar: string;
+  locationSidebar: string | null;
+  widthSidebar: number | null;
   toggleLocationSidebar: () => void;
+  handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => void;
+}
+
+if(!localStorage.locationSidebar){
+  let locationSidebar = "left"
+  localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
+}
+
+if(!localStorage.widthSidebar){
+  let widthSidebar = Math.floor(window.innerWidth * 0.2)
+  localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
 }
 
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
-  locationSidebar: JSON.parse(localStorage.getItem("locationSidebar")),
+  locationSidebar: JSON.parse(localStorage.locationSidebar),
+  widthSidebar: JSON.parse(localStorage.widthSidebar),
   toggleLocationSidebar: () => {
     let location = JSON.parse(localStorage.locationSidebar)
-    console.log(location);
     
     if (location === "left"){
       location = "right"
@@ -19,8 +31,20 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
       location = "left"
     }
     localStorage.setItem("locationSidebar", JSON.stringify( location) )  
+
+    let widthSidebar = window.innerWidth - (get().widthSidebar as number); 
+    localStorage.setItem("widthSidebar", JSON.stringify( widthSidebar) )  
+
     set({
-      locationSidebar: location
+      locationSidebar: location,
+      widthSidebar: widthSidebar
+    })
+  },
+  handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => {
+    const widthSidebar = e.clientX;
+    localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar) );
+    set({
+      widthSidebar: widthSidebar
     })
   }
 })))

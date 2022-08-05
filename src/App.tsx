@@ -46,6 +46,7 @@ const App = () => {
 
   const {
     locationSidebar,
+    handleSidebarWidthChange
   } = useCustomizationStore()
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
@@ -95,6 +96,11 @@ const App = () => {
     <div  className={`font-default h-screen w-screen bg-first-100 flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
       <ReactFlowProvider>
         <Sidebar />
+        <div className='h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center' draggable onDragEnd={handleSidebarWidthChange}>
+          .
+          .
+          .
+        </div>
         <div className="h-full flex-grow" ref={reactFlowWrapper}>
 
           <ReactFlow

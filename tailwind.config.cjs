@@ -17,7 +17,7 @@ module.exports = {
       current: 'currentColor',
       slate: colors.slate,
       first: colors.blue,
-      second: colors.red,
+      second: colors.green,
       third: colors.gray,
       fourth: colors.emerald,
     },

@@ -12,7 +12,7 @@ export type EntityNodeDataType = {
   name: string,
 }
 
-const EntityNode = ({id, data }: {id: string, data: EntityNodeDataType}) => {
+const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType, selected: boolean}) => {
   const { onNodeInputChange, onMouseEnterThrough, onChangeAssociationType } = useStore();
 
   const isConnectContinue = useStore(state => state.isConnectContinue)
@@ -25,7 +25,7 @@ const EntityNode = ({id, data }: {id: string, data: EntityNodeDataType}) => {
   const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == id) ? "visible" : "hidden")
   
   return (
-    <div className={`border-black border border-solid p-1 rounded-sm ${ selectedNodeForThrough ?  "bg-second-400" : "bg-first-100"}`}>
+    <div className={`border-black border border-solid p-1 rounded-sm ${ selectedNodeForThrough || selected ?  "bg-second-400" : "bg-first-100"}`}>
       
       <Handle className="border-none w-6 h-6" type="target" position={Position.Top} id="top" style={{visibility: isConnectContinue ? "visible" : "hidden"}}/>
       

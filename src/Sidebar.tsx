@@ -37,11 +37,12 @@ const Sidebar = () => {
 
   let tables = useStore((state) => state.tables);
   const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
+  const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
 
   return (
     <div className='flex'>
       {/* <button onClick={fitView} ></button> */}
-      <aside className='relative py-3 px-2 overflow-y-scroll' style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
+      <aside className={`relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
         {
           
           Object.keys(tables).map((tableId: string) => {

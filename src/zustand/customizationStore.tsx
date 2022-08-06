@@ -6,7 +6,9 @@ type CustomizationStoreState = {
   locationSidebar: string | null;
   widthSidebar: number | null;
   showTextOnEdges: boolean;
+  sidebarVisible: boolean;
   toggleLocationSidebar: () => void;
+  toggleSidebarVisibility: () => void;
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => void;
   toggleTextMode: () => void;
 }
@@ -25,6 +27,7 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   locationSidebar: JSON.parse(localStorage.locationSidebar),
   widthSidebar: JSON.parse(localStorage.widthSidebar),
   showTextOnEdges: false,
+  sidebarVisible: true,
   toggleLocationSidebar: () => {
     let location = JSON.parse(localStorage.locationSidebar)
     
@@ -41,6 +44,11 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
     set({
       locationSidebar: location,
       widthSidebar: widthSidebar
+    })
+  },
+  toggleSidebarVisibility:() => {
+    set({
+      sidebarVisible: !get().sidebarVisible,
     })
   },
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => {

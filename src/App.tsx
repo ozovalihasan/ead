@@ -1,7 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
-  Controls,
   Node,
   ReactFlowInstance,
 } from 'react-flow-renderer';
@@ -15,6 +14,7 @@ import HasOneEdge from './HasOneEdge';
 import ThroughEdge from './ThroughEdge';
 import ConnectionLine from './ConnectionLine';
 import useCustomizationStore from './zustand/customizationStore';
+import CustomControls from './CustomControls';
 
 
 
@@ -46,6 +46,7 @@ const App = () => {
 
   const {
     locationSidebar,
+    sidebarVisible,
     handleSidebarWidthChange
   } = useCustomizationStore()
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
@@ -96,7 +97,7 @@ const App = () => {
     <div  className={`font-default h-screen w-screen bg-first-100 flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
       <ReactFlowProvider>
         <Sidebar />
-        <div className='h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center' draggable onDragEnd={handleSidebarWidthChange}>
+        <div className={`h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center ${sidebarVisible || "hidden"}`} draggable onDragEnd={handleSidebarWidthChange}>
           .
           .
           .
@@ -127,7 +128,7 @@ const App = () => {
             snapToGrid={true}
             
           >
-            <Controls />
+            <CustomControls />
 
           </ReactFlow>
         </div>

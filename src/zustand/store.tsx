@@ -155,7 +155,14 @@ const useStore = create(devtools<State>((set, get) => ({
     removeTable: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string ) => {
       set(produce((state: State) => {
         delete state.tables[tableId]
-        state.nodes = state.nodes.filter((node) => (node.data.tableId !== tableId))
+        state.nodes = state.nodes.filter((node) => {
+          state.edges = state.edges.filter((edge) => (
+            (edge.source !== node.id) && 
+            (edge.target !== node.id) && 
+            (edge.data?.throughNodeId !== node.id)
+          ))
+          return (node.data.tableId !== tableId)
+        })
       }))
     }),
     increaseIdCounter: (() =>{

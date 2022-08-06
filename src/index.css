@@ -9,3 +9,11 @@ details > summary::-webkit-details-marker {
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-first {
+    @apply bg-first-500 hover:bg-first-600 text-first-100 border-first-500 hover:border-first-600 border-2 border-solid;
+  }
+  .btn-second {
+    @apply bg-first-100 hover:bg-first-100 text-first-500 hover:text-first-600 border-first-500 border-2 border-solid;
+  }
+}

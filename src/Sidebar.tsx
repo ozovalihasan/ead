@@ -40,18 +40,18 @@ const Sidebar = () => {
 
   return (
     <div className='flex'>
-      <aside className='relative py-3 px-2 overflow-y-scroll' style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
+      <aside className='relative py-3 px-2 overflow-y-scroll resize-x' style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
         {
           
           Object.keys(tables).map((tableId: string) => {
             return (
-              <div className="my-4 w-full bg-transparent border border-first-900 border-solid rounded-md" key={tableId} onDragStart={(event) => onDragStart(event, 'default', tableId)} draggable>
+              <div className="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md" key={tableId} onDragStart={(event) => onDragStart(event, 'default', tableId)} draggable>
                 <input className="p-2 rounded-md w-full" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} />
                 {
                   Object.keys(tables[tableId].attributes).map((attributeId) => {
                     return (
                       <div className="flex m-1" key={attributeId} >
-                        <button className="p-1 bg-first-500 text-first-50 rounded-full aspect-square h-6" onClick={event => removeAttribute(event, tableId, attributeId)} >-</button>
+                        <button className="btn-first rounded-full aspect-square h-6" onClick={event => removeAttribute(event, tableId, attributeId)} >-</button>
                         <input className="p-1 w-2/3 rounded-md" placeholder="Attribute" type="text" value={tables[tableId].attributes[attributeId].name} onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} />
                         <select
                           className="w-1/3"
@@ -73,13 +73,13 @@ const Sidebar = () => {
                     )
                   })
                 }
-                <button className="p-1 bg-first-500 text-first-50 rounded-full m-1 aspect-square h-6" onClick={event => addAttribute(event, tableId)}>+</button>
-                <button className="right-0 absolute -translate-x-1/2 translate-y-1/2 p-1 bg-first-500 text-first-50 rounded-full aspect-square h-6" onClick={event => removeTable(event, tableId)}>-</button>
+                <button className="btn-first rounded-full m-1 aspect-square h-6" onClick={event => addAttribute(event, tableId)}>+</button>
+                <button className="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6" onClick={event => removeTable(event, tableId)}>-</button>
               </div>
             )
           })
         }
-        <button className="p-1 bg-first-500 text-first-50 rounded-full aspect-square h-10" onClick={addTable}>+</button>
+        <button className="p-1 btn-first rounded-full aspect-square h-10" onClick={addTable}>+</button>
 
         
         <details open className='mt-8 [&>summary>span:nth-child(1)]:open:hidden [&>summary>span:nth-child(2)]:open:inline '>
@@ -98,7 +98,8 @@ const Sidebar = () => {
               <input className='ml-6' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
             </div>
             <button
-              className="rounded-md p-3 bg-first-500 border-2 border-first-500 my-1 ml-0 text-first-100"
+              // className="rounded-md p-3 bg-first-500 border-2 border-first-500 my-1 ml-0 text-first-100"
+              className="rounded-md p-3 my-1 ml-0 btn-first"
               onClick={() => saveJSON(useStore.getState(), 'EAD.json')}
               type="button"
               title="Download EAD"
@@ -106,7 +107,7 @@ const Sidebar = () => {
               Download EAD
             </button>
             
-            <label className='text-center p-3 rounded-md border-2 border-solid border-first-500 w-full cursor-pointer'>
+            <label className='text-center p-3 rounded-md w-full cursor-pointer btn-second'>
               Upload EAD
               <input
                 className='hidden'
@@ -119,7 +120,7 @@ const Sidebar = () => {
             </label>
             
             <button
-              className="mt-16 rounded-md p-3 border-2 border-first-500 my-1 mx-0 "
+              className="mt-16 rounded-md p-3 my-1 mx-0 btn-second "
               onClick={resetStore}
               type="button"
               title="Reset"

@@ -40,7 +40,8 @@ const Sidebar = () => {
 
   return (
     <div className='flex'>
-      <aside className='relative py-3 px-2 overflow-y-scroll resize-x' style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
+      {/* <button onClick={fitView} ></button> */}
+      <aside className='relative py-3 px-2 overflow-y-scroll' style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
         {
           
           Object.keys(tables).map((tableId: string) => {

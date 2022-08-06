@@ -256,7 +256,7 @@ const useStore = create(devtools<State>((set, get) => ({
     },
     resetStore: () => {
       set({
-        idCounter: "1",
+        idCounter: 1,
         tables: {},
         nodes: [],
         edges: [],

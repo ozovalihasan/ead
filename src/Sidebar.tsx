@@ -83,19 +83,19 @@ const Sidebar = () => {
 
         
         <details open className='mt-8 [&>summary>span:nth-child(1)]:open:hidden [&>summary>span:nth-child(2)]:open:inline '>
-          <summary>
+          <summary className='btn-third'>
             <span>Show </span>
             <span className='hidden'>Hide </span> 
             menu
           </summary>
           <div className='mt-8 flex-col flex'>
             <div className='flex mb-5'>
+              <input className='mr-6' type="checkbox" onChange={toggleTextMode}/>
               Show Association Names
-              <input className='ml-6' type="checkbox" onChange={toggleTextMode}/>
             </div>
             <div className='flex mb-5'>
+              <input className='mr-6 ' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
               Show the sidebar at the right of the window
-              <input className='ml-6' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
             </div>
             <button
               // className="rounded-md p-3 bg-first-500 border-2 border-first-500 my-1 ml-0 text-first-100"

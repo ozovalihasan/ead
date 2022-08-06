@@ -51,7 +51,7 @@ const Sidebar = () => {
                   Object.keys(tables[tableId].attributes).map((attributeId) => {
                     return (
                       <div className="flex m-1" key={attributeId} >
-                        <button className="btn-first rounded-full aspect-square h-6" onClick={event => removeAttribute(event, tableId, attributeId)} >-</button>
+                        <button className="btn-first rounded-full aspect-square h-6" title="Remove the attribute" onClick={event => removeAttribute(event, tableId, attributeId)} >-</button>
                         <input className="p-1 w-2/3 rounded-md" placeholder="Attribute" type="text" value={tables[tableId].attributes[attributeId].name} onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} />
                         <select
                           className="w-1/3"
@@ -73,13 +73,13 @@ const Sidebar = () => {
                     )
                   })
                 }
-                <button className="btn-first rounded-full m-1 aspect-square h-6" onClick={event => addAttribute(event, tableId)}>+</button>
-                <button className="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6" onClick={event => removeTable(event, tableId)}>-</button>
+                <button className="btn-first rounded-full m-1 aspect-square h-6" title="Add an attribute" onClick={event => addAttribute(event, tableId)}>+</button>
+                <button className="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6" title="Delete the table" onClick={event => removeTable(event, tableId)}>-</button>
               </div>
             )
           })
         }
-        <button className="p-1 btn-first rounded-full aspect-square h-10" onClick={addTable}>+</button>
+        <button className="p-1 btn-first rounded-full aspect-square h-10" title="Add a table" onClick={addTable}>+</button>
 
         
         <details open className='mt-8 [&>summary>span:nth-child(1)]:open:hidden [&>summary>span:nth-child(2)]:open:inline '>
@@ -107,7 +107,7 @@ const Sidebar = () => {
               Download EAD
             </button>
             
-            <label className='text-center p-3 rounded-md w-full cursor-pointer btn-second'>
+            <label className='text-center p-3 rounded-md w-full cursor-pointer btn-second' title="Upload an EAD file">
               Upload EAD
               <input
                 className='hidden'

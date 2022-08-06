@@ -15,13 +15,13 @@ const Sidebar = () => {
     onAttributeTypeChange,
     resetStore,
     uploadStore,
-    toggleTextMode,
   } = useStore();
 
   const {
     locationSidebar,
     widthSidebar,
     toggleLocationSidebar,
+    toggleTextMode,
   } = useCustomizationStore()
   
 
@@ -36,7 +36,7 @@ const Sidebar = () => {
   };
 
   let tables = useStore((state) => state.tables);
-  const showTextOnEdges = useStore(store => store.showTextOnEdges)
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
 
   return (
     <div className='flex'>

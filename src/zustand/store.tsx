@@ -38,7 +38,6 @@ export type State = {
   mouseOnEdgeId: string | null;
   mouseOnNodeId: string | null;
   associationType: string;
-  showTextOnEdges: boolean;
   onNodeMouseEnter: (_: React.MouseEvent, node: Node) => void; 
   onEdgeMouseEnter: (_: React.MouseEvent, edge: Edge) => void; 
   onNodesChange: OnNodesChange;
@@ -63,7 +62,6 @@ export type State = {
   removeEdge: (edgeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  toggleTextMode: () => void;
 };
 
 // this is our useStore hook that we can use in our components to get parts of the store and call actions
@@ -81,7 +79,6 @@ const useStore = create(devtools<State>((set, get) => ({
     mouseOnNodeId: null,
     mouseOnEdgeId: null,
     selectedNodeIdForThrough: null,
-    showTextOnEdges: false,
     onConnectStart: (() => {
       set({
         isConnectContinue: true
@@ -283,12 +280,8 @@ const useStore = create(devtools<State>((set, get) => ({
       };
   
       fileReader.readAsText((event.target.files as FileList)[0], 'UTF-8');
-    },
-    toggleTextMode: () => {
-      set({
-          showTextOnEdges: !get().showTextOnEdges
-      })
     }
+    
   })
   ));
 

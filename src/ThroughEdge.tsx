@@ -1,5 +1,6 @@
 import { EdgeProps, getBezierPath, Node, Position } from 'react-flow-renderer';
 import { getEdgeParams } from './utils';
+import useCustomizationStore from './zustand/customizationStore';
 import useStore from './zustand/store';
 
 const ThroughEdge = ({
@@ -18,8 +19,9 @@ const ThroughEdge = ({
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
   const throughNode = useStore(store => store.nodes.find( node => node.id === data.throughNodeId)) as Node
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
-  const showTextOnEdges = useStore(store => store.showTextOnEdges)
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
+  
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
   
   if (!sourceNode || !throughNode || !targetNode) {
     return <div></div>

@@ -1,5 +1,5 @@
 import { EdgeText } from "react-flow-renderer";
-import useStore from "./zustand/store";
+import useCustomizationStore from "./zustand/customizationStore";
 
 type ShowEdgeTextType = {
   centerX: number;
@@ -8,7 +8,7 @@ type ShowEdgeTextType = {
 }
 
 const ShowEdgeText = ({centerX, centerY, label}: ShowEdgeTextType) => {
-  const showTextOnEdges = useStore(store => store.showTextOnEdges)
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
 
   if (!showTextOnEdges ){
     return (<></> )

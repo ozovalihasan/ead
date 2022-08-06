@@ -5,8 +5,10 @@ import { devtools } from 'zustand/middleware'
 type CustomizationStoreState = {
   locationSidebar: string | null;
   widthSidebar: number | null;
+  showTextOnEdges: boolean;
   toggleLocationSidebar: () => void;
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => void;
+  toggleTextMode: () => void;
 }
 
 if(!localStorage.locationSidebar){
@@ -22,6 +24,7 @@ if(!localStorage.widthSidebar){
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
   locationSidebar: JSON.parse(localStorage.locationSidebar),
   widthSidebar: JSON.parse(localStorage.widthSidebar),
+  showTextOnEdges: false,
   toggleLocationSidebar: () => {
     let location = JSON.parse(localStorage.locationSidebar)
     
@@ -45,6 +48,11 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
     localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar) );
     set({
       widthSidebar: widthSidebar
+    })
+  },
+  toggleTextMode: () => {
+    set({
+        showTextOnEdges: !get().showTextOnEdges
     })
   }
 })))

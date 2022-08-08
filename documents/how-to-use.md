@@ -1,4 +1,4 @@
-Entity Association Diagram
+# Entity Association Diagram
 ==========================
 
 This document explains how to use EAD(Entity Association Diagram )
@@ -7,10 +7,10 @@ After reading this document, you will know:
 
 * How to generate basic associations for Ruby on Rails
 
---------------------------------------------------------------------------------
+---
 
-The Types of Associations
--------------------------
+## The Types of Associations
+
 
 EAD supports seven types of associations:
 
@@ -182,7 +182,6 @@ end
 
 ```
 
-WARNING: The official Ruby on Rails documentation is suggesting one more feature of `has_many :through` as "shortcut" for nested `has_many` associations. But, this feature should be added manually for nest `has_many` associations.
 
 ### The `has_one :through` Association
 
@@ -242,6 +241,8 @@ class CreateAccountHistories < ActiveRecord::Migration[6.1]
   end
 end
 ```
+
+⚠️: It is not necessary to define "has_many :through" and "has_one :through" explicitly. The correct one will be added by EAD gem automatically when EAD gem is run. 
 
 ### The `has_and_belongs_to_many` Association
 
@@ -333,30 +334,14 @@ end
 
 ## Extra Features
 
-EAD has 'attribute' block to add an attribute to any entity.
+EAD has 'table's and 'attribute's to define tables and their attributes in a Rails project.
 
-EAD has 'entity container' block to put all entities in an organized block. Entities and their attributes can be defined in this container.
+!['table's and 'attribute's](./images/table_attribute.png)
 
-EAD has 'entities & associations' block to define any association. In this block, only [clone entities](#Clone-Entities) and associations can be used.
-## Clone Entities
+EAD has 'entity's and 'association's to define [any association](#The-Types-of-Associations) between entities.
+## How does EAD gem work?
 
-Clone entities can be added by selecting any 'entities & associations' or association block inside of 'entities & associations' block and clicking ![clone](./images/clone.png).
-
-![no selection EAD](./images/no-selection.png)
-![prepare clone EAD](./images/prepare-clone.png)
-![after clone EAD](./images/after-clone.png)
-![deselect block EAD](./images/deselect.png)
-![same names of real and clone entities EAD](./images/clone-and-real.png)
-
-Entity clones are used to define associations between two entity.
-![has_many EAD](./images/has-many-ead.png)
-
-The color of entity(called 'real entity') is ![blue-1](./images/blue-1.png). 
-
-The color of clone entity is ![orange](./images/orange.png). 
-
-
-- Model and migration files are generated for same real and clone names;
+- Model and migration files are generated for same table and entity names;
 
   ![has_many EAD](./images/has-many-ead.png)
 
@@ -395,9 +380,9 @@ The color of clone entity is ![orange](./images/orange.png).
   end
 ```
 
-- Model and migration files are generated for different real and clone entity names;
+- Model and migration files are generated for different table and entity names;
 
-![different names of real and clone entities in an association EAD](./images/different-name-clone-real.png)
+![different names of an entity and its table in an association EAD](./images/different-name-clone-real.png)
 
 ```ruby
   class Author < ApplicationRecord
@@ -430,28 +415,51 @@ The color of clone entity is ![orange](./images/orange.png).
   end
 
 ```
+## How to add and delete tables and their attributes
 
-## How to Add associations
+The related buttons should be clicked.
 
-- 'has_many' association can be added by using ![has_many](./images/has_many.png) or has_many block.
-- 'has_one' association can be added by using ![has_one](./images/has_one.png) or has_one block.
-- ':through' association can be added by using ![through](./images/through.png) or :through block.
+![add delete table association  EAD](./images/add-delete-table-attribute.png)
+
+## How to add associations
+
+- All necessary buttons will be shown when the mouse hover on an entity.
+
+- 'has_one' association can be added by dragging ![has_one](./images/has_one.png) handler.
+- 'has_many' association can be added by dragging ![has_many](./images/has_many.png) handler.
+- ':through' association can be added by dragging ![through](./images/through.png) handler.
 
 ![association buttons EAD](./images/association-buttons.png)
-![association blocks EAD](./images/association-blocks.png)
+![association buttons EAD](./images/add-delete-table-attribute.png)
 
-## Delete Blocks
+## How to delete associations
 
-A dragged block is deleted if it is not paired with another block. They are shown with ![removed block](./images/red.png). 
-Also, any block can be deleted by using ![delete](./images/delete.png).
+Firstly, one association should be selected and then 'Delete' key should be pressed or a button, shown when the association is selected, should be clicked.
+
+![selected association EAD](./images/select-association.png)
+
+⚠️: If a table is deleted, the all entities referring to this table will be deleted automatically.
+
+
+## How to delete entity
+
+Firstly, one entity should be selected and then 'Delete' key should be pressed.
+
+![selected node EAD](./images/select-node.png)
+
+⚠️: If an entity is deleted, the all associations connected to this entity will be deleted automatically.
+
+
 ## Warnings
 
-⚠️ The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
-
-⚠️ EAD allows using only one clone entity inside of any association block.
+⚠️ The names of tables, entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
 
 ## Edge Cases
 
-- The name of entities cannot contain space. But, there is only one exception. If, "has_many :through" association is used between clones of the same entities, the middle entity should be 'one_entity || second_entity'. 
+- If there is a through association bidirectionally between two entities referring to the same table, these entities used to define 'through' entity should be separate . 
 
 ![same entities has many trough EAD](./images/same-entities-has-many-trough.png)
+
+- If not, [only one entity to define 'through' association](#The-has_many-:through-Association) is enough.
+
+![has_many :through EAD](./images/has-many-through-ead.png)

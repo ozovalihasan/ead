@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
-import { Handle, Position } from 'react-flow-renderer';
+import { Handle } from 'react-flow-renderer/nocss';
+import { Position } from 'react-flow-renderer';
 import HasManyHandle from './HasManyHandle';
 import HasOneHandle from './HasOneHandle';
 import TableName from './TableName';

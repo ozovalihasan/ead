@@ -88,14 +88,14 @@ const Sidebar = () => {
             menu
           </summary>
           <div className='mt-8 flex-col flex'>
-            <div className='flex mb-5'>
+            <label className='flex mb-5 cursor-pointer'>
               <input className='mr-6' type="checkbox" onChange={toggleTextMode}/>
               Show Association Names
-            </div>
-            <div className='flex mb-5'>
+            </label>
+            <label className='flex mb-5 cursor-pointer'>
               <input className='mr-6 ' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
               Show the sidebar at the right of the window
-            </div>
+            </label>
             
 
                 

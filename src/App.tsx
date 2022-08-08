@@ -1,9 +1,11 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import ReactFlow, {
+import {
   ReactFlowProvider,
   Node,
   ReactFlowInstance,
 } from 'react-flow-renderer';
+
+import ReactFlow from 'react-flow-renderer/nocss';
 
 import Sidebar from './Sidebar';
 import EntityNode, { EntityNodeDataType } from './EntityNode';

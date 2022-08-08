@@ -3,13 +3,16 @@ import useCustomizationStore from './zustand/customizationStore';
 
 
 const CustomControls = () => {
-  const {sidebarVisible, toggleSidebarVisibility} = useCustomizationStore()
+  const {
+    sidebarVisible, 
+    navbarVisible, 
+    toggleSidebarVisibility,
+    toggleNavbarVisibility
+  } = useCustomizationStore()
   
   return (
-    <Controls>
-      <ControlButton title="Show/Hide sidebar" onClick={toggleSidebarVisibility}>
-        {sidebarVisible ? "<" : ">"}
-      </ControlButton>
+    <Controls className=''>
+      
     </Controls>
   )
 }

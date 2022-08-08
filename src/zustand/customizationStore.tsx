@@ -7,8 +7,10 @@ type CustomizationStoreState = {
   widthSidebar: number | null;
   showTextOnEdges: boolean;
   sidebarVisible: boolean;
+  navbarVisible: boolean;
   toggleLocationSidebar: () => void;
   toggleSidebarVisibility: () => void;
+  toggleNavbarVisibility: () => void;
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => void;
   toggleTextMode: () => void;
 }
@@ -28,6 +30,7 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   widthSidebar: JSON.parse(localStorage.widthSidebar),
   showTextOnEdges: false,
   sidebarVisible: true,
+  navbarVisible: true,
   toggleLocationSidebar: () => {
     let location = JSON.parse(localStorage.locationSidebar)
     
@@ -51,11 +54,17 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
       sidebarVisible: !get().sidebarVisible,
     })
   },
+  toggleNavbarVisibility:() => {
+    set({
+      navbarVisible: !get().navbarVisible,
+    })
+  },
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => {
     const widthSidebar = e.clientX;
     localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar) );
     set({
-      widthSidebar: widthSidebar
+      widthSidebar: widthSidebar,
+      sidebarVisible: true,
     })
   },
   toggleTextMode: () => {

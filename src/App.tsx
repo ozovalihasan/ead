@@ -50,7 +50,8 @@ const App = () => {
   const {
     locationSidebar,
     sidebarVisible,
-    handleSidebarWidthChange
+    handleSidebarWidthChange,
+    toggleSidebarVisibility,
   } = useCustomizationStore()
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
@@ -98,12 +99,12 @@ const App = () => {
 
   return (
 
-    <div className="bg-first-100">
+    <div className="bg-first-100 flex flex-col h-screen">
       <Navbar />
-      <div  className={`font-default h-screen w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
+      <div  className={`font-default h-[calc(100vh-5rem)] w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
         <ReactFlowProvider>
           <Sidebar />
-          <div className={`h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center ${sidebarVisible || "hidden"}`} draggable onDragEnd={handleSidebarWidthChange}>
+          <div title="Click to hide/show the sidebar. Drag to change the width of the sidebar." onClick={toggleSidebarVisibility} className={`h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center`} draggable onDragEnd={handleSidebarWidthChange}>
             .
             .
             .
@@ -131,7 +132,6 @@ const App = () => {
               fitView
               nodeTypes={nodeTypes}
               snapToGrid={true}
-      
             >
               <CustomControls />
             </ReactFlow>

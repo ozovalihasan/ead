@@ -15,7 +15,7 @@ function externalCSSPlugin() {
         return [{
           tag: "link",
           attrs: {"rel": "stylesheet", "type":"text/css", "href": "./src/index.css"},
-          injectTo: ctx.server ? "body-prepend" : "head",
+          injectTo: "body-prepend",
         }]
       }
     }

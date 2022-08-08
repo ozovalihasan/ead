@@ -16,7 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "build.cssCodeSplit": true,
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

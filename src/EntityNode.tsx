@@ -43,7 +43,7 @@ const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType
         <HasOneHandle visibility={visibleSourceHandles}/>
         <Handle
           onMouseDown={() => onChangeAssociationType("has_one", id)}
-          className=" opacity-50 absolute -bottom-3 justify-center items-center flex border-none w-6 h-6 left-1/4"
+          className="opacity-50 absolute -bottom-3 justify-center items-center flex border-none w-6 h-6 left-1/4"
           style={{visibility: visibleSourceHandles}}
           type="source"
           position={Position.Bottom}

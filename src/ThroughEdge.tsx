@@ -1,4 +1,5 @@
 import { EdgeProps, getBezierPath, Node, Position } from 'react-flow-renderer';
+import RemoveEdgeButton from './RemoveEdgeButton';
 import { getEdgeParams } from './utils';
 import useCustomizationStore from './zustand/customizationStore';
 import useStore from './zustand/store';
@@ -110,9 +111,7 @@ const ThroughEdge = ({
           x={(targetPos === Position.Left) ? tx - 40 : tx }
           y={(targetPos === Position.Top) ? ty - 40 : ty }
         >
-            <button className="bg-first-500 rounded-full p-2" onClick={() => removeEdge(id)} >
-              ×
-            </button>
+            <RemoveEdgeButton id={id}/>
         </foreignObject> 
       }
       {showTextOnEdges && 

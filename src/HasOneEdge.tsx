@@ -1,4 +1,5 @@
 import { EdgeProps, EdgeText, getBezierEdgeCenter, getBezierPath, Position } from 'react-flow-renderer';
+import RemoveEdgeButton from './RemoveEdgeButton';
 import ShowEdgeText from './ShowEdgeText';
 import { getEdgeParams } from './utils';
 import useStore from './zustand/store';
@@ -96,9 +97,7 @@ const HasOneEdge = ({
           x={centerX - 20 / 2}
           y={centerY + 10 / 2}
         >
-          <button className="bg-first-500 rounded-full p-2" onClick={() => removeEdge(id)} >
-            ×
-          </button>
+          <RemoveEdgeButton id={id}/>
         </foreignObject> 
       }
 

@@ -1,9 +1,14 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import ReactFlow, {
+import {
   ReactFlowProvider,
   Node,
   ReactFlowInstance,
 } from 'react-flow-renderer';
+
+import ReactFlow from 'react-flow-renderer/nocss';
+import 'react-flow-renderer/dist/style.css';
+import 'react-flow-renderer/dist/theme-default.css';
+
 
 import Sidebar from './Sidebar';
 import EntityNode, { EntityNodeDataType } from './EntityNode';
@@ -19,7 +24,6 @@ import EADLogo from './EADLogo';
 import Navbar from './Navbar';
 import UpArrow from './UpArrow';
 import AngleDown from './AngleDown';
-
 
 
 const nodeTypes = {

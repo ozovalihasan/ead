@@ -15,6 +15,9 @@ import ThroughEdge from './ThroughEdge';
 import ConnectionLine from './ConnectionLine';
 import useCustomizationStore from './zustand/customizationStore';
 import CustomControls from './CustomControls';
+import GithubLogo from './GithubLogo';
+import EADLogo from './EADLogo';
+import Navbar from './Navbar';
 
 
 
@@ -94,46 +97,48 @@ const App = () => {
   );
 
   return (
-    <div  className={`font-default h-screen w-screen bg-first-100 flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
-      <ReactFlowProvider>
-        <Sidebar />
-        <div className={`h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center ${sidebarVisible || "hidden"}`} draggable onDragEnd={handleSidebarWidthChange}>
-          .
-          .
-          .
-        </div>
-        <div className="h-full flex-grow" ref={reactFlowWrapper}>
 
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={onConnect}
-            onInit={setReactFlowInstance}
-            onDrop={onDrop}
-            onConnectStart={onConnectStart}
-            onConnectEnd={onConnectEnd}
-            onNodeMouseEnter={onNodeMouseEnter}
-            onNodeMouseLeave={onNodeMouseLeave}
-            onEdgeMouseEnter={onEdgeMouseEnter}
-            onEdgeMouseLeave={onEdgeMouseLeave}
-            onDragOver={onDragOver}
-            edgeTypes={edgeTypes}
-            deleteKeyCode={"Delete"}
-            connectionLineComponent={ConnectionLine }
-            elevateEdgesOnSelect={true}
-            fitView
-            nodeTypes={nodeTypes}
-            snapToGrid={true}
-            
-          >
-            <CustomControls />
-
-          </ReactFlow>
-        </div>
-        
-      </ReactFlowProvider>
+    <div className="bg-first-100">
+      <Navbar />
+      <div  className={`font-default h-screen w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
+        <ReactFlowProvider>
+          <Sidebar />
+          <div className={`h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center ${sidebarVisible || "hidden"}`} draggable onDragEnd={handleSidebarWidthChange}>
+            .
+            .
+            .
+          </div>
+          <div className="h-full flex-grow" ref={reactFlowWrapper}>
+            <ReactFlow
+              nodes={nodes}
+              edges={edges}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
+              onConnect={onConnect}
+              onInit={setReactFlowInstance}
+              onDrop={onDrop}
+              onConnectStart={onConnectStart}
+              onConnectEnd={onConnectEnd}
+              onNodeMouseEnter={onNodeMouseEnter}
+              onNodeMouseLeave={onNodeMouseLeave}
+              onEdgeMouseEnter={onEdgeMouseEnter}
+              onEdgeMouseLeave={onEdgeMouseLeave}
+              onDragOver={onDragOver}
+              edgeTypes={edgeTypes}
+              deleteKeyCode={"Delete"}
+              connectionLineComponent={ConnectionLine }
+              elevateEdgesOnSelect={true}
+              fitView
+              nodeTypes={nodeTypes}
+              snapToGrid={true}
+      
+            >
+              <CustomControls />
+            </ReactFlow>
+          </div>
+      
+        </ReactFlowProvider>
+      </div>
     </div>
 
   )

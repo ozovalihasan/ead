@@ -1,5 +1,4 @@
 import React from 'react';
-import saveJSON from './components/saveJSON';
 import useCustomizationStore from './zustand/customizationStore';
 import useStore from './zustand/store';
 
@@ -13,8 +12,6 @@ const Sidebar = () => {
     removeTable,
     onAttributeNameChange,
     onAttributeTypeChange,
-    resetStore,
-    uploadStore,
   } = useStore();
 
   const {
@@ -40,9 +37,9 @@ const Sidebar = () => {
   const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
 
   return (
-    <div className='flex'>
-      {/* <button onClick={fitView} ></button> */}
-      <aside className={`relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
+    <div>
+      <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
+        
         {
           
           Object.keys(tables).map((tableId: string) => {
@@ -99,36 +96,6 @@ const Sidebar = () => {
               <input className='mr-6 ' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
               Show the sidebar at the right of the window
             </div>
-            <button
-              // className="rounded-md p-3 bg-first-500 border-2 border-first-500 my-1 ml-0 text-first-100"
-              className="rounded-md p-3 my-1 ml-0 btn-first"
-              onClick={() => saveJSON(useStore.getState(), 'EAD.json')}
-              type="button"
-              title="Download EAD"
-            >
-              Download EAD
-            </button>
-            
-            <label className='text-center p-3 rounded-md w-full cursor-pointer btn-second' title="Upload an EAD file">
-              Upload EAD
-              <input
-                className='hidden'
-                onChange={uploadStore}
-                type="file"
-                accept=".json"
-                data-testid="uploadInput"
-                title="Select an uploaded EAD"
-              />
-            </label>
-            
-            <button
-              className="mt-16 rounded-md p-3 my-1 mx-0 btn-second "
-              onClick={resetStore}
-              type="button"
-              title="Reset"
-            >
-              Reset
-            </button>
             
 
                 

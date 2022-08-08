@@ -6,7 +6,6 @@ import ReactFlow, {
 } from 'react-flow-renderer';
 
 import Sidebar from './Sidebar';
-import './index.css';
 import EntityNode, { EntityNodeDataType } from './EntityNode';
 import useStore from './zustand/store';
 import HasManyEdge from './HasManyEdge';

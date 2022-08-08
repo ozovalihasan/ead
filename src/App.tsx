@@ -6,8 +6,6 @@ import {
 } from 'react-flow-renderer';
 
 import ReactFlow from 'react-flow-renderer/nocss';
-import 'react-flow-renderer/dist/style.css';
-import 'react-flow-renderer/dist/theme-default.css';
 
 
 import Sidebar from './Sidebar';

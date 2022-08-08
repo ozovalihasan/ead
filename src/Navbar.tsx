@@ -67,17 +67,6 @@ const Navbar = () => {
         </div>
       
       </nav>
-      <div 
-        className="z-50 block top-0 flex w-full h-0 border  hover:cursor-move hover:bg-first-300 justify-center" 
-        title="Click to hide/show the navbar." 
-        
-      >
-        <div className="h-3 w-3 z-50" onClick={toggleNavbarVisibility} >
-          {
-            navbarVisible ? <UpArrow /> : <AngleDown />
-          }
-        </div>
-      </div>
     </div>
   )
 }

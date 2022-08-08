@@ -18,6 +18,8 @@ import CustomControls from './CustomControls';
 import GithubLogo from './GithubLogo';
 import EADLogo from './EADLogo';
 import Navbar from './Navbar';
+import UpArrow from './UpArrow';
+import AngleDown from './AngleDown';
 
 
 
@@ -50,8 +52,10 @@ const App = () => {
   const {
     locationSidebar,
     sidebarVisible,
+    navbarVisible,
     handleSidebarWidthChange,
     toggleSidebarVisibility,
+    toggleNavbarVisibility,
   } = useCustomizationStore()
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
@@ -99,17 +103,25 @@ const App = () => {
 
   return (
 
-    <div className="bg-first-100 flex flex-col h-screen">
+    <div className="font-default  bg-first-100 flex flex-col h-screen">
       <Navbar />
-      <div  className={`font-default h-[calc(100vh-5rem)] w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
+      <div  className={`h-[calc(100vh-5rem)] w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
         <ReactFlowProvider>
+          
           <Sidebar />
-          <div title="Click to hide/show the sidebar. Drag to change the width of the sidebar." onClick={toggleSidebarVisibility} className={`h-full border border-solid hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center`} draggable onDragEnd={handleSidebarWidthChange}>
+          <div
+              title="Click to hide/show the sidebar. Drag to change the width of the sidebar."
+              onClick={toggleSidebarVisibility}
+              className="h-full border border-solid border-first-500 hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center"
+              draggable
+              onDragEnd={handleSidebarWidthChange}
+          >
             .
             .
             .
           </div>
-          <div className="h-full flex-grow" ref={reactFlowWrapper}>
+          <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
+         
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -134,6 +146,11 @@ const App = () => {
               snapToGrid={true}
             >
               <CustomControls />
+              <button title="Click to show/hide the navbar" className="absolute left-0 top-0 h-3 w-3 z-50 m-2" onClick={toggleNavbarVisibility} >
+                {
+                  navbarVisible ? <UpArrow /> : <AngleDown />
+                }
+              </button>
             </ReactFlow>
           </div>
       

@@ -24,9 +24,9 @@ const Navbar = () => {
       <nav className={`bg-transparent relative h-20 py-2 border-b border-solid border-first-500 ${navbarVisible || 'hidden'}`} >
         <div className='flex items-center gap-4' >
           <div className="flex items-center mr-8">
-            <button className='h-16 w-16 mr-2 ml-8' href="/">
+            <a className='h-16 w-16 mr-2 ml-8' href="#">
               <EADLogo />
-            </button>
+            </a>
             <div className='text-first-500 text-end text-xs '>
               0.4.0
             </div>

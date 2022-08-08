@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "immer": "^9.0.15",
+    "react-flow-renderer": "^10.3.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-flow-renderer": "^10.3.10",
     "zustand": "4.0.0-rc.3"
   },
   "devDependencies": {

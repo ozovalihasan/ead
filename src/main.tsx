@@ -9,3 +9,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <App />
   </React.StrictMode>
 )
+
+const head = document.getElementsByTagName("head")[0]
+const links = head.querySelectorAll('[rel="stylesheet"]')
+Object.values(links).forEach((link) =>  head.append(link))

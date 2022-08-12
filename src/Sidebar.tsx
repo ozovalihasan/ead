@@ -30,6 +30,7 @@ const Sidebar = () => {
     event.dataTransfer.setData('application/reactflow', nodeType);
     event.dataTransfer.setData('tableId', tableId);
     event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.setDragImage(event.target as Element, 0, 0);
   };
 
   let tables = useStore((state) => state.tables);

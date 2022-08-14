@@ -1,4 +1,4 @@
-export * from './AngleDown'
+export * from './AngleDown/AngleDown'
 export * from './ConnectionLine'
 export * from './HasManyEdge';
 export * from './HasOneEdge';

@@ -6,20 +6,21 @@ import ReactFlow, {
   Controls
 } from 'react-flow-renderer';
 
-import Sidebar from './Sidebar';
-import EntityNode, { EntityNodeDataType } from './EntityNode';
 import useStore from './zustand/store';
-import HasManyEdge from './HasManyEdge';
-import HasOneEdge from './HasOneEdge';
-import ThroughEdge from './ThroughEdge';
-import ConnectionLine from './ConnectionLine';
 import useCustomizationStore from './zustand/customizationStore';
-import GithubLogo from './GithubLogo';
-import EADLogo from './EADLogo';
-import Navbar from './Navbar';
-import UpArrow from './UpArrow';
-import AngleDown from './AngleDown';
 
+import {
+  Sidebar, 
+  EntityNode,
+  EntityNodeDataType,
+  HasManyEdge,
+  HasOneEdge,
+  ThroughEdge,
+  ConnectionLine,
+  Navbar,
+  UpArrow,
+  AngleDown,
+} from "./components"
 
 const nodeTypes = {
   entity: EntityNode,

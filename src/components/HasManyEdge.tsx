@@ -1,10 +1,12 @@
 import { EdgeProps, EdgeText, getBezierEdgeCenter, getBezierPath, Position } from 'react-flow-renderer';
-import RemoveEdgeButton from './RemoveEdgeButton';
-import ShowEdgeText from './ShowEdgeText';
-import { getEdgeParams } from './utils';
-import useStore from './zustand/store';
+import {
+  RemoveEdgeButton,
+  ShowEdgeText
+} from "."
+import { getEdgeParams } from '../utils';
+import useStore from '../zustand/store';
 
-const HasOneEdge = ({
+export const HasManyEdge = ({
   id,
   source,
   target,
@@ -18,11 +20,13 @@ const HasOneEdge = ({
 }: EdgeProps) => {
   const { removeEdge } = useStore();
 
-  const sourceNode = useStore(store => store.nodes.find( node => node.id === source))
-  const targetNode = useStore(store => store.nodes.find( node => node.id === target))
+  const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) 
+  const targetNode = useStore(store => store.nodes.find( node => node.id === target)) 
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
-  
+
   if (!sourceNode || !targetNode) { return <div></div> }
+
+  
 
   const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(sourceNode, targetNode);
 
@@ -43,6 +47,7 @@ const HasOneEdge = ({
     targetY: targetY,
   });
 
+  
   let orient: string = "0deg" 
   if (targetPos === Position.Bottom) {
     orient = "180deg"
@@ -54,15 +59,15 @@ const HasOneEdge = ({
     orient = "0deg"
   }
 
-  
 
   
   return (
     <>
+      
       <defs>
         <marker   
           orient={orient}
-          id={`has-one-line-${id}` }
+          id={`crow-foot-${id}` }
           viewBox="0 0 200 200"
           refX="100" 
           refY="0" 
@@ -71,17 +76,19 @@ const HasOneEdge = ({
           markerHeight="5"
         >
           <path 
-            d="m 0,0 v 40 h 80 v 160 h 40 V 40 h 80 V 0"
-            className="fill-first-500"  />
+            d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z" 
+            className="fill-first-500"
+          />
+
         </marker>
       </defs>
-    
+
       <path
         id={id}
         style={(selected || mouseOnEdge) ? {stroke: "black", strokeWidth: 3, strokeDasharray: 0} : style}
         className="stroke-first-500 fill-[none] stroke-[2] "
         d={edgePath}
-        markerEnd={`url(#has-one-line-${id})`}
+        markerEnd={`url(#crow-foot-${id})`}
       />
 
       <path
@@ -89,7 +96,6 @@ const HasOneEdge = ({
         className="fill-[none] stroke-[15] stroke-transparent"
         d={edgePath}
       />
-
       { selected && 
         <foreignObject
           width={40}
@@ -105,5 +111,3 @@ const HasOneEdge = ({
     </>
   );
 }
-
-export default HasOneEdge;

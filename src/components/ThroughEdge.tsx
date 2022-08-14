@@ -1,10 +1,10 @@
 import { EdgeProps, getBezierPath, Node, Position } from 'react-flow-renderer';
-import RemoveEdgeButton from './RemoveEdgeButton';
-import { getEdgeParams } from './utils';
-import useCustomizationStore from './zustand/customizationStore';
-import useStore from './zustand/store';
+import { RemoveEdgeButton } from '.';
+import { getEdgeParams } from '../utils';
+import useCustomizationStore from '../zustand/customizationStore';
+import useStore from '../zustand/store';
 
-const ThroughEdge = ({
+export const ThroughEdge = ({
   id,
   source,
   target,
@@ -124,5 +124,3 @@ const ThroughEdge = ({
     </>
   );
 }
-
-export default ThroughEdge;

@@ -1,7 +1,7 @@
-import useStore from "./zustand/store";
+import useStore from "../zustand/store";
 
 
-const RemoveEdgeButton = ({id}: {id: string}) => {
+export const RemoveEdgeButton = ({id}: {id: string}) => {
 
   const { removeEdge } = useStore();
   
@@ -12,5 +12,3 @@ const RemoveEdgeButton = ({id}: {id: string}) => {
     </button>
   )
 }
-
-export default RemoveEdgeButton;

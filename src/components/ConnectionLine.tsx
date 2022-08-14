@@ -1,7 +1,7 @@
 import { ConnectionLineComponentProps, ConnectionLineType, getBezierPath, Node } from "react-flow-renderer";
-import useStore from "./zustand/store";
+import useStore from "../zustand/store";
 
-const ConnectionLine = ({
+export const ConnectionLine = ({
   sourceX,
   sourceY,
   sourcePosition,
@@ -81,5 +81,3 @@ const ConnectionLine = ({
     </g>
   );
 };
-
-export default ConnectionLine;

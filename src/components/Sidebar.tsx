@@ -1,8 +1,8 @@
 import React from 'react';
-import useCustomizationStore from './zustand/customizationStore';
-import useStore from './zustand/store';
+import useCustomizationStore from '../zustand/customizationStore';
+import useStore from '../zustand/store';
 
-const Sidebar = () => {
+export const Sidebar = () => {
 
   const { onChangeAssociationType, 
     onTableNameChange, 
@@ -106,6 +106,3 @@ const Sidebar = () => {
     </div>
   );
 };
-
-
-export default Sidebar;

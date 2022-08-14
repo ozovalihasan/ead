@@ -1,5 +1,5 @@
 
-const EADLogo = () => (
+export const EADLogo = () => (
   <svg className="rounded-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.5 26.5">
     <g aria-label="EAD" >
       <path style={{fill:"#fff"}} d="M0 0h26.5v26.5H0z"/>
@@ -7,5 +7,3 @@ const EADLogo = () => (
     </g>
   </svg>
 )
-
-export default EADLogo;

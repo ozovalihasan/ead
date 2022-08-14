@@ -1,12 +1,13 @@
-import AngleDown from './AngleDown';
-import saveJSON from './components/saveJSON';
-import EADLogo from './EADLogo';
-import GithubLogo from './GithubLogo';
-import UpArrow from './UpArrow';
-import useCustomizationStore from './zustand/customizationStore';
-import useStore from './zustand/store';
+import saveJSON from './saveJSON';
+import {
+  EADLogo,
+  GithubLogo,
+} from ".";
 
-const Navbar = () => {
+import useCustomizationStore from '../zustand/customizationStore';
+import useStore from '../zustand/store';
+
+export const Navbar = () => {
 
   const { 
     resetStore,
@@ -70,5 +71,3 @@ const Navbar = () => {
     </div>
   )
 }
-
-export default Navbar;

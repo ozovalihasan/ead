@@ -1,10 +1,12 @@
 import { useCallback, useEffect } from 'react';
 import { Handle, Position } from 'react-flow-renderer';
-import HasManyHandle from './HasManyHandle';
-import HasOneHandle from './HasOneHandle';
-import TableName from './TableName';
-import ThroughHandle from './ThroughHandle';
-import useStore from './zustand/store';
+import {
+  HasManyHandle,
+  HasOneHandle,
+  TableName,
+  ThroughHandle 
+} from "."
+import useStore from '../zustand/store';
 
 
 export type EntityNodeDataType = {
@@ -12,7 +14,7 @@ export type EntityNodeDataType = {
   name: string,
 }
 
-const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType, selected: boolean}) => {
+export const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType, selected: boolean}) => {
   const { onNodeInputChange, onMouseEnterThrough, onChangeAssociationType } = useStore();
 
   const isConnectContinue = useStore(state => state.isConnectContinue)
@@ -80,7 +82,5 @@ const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType
     </div>
   );
 }
-
-export default EntityNode;
 
       

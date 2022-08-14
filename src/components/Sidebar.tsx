@@ -1,4 +1,3 @@
-import React from 'react';
 import useCustomizationStore from '../zustand/customizationStore';
 import useStore from '../zustand/store';
 

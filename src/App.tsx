@@ -3,6 +3,7 @@ import ReactFlow, {
   ReactFlowProvider,
   Node,
   ReactFlowInstance,
+  Controls
 } from 'react-flow-renderer';
 
 import Sidebar from './Sidebar';
@@ -13,7 +14,6 @@ import HasOneEdge from './HasOneEdge';
 import ThroughEdge from './ThroughEdge';
 import ConnectionLine from './ConnectionLine';
 import useCustomizationStore from './zustand/customizationStore';
-import CustomControls from './CustomControls';
 import GithubLogo from './GithubLogo';
 import EADLogo from './EADLogo';
 import Navbar from './Navbar';
@@ -143,7 +143,7 @@ const App = () => {
               nodeTypes={nodeTypes}
               snapToGrid={true}
             >
-              <CustomControls />
+              <Controls />
               <button title="Click to show/hide the navbar" className="absolute left-0 top-0 h-3 w-3 z-50 m-2" onClick={toggleNavbarVisibility} >
                 {
                   navbarVisible ? <UpArrow /> : <AngleDown />

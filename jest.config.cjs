@@ -2,4 +2,9 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    '^zustandStore/(.*)$': '<rootDir>/src/zustandStore/$1',
+    '^components/(.*)$': '<rootDir>/src/components/$1',
+  },
+  
 };

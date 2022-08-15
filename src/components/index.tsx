@@ -15,3 +15,4 @@ export * from './Navbar/Navbar';
 export * from './UpArrow/UpArrow'; 
 export * from './EADLogo/EADLogo'; 
 export * from './GithubLogo/GithubLogo'; 
+export * from './Handlers/Handlers';

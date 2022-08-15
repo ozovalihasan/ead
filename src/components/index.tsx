@@ -14,4 +14,4 @@ export * from './ShowEdgeText';
 export * from './Navbar'; 
 export * from './UpArrow'; 
 export * from './EADLogo'; 
-export * from './GithubLogo'; 
+export * from './GithubLogo/GithubLogo'; 

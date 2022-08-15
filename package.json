@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test": "jest --watch",
+    "test": "jest --watch --silent=false",
+    "test:silent": "jest --watch",
     "build": "vite build",
     "preview": "vite preview"
   },

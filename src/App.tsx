@@ -20,7 +20,7 @@ import {
   Navbar,
   UpArrow,
   AngleDown,
-} from "./components"
+} from "components"
 
 const nodeTypes = {
   entity: EntityNode,

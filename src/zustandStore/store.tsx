@@ -49,7 +49,7 @@ export type State = {
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
   onAttributeTypeChange: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string, attributeId: string) => void;
   addNode: (node: Node) => void;
-  addTable: (event: React.MouseEvent<HTMLButtonElement, MouseEvent> ) => void;
+  addTable: () => void;
   addAttribute: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string ) => void;
   removeAttribute: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string, attributeId: string ) => void;
   removeTable: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, tableId: string ) => void;
@@ -135,7 +135,7 @@ const useStore = create(devtools<State>((set, get) => ({
         })
       );
     }),
-    addTable: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent> ) => {
+    addTable: (() => {
       set(produce((state: State) => {
         state.tables[get().idCounter.toString()] = {name: "", attributes: {}},
         state.idCounter ++

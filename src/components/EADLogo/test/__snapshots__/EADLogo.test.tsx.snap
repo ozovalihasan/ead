@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EADLogo /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        class="rounded-lg"
+        viewBox="0 0 26.5 26.5"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          aria-label="EAD"
+        >
+          <path
+            d="M0 0h26.5v26.5H0z"
+            style="fill: #fff;"
+          />
+          <path
+            d="m46.5 27-9 21.4H10.7v-6.3H26v-8H3.9v35h22.5v-8H10.6v-4.7h23.6L26.4 75h7.1l7.9-18.6h10.4L59.7 75H67l-8-18.6h8V69h9.8c10.5 0 15.7-2.9 15.6-17.6 0-14.7-7-17.4-15.6-17.4H67v14.3H55.6Zm27.3 13h3.7c7.2.1 7.9 6 8 11.5l-.5 4.3c-.8 5.2-3 7.3-7.5 7.4h-3.7zm-27.2 4 1.9 4.4h-3.8Z"
+            style="fill: #000;"
+            transform="matrix(.26458 0 0 .26458 .9 -1.7)"
+          />
+        </g>
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      class="rounded-lg"
+      viewBox="0 0 26.5 26.5"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        aria-label="EAD"
+      >
+        <path
+          d="M0 0h26.5v26.5H0z"
+          style="fill: #fff;"
+        />
+        <path
+          d="m46.5 27-9 21.4H10.7v-6.3H26v-8H3.9v35h22.5v-8H10.6v-4.7h23.6L26.4 75h7.1l7.9-18.6h10.4L59.7 75H67l-8-18.6h8V69h9.8c10.5 0 15.7-2.9 15.6-17.6 0-14.7-7-17.4-15.6-17.4H67v14.3H55.6Zm27.3 13h3.7c7.2.1 7.9 6 8 11.5l-.5 4.3c-.8 5.2-3 7.3-7.5 7.4h-3.7zm-27.2 4 1.9 4.4h-3.8Z"
+          style="fill: #000;"
+          transform="matrix(.26458 0 0 .26458 .9 -1.7)"
+        />
+      </g>
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -16,10 +16,6 @@
     "zustand": "4.0.0-rc.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
     "@testing-library/dom": "^8.16.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -30,8 +26,8 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
     "autoprefixer": "^10.4.7",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6",
     "ts-jest": "^28.0.7",
@@ -40,14 +36,5 @@
   },
   "types": [
     "react-flow-renderer"
-  ],
-  "jest": {
-    "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest-setup.ts"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less)$": "identity-obj-proxy"
-    }
-  }
+  ]
 }

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import useStore from '../zustand/store';
+import useStore from 'zustandStore/store';
 
 export const TableName =memo( ({ tableId }: {tableId: string}) => {
 

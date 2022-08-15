@@ -5,8 +5,8 @@ import {
   HasOneHandle,
   TableName,
   ThroughHandle 
-} from "."
-import useStore from '../zustand/store';
+} from ".."
+import useStore from 'zustandStore/store';
 
 
 export type EntityNodeDataType = {

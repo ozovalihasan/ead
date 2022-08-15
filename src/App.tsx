@@ -6,8 +6,8 @@ import ReactFlow, {
   Controls
 } from 'react-flow-renderer';
 
-import useStore from './zustand/store';
-import useCustomizationStore from './zustand/customizationStore';
+import useStore from './zustandStore/store';
+import useCustomizationStore from './zustandStore/customizationStore';
 
 import {
   Sidebar, 

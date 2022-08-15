@@ -1,5 +1,5 @@
 import { EdgeText } from "react-flow-renderer";
-import useCustomizationStore from "../zustand/customizationStore";
+import useCustomizationStore from "zustandStore/customizationStore";
 
 type ShowEdgeTextType = {
   centerX: number;

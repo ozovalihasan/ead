@@ -1,5 +1,5 @@
-import useCustomizationStore from '../zustand/customizationStore';
-import useStore from '../zustand/store';
+import useCustomizationStore from 'zustandStore/customizationStore';
+import useStore from 'zustandStore/store';
 
 export const Sidebar = () => {
 

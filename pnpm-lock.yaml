@@ -9,6 +9,7 @@ specifiers:
   '@types/node': ^18.0.6
   '@types/react': ^18.0.15
   '@types/react-dom': ^18.0.6
+  '@types/testing-library__jest-dom': ^5.14.5
   '@vitejs/plugin-react': ^2.0.0
   autoprefixer: ^10.4.7
   immer: ^9.0.15
@@ -41,6 +42,7 @@ devDependencies:
   '@types/node': 18.0.6
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
+  '@types/testing-library__jest-dom': 5.14.5
   '@vitejs/plugin-react': 2.0.0_vite@3.0.1
   autoprefixer: 10.4.7_postcss@8.4.14
   jest: 28.1.3_@types+node@18.0.6

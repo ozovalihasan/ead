@@ -1,6 +1,6 @@
 import {TableName} from '../TableName';
 import { render } from '@testing-library/react';
-// import create from 'zustand';
+import {screen} from '@testing-library/dom'
 
 let renderReadyComponent: JSX.Element;
 
@@ -11,6 +11,11 @@ beforeEach(() => {
 });
 
 describe('<TableName />', () => {
+  it('renders correctly', () => {
+    render(renderReadyComponent);
+    expect(screen.getByText(/Physician/i)).toBeInTheDocument();
+  });
+
   it('renders correctly', () => {
     const renderedContainer = render(renderReadyComponent );
     expect(renderedContainer).toMatchSnapshot();

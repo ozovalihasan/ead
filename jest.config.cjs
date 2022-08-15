@@ -6,5 +6,7 @@ module.exports = {
     '^zustandStore/(.*)$': '<rootDir>/src/zustandStore/$1',
     '^components/(.*)$': '<rootDir>/src/components/$1',
   },
-  
+  setupFilesAfterEnv: [
+    "<rootDir>/setupTests.ts"
+ ],
 };

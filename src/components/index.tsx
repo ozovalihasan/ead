@@ -8,7 +8,7 @@ export * from './EntityNode/EntityNode';
 export * from './HasManyHandle/HasManyHandle';
 export * from './HasOneHandle/HasOneHandle';
 export * from './TableName/TableName';
-export * from './ThroughEdge/ThroughHandle';
+export * from './ThroughHandle/ThroughHandle';
 export * from './RemoveEdgeButton/RemoveEdgeButton';
 export * from './ShowEdgeText/ShowEdgeText';
 export * from './Navbar/Navbar'; 

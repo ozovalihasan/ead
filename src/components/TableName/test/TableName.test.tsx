@@ -1,6 +1,6 @@
 import {TableName} from '../TableName';
-import { render } from '@testing-library/react';
-import {screen} from '@testing-library/dom'
+import { render, screen, act, renderHook } from "@testing-library/react";
+import useStore from 'zustandStore/store';
 
 let renderReadyComponent: JSX.Element;
 
@@ -12,8 +12,15 @@ beforeEach(() => {
 
 describe('<TableName />', () => {
   it('renders correctly', () => {
+    const { result } = renderHook(() => useStore());
+    act(() => {
+      result.current.tables = {
+        "1": {name: "Mock Name", attributes: {}}
+      }
+    });
+  
     render(renderReadyComponent);
-    expect(screen.getByText(/Physician/i)).toBeInTheDocument();
+    expect(screen.getByText(/Mock Name/i)).toBeInTheDocument();
   });
 
   it('renders correctly', () => {

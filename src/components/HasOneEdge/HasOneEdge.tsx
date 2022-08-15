@@ -2,7 +2,7 @@ import { EdgeProps, EdgeText, getBezierEdgeCenter, getBezierPath, Position } fro
 import {
   RemoveEdgeButton,
   ShowEdgeText
-} from ".."
+} from "components"
 
 import { getEdgeParams } from 'utils';
 import useStore from 'zustandStore/store';

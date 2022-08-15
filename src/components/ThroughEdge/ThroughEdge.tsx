@@ -1,5 +1,5 @@
 import { EdgeProps, getBezierPath, Node, Position } from 'react-flow-renderer';
-import { RemoveEdgeButton } from '..';
+import { RemoveEdgeButton } from 'components';
 import { getEdgeParams } from 'utils';
 import useCustomizationStore from 'zustandStore/customizationStore';
 import useStore from 'zustandStore/store';

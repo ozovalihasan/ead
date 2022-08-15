@@ -2,7 +2,7 @@ import saveJSON from './saveJSON';
 import {
   EADLogo,
   GithubLogo,
-} from "..";
+} from "components";
 
 import useCustomizationStore from 'zustandStore/customizationStore';
 import useStore from 'zustandStore/store';

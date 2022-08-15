@@ -5,7 +5,7 @@ import {
   HasOneHandle,
   TableName,
   ThroughHandle 
-} from ".."
+} from "components"
 import useStore from 'zustandStore/store';
 
 

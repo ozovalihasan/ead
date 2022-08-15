@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { Handle, Position } from 'react-flow-renderer';
 import {
   TableName,
-  Handlers
+  AllHandlers
 } from "components"
 import useStore from 'zustandStore/store';
 
@@ -34,7 +34,7 @@ export const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeD
 
       {data && <TableName tableId={data.tableId}></TableName>}
       
-      <Handlers id={id} />
+      <AllHandlers id={id} />
 
       {
         isConnectContinue && associationType === "through" && (connectionStartId !== id) && 

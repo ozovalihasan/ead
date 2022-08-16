@@ -20,11 +20,11 @@ export const AllHandlers = ({id}: {id: string}) => {
   
   return (
     <div className={`relative w-full ${visibleSourceHandles}`}>
-      <HasOneHandle id={id} />
+      <HasOneHandle nodeId={id} />
 
-      <HasManyHandle id={id} />
+      <HasManyHandle nodeId={id} />
 
-      <ThroughHandle id={id} />
+      <ThroughHandle nodeId={id} />
 
     </div>
 

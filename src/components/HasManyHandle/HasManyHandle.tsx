@@ -1,11 +1,6 @@
-import useStore from 'zustandStore/store';
-import { Handle, Position } from 'react-flow-renderer';
+import { CustomHandle } from 'components';
 
-export const HasManyHandle = ({id} : {id: string}) => {
-
-  const {
-    onChangeAssociationType,
-  } = useStore()
+export const HasManyHandle = ({nodeId} : {nodeId: string}) => {
 
   return (
     <div className="w-6 h-6 absolute -bottom-3 left-1/2 bg-slate-700 rounded-full -translate-x-1/2" >
@@ -16,13 +11,7 @@ export const HasManyHandle = ({id} : {id: string}) => {
         />
       </svg>
 
-      <Handle
-          onMouseDown={() => onChangeAssociationType("has_many", id)}
-          className="opacity-50 justify-center items-center border-none w-6 h-6 bottom-0 left-1/2"
-          type="source"
-          position={Position.Bottom}
-          id="bottom2"
-      />
+      <CustomHandle handleType='has_many' nodeId={nodeId} id="bottom2"></CustomHandle>
     </div>
   )
 }

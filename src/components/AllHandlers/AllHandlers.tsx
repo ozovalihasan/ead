@@ -14,7 +14,7 @@ export const AllHandlers = ({nodeId}: {nodeId: string}) => {
     mouseOnNodeId,
   } = useStore()
 
-  const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == id) ? "opacity-100" : "opacity-0")
+  const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == nodeId) ? "opacity-100" : "opacity-0")
   
   return (
     <div className={`relative w-full ${visibleSourceHandles}`}>

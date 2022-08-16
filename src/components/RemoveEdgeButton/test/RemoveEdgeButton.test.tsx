@@ -1,6 +1,6 @@
 import { RemoveEdgeButton } from '../RemoveEdgeButton';
 import { render, screen, act, renderHook, fireEvent } from "@testing-library/react";
-import useStore from 'zustandStore/store';
+import useStore from '@/zustandStore/store';
 
 let renderReadyComponent: JSX.Element;
 

@@ -3,8 +3,8 @@ import { Handle, Position } from 'react-flow-renderer';
 import {
   TableName,
   AllHandlers
-} from "components"
-import useStore from 'zustandStore/store';
+} from "@/components"
+import useStore from '@/zustandStore/store';
 
 
 export type EntityNodeDataType = {

@@ -2,9 +2,9 @@ import { EdgeProps, EdgeText, getBezierEdgeCenter, getBezierPath, Position } fro
 import {
   RemoveEdgeButton,
   ShowEdgeText
-} from "components"
-import { getEdgeParams } from 'utils';
-import useStore from 'zustandStore/store';
+} from "@/components"
+import { getEdgeParams } from '@/utils';
+import useStore from '@/zustandStore/store';
 
 export const HasManyEdge = ({
   id,

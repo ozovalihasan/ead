@@ -2,10 +2,10 @@ import saveJSON from './saveJSON';
 import {
   EADLogo,
   GithubLogo,
-} from "components";
+} from "@/components";
 
-import useCustomizationStore from 'zustandStore/customizationStore';
-import useStore from 'zustandStore/store';
+import useCustomizationStore from '@/zustandStore/customizationStore';
+import useStore from '@/zustandStore/store';
 
 export const Navbar = () => {
 

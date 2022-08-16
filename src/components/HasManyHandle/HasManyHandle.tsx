@@ -1,4 +1,4 @@
-import { CustomHandle } from 'components';
+import { CustomHandle } from '@/components';
 
 export const HasManyHandle = ({nodeId} : {nodeId: string}) => {
 

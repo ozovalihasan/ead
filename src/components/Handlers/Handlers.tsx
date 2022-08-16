@@ -3,9 +3,9 @@ import {
   HasManyHandle,
   HasOneHandle,
   ThroughHandle 
-} from "components"
+} from "@/components"
 
-import useStore from 'zustandStore/store';
+import useStore from '@/zustandStore/store';
 
 export const Handlers = ({id}: {id: string}) => {
   

@@ -1,5 +1,5 @@
 import { Handle, Position } from 'react-flow-renderer';
-import useStore from 'zustandStore/store';
+import useStore from '@/zustandStore/store';
 
 
 export type CustomHandleType = {

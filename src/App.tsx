@@ -6,8 +6,8 @@ import ReactFlow, {
   Controls
 } from 'react-flow-renderer';
 
-import useStore from './zustandStore/store';
-import useCustomizationStore from './zustandStore/customizationStore';
+import useStore from '@/zustandStore/store';
+import useCustomizationStore from '@/zustandStore/customizationStore';
 
 import {
   Sidebar, 
@@ -20,7 +20,7 @@ import {
   Navbar,
   UpArrow,
   AngleDown,
-} from "components"
+} from "@/components"
 
 const nodeTypes = {
   entity: EntityNode,

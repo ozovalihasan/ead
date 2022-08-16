@@ -1,6 +1,6 @@
 import {TableName} from '../TableName';
 import { render, screen, act, renderHook } from "@testing-library/react";
-import useStore from 'zustandStore/store';
+import useStore from '@/zustandStore/store';
 
 let renderReadyComponent: JSX.Element;
 

@@ -1,5 +1,5 @@
 import { ConnectionLineComponentProps, ConnectionLineType, getBezierPath, Node } from "react-flow-renderer";
-import useStore from "zustandStore/store";
+import useStore from "@/zustandStore/store";
 
 export const ConnectionLine = ({
   sourceX,

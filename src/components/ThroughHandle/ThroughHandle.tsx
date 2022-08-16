@@ -24,7 +24,7 @@ export const ThroughHandle = ({nodeId} : {nodeId: string}) => {
       <CustomHandle 
         handleType='through' 
         nodeId={nodeId} 
-        id="bottom2"
+        id="bottom3"
       />
       
     </div>

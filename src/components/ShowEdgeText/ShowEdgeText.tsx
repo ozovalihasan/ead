@@ -1,7 +1,7 @@
 import { EdgeText } from "react-flow-renderer";
 import useCustomizationStore from "zustandStore/customizationStore";
 
-type ShowEdgeTextType = {
+export type ShowEdgeTextType = {
   centerX: number;
   centerY: number;
   label: React.ReactNode;

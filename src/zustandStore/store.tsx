@@ -22,7 +22,7 @@ import { devtools } from 'zustand/middleware'
 import produce from "immer"
 import { ButtonHTMLAttributes } from 'react';
 import initialTables, { TablesType } from './tables';
-import { EntityNodeDataType } from '@/components/EntityNode/EntityNode';
+import { EntityNodeDataType } from '@/components';
 
 export type State = {
   version: string;

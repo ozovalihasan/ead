@@ -2,7 +2,13 @@ import { Handle, Position } from 'react-flow-renderer';
 import useStore from 'zustandStore/store';
 
 
-export const CustomHandle = ({id, nodeId, handleType} : {nodeId: string, id: string, handleType: string}) => {
+export type CustomHandleType = {
+  nodeId: string, 
+  id: string, 
+  handleType: string
+}
+
+export const CustomHandle = ({id, nodeId, handleType} : CustomHandleType) => {
   const {
       onChangeAssociationType,
     } = useStore()

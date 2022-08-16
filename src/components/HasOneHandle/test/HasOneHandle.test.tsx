@@ -1,8 +1,6 @@
 import { HasOneHandle } from '../HasOneHandle';
 import { render, screen } from "@testing-library/react";
-import { CustomHandleType } from '../../CustomHandle/CustomHandle';
-
-
+import { CustomHandleType } from '@/components';
 
 jest.mock('@/components',  () => ({
   CustomHandle: ({

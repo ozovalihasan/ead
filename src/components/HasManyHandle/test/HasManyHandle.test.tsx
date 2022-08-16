@@ -28,7 +28,7 @@ beforeEach(() => {
 });
 
 describe('<HasManyHandle />', () => {
-  it('calls another component with a prop with value "through"', () => {
+  it('calls another component with a prop with value "has_many"', () => {
     render(renderReadyComponent);
     expect(screen.getByText(/has_many/i)).toBeInTheDocument();
   });

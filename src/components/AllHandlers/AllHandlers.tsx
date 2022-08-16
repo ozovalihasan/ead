@@ -1,4 +1,3 @@
-import { Handle, Position } from 'react-flow-renderer';
 import {
   HasManyHandle,
   HasOneHandle,
@@ -13,7 +12,6 @@ export const AllHandlers = ({id}: {id: string}) => {
     isConnectContinue,
     isMouseOnNode,
     mouseOnNodeId,
-    onChangeAssociationType,
   } = useStore()
 
   const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == id) ? "opacity-100" : "opacity-0")

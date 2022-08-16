@@ -1,7 +1,5 @@
 import { ThroughHandle } from '../ThroughHandle';
-import { render, screen, act, renderHook, fireEvent } from "@testing-library/react";
-import { EdgeTextProps } from 'react-flow-renderer';
-import React from 'react';
+import { render} from "@testing-library/react";
 import { CustomHandleType } from '../../CustomHandle/CustomHandle';
 
 

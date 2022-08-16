@@ -8,7 +8,11 @@ export const HasOneHandle = ({nodeId} : {nodeId: string}) => {
         <path d="m 90,0 v 200 h 20 V 0" className="fill-slate-50" />
       </svg>
 
-      <CustomHandle handleType='has_one' nodeId={nodeId} id="bottom1"></CustomHandle>
+      <CustomHandle
+        handleType='has_one'
+        nodeId={nodeId}
+        id="bottom1"
+      />
 
     </div>
   )

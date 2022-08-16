@@ -11,7 +11,11 @@ export const HasManyHandle = ({nodeId} : {nodeId: string}) => {
         />
       </svg>
 
-      <CustomHandle handleType='has_many' nodeId={nodeId} id="bottom2"></CustomHandle>
+      <CustomHandle
+        handleType='has_many'
+        nodeId={nodeId}
+        id="bottom2"
+      />
     </div>
   )
 }

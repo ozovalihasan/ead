@@ -21,7 +21,11 @@ export const ThroughHandle = ({nodeId} : {nodeId: string}) => {
       
       </svg>
 
-      <CustomHandle handleType='through' nodeId={nodeId} id="bottom2"></CustomHandle>
+      <CustomHandle 
+        handleType='through' 
+        nodeId={nodeId} 
+        id="bottom2"
+      />
       
     </div>
   )

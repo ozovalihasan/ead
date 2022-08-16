@@ -20,32 +20,12 @@ export const AllHandlers = ({id}: {id: string}) => {
   
   return (
     <div className={`relative w-full ${visibleSourceHandles}`}>
-      <HasOneHandle />
-      <Handle
-          onMouseDown={() => onChangeAssociationType("has_one", id)}
-          className="opacity-50 absolute -bottom-3 justify-center items-center flex border-none w-6 h-6 left-1/4"
-          type="source"
-          position={Position.Bottom}
-          id="bottom1"
-      />
+      <HasOneHandle id={id} />
 
-      <HasManyHandle />
-      <Handle
-          onMouseDown={() => onChangeAssociationType("has_many", id)}
-          className=" opacity-50 absolute -bottom-3 justify-center items-center flex border-none w-6 h-6 left-1/2"
-          type="source"
-          position={Position.Bottom}
-          id="bottom2"
-      />
+      <HasManyHandle id={id} />
 
-      <ThroughHandle />
-      <Handle
-          onMouseDown={() => onChangeAssociationType("through", id)}
-          className=" opacity-50 absolute -bottom-3 justify-center items-center flex border-none w-6 h-6 left-3/4"
-          type="source"
-          position={Position.Bottom}
-          id="bottom3"
-      />
+      <ThroughHandle id={id} />
+
     </div>
 
   )

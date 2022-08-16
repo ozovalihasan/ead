@@ -1,5 +1,5 @@
 import { ThroughHandle } from '../ThroughHandle';
-import { render} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { CustomHandleType } from '../../CustomHandle/CustomHandle';
 
 
@@ -30,6 +30,11 @@ beforeEach(() => {
 });
 
 describe('<ThroughHandle />', () => {
+  it('calls another component with a prop with value "through"', () => {
+    render(renderReadyComponent);
+    expect(screen.getByText(/through/i)).toBeInTheDocument();
+  });
+  
 
   it('renders correctly', () => {
     const renderedContainer = render(renderReadyComponent );

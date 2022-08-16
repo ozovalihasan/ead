@@ -34,7 +34,7 @@ export const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeD
 
       {data && <TableName tableId={data.tableId}></TableName>}
       
-      <AllHandlers id={id} />
+      <AllHandlers nodeId={id} />
 
       {
         isConnectContinue && associationType === "through" && (connectionStartId !== id) && 

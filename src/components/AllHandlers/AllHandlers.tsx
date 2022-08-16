@@ -6,7 +6,7 @@ import {
 
 import useStore from '@/zustandStore/store';
 
-export const AllHandlers = ({id}: {id: string}) => {
+export const AllHandlers = ({nodeId}: {nodeId: string}) => {
   
   const {
     isConnectContinue,
@@ -18,11 +18,11 @@ export const AllHandlers = ({id}: {id: string}) => {
   
   return (
     <div className={`relative w-full ${visibleSourceHandles}`}>
-      <HasOneHandle nodeId={id} />
+      <HasOneHandle nodeId={nodeId} />
 
-      <HasManyHandle nodeId={id} />
+      <HasManyHandle nodeId={nodeId} />
 
-      <ThroughHandle nodeId={id} />
+      <ThroughHandle nodeId={nodeId} />
 
     </div>
 

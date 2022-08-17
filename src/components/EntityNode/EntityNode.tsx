@@ -38,11 +38,7 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
       )
     )
   )
-  const visibleThroughSelectArea = (
-    isConnectContinue && 
-    associationType === "through" && 
-    ( connectionStartNodeId !== id )
-  )
+
   return (
     <div className={`border-black border border-solid p-1 rounded-sm ${ (selectedNodeIdForThrough === id) ?  "bg-second-400" : "bg-first-50"} ${ selected ?  "bg-first-200" : ""}`} >
       
@@ -69,9 +65,8 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
       
       <AllHandlers nodeId={id} />
 
-      {
-        visibleThroughSelectArea && <SelectThroughNode nodeId={id}/>
-      }
+      <SelectThroughNode nodeId={id}/>
+
     </div>
   );
 }

@@ -95,12 +95,12 @@ export function getEdgeParams(source: Node, target: Node, isThrough = false, sou
   }
 
   return {
-    sx: sourceIntersectionPoint.x,
-    sy: sourceIntersectionPoint.y,
-    tx: targetIntersectionPoint.x,
-    ty: targetIntersectionPoint.y,
-    sourcePos,
-    targetPos,
+    sourceX: sourceIntersectionPoint.x,
+    sourceY: sourceIntersectionPoint.y,
+    targetX: targetIntersectionPoint.x,
+    targetY: targetIntersectionPoint.y,
+    sourcePosition: sourcePos,
+    targetPosition: targetPos,
   };
 }
 

@@ -27,16 +27,9 @@ export const HasOneEdge = ({
   
   if (!sourceNode || !targetNode) { return <div></div> }
 
-  const { sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(sourceNode, targetNode);
+  const { targetPosition, ...rest } = getEdgeParams(sourceNode, targetNode);
 
-  const edgePath = getBezierPath({
-    sourceX: sx,
-    sourceY: sy,
-    sourcePosition: sourcePos,
-    targetPosition: targetPos,
-    targetX: tx,
-    targetY: ty,
-  })
+  const edgePath = getBezierPath({ targetPosition, ...rest })
   
 
   const [centerX, centerY] = getBezierEdgeCenter({
@@ -47,13 +40,13 @@ export const HasOneEdge = ({
   });
 
   let orient: string = "0deg" 
-  if (targetPos === Position.Bottom) {
+  if (targetPosition === Position.Bottom) {
     orient = "180deg"
-  } else if (targetPos === Position.Left) {
+  } else if (targetPosition === Position.Left) {
     orient = "-90deg"
-  } else if (targetPos === Position.Right) {
+  } else if (targetPosition === Position.Right) {
     orient = "90deg"
-  } else if (targetPos === Position.Top) {
+  } else if (targetPosition === Position.Top) {
     orient = "0deg"
   }
 

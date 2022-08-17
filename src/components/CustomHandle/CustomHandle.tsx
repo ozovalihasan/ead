@@ -3,8 +3,8 @@ import useStore from '@/zustandStore/store';
 
 
 export type CustomHandleType = {
-  nodeId: string, 
   id: string, 
+  nodeId: string, 
   handleType: string
 }
 

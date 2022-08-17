@@ -18,14 +18,14 @@ export const SelectThroughNode = ({nodeId} : {nodeId: string}) => {
   return (
     <div 
       className={`
-        text-tiny text-center text-first-100 bg-first-500  w-16 h-full 
-        absolute right-full bottom-0 rounded-l-md px-1 content-center flex items-center 
+        text-first-100 bg-first-500 w-16 h-full flex 
+        absolute right-full bottom-0 rounded-l-md text-tiny  
         ${visibleThroughSelectArea ? "visible" : "hidden"}
       `} 
       
       onMouseEnter={(event) => onMouseEnterThrough(event, nodeId)}
     >
-      <div className='text-center w-full'>
+      <div className="m-auto">
         through
       </div>
     </div>

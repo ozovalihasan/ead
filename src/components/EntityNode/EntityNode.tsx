@@ -22,14 +22,14 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
   const {
     isConnectContinue,
     associationType,
-    connectionStartId,
+    connectionStartNodeId,
     selectedNodeIdForThrough,
     onNodeInputChange, 
   } = useStore();
 
   const visibleTargetHandle = (
     isConnectContinue && 
-    connectionStartId !== id && 
+    connectionStartNodeId !== id && 
     (
       associationType !== "through" || 
       (
@@ -41,7 +41,7 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
   const visibleThroughSelectArea = (
     isConnectContinue && 
     associationType === "through" && 
-    ( connectionStartId !== id )
+    ( connectionStartNodeId !== id )
   )
   return (
     <div className={`border-black border border-solid p-1 rounded-sm ${ (selectedNodeIdForThrough === id) ?  "bg-second-400" : "bg-first-50"} ${ selected ?  "bg-first-200" : ""}`} >

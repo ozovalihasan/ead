@@ -30,7 +30,7 @@ export type State = {
   nodes: Node<EntityNodeDataType>[];
   edges: Edge[];
   tables: TablesType;
-  connectionStartId: string | null;
+  connectionStartNodeId: string | null;
   isConnectContinue: boolean;
   isMouseOnNode: boolean;
   isMouseOnEdge: boolean;
@@ -72,7 +72,7 @@ const useStore = create(devtools<State>((set, get) => ({
     nodes: initialNodes,
     edges: initialEdges,
     tables: initialTables,
-    connectionStartId: null,
+    connectionStartNodeId: null,
     isConnectContinue: false,
     isMouseOnNode: false,
     isMouseOnEdge: false,
@@ -258,7 +258,7 @@ const useStore = create(devtools<State>((set, get) => ({
     onChangeAssociationType: (associationType: string, id: string) =>{
       set({
         associationType: associationType,
-        connectionStartId: id
+        connectionStartNodeId: id
       });
     },
     resetStore: () => {

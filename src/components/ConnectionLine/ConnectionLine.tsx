@@ -1,4 +1,4 @@
-import { ConnectionLineComponentProps, ConnectionLineType, getBezierPath, Node } from "react-flow-renderer";
+import { ConnectionLineComponentProps, getBezierPath, Node } from "react-flow-renderer";
 import useStore from "@/zustandStore/store";
 
 export const ConnectionLine = ({
@@ -11,11 +11,13 @@ export const ConnectionLine = ({
 }: Omit<ConnectionLineComponentProps, 'connectionLineType'>) => {
 
   const associationType = useStore(state => state.associationType)
-  const selectedNodeIdForThrough = useStore(state => state.selectedNodeIdForThrough)
 
   let throughNode: null | Node = null
   let throughEdgePath: null | string = null
+
   if (associationType === 'through'){
+    const selectedNodeIdForThrough = useStore(state => state.selectedNodeIdForThrough)
+
     throughNode = useStore(store => store.nodes.find( node => node.id === selectedNodeIdForThrough)) as Node
     
     if (throughNode){

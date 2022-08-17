@@ -57,29 +57,29 @@ export const ConnectionLine = ({
   
   
   return (
-    <g>
-      {
-        throughEdgePath && 
+    <svg>
+      <g>
+        {
+          throughEdgePath &&
+          <path
+            fill="none"
+            stroke="#222"
+            strokeWidth={1.5}
+            className="animated"
+            d={throughEdgePath}
+          />
+        }
+      
         <path
           fill="none"
           stroke="#222"
           strokeWidth={1.5}
-          className="animated"
-          d={throughEdgePath}
-
+          className={associationType === 'through' ? "animated" : ""}
+          d={edgePath}
         />
-      }
       
-      <path
-        fill="none"
-        stroke="#222"
-        strokeWidth={1.5}
-        className={associationType === 'through' ? "animated" : ""}
-        d={edgePath}
-
-      />
-      
-      <circle cx={targetX} cy={targetY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5} />
-    </g>
+        <circle cx={targetX} cy={targetY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5} />
+      </g>
+    </svg>
   );
 };

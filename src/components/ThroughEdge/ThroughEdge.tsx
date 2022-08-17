@@ -53,7 +53,7 @@ export const ThroughEdge = ({
   }
   
   return (
-    <svg>
+    <>
       
       <path
         id={`${id}-first`}
@@ -111,6 +111,6 @@ export const ThroughEdge = ({
           </textPath>
         </text>
       }
-    </svg>
+    </>
   );
 }

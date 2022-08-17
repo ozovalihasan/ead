@@ -13,8 +13,7 @@ export const ThroughEdge = ({
   data,
   selected,
 }: EdgeProps ) => {
-  const { removeEdge } = useStore();
-
+  
   let sx, sy, tx, ty, sourcePos, targetPos = null
   
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node

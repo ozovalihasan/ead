@@ -3,7 +3,6 @@ import {
   TableName,
   AllHandlers,
   SelectThroughNode
-
 } from "@/components"
 import useStore from '@/zustandStore/store';
 
@@ -13,7 +12,13 @@ export type EntityNodeDataType = {
   name: string,
 }
 
-export const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeDataType, selected: boolean}) => {
+export type EntityNodeType = {
+  id: string, 
+  data: EntityNodeDataType, 
+  selected: boolean
+}
+
+export const EntityNode = ({id, data, selected }: EntityNodeType) => {
   const {
     isConnectContinue,
     associationType,
@@ -22,8 +27,22 @@ export const EntityNode = ({id, data, selected }: {id: string, data: EntityNodeD
     onNodeInputChange, 
   } = useStore();
 
-  const visibleTargetHandle = (isConnectContinue && (associationType !== "through" || (selectedNodeIdForThrough && selectedNodeIdForThrough !== id)))
-  const visibleThroughSelectArea = isConnectContinue && associationType === "through" && (connectionStartId !== id)
+  const visibleTargetHandle = (
+    isConnectContinue && 
+    connectionStartId !== id && 
+    (
+      associationType !== "through" || 
+      (
+        selectedNodeIdForThrough && 
+        selectedNodeIdForThrough !== id
+      )
+    )
+  )
+  const visibleThroughSelectArea = (
+    isConnectContinue && 
+    associationType === "through" && 
+    ( connectionStartId !== id )
+  )
   return (
     <div className={`border-black border border-solid p-1 rounded-sm ${ (selectedNodeIdForThrough === id) ?  "bg-second-400" : "bg-first-50"} ${ selected ?  "bg-first-200" : ""}`} >
       

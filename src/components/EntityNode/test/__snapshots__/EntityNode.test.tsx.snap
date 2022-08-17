@@ -12,7 +12,7 @@ Object {
         bg-first-200
       "
       >
-        MockTargeHandle nodeId: 
+        MockTargetHandle nodeId: 
         111
         <div>
           <label
@@ -43,7 +43,7 @@ Object {
         bg-first-200
       "
     >
-      MockTargeHandle nodeId: 
+      MockTargetHandle nodeId: 
       111
       <div>
         <label

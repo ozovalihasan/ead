@@ -1,7 +1,7 @@
 import { Handle, Position } from "react-flow-renderer"
 import useStore from '@/zustandStore/store';
 
-export const TargeHandle = ({nodeId} : {nodeId: string}) => {
+export const TargetHandle = ({nodeId} : {nodeId: string}) => {
   const {
     isConnectContinue,
     associationType,

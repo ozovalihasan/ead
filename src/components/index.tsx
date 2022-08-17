@@ -1,4 +1,4 @@
-export * from './TargeHandle/TargeHandle'
+export * from './TargetHandle/TargetHandle'
 export * from './SelectThroughNode/SelectThroughNode'
 export * from './CustomHandle/CustomHandle'
 export * from './AngleDown/AngleDown'

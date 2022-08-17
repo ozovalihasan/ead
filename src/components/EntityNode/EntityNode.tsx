@@ -2,7 +2,7 @@ import {
   TableName,
   AllHandlers,
   SelectThroughNode,
-  TargeHandle
+  TargetHandle
 } from "@/components"
 import useStore from '@/zustandStore/store';
 
@@ -33,7 +33,7 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
       `} 
     >
       
-      <TargeHandle nodeId={id} />
+      <TargetHandle nodeId={id} />
       
       <div>
         <label htmlFor="text"></label>

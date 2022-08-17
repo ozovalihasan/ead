@@ -4,10 +4,10 @@ import useStore from '@/zustandStore/store';
 
 
 jest.mock('@/components',  () => ({
-  TargeHandle: (
+  TargetHandle: (
     ({ nodeId }: {nodeId: string} ) => (
       <>
-        MockTargeHandle
+        MockTargetHandle
         nodeId: {nodeId}
       </>
     )
@@ -60,7 +60,7 @@ describe('<EntityNode />', () => {
   
   it('renders the necessary components correctly', () => {
     render(renderReadyComponent );
-    expect(screen.getByText(/MockTargeHandle/i)).toBeInTheDocument();
+    expect(screen.getByText(/MockTargetHandle/i)).toBeInTheDocument();
     expect(screen.getByText(/MockTableName/i)).toBeInTheDocument();
     expect(screen.getByText(/MockAllHandlers/i)).toBeInTheDocument();
     expect(screen.getByText(/MockSelectThroughNode/i)).toBeInTheDocument();

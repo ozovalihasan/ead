@@ -66,7 +66,7 @@ export const ThroughEdge = ({
   }
   
   return (
-    <>
+    <svg>
       
       <path
         id={`${id}-first`}
@@ -117,13 +117,13 @@ export const ThroughEdge = ({
             <RemoveEdgeButton id={id}/>
         </foreignObject> 
       }
-      {showTextOnEdges && 
+      {showTextOnEdges &&
         <text>
           <textPath href={`#${id}-first`} style={{ fontSize: '12px' }} startOffset="0" >
             {label}
           </textPath>
         </text>
       }
-    </>
+    </svg>
   );
 }

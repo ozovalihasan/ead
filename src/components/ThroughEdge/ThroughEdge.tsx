@@ -22,12 +22,8 @@ export const ThroughEdge = ({
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
   
-  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
-  
-  if (!sourceNode || !throughNode || !targetNode) {
-    return <div></div>
-  }
-  
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges);
+
   ({ sx, sy, tx, ty, sourcePos, targetPos } = getEdgeParams(sourceNode, throughNode))
 
   const throughEdgePath = getBezierPath({

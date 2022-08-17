@@ -1,8 +1,8 @@
-import { Handle, Position } from 'react-flow-renderer';
 import {
   TableName,
   AllHandlers,
-  SelectThroughNode
+  SelectThroughNode,
+  TargeHandle
 } from "@/components"
 import useStore from '@/zustandStore/store';
 
@@ -20,34 +20,20 @@ export type EntityNodeType = {
 
 export const EntityNode = ({id, data, selected }: EntityNodeType) => {
   const {
-    isConnectContinue,
-    associationType,
-    connectionStartNodeId,
     selectedNodeIdForThrough,
     onNodeInputChange, 
   } = useStore();
 
-  const visibleTargetHandle = (
-    isConnectContinue && 
-    connectionStartNodeId !== id && 
-    (
-      associationType !== "through" || 
-      (
-        selectedNodeIdForThrough && 
-        selectedNodeIdForThrough !== id
-      )
-    )
-  )
-
   return (
-    <div className={`border-black border border-solid p-1 rounded-sm ${ (selectedNodeIdForThrough === id) ?  "bg-second-400" : "bg-first-50"} ${ selected ?  "bg-first-200" : ""}`} >
+    <div 
+      className={`
+        border-black border border-solid p-1 rounded-sm 
+        ${ (selectedNodeIdForThrough === id) ?  "bg-second-400" : "bg-first-50"} 
+        ${ selected &&  "bg-first-200"}
+      `} 
+    >
       
-      <Handle 
-        id="top"
-        className={`border-none w-6 h-6 ${(visibleTargetHandle) ? "visible" : "hidden"}`} 
-        type="target" 
-        position={Position.Top} 
-      />
+      <TargeHandle nodeId={id} />
       
       <div>
         <label htmlFor="text"></label>

@@ -4,6 +4,14 @@ import { getEdgeParams } from '@/utils';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
 
+interface ThroughEdgeType extends Omit<
+  EdgeProps, "sourceX" | "sourceY" | "targetX" | "targetY" | "sourcePosition" |"targetPosition"
+> {
+  data: {
+    throughNodeId: string
+  },
+}
+
 export const ThroughEdge = ({
   id,
   source,
@@ -12,7 +20,7 @@ export const ThroughEdge = ({
   label,
   data,
   selected,
-}: EdgeProps ) => {
+}: ThroughEdgeType ) => {
   
   let sx, sy, tx, ty, sourcePos, targetPos = null
   

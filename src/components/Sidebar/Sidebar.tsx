@@ -3,7 +3,7 @@ import useStore from '@/zustandStore/store';
 
 export const Sidebar = () => {
 
-  const { onChangeAssociationType, 
+  const { 
     onTableNameChange, 
     addTable, 
     addAttribute, 
@@ -33,7 +33,6 @@ export const Sidebar = () => {
   };
 
   let tables = useStore((state) => state.tables);
-  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
   const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
 
   return (

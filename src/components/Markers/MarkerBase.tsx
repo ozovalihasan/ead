@@ -1,12 +1,16 @@
-export type LineMarkerType = {
+import { ReactElement } from "react"
+export type MarkerType = {
   orient: string,
-  edgeId: string
+  edgeId: string,
 }
 
-export const LineMarker = ({orient, edgeId}: LineMarkerType) => {
+export type MarkerBaseType = MarkerType & {
+  children: ReactElement
+}
+
+export const MarkerBase = ({orient, edgeId, children}: MarkerBaseType) => {
   
   return (
-
     <defs>
       <marker
         orient={orient}
@@ -18,9 +22,7 @@ export const LineMarker = ({orient, edgeId}: LineMarkerType) => {
         markerWidth="5" 
         markerHeight="5"
       >
-        <path 
-          d="m 0,0 v 40 h 80 v 160 h 40 V 40 h 80 V 0"
-          className="fill-first-500"  />
+        {children}
       </marker>
     </defs>
 

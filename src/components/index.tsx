@@ -1,5 +1,5 @@
-export * from './markers/LineMarker'
-export * from './markers/CrowsFootMarker'
+export * from './Markers/LineMarker'
+export * from './Markers/CrowsFootMarker'
 export * from './TargetHandle/TargetHandle'
 export * from './SelectThroughNode/SelectThroughNode'
 export * from './CustomHandle/CustomHandle'
@@ -10,6 +10,7 @@ export * from './HasManyEdge/HasManyEdge';
 export * from './HasOneEdge/HasOneEdge';
 export * from './ThroughEdge/ThroughEdge';
 export * from './Sidebar/Sidebar'; 
+export * from './Markers/MarkerBase'; 
 export * from './EntityNode/EntityNode';
 export * from './HasManyHandle/HasManyHandle';
 export * from './HasOneHandle/HasOneHandle';

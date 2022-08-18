@@ -16,6 +16,10 @@ import {
 import { getEdgeParams } from '@/utils';
 import useStore from '@/zustandStore/store';
 
+export enum HasAnyEdgeLabel {
+  HasMany = "has many",
+  HasOne = "has one",
+}
 
 export interface HasAnyEdgeType extends Omit<
   EdgeProps, "sourcePosition" |"targetPosition" | "data"
@@ -65,9 +69,9 @@ export const HasAnyEdge = ({
 
   let MarkerDefs = null
 
-  if (label === "has many"){
-    MarkerDefs = <CrowFootMarker orient={orient} edgeId={id} />
-  } else if (label === "has one") {
+  if (label === HasAnyEdgeLabel.HasMany){
+    MarkerDefs = <CrowsFootMarker orient={orient} edgeId={id} />
+  } else if (label === HasAnyEdgeLabel.HasOne) {
     MarkerDefs = <LineMarker orient={orient} edgeId={id} />
   }
   

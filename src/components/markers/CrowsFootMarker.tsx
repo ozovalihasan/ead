@@ -1,9 +1,9 @@
-export type CrowFootMarker = {
+export type CrowsFootMarkerType = {
   orient: string,
   edgeId: string
 }
 
-export const CrowFootMarker = ({orient, edgeId}: CrowFootMarker) => {
+export const CrowsFootMarker = ({orient, edgeId}: CrowsFootMarkerType) => {
   
   return (
     <defs>
@@ -28,4 +28,4 @@ export const CrowFootMarker = ({orient, edgeId}: CrowFootMarker) => {
   )
 }
 
-export default CrowFootMarker;
+export default CrowsFootMarker;

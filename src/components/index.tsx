@@ -1,5 +1,5 @@
 export * from './markers/LineMarker'
-export * from './markers/CrowFootMarker'
+export * from './markers/CrowsFootMarker'
 export * from './TargetHandle/TargetHandle'
 export * from './SelectThroughNode/SelectThroughNode'
 export * from './CustomHandle/CustomHandle'

@@ -10,7 +10,7 @@ import {
   RemoveEdgeButton,
   ShowEdgeText,
   LineMarker,
-  CrowFootMarker
+  CrowsFootMarker
 } from "@/components"
 
 import { getEdgeParams } from '@/utils';

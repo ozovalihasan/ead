@@ -18,7 +18,6 @@ export const HasManyEdge = ({
   label,
   selected,
 }: EdgeProps) => {
-  const { removeEdge } = useStore();
 
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) 
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) 

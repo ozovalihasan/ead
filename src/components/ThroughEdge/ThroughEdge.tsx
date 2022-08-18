@@ -101,7 +101,7 @@ export const ThroughEdge = ({
           x={(targetPosition === Position.Left) ? targetX - 40 : targetX }
           y={(targetPosition === Position.Top) ? targetY - 40 : targetY }
         >
-            <RemoveEdgeButton id={id}/>
+            <RemoveEdgeButton edgeId={id}/>
         </foreignObject> 
       }
       {showTextOnEdges &&

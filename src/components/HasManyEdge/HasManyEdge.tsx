@@ -95,7 +95,7 @@ export const HasManyEdge = ({
           x={centerX - 20 / 2}
           y={centerY + 10 / 2}
         >
-          <RemoveEdgeButton id={id}/>
+          <RemoveEdgeButton edgeId={id}/>
         </foreignObject> 
       }
 

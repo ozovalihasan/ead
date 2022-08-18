@@ -6,7 +6,7 @@ let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {
   renderReadyComponent = (
-    <RemoveEdgeButton id={"1"} />
+    <RemoveEdgeButton edgeId={"1"} />
   );
 });
 

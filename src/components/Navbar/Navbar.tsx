@@ -16,8 +16,7 @@ export const Navbar = () => {
   } = useStore();
 
   const { 
-    navbarVisible,
-    toggleNavbarVisibility
+    navbarVisible
    } = useCustomizationStore()
   
   return (

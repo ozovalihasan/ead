@@ -2,9 +2,7 @@ import { HasOneEdge } from '../HasOneEdge';
 import { render, screen } from "@testing-library/react";
 import { 
   HasAnyEdgeType,
-  HasAnyEdgeLabel
 } from '@/components'
-
 
 jest.mock('@/components',  () => ({
   HasAnyEdge: (
@@ -19,8 +17,6 @@ jest.mock('@/components',  () => ({
 
 let renderReadyComponent: JSX.Element;
 
-
-
 beforeEach(() => {
   renderReadyComponent = (
     <svg>
@@ -33,7 +29,7 @@ beforeEach(() => {
         targetX={555}
         targetY={666}
         style = {{}}
-        label={HasAnyEdgeLabel.HasOne}
+        label={ "has one" }
         selected={false}
       />
     </svg>

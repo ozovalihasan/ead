@@ -4,14 +4,13 @@ import useStore from '@/zustandStore/store';
 import { 
   ShowEdgeTextType,
   RemoveEdgeButtonType,
-  LineMarkerType,
-  CrowsFootMarkerType
+  MarkerType,
 } from '@/components'
 
 
 jest.mock('@/components',  () => ({
   LineMarker: (
-    (props: LineMarkerType ) => (
+    (props: MarkerType ) => (
       <>
         MockLineMarker
         { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
@@ -19,7 +18,7 @@ jest.mock('@/components',  () => ({
     )
   ),
   CrowsFootMarker: (
-    (props: CrowsFootMarkerType ) => (
+    (props: MarkerType ) => (
       <>
         MockCrowsFootMarker
         { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }

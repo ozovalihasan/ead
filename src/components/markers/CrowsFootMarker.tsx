@@ -27,5 +27,3 @@ export const CrowsFootMarker = ({orient, edgeId}: CrowsFootMarkerType) => {
 
   )
 }
-
-export default CrowsFootMarker;

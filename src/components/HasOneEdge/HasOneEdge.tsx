@@ -1,4 +1,11 @@
-import { EdgeProps, EdgeText, getBezierEdgeCenter, getBezierPath, Position } from 'react-flow-renderer';
+import { 
+  EdgeProps, 
+  getBezierEdgeCenter, 
+  getBezierPath, 
+  Node, 
+  Position 
+} from 'react-flow-renderer';
+
 import {
   RemoveEdgeButton,
   ShowEdgeText
@@ -21,12 +28,10 @@ export const HasOneEdge = ({
 }: EdgeProps) => {
   const { removeEdge } = useStore();
 
-  const sourceNode = useStore(store => store.nodes.find( node => node.id === source))
-  const targetNode = useStore(store => store.nodes.find( node => node.id === target))
+  const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
+  const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
   
-  if (!sourceNode || !targetNode) { return <div></div> }
-
   const { targetPosition, ...rest } = getEdgeParams(sourceNode, targetNode);
 
   const edgePath = getBezierPath({ targetPosition, ...rest })

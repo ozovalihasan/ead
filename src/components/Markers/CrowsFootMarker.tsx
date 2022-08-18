@@ -1,6 +1,5 @@
 import { MarkerBase, MarkerType } from "@/components"
 
-
 export const CrowsFootMarker = (props: MarkerType) => {
   
   return (

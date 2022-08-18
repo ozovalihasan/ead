@@ -1,7 +1,10 @@
 import useStore from "@/zustandStore/store";
 
+export type RemoveEdgeButtonType = {
+  edgeId: string
+}
 
-export const RemoveEdgeButton = ({edgeId}: {edgeId: string}) => {
+export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
 
   const { removeEdge } = useStore();
   

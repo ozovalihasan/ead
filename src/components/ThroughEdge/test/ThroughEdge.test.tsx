@@ -5,35 +5,11 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 
 
 jest.mock('@/components',  () => ({
-  TargetHandle: (
-    ({ nodeId }: {nodeId: string} ) => (
+  RemoveEdgeButton: (
+    ({ edgeId }: {edgeId: string} ) => (
       <>
-        MockTargetHandle
-        nodeId: {nodeId}
-      </>
-    )
-  ),
-  TableName: (
-    ({ tableId }: {tableId: string} ) => (
-      <>
-        MockTableName
-        tableId: {tableId}
-      </>
-    )
-  ),
-  AllHandlers: (
-    ({ nodeId }: {nodeId: string} ) => (
-      <>
-        MockAllHandlers
-        nodeId: {nodeId}
-      </>
-    )
-  ),
-  SelectThroughNode: (
-    ({ nodeId }: {nodeId: string} ) => (
-      <>
-        MockSelectThroughNode
-        nodeId: {nodeId}
+        MockRemoveEdgeButton
+        edgeId: {edgeId}
       </>
     )
   ),
@@ -137,10 +113,6 @@ describe('<ThroughEdge />', () => {
     });
   
      it('renders correctly', () => {
-      useStore.setState({ 
-        associationType: 'has_many'
-      })
-      
       const renderedContainer = render(renderReadyComponent );
       expect(renderedContainer).toMatchSnapshot();
     });
@@ -161,10 +133,35 @@ describe('<ThroughEdge />', () => {
     });
   
     it('renders correctly', () => {
-      useStore.setState({ 
-        associationType: 'has_many'
-      })
+      const renderedContainer = render(renderReadyComponent );
+      expect(renderedContainer).toMatchSnapshot();
+    });
+    
+  })
+
+  describe("if it is selected", () => {
+    beforeEach(()=> {
+      renderReadyComponent =(
+        <svg>
+          <ThroughEdge
+            id= {"111"}
+            source= {"1"}
+            target= {"3"}
+            label= {"through"}
+            data= {{throughNodeId: "2"}}
+            selected={true}
+          />
+        </svg>
+      )
+    })
+
+    it('renders another component', () => {
       
+      render(renderReadyComponent );
+      expect(screen.getByText(/MockRemoveEdgeButton/i)).toBeInTheDocument();
+    });
+  
+    it('renders correctly', () => {
       const renderedContainer = render(renderReadyComponent );
       expect(renderedContainer).toMatchSnapshot();
     });

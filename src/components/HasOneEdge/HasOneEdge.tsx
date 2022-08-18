@@ -26,7 +26,6 @@ export const HasOneEdge = ({
   label,
   selected,
 }: EdgeProps) => {
-  const { removeEdge } = useStore();
 
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
@@ -55,9 +54,6 @@ export const HasOneEdge = ({
     orient = "0deg"
   }
 
-  
-
-  
   return (
     <>
       <defs>

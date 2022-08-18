@@ -14,6 +14,12 @@ import {
 import { getEdgeParams } from '@/utils';
 import useStore from '@/zustandStore/store';
 
+export interface HasManyEdgeType extends Omit<
+  EdgeProps, "sourcePosition" |"targetPosition" | "data"
+> {
+}
+
+
 export const HasManyEdge = ({
   id,
   source,
@@ -25,7 +31,7 @@ export const HasManyEdge = ({
   style = {},
   label,
   selected,
-}: EdgeProps) => {
+}: HasManyEdgeType) => {
 
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node

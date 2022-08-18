@@ -1,9 +1,9 @@
-export type LineMarker = {
+export type LineMarkerType = {
   orient: string,
   edgeId: string
 }
 
-export const LineMarker = ({orient, edgeId}: LineMarker) => {
+export const LineMarker = ({orient, edgeId}: LineMarkerType) => {
   
   return (
 

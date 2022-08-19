@@ -31,7 +31,7 @@ const edgeTypes = {
   through: ThroughEdge,
 };
 
-const App = () => {
+export const App = () => {
   
   const { 
     nodes, 
@@ -159,5 +159,3 @@ const App = () => {
 
   )
 }
-
-export default App

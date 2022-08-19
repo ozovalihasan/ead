@@ -1,0 +1,1719 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidebar /> if the sidebar is invisible renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <aside
+        class="h-full relative py-3 px-2 overflow-y-scroll hidden"
+        style="width: 204px;"
+      >
+        <div
+          class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+          draggable="true"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            type="text"
+            value="MockFirstTable"
+          />
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockFirstAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockSecondAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <button
+            class="btn-first rounded-full m-1 aspect-square h-6"
+            title="Add an attribute"
+          >
+            +
+          </button>
+          <button
+            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            title="Delete the table"
+          >
+            -
+          </button>
+        </div>
+        <div
+          class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+          draggable="true"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            type="text"
+            value="MockSecondTable"
+          />
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockThirdAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockFourthAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <button
+            class="btn-first rounded-full m-1 aspect-square h-6"
+            title="Add an attribute"
+          >
+            +
+          </button>
+          <button
+            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            title="Delete the table"
+          >
+            -
+          </button>
+        </div>
+        <button
+          class="p-1 btn-first rounded-full aspect-square h-10"
+          title="Add a table"
+        >
+          +
+        </button>
+        MockSettings
+      </aside>
+    </div>
+  </body>,
+  "container": <div>
+    <aside
+      class="h-full relative py-3 px-2 overflow-y-scroll hidden"
+      style="width: 204px;"
+    >
+      <div
+        class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+        draggable="true"
+      >
+        <input
+          class="p-2 rounded-md w-full"
+          placeholder="Table name"
+          type="text"
+          value="MockFirstTable"
+        />
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockFirstAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockSecondAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <button
+          class="btn-first rounded-full m-1 aspect-square h-6"
+          title="Add an attribute"
+        >
+          +
+        </button>
+        <button
+          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          title="Delete the table"
+        >
+          -
+        </button>
+      </div>
+      <div
+        class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+        draggable="true"
+      >
+        <input
+          class="p-2 rounded-md w-full"
+          placeholder="Table name"
+          type="text"
+          value="MockSecondTable"
+        />
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockThirdAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockFourthAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <button
+          class="btn-first rounded-full m-1 aspect-square h-6"
+          title="Add an attribute"
+        >
+          +
+        </button>
+        <button
+          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          title="Delete the table"
+        >
+          -
+        </button>
+      </div>
+      <button
+        class="p-1 btn-first rounded-full aspect-square h-10"
+        title="Add a table"
+      >
+        +
+      </button>
+      MockSettings
+    </aside>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<Sidebar /> if the sidebar is visible renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <aside
+        class="h-full relative py-3 px-2 overflow-y-scroll true"
+        style="width: 204px;"
+      >
+        <div
+          class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+          draggable="true"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            type="text"
+            value="MockFirstTable"
+          />
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockFirstAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockSecondAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <button
+            class="btn-first rounded-full m-1 aspect-square h-6"
+            title="Add an attribute"
+          >
+            +
+          </button>
+          <button
+            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            title="Delete the table"
+          >
+            -
+          </button>
+        </div>
+        <div
+          class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+          draggable="true"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            type="text"
+            value="MockSecondTable"
+          />
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockThirdAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <div
+            class="flex m-1"
+          >
+            <button
+              class="btn-first rounded-full aspect-square h-6"
+              title="Remove the attribute"
+            >
+              -
+            </button>
+            <input
+              class="p-1 w-2/3 rounded-md"
+              placeholder="Attribute"
+              type="text"
+              value="mockFourthAttribute"
+            />
+            <select
+              class="w-1/3"
+            >
+              <option
+                value="primary_key"
+              >
+                primary_key
+              </option>
+              <option
+                value="string"
+              >
+                string
+              </option>
+              <option
+                value="text"
+              >
+                text
+              </option>
+              <option
+                value="integer"
+              >
+                integer
+              </option>
+              <option
+                value="float"
+              >
+                float
+              </option>
+              <option
+                value="decimal"
+              >
+                decimal
+              </option>
+              <option
+                value="datetime"
+              >
+                datetime
+              </option>
+              <option
+                value="timestamp"
+              >
+                timestamp
+              </option>
+              <option
+                value="time"
+              >
+                time
+              </option>
+              <option
+                value="date"
+              >
+                date
+              </option>
+              <option
+                value="binary"
+              >
+                binary
+              </option>
+              <option
+                value="boolean"
+              >
+                boolean
+              </option>
+              <option
+                value="references"
+              >
+                references
+              </option>
+            </select>
+          </div>
+          <button
+            class="btn-first rounded-full m-1 aspect-square h-6"
+            title="Add an attribute"
+          >
+            +
+          </button>
+          <button
+            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            title="Delete the table"
+          >
+            -
+          </button>
+        </div>
+        <button
+          class="p-1 btn-first rounded-full aspect-square h-10"
+          title="Add a table"
+        >
+          +
+        </button>
+        MockSettings
+      </aside>
+    </div>
+  </body>,
+  "container": <div>
+    <aside
+      class="h-full relative py-3 px-2 overflow-y-scroll true"
+      style="width: 204px;"
+    >
+      <div
+        class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+        draggable="true"
+      >
+        <input
+          class="p-2 rounded-md w-full"
+          placeholder="Table name"
+          type="text"
+          value="MockFirstTable"
+        />
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockFirstAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockSecondAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <button
+          class="btn-first rounded-full m-1 aspect-square h-6"
+          title="Add an attribute"
+        >
+          +
+        </button>
+        <button
+          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          title="Delete the table"
+        >
+          -
+        </button>
+      </div>
+      <div
+        class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
+        draggable="true"
+      >
+        <input
+          class="p-2 rounded-md w-full"
+          placeholder="Table name"
+          type="text"
+          value="MockSecondTable"
+        />
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockThirdAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <div
+          class="flex m-1"
+        >
+          <button
+            class="btn-first rounded-full aspect-square h-6"
+            title="Remove the attribute"
+          >
+            -
+          </button>
+          <input
+            class="p-1 w-2/3 rounded-md"
+            placeholder="Attribute"
+            type="text"
+            value="mockFourthAttribute"
+          />
+          <select
+            class="w-1/3"
+          >
+            <option
+              value="primary_key"
+            >
+              primary_key
+            </option>
+            <option
+              value="string"
+            >
+              string
+            </option>
+            <option
+              value="text"
+            >
+              text
+            </option>
+            <option
+              value="integer"
+            >
+              integer
+            </option>
+            <option
+              value="float"
+            >
+              float
+            </option>
+            <option
+              value="decimal"
+            >
+              decimal
+            </option>
+            <option
+              value="datetime"
+            >
+              datetime
+            </option>
+            <option
+              value="timestamp"
+            >
+              timestamp
+            </option>
+            <option
+              value="time"
+            >
+              time
+            </option>
+            <option
+              value="date"
+            >
+              date
+            </option>
+            <option
+              value="binary"
+            >
+              binary
+            </option>
+            <option
+              value="boolean"
+            >
+              boolean
+            </option>
+            <option
+              value="references"
+            >
+              references
+            </option>
+          </select>
+        </div>
+        <button
+          class="btn-first rounded-full m-1 aspect-square h-6"
+          title="Add an attribute"
+        >
+          +
+        </button>
+        <button
+          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          title="Delete the table"
+        >
+          -
+        </button>
+      </div>
+      <button
+        class="p-1 btn-first rounded-full aspect-square h-10"
+        title="Add a table"
+      >
+        +
+      </button>
+      MockSettings
+    </aside>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

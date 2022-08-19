@@ -50,7 +50,6 @@ export const App = () => {
 
   const {
     locationSidebar,
-    sidebarVisible,
     navbarVisible,
     handleSidebarWidthChange,
     toggleSidebarVisibility,
@@ -74,7 +73,6 @@ export const App = () => {
       const type = event.dataTransfer.getData('application/reactflow');
       const tableId = event.dataTransfer.getData('tableId');
 
-      // check if the dropped element is valid
       if (typeof type === 'undefined' || !type) {
         return;
       }
@@ -105,22 +103,22 @@ export const App = () => {
     <div className="text-first-500 font-default  bg-first-50 flex flex-col h-screen">
       <Navbar />
       <div  className={`h-[calc(100vh-5rem)] w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
-        <ReactFlowProvider>
+  
           
-          <Sidebar />
-          <div
-              title="Click to hide/show the sidebar. Drag to change the width of the sidebar."
-              onClick={toggleSidebarVisibility}
-              className="h-full border border-y-0 border-solid border-first-500 hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center"
-              draggable
-              onDragEnd={handleSidebarWidthChange}
-          >
-            .
-            .
-            .
-          </div>
-          <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
-         
+        <Sidebar />
+        <div
+            title="Click to hide/show the sidebar. Drag to change the width of the sidebar."
+            onClick={toggleSidebarVisibility}
+            className="h-full border border-y-0 border-solid border-first-500 hover:cursor-move hover:bg-first-300 w-2 flex flex-col justify-center"
+            draggable
+            onDragEnd={handleSidebarWidthChange}
+        >
+          .
+          .
+          .
+        </div>
+        <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
+          <ReactFlowProvider>      
             <ReactFlow
               nodes={nodes}
               edges={edges}
@@ -145,15 +143,20 @@ export const App = () => {
               snapToGrid={true}
             >
               <Controls />
-              <button title="Click to show/hide the navbar" className="absolute left-0 top-0 h-3 w-3 z-50 m-2" onClick={toggleNavbarVisibility} >
-                {
-                  navbarVisible ? <UpArrow /> : <AngleDown />
-                }
-              </button>
+              
             </ReactFlow>
-          </div>
+          </ReactFlowProvider>
+          <button 
+            title="Click to show/hide the navbar" 
+            className="absolute left-0 top-0 h-3 w-3 z-50 m-2" 
+            onClick={toggleNavbarVisibility} 
+          >
+            {
+              navbarVisible ? <UpArrow /> : <AngleDown />
+            }
+          </button>
+        </div>
       
-        </ReactFlowProvider>
       </div>
     </div>
 

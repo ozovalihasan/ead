@@ -20,7 +20,7 @@ import {
   Navbar,
   UpArrow,
   AngleDown,
-  SidebarHandler,
+  SidebarHandle,
 } from "@/components"
 
 const nodeTypes = {
@@ -105,7 +105,7 @@ export const App = () => {
   
           
         <Sidebar />
-        <SidebarHandler />
+        <SidebarHandle />
         <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
           <ReactFlowProvider>      
             <ReactFlow

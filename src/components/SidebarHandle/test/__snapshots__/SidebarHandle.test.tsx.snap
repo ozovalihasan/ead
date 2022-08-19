@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SidebarHandler /> renders correctly 1`] = `
+exports[`<SidebarHandle /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

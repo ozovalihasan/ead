@@ -1,4 +1,4 @@
-import {  SidebarHandler } from '../SidebarHandler';
+import {  SidebarHandle } from '../SidebarHandle';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
@@ -12,11 +12,11 @@ beforeEach(() => {
   })
     
   renderReadyComponent = (
-    <SidebarHandler />
+    <SidebarHandle />
   );
 });
 
-describe('<SidebarHandler />', () => {
+describe('<SidebarHandle />', () => {
   
   it('calls toggleSidebarVisibility function if the element is clicked', () => {
 

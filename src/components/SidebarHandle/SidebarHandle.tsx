@@ -1,6 +1,6 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
-export const SidebarHandler = () => {
+export const SidebarHandle = () => {
 
   const {
     handleSidebarWidthChange,

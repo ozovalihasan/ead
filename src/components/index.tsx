@@ -25,3 +25,4 @@ export * from './GithubLogo/GithubLogo';
 export * from './AllHandlers/AllHandlers';
 export * from './Settings/Settings';
 export * from './App/App';
+export * from './SidebarHandler/SidebarHandler';

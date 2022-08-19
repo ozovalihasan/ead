@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware'
 
 
 type CustomizationStoreState = {
-  locationSidebar: string | null;
+  locationSidebar: "left" | "right";
   widthSidebar: number | null;
   showTextOnEdges: boolean;
   sidebarVisible: boolean;

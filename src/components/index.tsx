@@ -23,3 +23,4 @@ export * from './UpArrow/UpArrow';
 export * from './EADLogo/EADLogo'; 
 export * from './GithubLogo/GithubLogo'; 
 export * from './AllHandlers/AllHandlers';
+export * from './Settings/Settings';

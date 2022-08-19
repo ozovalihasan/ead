@@ -4,6 +4,7 @@ export const Settings = () => {
   
   const {
     locationSidebar,
+    showTextOnEdges,
     toggleLocationSidebar,
     toggleTextMode,
   } = useCustomizationStore()
@@ -17,7 +18,7 @@ export const Settings = () => {
       </summary>
       <div className='mt-8 flex-col flex'>
         <label className='flex mb-5 cursor-pointer'>
-          <input className='mr-6 accent-first-600' type="checkbox" onChange={toggleTextMode}/>
+          <input className='mr-6 accent-first-600' type="checkbox" checked={ showTextOnEdges === true} onChange={toggleTextMode}/>
           Show Association Names
         </label>
         <label className='flex mb-5 cursor-pointer'>

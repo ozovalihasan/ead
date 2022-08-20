@@ -2,6 +2,8 @@ import saveJSON from './saveJSON';
 import {
   EADLogo,
   GithubLogo,
+  UpArrow, 
+  AngleDown
 } from "@/components";
 
 import useCustomizationStore from '@/zustandStore/customizationStore';
@@ -16,7 +18,8 @@ export const Navbar = () => {
   } = useStore();
 
   const { 
-    navbarVisible
+    navbarVisible,
+    toggleNavbarVisibility
    } = useCustomizationStore()
   
   return (
@@ -67,6 +70,15 @@ export const Navbar = () => {
         </div>
       
       </nav>
+      <button 
+        title="Click to show/hide the navbar" 
+        className="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2" 
+        onClick={toggleNavbarVisibility} 
+      >
+        {
+          navbarVisible ? <UpArrow /> : <AngleDown />
+        }
+      </button>
     </div>
   )
 }

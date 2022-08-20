@@ -23,6 +23,20 @@ jest.mock('@/components',  () => ({
       </>
     )
   ),
+  UpArrow: (
+    ( ) => (
+      <>
+        MockUpArrow
+      </>
+    )
+  ),
+  AngleDown: (
+    ( ) => (
+      <>
+        MockAngleDown
+      </>
+    )
+  ),
 }))
   
 
@@ -34,6 +48,9 @@ beforeEach(() => {
     resetStore: jest.fn(),
     uploadStore: jest.fn()
   })
+
+ 
+    
     
   renderReadyComponent = (
     <Navbar />
@@ -41,10 +58,52 @@ beforeEach(() => {
 });
 
 describe('<Navbar />', () => {
+  describe('it renders a button to show/hide the navbar', () => {
+    it('has a arrow up icon if navbar is visible', () => {
+      useCustomizationStore.setState({ 
+        navbarVisible: true
+      })
+
+      render(renderReadyComponent );
+
+      expect(screen.getByText(/MockUpArrow/i)).toBeInTheDocument();
+    });
+
+    it('has a arrow down icon if navbar is visible', () => {
+      useCustomizationStore.setState({ 
+        navbarVisible: false
+      })
+
+      render(renderReadyComponent );
+
+      expect(screen.getByText(/MockAngleDown/i)).toBeInTheDocument();
+    });
+
+    it('calls the toggleNavbarVisibility function when it is clicked', () => {
+      useCustomizationStore.setState({ 
+        toggleNavbarVisibility: jest.fn()
+      })
+
+      render(renderReadyComponent );
+      const { result } = renderHook(() => useCustomizationStore());
+
+      const showHideNavbarButton = screen.getByTitle(/Click to show\/hide the navbar/i);
+      expect(showHideNavbarButton).toBeInTheDocument();
+
+      fireEvent.click(showHideNavbarButton);
+
+      expect(result.current.toggleNavbarVisibility).toHaveBeenCalledTimes(1);;
+    });
+
+    it('renders correctly', () => {
+      const renderedContainer = render(renderReadyComponent );
+      expect(renderedContainer).toMatchSnapshot();
+    });
+
+  })
+  
   
   describe('if navbar is visible', () => {
-
-
     beforeEach(() => {
       useCustomizationStore.setState({ 
         navbarVisible: true

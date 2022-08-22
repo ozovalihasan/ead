@@ -15,7 +15,6 @@ export const Sidebar = () => {
   } = useStore();
 
   const {
-    locationSidebar,
     widthSidebar,
   } = useCustomizationStore()
   
@@ -35,7 +34,7 @@ export const Sidebar = () => {
   const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
 
   return (
-    <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: (locationSidebar === "left" ? widthSidebar : (window.innerWidth - (widthSidebar as number))) as number}} >
+    <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: widthSidebar as number}} >
       
       {
         

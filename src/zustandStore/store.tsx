@@ -5,14 +5,11 @@ import {
   EdgeChange,
   Node,
   NodeChange,
-  addEdge,
   OnNodesChange,
   OnEdgesChange,
   OnConnect,
   applyNodeChanges,
   applyEdgeChanges,
-  Instance,
-  MarkerType,
   NodeRemoveChange,
 } from 'react-flow-renderer';
 
@@ -20,7 +17,6 @@ import initialNodes from './nodes';
 import initialEdges from './edges';
 import { devtools } from 'zustand/middleware'
 import produce from "immer"
-import { ButtonHTMLAttributes } from 'react';
 import initialTables, { TablesType } from './tables';
 import { EntityNodeDataType } from '@/components';
 
@@ -64,7 +60,6 @@ export type State = {
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-// this is our useStore hook that we can use in our components to get parts of the store and call actions
 const useStore = create(devtools<State>((set, get) => ({
     version: "0.4.0",  
     idCounter: Object.keys(initialTables).length + initialNodes.length + initialEdges.length + 1 ,

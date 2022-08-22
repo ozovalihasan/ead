@@ -57,7 +57,7 @@ export const ConnectionLine = ({
   
   
   return (
-    <svg>
+    <>
       <g>
         {
           throughEdgePath &&
@@ -80,6 +80,6 @@ export const ConnectionLine = ({
       
         <circle cx={targetX} cy={targetY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5} />
       </g>
-    </svg>
+    </>
   );
 };

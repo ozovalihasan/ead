@@ -14,14 +14,16 @@ beforeEach(() => {
   })
   
   renderReadyComponent = (
-    <ConnectionLine 
-      sourceX={10}
-      sourceY={20}
-      sourcePosition={Position.Bottom}
-      targetX={30}
-      targetY={40}
-      targetPosition={Position.Top}
-    />
+    <svg>
+      <ConnectionLine
+        sourceX={10}
+        sourceY={20}
+        sourcePosition={Position.Bottom}
+        targetX={30}
+        targetY={40}
+        targetPosition={Position.Top}
+      />
+    </svg>
   );
 });
 

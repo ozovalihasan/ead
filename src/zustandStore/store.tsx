@@ -264,7 +264,7 @@ const useStore = create(devtools<State>((set, get) => ({
         edges: [],
       })
     },
-    uploadStore: (event) => {
+    uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileReader = new FileReader();
       fileReader.onload = (event) => {
         let data

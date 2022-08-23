@@ -6,11 +6,18 @@ export type RemoveEdgeButtonType = {
 
 export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
 
-  const { removeEdge } = useStore();
+  const { onEdgesChange } = useStore();
   
   
   return (
-    <button className="bg-transparent border border-solid border-first-500 rounded-full p-2" onClick={() => removeEdge(edgeId)} >
+    <button className="bg-transparent border border-solid border-first-500 rounded-full p-2" onClick={() => onEdgesChange(
+      [
+        {
+          id: edgeId,
+          type: 'remove',
+        }
+      ]
+    )} >
       ×
     </button>
   )

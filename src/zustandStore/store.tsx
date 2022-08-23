@@ -55,7 +55,6 @@ export type State = {
   onNodeMouseLeave: () => void;
   onEdgeMouseLeave: () => void;
   onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) => void;
-  removeEdge: (edgeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -244,11 +243,7 @@ const useStore = create(devtools<State>((set, get) => ({
         selectedNodeIdForThrough: null,
       })
     },
-    removeEdge: (edgeId: string) => {
-      set({
-        edges: get().edges.filter((e) => e.id !==  edgeId) 
-      })
-    },
+   
     onChangeAssociationType: (associationType: string, id: string) =>{
       set({
         associationType: associationType,

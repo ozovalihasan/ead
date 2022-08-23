@@ -34,6 +34,10 @@ export const ThroughEdge = ({
   
   const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges);
 
+  if (!sourceNode || !throughNode || !targetNode) {
+    return <div></div>
+  }
+
   const throughEdgePath = getBezierPath(
     getEdgeParams(sourceNode, throughNode)
   );

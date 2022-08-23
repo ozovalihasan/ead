@@ -43,6 +43,8 @@ export const HasAnyEdge = ({
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
 
+  if (!sourceNode || !targetNode) { return <div></div> }
+
   const { targetPosition, ...rest } = getEdgeParams(sourceNode, targetNode);
 
   const edgePath = getBezierPath({...rest, targetPosition})

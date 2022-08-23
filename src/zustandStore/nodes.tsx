@@ -1,6 +1,7 @@
 import { Node } from "react-flow-renderer";
+import { EntityNodeDataType } from "@/components"
 
-const initialNodes: Node[] = [
+const initialNodes: Node<EntityNodeDataType>[] = [
   {
     "id": "4",
     "type": "entity",
@@ -12,8 +13,6 @@ const initialNodes: Node[] = [
         "tableId": "1",
         "name": "Physician"
     },
-    "width": 138,
-    "height": 45
   },
   {
       "id": "5",
@@ -26,14 +25,6 @@ const initialNodes: Node[] = [
           "tableId": "2",
           "name": "Appointment"
       },
-      "width": 138,
-      "height": 45,
-      "selected": false,
-      "positionAbsolute": {
-          "x": 585,
-          "y": 255
-      },
-      "dragging": false
   },
   {
       "id": "6",
@@ -46,14 +37,6 @@ const initialNodes: Node[] = [
           "tableId": "3",
           "name": "Patient"
       },
-      "width": 138,
-      "height": 45,
-      "selected": false,
-      "positionAbsolute": {
-          "x": 720,
-          "y": 150
-      },
-      "dragging": false
   }
 ];
 

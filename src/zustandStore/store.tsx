@@ -174,7 +174,6 @@ const useStore = create(devtools<State>((set, get) => ({
     },
     addNode: (node: Node) =>{
       set({
-          idCounter: get().idCounter + 1,
           nodes: get().nodes.concat(node),
       })
     },

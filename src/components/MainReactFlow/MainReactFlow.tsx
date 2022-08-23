@@ -81,7 +81,8 @@ export const MainReactFlow = () => {
         data: { tableId, name },
       };
       
-
+      useStore.getState().increaseIdCounter()
+      
       addNode(newNode);
     },
     [reactFlowInstance]

@@ -1,12 +1,11 @@
-const saveJSON = (data, filename) => {
-    let dataNew = data;
+const saveJSON = (data: object, filename= 'EAD.json') => {
+  
+    let dataNew: object | string = data;
     let filenameNew = filename;
     if (!dataNew) {
       console.error('No data');
       return;
     }
-  
-    if (!filenameNew) { filenameNew = 'console.json'; }
   
     if (typeof dataNew === 'object') {
       dataNew = JSON.stringify(dataNew, undefined, 4);

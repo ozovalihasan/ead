@@ -36,7 +36,7 @@ export const Navbar = () => {
           </div>
           <button
               className="rounded-md p-3 my-1 ml-0 btn-first"
-              onClick={() => saveJSON(useStore.getState(), 'EAD.json')}
+              onClick={() => saveJSON(useStore.getState())}
               type="button"
               title="Download EAD"
             >

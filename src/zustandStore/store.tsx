@@ -273,7 +273,7 @@ const useStore = create(devtools<State>((set, get) => ({
           )
           
         }else{
-          console.error("An invalid file is installed. Please check your file.")
+          alert("An invalid file is installed. Please check your file.");
         }
         
       

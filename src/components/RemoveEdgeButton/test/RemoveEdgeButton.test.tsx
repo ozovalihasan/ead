@@ -13,10 +13,10 @@ beforeEach(() => {
 describe('<RemoveEdgeButton />', () => {
   
 
-  it('run the removeEdge function from the store when "x" is clicked', () => {
+  it('run the onEdgesChange function from the store when "x" is clicked', () => {
     
     useStore.setState({ 
-      removeEdge: jest.fn() 
+      onEdgesChange: jest.fn() 
     })
 
     render(renderReadyComponent );
@@ -28,8 +28,8 @@ describe('<RemoveEdgeButton />', () => {
 
     fireEvent.click(resetButton);
     
-    expect(result.current.removeEdge).toHaveBeenCalledTimes(1);;
-    expect(result.current.removeEdge).toHaveBeenCalledWith("1");;
+    expect(result.current.onEdgesChange).toHaveBeenCalledTimes(1);;
+    expect(result.current.onEdgesChange).toHaveBeenCalledWith([{"id": "1", "type": "remove"}] );;
   });
   
   it('renders correctly', () => {

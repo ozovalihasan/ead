@@ -6,9 +6,11 @@ let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {
   renderReadyComponent = (
-    <MarkerBase orient={"mockOrient"} edgeId={"1"}>
+    <svg>
+      <MarkerBase orient={"mockOrient"} edgeId={"1"}>
         <div>MockChildren</div>
-    </MarkerBase>
+      </MarkerBase>
+    </svg>
   );
 });
 

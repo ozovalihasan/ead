@@ -5,41 +5,45 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <svg>
+        <defs>
+          <marker
+            id="marker-def-1"
+            markerHeight="5"
+            markerUnits="strokeWidth"
+            markerWidth="5"
+            orient="mockOrient"
+            refX="100"
+            refY="0"
+            viewBox="0 0 200 200"
+          >
+            <div>
+              MockChildren
+            </div>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
       <defs>
         <marker
           id="marker-def-1"
-          markerheight="5"
-          markerunits="strokeWidth"
-          markerwidth="5"
+          markerHeight="5"
+          markerUnits="strokeWidth"
+          markerWidth="5"
           orient="mockOrient"
-          refx="100"
-          refy="0"
-          viewbox="0 0 200 200"
+          refX="100"
+          refY="0"
+          viewBox="0 0 200 200"
         >
           <div>
             MockChildren
           </div>
         </marker>
       </defs>
-    </div>
-  </body>,
-  "container": <div>
-    <defs>
-      <marker
-        id="marker-def-1"
-        markerheight="5"
-        markerunits="strokeWidth"
-        markerwidth="5"
-        orient="mockOrient"
-        refx="100"
-        refy="0"
-        viewbox="0 0 200 200"
-      >
-        <div>
-          MockChildren
-        </div>
-      </marker>
-    </defs>
+    </svg>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

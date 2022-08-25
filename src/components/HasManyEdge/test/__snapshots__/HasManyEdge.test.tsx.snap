@@ -1,364 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HasManyEdge /> if it is selected renders correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <svg>
-        <defs>
-          <marker
-            id="crow-foot-111"
-            markerHeight="5"
-            markerUnits="strokeWidth"
-            markerWidth="5"
-            orient="0deg"
-            refX="100"
-            refY="0"
-            viewBox="0 0 200 200"
-          >
-            <path
-              class="fill-first-500"
-              d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z"
-            />
-          </marker>
-        </defs>
-        <path
-          class="stroke-first-500 fill-[none] stroke-[2] "
-          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-          id="111"
-          marker-end="url(#crow-foot-111)"
-          style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
-        />
-        <path
-          class="fill-[none] stroke-[15] stroke-transparent"
-          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-          id="111-wider"
-        />
-        <foreignobject
-          height="40"
-          width="40"
-          x="515"
-          y="207.5"
-        >
-          MockRemoveEdgeButton edgeId: 
-          111
-        </foreignobject>
-        MockShowEdgeText
-        label: has_many
-        centerX: 525
-        centerY: 202.5
-      </svg>
-    </div>
-  </body>,
-  "container": <div>
-    <svg>
-      <defs>
-        <marker
-          id="crow-foot-111"
-          markerHeight="5"
-          markerUnits="strokeWidth"
-          markerWidth="5"
-          orient="0deg"
-          refX="100"
-          refY="0"
-          viewBox="0 0 200 200"
-        >
-          <path
-            class="fill-first-500"
-            d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z"
-          />
-        </marker>
-      </defs>
-      <path
-        class="stroke-first-500 fill-[none] stroke-[2] "
-        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-        id="111"
-        marker-end="url(#crow-foot-111)"
-        style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
-      />
-      <path
-        class="fill-[none] stroke-[15] stroke-transparent"
-        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-        id="111-wider"
-      />
-      <foreignobject
-        height="40"
-        width="40"
-        x="515"
-        y="207.5"
-      >
-        MockRemoveEdgeButton edgeId: 
-        111
-      </foreignobject>
-      MockShowEdgeText
-      label: has_many
-      centerX: 525
-      centerY: 202.5
-    </svg>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`<HasManyEdge /> if the mouse hovers on the edge renders correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <svg>
-        <defs>
-          <marker
-            id="crow-foot-111"
-            markerHeight="5"
-            markerUnits="strokeWidth"
-            markerWidth="5"
-            orient="0deg"
-            refX="100"
-            refY="0"
-            viewBox="0 0 200 200"
-          >
-            <path
-              class="fill-first-500"
-              d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z"
-            />
-          </marker>
-        </defs>
-        <path
-          class="stroke-first-500 fill-[none] stroke-[2] "
-          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-          id="111"
-          marker-end="url(#crow-foot-111)"
-          style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
-        />
-        <path
-          class="fill-[none] stroke-[15] stroke-transparent"
-          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-          id="111-wider"
-        />
-        MockShowEdgeText
-        label: has_many
-        centerX: 525
-        centerY: 202.5
-      </svg>
-    </div>
-  </body>,
-  "container": <div>
-    <svg>
-      <defs>
-        <marker
-          id="crow-foot-111"
-          markerHeight="5"
-          markerUnits="strokeWidth"
-          markerWidth="5"
-          orient="0deg"
-          refX="100"
-          refY="0"
-          viewBox="0 0 200 200"
-        >
-          <path
-            class="fill-first-500"
-            d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z"
-          />
-        </marker>
-      </defs>
-      <path
-        class="stroke-first-500 fill-[none] stroke-[2] "
-        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-        id="111"
-        marker-end="url(#crow-foot-111)"
-        style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
-      />
-      <path
-        class="fill-[none] stroke-[15] stroke-transparent"
-        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-        id="111-wider"
-      />
-      MockShowEdgeText
-      label: has_many
-      centerX: 525
-      centerY: 202.5
-    </svg>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
 exports[`<HasManyEdge /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <svg>
-        <defs>
-          <marker
-            id="crow-foot-111"
-            markerHeight="5"
-            markerUnits="strokeWidth"
-            markerWidth="5"
-            orient="0deg"
-            refX="100"
-            refY="0"
-            viewBox="0 0 200 200"
-          >
-            <path
-              class="fill-first-500"
-              d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z"
-            />
-          </marker>
-        </defs>
-        <path
-          class="stroke-first-500 fill-[none] stroke-[2] "
-          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-          id="111"
-          marker-end="url(#crow-foot-111)"
-        />
-        <path
-          class="fill-[none] stroke-[15] stroke-transparent"
-          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-          id="111-wider"
-        />
-        MockShowEdgeText
-        label: has_many
-        centerX: 525
-        centerY: 202.5
+        MockRemoveEdgeButton
+        id: 111
+        source: 1
+        target: 2
+        sourceX: 333
+        sourceY: 444
+        targetX: 555
+        targetY: 666
+        style: [object Object]
+        label: has many
+        selected: false
       </svg>
     </div>
   </body>,
   "container": <div>
     <svg>
-      <defs>
-        <marker
-          id="crow-foot-111"
-          markerHeight="5"
-          markerUnits="strokeWidth"
-          markerWidth="5"
-          orient="0deg"
-          refX="100"
-          refY="0"
-          viewBox="0 0 200 200"
-        >
-          <path
-            class="fill-first-500"
-            d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z"
-          />
-        </marker>
-      </defs>
-      <path
-        class="stroke-first-500 fill-[none] stroke-[2] "
-        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-        id="111"
-        marker-end="url(#crow-foot-111)"
-      />
-      <path
-        class="fill-[none] stroke-[15] stroke-transparent"
-        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
-        id="111-wider"
-      />
-      MockShowEdgeText
-      label: has_many
-      centerX: 525
-      centerY: 202.5
+      MockRemoveEdgeButton
+      id: 111
+      source: 1
+      target: 2
+      sourceX: 333
+      sourceY: 444
+      targetX: 555
+      targetY: 666
+      style: [object Object]
+      label: has many
+      selected: false
     </svg>
   </div>,
   "debug": [Function],

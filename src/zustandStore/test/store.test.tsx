@@ -8,9 +8,6 @@ import testTables from './testTables';
 
 let edge: Omit<Edge, "id">;
 
-
-
-
 describe('store', () => {
   it('has a "version" attribute and its value should be "0.4.0" as default', () => {
       expect(useStore.getState().version).toBe("0.4.0");
@@ -319,8 +316,18 @@ describe('store', () => {
 
       it('a "through" edge', () => {
 
+        global.alert = jest.fn();
+
         useStore.setState({
           associationType: "through",
+        })
+
+        useStore.getState().onConnect( edge as Connection)
+
+        expect(global.alert).toBeCalledTimes(1)
+        expect(global.alert).toBeCalledWith("It is necessary to select a node to define through association.")
+
+        useStore.setState({
           selectedNodeIdForThrough: "555"
         })
 
@@ -360,33 +367,54 @@ describe('store', () => {
       
   });
 
-  it('has an "uploadStore" attribute to upload an EAD file', () => {
-
-      const file: File = new File([JSON.stringify({idCounter: 1234})], 'EAD.json', { type: 'application/json' });
-      const fileList = [file];
+  describe('has an "uploadStore" attribute to upload an EAD file', () => {
     
-      const event = {
-        target: {
-          files: {
-              item: (index: number) => fileList[index],
-              length: fileList.length,
-          }
-        }
-      } as React.ChangeEvent<HTMLInputElement>;
+    it('shows a warning if a correct file is not installed', () => {
+
+      global.alert = jest.fn();
 
       const mock = jest.fn()
     
       Object.defineProperty(global, 'FileReader', {
         writable: true,
         value: jest.fn().mockImplementation(() => ({
-          readAsText: function() { mock(); this.onload({target: {result: JSON.stringify({idCounter: 1234})}})},
+          readAsText: function() { 
+            mock(); this.onload(
+              {target: {result: []}}
+            )
+          },
         })),
       })
     
-      useStore.getState().uploadStore(event)
+      useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(mock).toHaveBeenCalledTimes(1);
-      
+      expect(global.alert).toHaveBeenCalledTimes(1);
+      expect(global.alert).toHaveBeenCalledWith("An invalid file is installed. Please check your file.");
+
+    })
+
+    it('installs the file successfully', () => {
+
+      const mock = jest.fn()
+    
+      Object.defineProperty(global, 'FileReader', {
+        writable: true,
+        value: jest.fn().mockImplementation(() => ({
+          readAsText: function() { 
+            mock(); 
+            this.onload(
+              {target: {result: JSON.stringify({idCounter: 1234})}}
+            )
+          },
+        })),
+      })
+    
+      useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
+    
+      expect(mock).toHaveBeenCalledTimes(1);
+      expect(useStore.getState().idCounter).toBe(1234);
+    });
   });
   
 });

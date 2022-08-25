@@ -32,7 +32,7 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   sidebarVisible: true,
   navbarVisible: true,
   toggleLocationSidebar: () => {
-    let location = JSON.parse(localStorage.locationSidebar)
+    let location = get().locationSidebar
     
     if (location === "left"){
       location = "right"

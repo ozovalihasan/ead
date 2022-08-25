@@ -33,6 +33,10 @@ describe('useCustomizationStore', () => {
     useCustomizationStore.getState().toggleLocationSidebar()
 
     expect(useCustomizationStore.getState().locationSidebar).toBe("right");
+    
+    useCustomizationStore.getState().toggleLocationSidebar()
+
+    expect(useCustomizationStore.getState().locationSidebar).toBe("left");
   });
 
   it('has a "toggleSidebarVisibility" function to toggle the visibility of the sidebar', () => {

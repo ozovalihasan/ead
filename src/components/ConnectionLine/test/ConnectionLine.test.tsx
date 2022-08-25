@@ -9,10 +9,6 @@ let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {
   
-  useStore.setState({ 
-    removeEdge: jest.fn() 
-  })
-  
   renderReadyComponent = (
     <svg>
       <ConnectionLine

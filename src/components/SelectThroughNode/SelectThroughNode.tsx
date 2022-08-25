@@ -23,7 +23,7 @@ export const SelectThroughNode = ({nodeId} : {nodeId: string}) => {
         ${visibleThroughSelectArea ? "visible" : "hidden"}
       `} 
       
-      onMouseEnter={(event) => onMouseEnterThrough(event, nodeId)}
+      onMouseEnter={() => onMouseEnterThrough(nodeId)}
     >
       <div className="m-auto">
         through

@@ -39,7 +39,7 @@ export type State = {
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
   onConnect: OnConnect;
-  onMouseEnterThrough: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, nodeId: string) => void;
+  onMouseEnterThrough: (nodeId: string) => void;
   onChangeAssociationType: (associationType: string, id: string) => void;
   onTableNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string) => void;
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
@@ -193,7 +193,7 @@ const useStore = create(devtools<State>((set, get) => ({
         edges: applyEdgeChanges(changes, get().edges),
       });
     },
-    onMouseEnterThrough: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, nodeId: string) => {
+    onMouseEnterThrough: (nodeId: string) => {
       set({
         selectedNodeIdForThrough: nodeId
       })

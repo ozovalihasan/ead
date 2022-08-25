@@ -157,10 +157,18 @@ describe('store', () => {
     });
 
     it('has a "removeTable" attribute to remove a table', () => {
-      expect(useStore.getState().tables["111"]).toBeTruthy();
+      useStore.setState({
+        tables: testTables,
+        nodes: testNodes,
+        edges: testEdges,
+      })
+      
+      expect(useStore.getState().tables["1"]).toBeTruthy();
 
-      useStore.getState().removeTable("111")
-      expect(useStore.getState().tables["111"]).toBeFalsy();
+      useStore.getState().removeTable("1")
+      expect(useStore.getState().tables["1"]).toBeFalsy();
+      expect(useStore.getState().nodes.length).toBe(2);
+      expect(useStore.getState().edges.length).toBe(1);
     });
   })
 

@@ -20,9 +20,16 @@ import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeDataType } from '@/components';
 
-export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => (
-  Object.keys(initialTables).length + initialNodes.length + initialEdges.length + 1 
-)
+export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
+  
+  const tableIds = Object.keys(initialTables).map(( tableId )=> parseInt(tableId ))
+  const nodeIds = initialNodes.map((node)=> parseInt(node.id) )
+  const edgeIds = initialEdges.map((edge)=> parseInt(edge.id) )
+
+  const max = Math.max( ...tableIds.concat(nodeIds).concat(edgeIds).concat([0]) ) 
+  
+  return (max + 1)
+}
 
 export type State = {
   version: string;

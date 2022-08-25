@@ -21,8 +21,7 @@ describe('store', () => {
       idCounter: initialIdCounter(testTables, testNodes, testEdges)
     })
   
-    const result = Object.keys(testTables).length + testNodes.length + testEdges.length + 1 
-    expect(useStore.getState().idCounter).toBe(result);
+    expect(useStore.getState().idCounter).toBe(10);
     expect(useStore.getState().idCounter).toBeTruthy();
 
   });

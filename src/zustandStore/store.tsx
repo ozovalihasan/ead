@@ -13,12 +13,16 @@ import {
   NodeRemoveChange,
 } from 'react-flow-renderer';
 
-import initialNodes from './nodes';
-import initialEdges from './edges';
 import { devtools } from 'zustand/middleware'
 import produce from "immer"
 import initialTables, { TablesType } from './tables';
+import initialNodes from './nodes';
+import initialEdges from './edges';
 import { EntityNodeDataType } from '@/components';
+
+export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => (
+  Object.keys(initialTables).length + initialNodes.length + initialEdges.length + 1 
+)
 
 export type State = {
   version: string;
@@ -61,7 +65,7 @@ export type State = {
 
 const useStore = create(devtools<State>((set, get) => ({
     version: "0.4.0",  
-    idCounter: Object.keys(initialTables).length + initialNodes.length + initialEdges.length + 1 ,
+    idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
     associationType: "has_one",
     nodes: initialNodes,
     edges: initialEdges,
@@ -279,6 +283,6 @@ const useStore = create(devtools<State>((set, get) => ({
     }
     
   })
-  ));
+));
 
 export default useStore;

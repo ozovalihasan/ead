@@ -3,7 +3,6 @@ export * from './Markers/CrowsFootMarker'
 export * from './TargetHandle/TargetHandle'
 export * from './SelectThroughNode/SelectThroughNode'
 export * from './CustomHandle/CustomHandle'
-export * from './AngleDown/AngleDown'
 export * from './ConnectionLine/ConnectionLine'
 export * from './HasAnyEdge/HasAnyEdge';
 export * from './HasManyEdge/HasManyEdge';
@@ -19,7 +18,6 @@ export * from './ThroughHandle/ThroughHandle';
 export * from './RemoveEdgeButton/RemoveEdgeButton';
 export * from './ShowEdgeText/ShowEdgeText';
 export * from './Navbar/Navbar'; 
-export * from './UpArrow/UpArrow'; 
 export * from './EADLogo/EADLogo'; 
 export * from './GithubLogo/GithubLogo'; 
 export * from './AllHandlers/AllHandlers';

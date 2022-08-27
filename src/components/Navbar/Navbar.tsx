@@ -2,9 +2,12 @@ import saveJSON from './saveJSON';
 import {
   EADLogo,
   GithubLogo,
+} from "@/components";
+
+import {
   UpArrow, 
   AngleDown
-} from "@/components";
+} from "@/icons";
 
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
@@ -75,9 +78,11 @@ export const Navbar = () => {
         className="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2" 
         onClick={toggleNavbarVisibility} 
       >
-        {
-          navbarVisible ? <UpArrow /> : <AngleDown />
-        }
+        <div className="stroke-slate-500 stroke-[40] w-3 h-3">
+          {
+            navbarVisible ? <UpArrow /> : <AngleDown />
+          }
+        </div>
       </button>
     </div>
   )

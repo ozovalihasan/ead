@@ -23,17 +23,20 @@ jest.mock('@/components',  () => ({
       </>
     )
   ),
-  UpArrow: (
-    ( ) => (
-      <>
-        MockUpArrow
-      </>
-    )
-  ),
+}))
+
+jest.mock('@/icons',  () => ({
   AngleDown: (
     ( ) => (
       <>
         MockAngleDown
+      </>
+    )
+  ),
+  UpArrow: (
+    ( ) => (
+      <>
+        MockUpArrow
       </>
     )
   ),

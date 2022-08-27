@@ -17,7 +17,7 @@ details > summary::-webkit-details-marker {
     @apply flex justify-center items-center bg-first-50 hover:bg-first-100 text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600 border-first-500 border border-solid;
   }
   .btn-third {
-    @apply flex justify-center items-center text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600;
+    @apply flex justify-center items-center text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600 cursor-pointer;
   }
 }
 

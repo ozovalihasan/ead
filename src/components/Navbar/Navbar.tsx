@@ -75,10 +75,10 @@ export const Navbar = () => {
       </nav>
       <button 
         title="Click to show/hide the navbar" 
-        className="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2" 
+        className="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full" 
         onClick={toggleNavbarVisibility} 
       >
-        <div className="stroke-slate-500 stroke-[40] w-3 h-3">
+        <div className="stroke-[40] w-3 h-3">
           {
             navbarVisible ? <UpArrow /> : <AngleDown />
           }

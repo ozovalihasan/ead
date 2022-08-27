@@ -21,11 +21,13 @@ Object {
             orient="180deg"
             refX="100"
             refY="0"
+            stroke-linecap="round"
             viewBox="0 0 200 200"
           >
             <path
-              class="fill-first-500"
-              d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
+              class="stroke-[15] stroke-first-500 fill-transparent"
+              d="M 20,20 100,180 180,20 M 20,20 H 180"
+              style="stroke-linecap: round; stroke-linejoin: round;"
             />
           </marker>
         </defs>
@@ -69,11 +71,13 @@ Object {
           orient="180deg"
           refX="100"
           refY="0"
+          stroke-linecap="round"
           viewBox="0 0 200 200"
         >
           <path
-            class="fill-first-500"
-            d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
+            class="stroke-[15] stroke-first-500 fill-transparent"
+            d="M 20,20 100,180 180,20 M 20,20 H 180"
+            style="stroke-linecap: round; stroke-linejoin: round;"
           />
         </marker>
       </defs>
@@ -173,11 +177,13 @@ Object {
             orient="180deg"
             refX="100"
             refY="0"
+            stroke-linecap="round"
             viewBox="0 0 200 200"
           >
             <path
-              class="fill-first-500"
-              d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
+              class="stroke-[15] stroke-first-500 fill-transparent"
+              d="M 20,20 100,180 180,20 M 20,20 H 180"
+              style="stroke-linecap: round; stroke-linejoin: round;"
             />
           </marker>
         </defs>
@@ -220,11 +226,13 @@ Object {
           orient="180deg"
           refX="100"
           refY="0"
+          stroke-linecap="round"
           viewBox="0 0 200 200"
         >
           <path
-            class="fill-first-500"
-            d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
+            class="stroke-[15] stroke-first-500 fill-transparent"
+            d="M 20,20 100,180 180,20 M 20,20 H 180"
+            style="stroke-linecap: round; stroke-linejoin: round;"
           />
         </marker>
       </defs>
@@ -325,11 +333,13 @@ Object {
             orient="180deg"
             refX="100"
             refY="0"
+            stroke-linecap="round"
             viewBox="0 0 200 200"
           >
             <path
-              class="fill-first-500"
-              d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
+              class="stroke-[15] stroke-first-500 fill-transparent"
+              d="M 20,20 100,180 180,20 M 20,20 H 180"
+              style="stroke-linecap: round; stroke-linejoin: round;"
             />
           </marker>
         </defs>
@@ -365,11 +375,13 @@ Object {
           orient="180deg"
           refX="100"
           refY="0"
+          stroke-linecap="round"
           viewBox="0 0 200 200"
         >
           <path
-            class="fill-first-500"
-            d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
+            class="stroke-[15] stroke-first-500 fill-transparent"
+            d="M 20,20 100,180 180,20 M 20,20 H 180"
+            style="stroke-linecap: round; stroke-linejoin: round;"
           />
         </marker>
       </defs>

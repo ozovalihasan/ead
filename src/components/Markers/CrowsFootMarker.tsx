@@ -4,10 +4,13 @@ export const CrowsFootMarker = (props: MarkerType) => {
   
   return (
     <MarkerBase {...props}>
+      
       <path 
-        d="M 100,0 0,144.9335 V 200 H 17.807516 L 84.697214,66.2206 V 200 H 111.26569 L 110.92704,63.87718 173.53021,200 H 200 v -46.14664 z" 
-        className="fill-first-500"
+        className="stroke-[40] stroke-first-500"
+        style={{strokeLinecap:"round"}} 
+        d="M 100,20 20,180 m 80,-160 80,160 m -80,0 V 20 0"
       />
+      
     </MarkerBase>
   )
 }

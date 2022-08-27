@@ -11,8 +11,9 @@ Object {
         edgeId: 1
         children: [object Object]
         <path
-          class="fill-first-500"
-          d="m 0,0 v 40 h 80 v 160 h 40 V 40 h 80 V 0"
+          class="stroke-[40] stroke-first-500"
+          d="M 20,20 H 180 M 100,0 V 180"
+          style="stroke-linecap: round;"
         />
       </svg>
     </div>
@@ -24,8 +25,9 @@ Object {
       edgeId: 1
       children: [object Object]
       <path
-        class="fill-first-500"
-        d="m 0,0 v 40 h 80 v 160 h 40 V 40 h 80 V 0"
+        class="stroke-[40] stroke-first-500"
+        d="M 20,20 H 180 M 100,0 V 180"
+        style="stroke-linecap: round;"
       />
     </svg>
   </div>,

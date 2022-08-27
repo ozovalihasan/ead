@@ -9,12 +9,12 @@ Object {
         class="w-6 h-6 absolute -bottom-3 left-1/4 bg-slate-700 rounded-full -translate-x-1/2"
       >
         <svg
-          class="w-6 h-6"
+          class="w-6 h-6 stroke-[20] stroke-slate-50"
           viewBox="0 0 200 200"
         >
           <path
-            class="fill-slate-50"
-            d="m 90,0 v 200 h 20 V 0"
+            d="M 100,20 V 180"
+            style="stroke-linecap: round;"
           />
         </svg>
         nodeId: 
@@ -31,12 +31,12 @@ Object {
       class="w-6 h-6 absolute -bottom-3 left-1/4 bg-slate-700 rounded-full -translate-x-1/2"
     >
       <svg
-        class="w-6 h-6"
+        class="w-6 h-6 stroke-[20] stroke-slate-50"
         viewBox="0 0 200 200"
       >
         <path
-          class="fill-slate-50"
-          d="m 90,0 v 200 h 20 V 0"
+          d="M 100,20 V 180"
+          style="stroke-linecap: round;"
         />
       </svg>
       nodeId: 

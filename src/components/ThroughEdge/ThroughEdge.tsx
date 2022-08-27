@@ -79,10 +79,13 @@ export const ThroughEdge = ({
           markerUnits="strokeWidth" 
           markerWidth="10px" 
           markerHeight="10px"
+          strokeLinecap="round"
         >
           <path 
-            d="M 200,-0.34918858 100,199.65081 0,-0.34918858 Z"
-            className="fill-first-500"  />
+            className="stroke-[15] stroke-first-500 fill-transparent"
+            style={{strokeLinecap:"round", strokeLinejoin: "round"}} 
+            d="M 20,20 100,180 180,20 M 20,20 H 180"
+          />
         </marker>
       </defs>
       

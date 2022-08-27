@@ -66,11 +66,11 @@ Object {
           </div>
         </nav>
         <button
-          class="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2"
+          class="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full"
           title="Click to show/hide the navbar"
         >
           <div
-            class="stroke-slate-500 stroke-[40] w-3 h-3"
+            class="stroke-[40] w-3 h-3"
           >
             MockAngleDown
           </div>
@@ -140,11 +140,11 @@ Object {
         </div>
       </nav>
       <button
-        class="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2"
+        class="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full"
         title="Click to show/hide the navbar"
       >
         <div
-          class="stroke-slate-500 stroke-[40] w-3 h-3"
+          class="stroke-[40] w-3 h-3"
         >
           MockAngleDown
         </div>
@@ -271,11 +271,11 @@ Object {
           </div>
         </nav>
         <button
-          class="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2"
+          class="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full"
           title="Click to show/hide the navbar"
         >
           <div
-            class="stroke-slate-500 stroke-[40] w-3 h-3"
+            class="stroke-[40] w-3 h-3"
           >
             MockUpArrow
           </div>
@@ -345,11 +345,11 @@ Object {
         </div>
       </nav>
       <button
-        class="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2"
+        class="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full"
         title="Click to show/hide the navbar"
       >
         <div
-          class="stroke-slate-500 stroke-[40] w-3 h-3"
+          class="stroke-[40] w-3 h-3"
         >
           MockUpArrow
         </div>
@@ -476,11 +476,11 @@ Object {
           </div>
         </nav>
         <button
-          class="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2"
+          class="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full"
           title="Click to show/hide the navbar"
         >
           <div
-            class="stroke-slate-500 stroke-[40] w-3 h-3"
+            class="stroke-[40] w-3 h-3"
           >
             MockUpArrow
           </div>
@@ -550,11 +550,11 @@ Object {
         </div>
       </nav>
       <button
-        class="absolute left-0 -bottom-8 h-3 w-3 z-50 m-2"
+        class="absolute left-0 -bottom-8 h-6 w-6 z-50 m-2 btn-third rounded-full"
         title="Click to show/hide the navbar"
       >
         <div
-          class="stroke-slate-500 stroke-[40] w-3 h-3"
+          class="stroke-[40] w-3 h-3"
         >
           MockUpArrow
         </div>

@@ -347,7 +347,7 @@ describe('store', () => {
         const edgeOnStore = (useStore.getState().edges.find(edge => edge.id === "333"))
   
         expect(edgeOnStore).toEqual(
-          {...edge, id:"333", animated: true, label: "through", type: "through", data: {throughNodeId: "555"}}
+          {...edge, id:"333", label: "through", type: "through", data: {throughNodeId: "555"}}
         );  
       });
       

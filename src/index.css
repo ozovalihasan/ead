@@ -20,3 +20,16 @@ details > summary::-webkit-details-marker {
     @apply text-first-500 hover:text-first-600 hover:stroke-first-600;
   }
 }
+
+
+.custom-animation {
+  animation: dashdraw .5s linear infinite;
+  stroke-dasharray: 5;
+}
+
+@keyframes dashdraw {
+  
+  0% {
+    stroke-dashoffset: 10;
+  }
+}

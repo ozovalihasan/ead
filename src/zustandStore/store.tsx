@@ -246,7 +246,6 @@ const useStore = create(devtools<State>((set, get) => ({
         
         edge = { 
           ...edge,
-          animated: true,  
           label: 'through',
           type: "through",
           data: {throughNodeId: get().selectedNodeIdForThrough },

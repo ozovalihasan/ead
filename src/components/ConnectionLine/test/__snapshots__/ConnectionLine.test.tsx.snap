@@ -8,14 +8,14 @@ Object {
       <svg>
         <g>
           <path
-            class="animated"
+            class="custom-animation"
             d="M10,20 C10,96.25 534,96.25 534,172.5"
             fill="none"
             stroke="#222"
             stroke-width="1.5"
           />
           <path
-            class="animated"
+            class="custom-animation"
             d="M534,172.5 C534,316.38580541526676 30,-103.88580541526673 30,40"
             fill="none"
             stroke="#222"
@@ -37,14 +37,14 @@ Object {
     <svg>
       <g>
         <path
-          class="animated"
+          class="custom-animation"
           d="M10,20 C10,96.25 534,96.25 534,172.5"
           fill="none"
           stroke="#222"
           stroke-width="1.5"
         />
         <path
-          class="animated"
+          class="custom-animation"
           d="M534,172.5 C534,316.38580541526676 30,-103.88580541526673 30,40"
           fill="none"
           stroke="#222"

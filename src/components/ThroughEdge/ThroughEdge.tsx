@@ -89,7 +89,7 @@ export const ThroughEdge = ({
       <path
         id={`${id}-second`}
         style={(selected || mouseOnEdge) ? {stroke: "black", strokeWidth: 3, strokeDasharray: 0} : style}
-        className="stroke-first-500 fill-[none] stroke-[1] "
+        className="stroke-first-500 fill-[none] stroke-[1] custom-animation"
         d={edgePath}
         markerEnd={`url(#through-arrow-${id})`}
       />

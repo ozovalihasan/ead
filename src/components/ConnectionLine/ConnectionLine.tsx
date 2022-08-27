@@ -65,7 +65,7 @@ export const ConnectionLine = ({
             fill="none"
             stroke="#222"
             strokeWidth={1.5}
-            className="animated"
+            className="custom-animation"
             d={throughEdgePath}
           />
         }
@@ -74,7 +74,7 @@ export const ConnectionLine = ({
           fill="none"
           stroke="#222"
           strokeWidth={1.5}
-          className={associationType === 'through' ? "animated" : ""}
+          className={associationType === 'through' ? "custom-animation" : ""}
           d={edgePath}
         />
       

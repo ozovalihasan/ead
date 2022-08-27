@@ -30,7 +30,6 @@ const initialEdges: Edge[] = [
     "target": "6",
     "sourceHandle": "bottom3",
     "targetHandle": "top",
-    "animated": true,
     "label": "through",
     "type": "through",
     "data": {

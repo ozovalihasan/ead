@@ -11,6 +11,19 @@ jest.mock("@/components", () => ({
   ),
 }))
 
+jest.mock("@/icons", () => ({
+  PlusSign: () => (
+    <>
+      MockPlusSign
+    </>
+  ),
+  MinusSign: () => (
+    <>
+      MockMinusSign
+    </>
+  ),
+}))
+
 
 let renderReadyComponent: JSX.Element;
 

@@ -26,7 +26,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -111,7 +115,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -193,13 +201,21 @@ Object {
             class="btn-first rounded-full m-1 aspect-square h-6"
             title="Add an attribute"
           >
-            +
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockPlusSign
+            </div>
           </button>
           <button
-            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
             title="Delete the table"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
         </div>
         <div
@@ -219,7 +235,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -304,7 +324,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -386,20 +410,32 @@ Object {
             class="btn-first rounded-full m-1 aspect-square h-6"
             title="Add an attribute"
           >
-            +
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockPlusSign
+            </div>
           </button>
           <button
-            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
             title="Delete the table"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
         </div>
         <button
           class="p-1 btn-first rounded-full aspect-square h-10"
           title="Add a table"
         >
-          +
+          <div
+            class="stroke-[40] w-5 h-5"
+          >
+            MockMinusSign
+          </div>
         </button>
         MockSettings
       </aside>
@@ -427,7 +463,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -512,7 +552,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -594,13 +638,21 @@ Object {
           class="btn-first rounded-full m-1 aspect-square h-6"
           title="Add an attribute"
         >
-          +
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockPlusSign
+          </div>
         </button>
         <button
-          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
           title="Delete the table"
         >
-          -
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockMinusSign
+          </div>
         </button>
       </div>
       <div
@@ -620,7 +672,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -705,7 +761,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -787,20 +847,32 @@ Object {
           class="btn-first rounded-full m-1 aspect-square h-6"
           title="Add an attribute"
         >
-          +
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockPlusSign
+          </div>
         </button>
         <button
-          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
           title="Delete the table"
         >
-          -
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockMinusSign
+          </div>
         </button>
       </div>
       <button
         class="p-1 btn-first rounded-full aspect-square h-10"
         title="Add a table"
       >
-        +
+        <div
+          class="stroke-[40] w-5 h-5"
+        >
+          MockMinusSign
+        </div>
       </button>
       MockSettings
     </aside>
@@ -885,7 +957,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -970,7 +1046,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -1052,13 +1132,21 @@ Object {
             class="btn-first rounded-full m-1 aspect-square h-6"
             title="Add an attribute"
           >
-            +
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockPlusSign
+            </div>
           </button>
           <button
-            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
             title="Delete the table"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
         </div>
         <div
@@ -1078,7 +1166,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -1163,7 +1255,11 @@ Object {
               class="btn-first rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
-              -
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
             </button>
             <input
               class="p-1 w-2/3 rounded-md"
@@ -1245,20 +1341,32 @@ Object {
             class="btn-first rounded-full m-1 aspect-square h-6"
             title="Add an attribute"
           >
-            +
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockPlusSign
+            </div>
           </button>
           <button
-            class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+            class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
             title="Delete the table"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
         </div>
         <button
           class="p-1 btn-first rounded-full aspect-square h-10"
           title="Add a table"
         >
-          +
+          <div
+            class="stroke-[40] w-5 h-5"
+          >
+            MockMinusSign
+          </div>
         </button>
         MockSettings
       </aside>
@@ -1286,7 +1394,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -1371,7 +1483,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -1453,13 +1569,21 @@ Object {
           class="btn-first rounded-full m-1 aspect-square h-6"
           title="Add an attribute"
         >
-          +
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockPlusSign
+          </div>
         </button>
         <button
-          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
           title="Delete the table"
         >
-          -
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockMinusSign
+          </div>
         </button>
       </div>
       <div
@@ -1479,7 +1603,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -1564,7 +1692,11 @@ Object {
             class="btn-first rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
-            -
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
           </button>
           <input
             class="p-1 w-2/3 rounded-md"
@@ -1646,20 +1778,32 @@ Object {
           class="btn-first rounded-full m-1 aspect-square h-6"
           title="Add an attribute"
         >
-          +
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockPlusSign
+          </div>
         </button>
         <button
-          class="right-0 absolute -translate-x-1/2 translate-y-1/2 btn-first rounded-full aspect-square h-6"
+          class="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 "
           title="Delete the table"
         >
-          -
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockMinusSign
+          </div>
         </button>
       </div>
       <button
         class="p-1 btn-first rounded-full aspect-square h-10"
         title="Add a table"
       >
-        +
+        <div
+          class="stroke-[40] w-5 h-5"
+        >
+          MockMinusSign
+        </div>
       </button>
       MockSettings
     </aside>

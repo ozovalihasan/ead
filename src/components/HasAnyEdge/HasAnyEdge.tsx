@@ -96,8 +96,7 @@ export const HasAnyEdge = ({
       />
       { selected && 
         <foreignObject
-          width={40}
-          height={40}
+          className='h-4 w-4 border-none rounded-full relative'
           x={centerX - 20 / 2}
           y={centerY + 10 / 2}
         >

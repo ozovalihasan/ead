@@ -24,7 +24,7 @@ export const TargetHandle = ({nodeId} : {nodeId: string}) => {
   return (
     <Handle 
       id="top"
-      className={`border-none w-6 h-6 ${(visibleTargetHandle) ? "visible" : "invisible"}`} 
+      className={`border-none w-6 h-6 hover:bg-first-500 ${(visibleTargetHandle) ? "visible" : "invisible"}`} 
       type="target" 
       position={Position.Top} 
     />

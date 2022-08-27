@@ -1,8 +1,16 @@
 import { RemoveEdgeButton } from '../RemoveEdgeButton';
-import { render, screen, act, renderHook, fireEvent } from "@testing-library/react";
+import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 
 let renderReadyComponent: JSX.Element;
+
+jest.mock("@/components", () => ({
+  XMarkIcon: () => (
+    <>
+      MockXMarkIcon
+    </>
+  ), 
+}))
 
 beforeEach(() => {
   renderReadyComponent = (
@@ -22,7 +30,7 @@ describe('<RemoveEdgeButton />', () => {
     render(renderReadyComponent );
     const { result } = renderHook(() => useStore());
 
-    const resetButton = screen.getByRole("button", { name: "×" });
+    const resetButton = screen.getByRole("button");
 
     expect(resetButton).toBeInTheDocument();
 

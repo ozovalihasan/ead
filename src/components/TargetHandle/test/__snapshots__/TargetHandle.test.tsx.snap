@@ -8,7 +8,7 @@ Object {
       MockHandle id: 
       top
       className: 
-      border-none w-6 h-6 visible
+      border-none w-6 h-6 hover:bg-first-500 visible
       type: 
       target
       position: 
@@ -19,7 +19,7 @@ Object {
     MockHandle id: 
     top
     className: 
-    border-none w-6 h-6 visible
+    border-none w-6 h-6 hover:bg-first-500 visible
     type: 
     target
     position: 
@@ -79,7 +79,7 @@ Object {
 }
 `;
 
-exports[`<TargetHandle /> if it is not available to be visible renders correctly 1`] = `
+exports[`<TargetHandle /> if it is invisible renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -87,7 +87,7 @@ Object {
       MockHandle id: 
       top
       className: 
-      border-none w-6 h-6 hidden
+      border-none w-6 h-6 hover:bg-first-500 invisible
       type: 
       target
       position: 
@@ -98,7 +98,7 @@ Object {
     MockHandle id: 
     top
     className: 
-    border-none w-6 h-6 hidden
+    border-none w-6 h-6 hover:bg-first-500 invisible
     type: 
     target
     position: 

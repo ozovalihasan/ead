@@ -1,4 +1,5 @@
 import useStore from "@/zustandStore/store";
+import { XMarkIcon } from "@/components";
 
 export type RemoveEdgeButtonType = {
   edgeId: string
@@ -10,7 +11,7 @@ export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
   
   
   return (
-    <button className="bg-transparent border border-solid border-first-500 rounded-full p-2" onClick={() => onEdgesChange(
+    <button className="btn-first border-none w-full aspect-square absolute top-0 left-0 rounded-full" onClick={() => onEdgesChange(
       [
         {
           id: edgeId,
@@ -18,7 +19,7 @@ export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
         }
       ]
     )} >
-      ×
+      <XMarkIcon></XMarkIcon>
     </button>
   )
 }

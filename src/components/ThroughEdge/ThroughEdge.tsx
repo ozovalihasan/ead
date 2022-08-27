@@ -102,8 +102,7 @@ export const ThroughEdge = ({
       
       { selected && 
         <foreignObject
-          width={40}
-          height={40}
+          className='h-4 w-4 border-none rounded-full relative'
           x={(targetPosition === Position.Left) ? targetX - 40 : targetX }
           y={(targetPosition === Position.Top) ? targetY - 40 : targetY }
         >

@@ -42,8 +42,7 @@ Object {
           id="111-second-wider"
         />
         <foreignobject
-          height="40"
-          width="40"
+          class="h-4 w-4 border-none rounded-full relative"
           x="789.6428571428571"
           y="205"
         >
@@ -91,8 +90,7 @@ Object {
         id="111-second-wider"
       />
       <foreignobject
-        height="40"
-        width="40"
+        class="h-4 w-4 border-none rounded-full relative"
         x="789.6428571428571"
         y="205"
       >

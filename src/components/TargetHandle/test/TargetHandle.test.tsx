@@ -60,7 +60,7 @@ describe('<TargetHandle />', () => {
       const mainElement = screen.getByText(/MockHandle/)
       
       expect(mainElement.innerHTML).toContain("visible");
-      expect(mainElement.innerHTML).not.toContain("hidden");
+      expect(mainElement.innerHTML).not.toContain("invisible");
   
     });
   
@@ -71,15 +71,15 @@ describe('<TargetHandle />', () => {
 
   })
   
-  describe('if it is not available to be visible', () => {
+  describe('if it is invisible', () => {
 
-    it('has a "hidden" class', () => {
+    it('has a "invisible" class', () => {
       render(renderReadyComponent );
 
       const mainElement = screen.getByText(/MockHandle/)
 
-      expect(mainElement.innerHTML).toContain("hidden");
-      expect(mainElement.innerHTML).not.toContain("visible");
+      expect(mainElement.innerHTML).toContain("invisible");
+      expect(mainElement.innerHTML).not.toContain(" visible");
   
     });
   

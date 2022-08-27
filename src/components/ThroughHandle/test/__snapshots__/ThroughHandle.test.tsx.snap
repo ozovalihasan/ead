@@ -6,23 +6,21 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="w-6 h-6 absolute -bottom-3 left-3/4 bg-slate-700 rounded-full -translate-x-1/2"
+        class="w-6 h-6 absolute left-3/4 bg-slate-700 rounded-full -translate-x-1/2 flex justify-center items-center"
       >
         <svg
-          class="w-6 h-6 stroke-[20] stroke-slate-50"
+          class="stroke-[40] stroke-slate-50 w-3 h-3 "
           viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M 100,20 V 40"
-            style="stroke-linecap: round;"
           />
           <path
             d="m 100,160 v 20"
-            style="stroke-linecap: round;"
           />
           <path
             d="m 100,90 v 20"
-            style="stroke-linecap: round;"
           />
         </svg>
         nodeId: 
@@ -36,23 +34,21 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="w-6 h-6 absolute -bottom-3 left-3/4 bg-slate-700 rounded-full -translate-x-1/2"
+      class="w-6 h-6 absolute left-3/4 bg-slate-700 rounded-full -translate-x-1/2 flex justify-center items-center"
     >
       <svg
-        class="w-6 h-6 stroke-[20] stroke-slate-50"
+        class="stroke-[40] stroke-slate-50 w-3 h-3 "
         viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M 100,20 V 40"
-          style="stroke-linecap: round;"
         />
         <path
           d="m 100,160 v 20"
-          style="stroke-linecap: round;"
         />
         <path
           d="m 100,90 v 20"
-          style="stroke-linecap: round;"
         />
       </svg>
       nodeId: 

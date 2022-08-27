@@ -17,7 +17,7 @@ export const AllHandlers = ({nodeId}: {nodeId: string}) => {
   const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == nodeId) ? "opacity-100" : "opacity-0")
   
   return (
-    <div className={`relative w-full ${visibleSourceHandles}`}>
+    <div className={`relative w-full ${visibleSourceHandles}`} style={{strokeLinecap:"round"}} >
       <HasOneHandle nodeId={nodeId} />
 
       <HasManyHandle nodeId={nodeId} />

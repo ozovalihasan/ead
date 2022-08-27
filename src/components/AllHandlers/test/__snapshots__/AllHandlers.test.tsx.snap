@@ -7,6 +7,7 @@ Object {
     <div>
       <div
         class="relative w-full opacity-0"
+        style="stroke-linecap: round;"
       >
         <div>
           nodeId: 
@@ -29,6 +30,7 @@ Object {
   "container": <div>
     <div
       class="relative w-full opacity-0"
+      style="stroke-linecap: round;"
     >
       <div>
         nodeId: 

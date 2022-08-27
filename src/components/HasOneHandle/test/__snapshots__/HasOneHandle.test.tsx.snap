@@ -6,15 +6,14 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="w-6 h-6 absolute -bottom-3 left-1/4 bg-slate-700 rounded-full -translate-x-1/2"
+        class="w-6 h-6 absolute left-1/4 -translate-x-1/2 bg-slate-700 rounded-full flex justify-center items-center"
       >
         <svg
-          class="w-6 h-6 stroke-[20] stroke-slate-50"
+          class="w-3 h-3 stroke-[40] stroke-slate-50"
           viewBox="0 0 200 200"
         >
           <path
             d="M 100,20 V 180"
-            style="stroke-linecap: round;"
           />
         </svg>
         nodeId: 
@@ -28,15 +27,14 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="w-6 h-6 absolute -bottom-3 left-1/4 bg-slate-700 rounded-full -translate-x-1/2"
+      class="w-6 h-6 absolute left-1/4 -translate-x-1/2 bg-slate-700 rounded-full flex justify-center items-center"
     >
       <svg
-        class="w-6 h-6 stroke-[20] stroke-slate-50"
+        class="w-3 h-3 stroke-[40] stroke-slate-50"
         viewBox="0 0 200 200"
       >
         <path
           d="M 100,20 V 180"
-          style="stroke-linecap: round;"
         />
       </svg>
       nodeId: 

@@ -11,7 +11,7 @@ export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
   
   
   return (
-    <button className="btn-first border-none w-full aspect-square absolute top-0 left-0 rounded-full" onClick={() => onEdgesChange(
+    <button className="btn-first w-6 h-6 border-none rounded-full" onClick={() => onEdgesChange(
       [
         {
           id: edgeId,
@@ -19,7 +19,9 @@ export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
         }
       ]
     )} >
-      <XMarkIcon></XMarkIcon>
+      <div className="stroke-[40] w-3 h-3">
+        <XMarkIcon></XMarkIcon>
+      </div>
     </button>
   )
 }

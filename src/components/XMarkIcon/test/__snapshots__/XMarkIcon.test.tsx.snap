@@ -10,12 +10,12 @@ Object {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          class="stroke-[20px]"
           d="m 20,180 h 0 L 180,20"
+          style="stroke-linecap: round;"
         />
         <path
-          class="stroke-[20px]"
           d="M 20,20 h 0 L 180,180"
+          style="stroke-linecap: round;"
         />
       </svg>
     </div>
@@ -26,12 +26,12 @@ Object {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        class="stroke-[20px]"
         d="m 20,180 h 0 L 180,20"
+        style="stroke-linecap: round;"
       />
       <path
-        class="stroke-[20px]"
         d="M 20,20 h 0 L 180,180"
+        style="stroke-linecap: round;"
       />
     </svg>
   </div>,

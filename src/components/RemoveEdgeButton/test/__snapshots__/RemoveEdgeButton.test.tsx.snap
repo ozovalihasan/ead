@@ -6,17 +6,25 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="btn-first border-none w-full aspect-square absolute top-0 left-0 rounded-full"
+        class="btn-first w-6 h-6 border-none rounded-full"
       >
-        MockXMarkIcon
+        <div
+          class="stroke-[40] w-3 h-3"
+        >
+          MockXMarkIcon
+        </div>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="btn-first border-none w-full aspect-square absolute top-0 left-0 rounded-full"
+      class="btn-first w-6 h-6 border-none rounded-full"
     >
-      MockXMarkIcon
+      <div
+        class="stroke-[40] w-3 h-3"
+      >
+        MockXMarkIcon
+      </div>
     </button>
   </div>,
   "debug": [Function],

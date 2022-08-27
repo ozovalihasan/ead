@@ -20,6 +20,7 @@ export * from './RemoveEdgeButton/RemoveEdgeButton';
 export * from './ShowEdgeText/ShowEdgeText';
 export * from './Navbar/Navbar'; 
 export * from './UpArrow/UpArrow'; 
+export * from './XMarkIcon/XMarkIcon'; 
 export * from './EADLogo/EADLogo'; 
 export * from './GithubLogo/GithubLogo'; 
 export * from './AllHandlers/AllHandlers';

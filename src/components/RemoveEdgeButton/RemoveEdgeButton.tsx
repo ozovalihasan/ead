@@ -1,5 +1,5 @@
 import useStore from "@/zustandStore/store";
-import { XMarkIcon } from "@/components";
+import { XMark } from "@/icons";
 
 export type RemoveEdgeButtonType = {
   edgeId: string
@@ -20,7 +20,7 @@ export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
       ]
     )} >
       <div className="stroke-[40] w-3 h-3">
-        <XMarkIcon></XMarkIcon>
+        <XMark></XMark>
       </div>
     </button>
   )

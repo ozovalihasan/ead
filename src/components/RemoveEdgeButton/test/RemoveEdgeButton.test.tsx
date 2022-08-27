@@ -4,10 +4,10 @@ import useStore from '@/zustandStore/store';
 
 let renderReadyComponent: JSX.Element;
 
-jest.mock("@/components", () => ({
-  XMarkIcon: () => (
+jest.mock("@/icons", () => ({
+  XMark: () => (
     <>
-      MockXMarkIcon
+      MockXMark
     </>
   ), 
 }))

@@ -12,9 +12,8 @@ export const Settings = () => {
   return (
     <details open className='mt-8 [&>summary>span:nth-child(1)]:open:hidden [&>summary>span:nth-child(2)]:open:inline '>
       <summary className='btn-third'>
-        <span>Show </span>
-        <span className='hidden'>Hide </span> 
-        menu
+        <span>Show menu</span>
+        <span className='hidden'>Hide menu</span> 
       </summary>
       <div className='mt-8 flex-col flex'>
         <label className='flex mb-5 cursor-pointer'>

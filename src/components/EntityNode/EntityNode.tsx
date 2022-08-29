@@ -23,10 +23,8 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
   const inputEl = useRef(null);
   const buttonEl = useRef(null);
   
-  const {
-    selectedNodeIdForThrough,
-    onNodeInputChange, 
-  } = useStore();
+  const selectedNodeIdForThrough = useStore(store => store.selectedNodeIdForThrough)
+  const onNodeInputChange = useStore(store => store.onNodeInputChange)
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (inputEl.current) {

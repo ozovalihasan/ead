@@ -2,12 +2,10 @@ import { Handle, Position } from "react-flow-renderer"
 import useStore from '@/zustandStore/store';
 
 export const TargetHandle = ({nodeId} : {nodeId: string}) => {
-  const {
-    isConnectContinue,
-    associationType,
-    connectionStartNodeId,
-    selectedNodeIdForThrough,
-  } = useStore();
+  const isConnectContinue = useStore(store => store.isConnectContinue)
+  const associationType = useStore(store => store.associationType)
+  const connectionStartNodeId = useStore(store => store.connectionStartNodeId)
+  const selectedNodeIdForThrough = useStore(store => store.selectedNodeIdForThrough)
 
   const visibleTargetHandle = (
     isConnectContinue && 

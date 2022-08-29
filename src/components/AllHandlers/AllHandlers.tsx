@@ -8,11 +8,10 @@ import useStore from '@/zustandStore/store';
 
 export const AllHandlers = ({nodeId}: {nodeId: string}) => {
   
-  const {
-    isConnectContinue,
-    isMouseOnNode,
-    mouseOnNodeId,
-  } = useStore()
+
+  const isConnectContinue = useStore(store => store.isConnectContinue)
+  const isMouseOnNode = useStore(store => store.isMouseOnNode)
+  const mouseOnNodeId = useStore(store => store.mouseOnNodeId)
 
   const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == nodeId) ? "opacity-100" : "opacity-0")
   

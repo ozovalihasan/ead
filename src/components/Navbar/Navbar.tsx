@@ -14,11 +14,10 @@ import useStore from '@/zustandStore/store';
 
 export const Navbar = () => {
 
-  const { 
-    resetStore,
-    uploadStore,
-    
-  } = useStore();
+  
+  const resetStore = useStore(store => store.onNodeInputChange)
+  const uploadStore = useStore(store => store.onNodeInputChange)
+
 
   const { 
     navbarVisible,

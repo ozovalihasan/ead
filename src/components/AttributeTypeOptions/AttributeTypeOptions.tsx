@@ -4,13 +4,13 @@ import useStore from '@/zustandStore/store';
 
 export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: string, attributeId: string} ) =>  {
   
-  let tables = useStore((state) => state.tables);
+  let type = useStore((state) => state.tables[tableId].attributes[attributeId].type);
   let onAttributeTypeChange = useStore((state) => state.onAttributeTypeChange);
 
   
   return <select
     className="w-full"
-    value={tables[tableId].attributes[attributeId].type}
+    value={type}
     onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
   >
     {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',

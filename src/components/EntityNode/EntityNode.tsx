@@ -5,6 +5,7 @@ import {
   TargetHandle
 } from "@/components"
 import useStore from '@/zustandStore/store';
+import React, { ReactElement, useRef } from "react";
 
 
 export type EntityNodeDataType = {
@@ -19,10 +20,29 @@ export type EntityNodeType = {
 }
 
 export const EntityNode = ({id, data, selected }: EntityNodeType) => {
+  const inputEl = useRef(null);
+  const buttonEl = useRef(null);
+  
   const {
     selectedNodeIdForThrough,
     onNodeInputChange, 
   } = useStore();
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (inputEl.current) {
+      (inputEl.current as HTMLInputElement).style.display = "block";
+      (inputEl.current as HTMLInputElement).focus();
+      (e.target as HTMLDivElement).style.display= "none"
+    }
+    
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+    if (buttonEl.current){
+      (buttonEl.current as HTMLDivElement).style.display = "block";
+      (e.target as HTMLInputElement).style.display= "none"
+    }
+  }
 
   return (
     <div 
@@ -37,13 +57,22 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
       
       <div>
         <label htmlFor="text"></label>
+        <div 
+          ref={buttonEl}
+          onClick={event => handleClick(event)}
+          className="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md"
+        >
+          {data.name.length == 0 ? "No name" : data.name} 
+        </div>
         <input 
+          ref={inputEl}
           placeholder='Entity' 
           value={data.name} 
-          className="w-32 p-1 rounded-md" 
+          className="w-32 m-1 p-1 rounded-md hidden ring-0 ring-offset-0" 
           id="text" 
           name="text" 
-          onChange={(event) => onNodeInputChange(event, id)} 
+          onChange={event => onNodeInputChange(event, id)} 
+          onBlur={event => handleBlur(event)}
         />
       </div>
 

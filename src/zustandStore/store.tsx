@@ -96,16 +96,20 @@ const useStore = create(devtools<State>((set, get) => ({
       })
     }),
     onEdgeMouseEnter: ((_: React.MouseEvent, edge: Edge) => {
-      set({
-        isMouseOnEdge: true,
-        mouseOnEdgeId: edge.id
-      })
+      if (!get().isConnectContinue){
+        set({
+          isMouseOnEdge: true,
+          mouseOnEdgeId: edge.id
+        })
+      }
     }),
     onEdgeMouseLeave: (() => {
-      set({
-        isMouseOnEdge: false,
-        mouseOnEdgeId: null
-      })
+      if (!get().isConnectContinue){
+        set({
+          isMouseOnEdge: false,
+          mouseOnEdgeId: null
+        })
+      }
     }),
     onNodeMouseEnter: ((_: React.MouseEvent, node: Node) => {
       if (get().mouseOnNodeId !== node.id){

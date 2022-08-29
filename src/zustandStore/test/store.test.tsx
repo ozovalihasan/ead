@@ -70,13 +70,46 @@ describe('store', () => {
   });
 
   it('has an "onEdgeMouseEnter" attribute to change isMouseOnEdge as true and mouseOnEdgeId as the given edge"s id', () => {
+
+    
+    useStore.setState({
+      isConnectContinue: true
+    });
+
+    useStore.getState().onEdgeMouseEnter({} as React.MouseEvent, {id: "111"} as Edge)
+
+    expect(useStore.getState().isMouseOnEdge).toBe(false);
+    expect(useStore.getState().mouseOnEdgeId).toBe(null);
+
+
+    useStore.setState({
+      isConnectContinue: false
+    });
+    
+    
     useStore.getState().onEdgeMouseEnter({} as React.MouseEvent, {id: "111"} as Edge)
     expect(useStore.getState().isMouseOnEdge).toBe(true);
     expect(useStore.getState().mouseOnEdgeId).toBe("111");
   });
 
   it('has an "onEdgeMouseLeave" attribute to change isMouseOnEdge as false and mouseOnEdgeId as null', () => {
+    useStore.setState({
+      isMouseOnEdge: true,
+      mouseOnEdgeId: "1",
+      isConnectContinue: true
+    });
+
     useStore.getState().onEdgeMouseLeave()
+
+    expect(useStore.getState().isMouseOnEdge).toBe(true);
+    expect(useStore.getState().mouseOnEdgeId).toBe("1");
+    
+    useStore.setState({
+      isConnectContinue: false
+    });
+    
+    useStore.getState().onEdgeMouseLeave()
+
     expect(useStore.getState().isMouseOnEdge).toBe(false);
     expect(useStore.getState().mouseOnEdgeId).toBe(null);
   });

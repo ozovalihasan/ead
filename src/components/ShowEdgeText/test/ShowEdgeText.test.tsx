@@ -37,35 +37,20 @@ let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {
   renderReadyComponent = (
-    <ShowEdgeText centerX={20} centerY={20} label="Mock Label" />
+    <ShowEdgeText centerX={20} centerY={20} label="mockLabel" />
   );
 });
 
 describe('<ShowEdgeText />', () => {
-  describe('if showTextOnEdges is true', () => {
-
-    it('renders correctly', () => {
-      
-      useCustomizationStore.setState({ 
-        showTextOnEdges: true 
-      })
-
-      const renderedContainer = render(renderReadyComponent );
-      expect(renderedContainer).toMatchSnapshot();
-    });
+  it("shows the label", () => {
+    render(renderReadyComponent );
+    
+    expect(screen.getByText(/mockLabel/i)).toBeInTheDocument()
   })
-
-  describe('if showTextOnEdges is false', () => {
-
-    it('renders correctly', () => {
-      
-      useCustomizationStore.setState({ 
-        showTextOnEdges: false 
-      })
-
-      const renderedContainer = render(renderReadyComponent );
-      expect(renderedContainer).toMatchSnapshot();
-    });
-  })
+  
+  it('renders correctly', () => {
+    const renderedContainer = render(renderReadyComponent );
+    expect(renderedContainer).toMatchSnapshot();
+  });
 
 });

@@ -1,6 +1,8 @@
 import { HasAnyEdge, HasAnyEdgeLabel } from '../HasAnyEdge';
 import { render, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
+import useCustomizationStore from '@/zustandStore/customizationStore';
+
 import { 
   ShowEdgeTextType,
   RemoveEdgeButtonType,
@@ -89,6 +91,10 @@ beforeEach(() => {
     nodes: nodes
   })
   
+  useCustomizationStore.setState({ 
+    showTextOnEdges: false
+  })
+
   renderReadyComponent = (
     <svg>
       <HasAnyEdge
@@ -108,11 +114,6 @@ beforeEach(() => {
 });
 
 describe('<HasAnyEdge />', () => {
-
-  it('renders another components correctly', () => {
-    render(renderReadyComponent );
-      expect(screen.getByText(/MockShowEdgeText/i)).toBeInTheDocument();
-  });
 
   it('renders correctly', () => {
     const renderedContainer = render(renderReadyComponent );
@@ -253,4 +254,23 @@ describe('<HasAnyEdge />', () => {
     
   })
 
+  describe("shows an text if it is requested", () => {
+    beforeEach(()=> {
+      useCustomizationStore.setState({ 
+        showTextOnEdges: true
+      })
+    })
+
+    it('update styles', () => {
+      render(renderReadyComponent );
+      expect(screen.getByText(/MockShowEdgeText/i)).toBeInTheDocument();
+    });
+  
+    it('renders correctly', () => {
+      const renderedContainer = render(renderReadyComponent );
+      expect(renderedContainer).toMatchSnapshot();
+    });
+    
+  })
+  
 });

@@ -15,6 +15,7 @@ import {
 
 import { getEdgeParams } from '@/utils';
 import useStore from '@/zustandStore/store';
+import useCustomizationStore from '@/zustandStore/customizationStore';
 
 export enum HasAnyEdgeLabel {
   HasMany = "has many",
@@ -71,7 +72,7 @@ export const HasAnyEdge = ({
     orient = "0deg"
   }
 
-  
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
   
   return (
     <>
@@ -104,7 +105,11 @@ export const HasAnyEdge = ({
         </foreignObject> 
       }
 
-      <ShowEdgeText label={label} centerX={centerX} centerY={centerY} />
+      {
+        showTextOnEdges && 
+        <ShowEdgeText label={label} centerX={centerX} centerY={centerY} />
+      }
+      
     </>
   );
 }

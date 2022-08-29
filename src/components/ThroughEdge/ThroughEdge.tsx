@@ -66,7 +66,7 @@ export const ThroughEdge = ({
       <path
         id={`${id}-first`}
         style={(selected || mouseOnEdge) ? {stroke: "black", strokeWidth: 3, strokeDasharray: 0} : style}
-        className="stroke-first-500 fill-[none] stroke-[1] "
+        className="stroke-first-500 fill-[none] stroke-[1] custom-animation"
         d={throughEdgePath}
       />
 

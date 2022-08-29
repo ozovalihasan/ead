@@ -39,8 +39,10 @@ export const HasAnyEdge = ({
   selected,
 }: HasAnyEdgeType) => {
 
-  const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
-  const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
+  const nodes = useStore(store => store.nodes)
+
+  const sourceNode = nodes.find( node => node.id === source) as Node
+  const targetNode = nodes.find( node => node.id === target) as Node
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
 
   if (!sourceNode || !targetNode) { return <div></div> }
@@ -69,17 +71,15 @@ export const HasAnyEdge = ({
     orient = "0deg"
   }
 
-  let MarkerDefs = null
-
-  if (label === HasAnyEdgeLabel.HasMany){
-    MarkerDefs = <CrowsFootMarker orient={orient} edgeId={id} />
-  } else if (label === HasAnyEdgeLabel.HasOne) {
-    MarkerDefs = <LineMarker orient={orient} edgeId={id} />
-  }
+  
   
   return (
     <>
-      {MarkerDefs}
+      {
+        (label === HasAnyEdgeLabel.HasMany) ? 
+          <CrowsFootMarker orient={orient} edgeId={id} /> : 
+          <LineMarker orient={orient} edgeId={id} />
+      }
       
       <path
         id={id}

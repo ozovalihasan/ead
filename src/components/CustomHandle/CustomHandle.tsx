@@ -1,5 +1,6 @@
 import { Handle, Position } from 'react-flow-renderer';
 import useStore from '@/zustandStore/store';
+import { memo } from 'react';
 
 
 export type CustomHandleType = {
@@ -8,7 +9,7 @@ export type CustomHandleType = {
   handleType: string
 }
 
-export const CustomHandle = ({id, nodeId, handleType} : CustomHandleType) => {
+export const CustomHandle = memo(({id, nodeId, handleType} : CustomHandleType) => {
   const onChangeAssociationType = useStore(store => store.onChangeAssociationType)
   
   return (
@@ -21,4 +22,4 @@ export const CustomHandle = ({id, nodeId, handleType} : CustomHandleType) => {
     id={id}
   />
   )
-}
+})

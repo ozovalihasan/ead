@@ -1,14 +1,13 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
+import { memo } from 'react';
 
-export const Settings = () => {
+export const Settings = memo(() => {
   
-  const {
-    locationSidebar,
-    showTextOnEdges,
-    toggleLocationSidebar,
-    toggleTextMode,
-  } = useCustomizationStore()
-  
+  const locationSidebar = useCustomizationStore(store => store.locationSidebar)
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
+  const toggleLocationSidebar = useCustomizationStore(store => store.toggleLocationSidebar)
+  const toggleTextMode = useCustomizationStore(store => store.toggleTextMode)
+
   return (
     <details open className='mt-8 [&>summary>span:nth-child(1)]:open:hidden [&>summary>span:nth-child(2)]:open:inline '>
       <summary className='btn-third'>
@@ -27,4 +26,4 @@ export const Settings = () => {
       </div>
     </details>
   )
-}
+})

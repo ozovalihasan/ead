@@ -1,7 +1,8 @@
 import { MarkerBase, MarkerType } from "@/components"
+import { memo } from "react"
 
 
-export const LineMarker = (props: MarkerType) => {
+export const LineMarker = memo((props: MarkerType) => {
   
   return (
     <MarkerBase {...props}>
@@ -12,4 +13,4 @@ export const LineMarker = (props: MarkerType) => {
       />
     </MarkerBase>
   )
-}
+})

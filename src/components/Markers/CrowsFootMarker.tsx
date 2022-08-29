@@ -1,6 +1,7 @@
 import { MarkerBase, MarkerType } from "@/components"
+import { memo } from "react"
 
-export const CrowsFootMarker = (props: MarkerType) => {
+export const CrowsFootMarker = memo((props: MarkerType) => {
   
   return (
     <MarkerBase {...props}>
@@ -13,4 +14,4 @@ export const CrowsFootMarker = (props: MarkerType) => {
       
     </MarkerBase>
   )
-}
+})

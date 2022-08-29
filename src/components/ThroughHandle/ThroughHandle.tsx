@@ -1,6 +1,7 @@
 import { CustomHandle } from '@/components';
+import { memo } from 'react';
 
-export const ThroughHandle = ({nodeId} : {nodeId: string}) => {
+export const ThroughHandle = memo(({nodeId} : {nodeId: string}) => {
 
   return (
     <div className="w-6 h-6 absolute left-3/4 bg-slate-700 rounded-full -translate-x-1/2 flex justify-center items-center" >
@@ -29,4 +30,4 @@ export const ThroughHandle = ({nodeId} : {nodeId: string}) => {
       
     </div>
   )
-}
+})

@@ -5,7 +5,7 @@ import {
   TargetHandle
 } from "@/components"
 import useStore from '@/zustandStore/store';
-import React, { ReactElement, useRef } from "react";
+import React, { memo, useCallback, useRef } from "react";
 
 
 export type EntityNodeDataType = {
@@ -19,34 +19,34 @@ export type EntityNodeType = {
   selected: boolean
 }
 
-export const EntityNode = ({id, data, selected }: EntityNodeType) => {
+export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
   const inputEl = useRef(null);
   const buttonEl = useRef(null);
   
-  const selectedNodeIdForThrough = useStore(store => store.selectedNodeIdForThrough)
+  const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
   const onNodeInputChange = useStore(store => store.onNodeInputChange)
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (inputEl.current) {
       (inputEl.current as HTMLInputElement).style.display = "block";
       (inputEl.current as HTMLInputElement).focus();
       (e.target as HTMLDivElement).style.display= "none"
     }
     
-  }
+  },[])
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement, Element>) => {
+  const handleBlur = useCallback((e: React.FocusEvent<HTMLInputElement, Element>) => {
     if (buttonEl.current){
       (buttonEl.current as HTMLDivElement).style.display = "block";
       (e.target as HTMLInputElement).style.display= "none"
     }
-  }
+  }, [])
 
   return (
     <div 
       className={`
         border-black border border-solid p-1 rounded-sm 
-        ${ (selectedNodeIdForThrough === id) ?  "bg-second-400" : "bg-first-50"} 
+        ${ (isSelectedNodeForThrough) ?  "bg-second-400" : "bg-first-50"} 
         ${ selected &&  "bg-first-200"}
       `} 
     >
@@ -82,6 +82,6 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
 
     </div>
   );
-}
+})
 
       

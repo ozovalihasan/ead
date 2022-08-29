@@ -1,6 +1,7 @@
 import { CustomHandle } from '@/components';
+import { memo } from 'react';
 
-export const HasManyHandle = ({nodeId} : {nodeId: string}) => {
+export const HasManyHandle = memo(({nodeId} : {nodeId: string}) => {
 
   return (
     <div className="w-6 h-6 absolute left-1/2 bg-slate-700 rounded-full -translate-x-1/2 flex justify-center items-center" >
@@ -21,4 +22,4 @@ export const HasManyHandle = ({nodeId} : {nodeId: string}) => {
       />
     </div>
   )
-}
+})

@@ -5,15 +5,19 @@ import {
 } from "@/components"
 
 import useStore from '@/zustandStore/store';
+import { memo } from "react";
 
-export const AllHandlers = ({nodeId}: {nodeId: string}) => {
+export const AllHandlers = memo(({nodeId}: {nodeId: string}) => {
+
+  const visibleSourceHandles =  (
+    useStore(store =>(
+      !store.isConnectContinue && 
+      store.isMouseOnNode && 
+      store.mouseOnNodeId == nodeId
+    ))
+  ) ? "opacity-100" : "opacity-0"
+
   
-
-  const isConnectContinue = useStore(store => store.isConnectContinue)
-  const isMouseOnNode = useStore(store => store.isMouseOnNode)
-  const mouseOnNodeId = useStore(store => store.mouseOnNodeId)
-
-  const visibleSourceHandles = ((!isConnectContinue && isMouseOnNode && mouseOnNodeId == nodeId) ? "opacity-100" : "opacity-0")
   
   return (
     <div className={`relative w-full ${visibleSourceHandles}`} style={{strokeLinecap:"round"}} >
@@ -26,4 +30,4 @@ export const AllHandlers = ({nodeId}: {nodeId: string}) => {
     </div>
 
   )
-}
+})

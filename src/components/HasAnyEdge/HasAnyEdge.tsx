@@ -16,6 +16,7 @@ import {
 import { getEdgeParams } from '@/utils';
 import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
+import { memo } from 'react';
 
 export enum HasAnyEdgeLabel {
   HasMany = "has many",
@@ -27,7 +28,7 @@ export interface HasAnyEdgeType extends Omit<
 > {
 }
 
-export const HasAnyEdge = ({
+export const HasAnyEdge = memo(({
   id,
   source,
   target,
@@ -40,11 +41,10 @@ export const HasAnyEdge = ({
   selected,
 }: HasAnyEdgeType) => {
 
-  const nodes = useStore(store => store.nodes)
 
-  const sourceNode = nodes.find( node => node.id === source) as Node
-  const targetNode = nodes.find( node => node.id === target) as Node
-  const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
+  const sourceNode = useStore(store => store.nodes.find( node => node.id === source) as Node)
+  const targetNode = useStore(store => store.nodes.find( node => node.id === target) as Node)
+  const mouseOnEdge = useStore(store => store.mouseOnEdgeId === id )
 
   if (!sourceNode || !targetNode) { return <div></div> }
 
@@ -112,4 +112,4 @@ export const HasAnyEdge = ({
       
     </>
   );
-}
+})

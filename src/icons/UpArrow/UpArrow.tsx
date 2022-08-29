@@ -1,4 +1,6 @@
-export const UpArrow = () => (
+import { memo } from "react";
+
+export const UpArrow = memo(() => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 200 200"
@@ -8,4 +10,4 @@ export const UpArrow = () => (
       d="M 180,139.99958 100,59.999586 20,139.99958"
     />
   </svg>
-)
+))

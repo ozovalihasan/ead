@@ -7,7 +7,7 @@ export type RemoveEdgeButtonType = {
 
 export const RemoveEdgeButton = ({edgeId}: RemoveEdgeButtonType) => {
 
-  const { onEdgesChange } = useStore();
+  const onEdgesChange = useStore(store => store.onEdgesChange);
   
   
   return (

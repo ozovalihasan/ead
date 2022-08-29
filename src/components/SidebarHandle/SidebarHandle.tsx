@@ -2,11 +2,9 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 
 export const SidebarHandle = () => {
 
-  const {
-    handleSidebarWidthChange,
-    toggleSidebarVisibility,
-  } = useCustomizationStore()
-  
+  const handleSidebarWidthChange = useCustomizationStore(store => store.handleSidebarWidthChange)
+  const toggleSidebarVisibility = useCustomizationStore(store => store.toggleSidebarVisibility)
+
   return (
     <div
       title="Click to hide/show the sidebar. Drag to change the width of the sidebar."

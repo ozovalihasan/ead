@@ -18,12 +18,10 @@ export const Navbar = () => {
   const resetStore = useStore(store => store.resetStore)
   const uploadStore = useStore(store => store.uploadStore)
 
+  const navbarVisible = useCustomizationStore(store => store.navbarVisible)
+  const toggleNavbarVisibility = useCustomizationStore(store => store.toggleNavbarVisibility)
 
-  const { 
-    navbarVisible,
-    toggleNavbarVisibility
-   } = useCustomizationStore()
-  
+
   return (
     <div className='relative'>
       <nav className={`bg-transparent relative h-20 py-2 border-b border-solid border-first-500 ${navbarVisible || 'hidden'}`} >

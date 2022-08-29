@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, memo } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   Node,
@@ -27,7 +27,7 @@ const edgeTypes = {
   through: ThroughEdge,
 };
 
-export const MainReactFlow = () => {
+export const MainReactFlow = memo(() => {
 
   const nodes = useStore(store => store.nodes)
   const edges = useStore(store => store.edges)
@@ -120,4 +120,4 @@ export const MainReactFlow = () => {
       
     </div>
   )
-}
+})

@@ -1,4 +1,6 @@
-export const XMark = () => (
+import { memo } from "react";
+
+export const XMark = memo(() => (
   <svg 
     viewBox="0 0 200 200" 
     xmlns="http://www.w3.org/2000/svg"
@@ -13,5 +15,5 @@ export const XMark = () => (
       d="M 20,20 h 0 L 180,180"
     />
   </svg>
-)
+))
 

@@ -26,10 +26,12 @@ export const ThroughEdge = ({
   
   let targetX, targetY, targetPosition = null
   let rest = null
+
+  const nodes = useStore(store => store.nodes)
   
-  const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
-  const throughNode = useStore(store => store.nodes.find( node => node.id === (data as ThroughEdgeDataType).throughNodeId)) as Node
-  const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
+  const sourceNode = nodes.find( node => node.id === source) as Node
+  const throughNode = nodes.find( node => node.id === (data as ThroughEdgeDataType).throughNodeId) as Node
+  const targetNode = nodes.find( node => node.id === target) as Node
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId ) === id
   
   const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges);

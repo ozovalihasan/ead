@@ -2,12 +2,11 @@ import useStore from '@/zustandStore/store';
 
 export const SelectThroughNode = ({nodeId} : {nodeId: string}) => {
 
-  const {
-    isConnectContinue,
-    associationType,
-    connectionStartNodeId,
-    onMouseEnterThrough, 
-  } = useStore();
+  
+  const isConnectContinue = useStore(store => store.isConnectContinue)
+  const associationType = useStore(store => store.associationType)
+  const connectionStartNodeId = useStore(store => store.connectionStartNodeId)
+  const onMouseEnterThrough = useStore(store => store.onMouseEnterThrough)
 
   const visibleThroughSelectArea = (
     isConnectContinue && 

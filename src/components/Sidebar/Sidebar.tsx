@@ -5,21 +5,18 @@ import { MinusSign, PlusSign } from '@/icons';
 
 export const Sidebar = () => {
 
-  const { 
-    onTableNameChange, 
-    addTable, 
-    addAttribute, 
-    removeAttribute,
-    removeTable,
-    onAttributeNameChange,
-    onAttributeTypeChange,
-  } = useStore();
+  const tables = useStore((state) => state.tables);
+  const onTableNameChange = useStore(store => store.onTableNameChange)
+  const addTable = useStore(store => store.addTable)
+  const addAttribute = useStore(store => store.addAttribute)
+  const removeAttribute = useStore(store => store.removeAttribute)
+  const removeTable = useStore(store => store.removeTable)
+  const onAttributeNameChange = useStore(store => store.onAttributeNameChange)
+  const onAttributeTypeChange = useStore(store => store.onAttributeTypeChange)
 
-  const {
-    widthSidebar,
-  } = useCustomizationStore()
+  const widthSidebar = useCustomizationStore(store => store.widthSidebar)
+  const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
   
-
   const onDragStart = (
     event: React.DragEvent<HTMLDivElement> , 
     nodeType: string,
@@ -30,9 +27,6 @@ export const Sidebar = () => {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setDragImage(event.target as Element, 0, 0);
   };
-
-  let tables = useStore((state) => state.tables);
-  const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
 
   return (
     <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: widthSidebar as number}} >

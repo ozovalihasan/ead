@@ -29,20 +29,19 @@ const edgeTypes = {
 
 export const MainReactFlow = () => {
 
-  const { 
-    nodes, 
-    edges, 
-    onNodesChange, 
-    onEdgesChange, 
-    onConnect, 
-    addNode, 
-    onConnectStart, 
-    onConnectEnd, 
-    onNodeMouseEnter, 
-    onNodeMouseLeave,
-    onEdgeMouseEnter, 
-    onEdgeMouseLeave,
-  } = useStore();
+  const nodes = useStore(store => store.nodes)
+  const edges = useStore(store => store.edges)
+  const onNodesChange = useStore(store => store.onNodesChange)
+  const onEdgesChange = useStore(store => store.onEdgesChange)
+  const onConnect = useStore(store => store.onConnect)
+  const addNode = useStore(store => store.addNode)
+  const onConnectStart = useStore(store => store.onConnectStart)
+  const onConnectEnd = useStore(store => store.onConnectEnd)
+  const onNodeMouseEnter = useStore(store => store.onNodeMouseEnter)
+  const onNodeMouseLeave = useStore(store => store.onNodeMouseLeave)
+  const onEdgeMouseEnter = useStore(store => store.onEdgeMouseEnter)
+  const onEdgeMouseLeave = useStore(store => store.onEdgeMouseLeave)
+
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);

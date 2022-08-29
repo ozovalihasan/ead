@@ -15,8 +15,8 @@ import useStore from '@/zustandStore/store';
 export const Navbar = () => {
 
   
-  const resetStore = useStore(store => store.onNodeInputChange)
-  const uploadStore = useStore(store => store.onNodeInputChange)
+  const resetStore = useStore(store => store.resetStore)
+  const uploadStore = useStore(store => store.uploadStore)
 
 
   const { 

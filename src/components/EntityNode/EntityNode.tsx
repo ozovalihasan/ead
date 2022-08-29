@@ -26,7 +26,7 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
   const selectedNodeIdForThrough = useStore(store => store.selectedNodeIdForThrough)
   const onNodeInputChange = useStore(store => store.onNodeInputChange)
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (inputEl.current) {
       (inputEl.current as HTMLInputElement).style.display = "block";
       (inputEl.current as HTMLInputElement).focus();
@@ -55,13 +55,13 @@ export const EntityNode = ({id, data, selected }: EntityNodeType) => {
       
       <div>
         <label htmlFor="text"></label>
-        <div 
+        <button 
           ref={buttonEl}
           onClick={event => handleClick(event)}
-          className="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md"
+          className="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
         >
           {data.name.length == 0 ? "No name" : data.name} 
-        </div>
+        </button>
         <input 
           ref={inputEl}
           placeholder='Entity' 

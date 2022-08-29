@@ -9,7 +9,7 @@ export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: stri
 
   
   return <select
-    className="w-1/3"
+    className="w-full"
     value={tables[tableId].attributes[attributeId].type}
     onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
   >

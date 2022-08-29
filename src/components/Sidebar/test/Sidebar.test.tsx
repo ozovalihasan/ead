@@ -9,6 +9,11 @@ jest.mock("@/components", () => ({
       MockSettings
     </>
   ),
+  AttributeTypeOptions: () => (
+    <>
+      MockAttributeTypeOptions
+    </>
+  ),
 }))
 
 jest.mock("@/icons", () => ({
@@ -64,7 +69,6 @@ beforeEach(() => {
     removeAttribute: jest.fn(),
     removeTable: jest.fn(),
     addTable: jest.fn(),
-    onAttributeTypeChange: jest.fn(),
     onAttributeNameChange: jest.fn(),
   })
     
@@ -133,22 +137,8 @@ describe('<Sidebar />', () => {
       render(renderReadyComponent );
       
       expect(screen.getByText(/MockSettings/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/AttributeTypeOptions/i).length).toBe(4);
     });
-
-    it('renders a drop-down list for each attribute', () => {
-
-      render(renderReadyComponent );
-      const { result } = renderHook(() => useStore());
-
-      const attributeTypeSelects = screen.getAllByText(/string/i)
-      
-      expect(attributeTypeSelects.length).toBe(4);
-      
-      fireEvent.change(attributeTypeSelects[0].parentNode as Element, screen.getAllByText(/integer/i)[0])
-
-      expect(result.current.onAttributeTypeChange).toHaveBeenCalledTimes(1);
-    });
-
 
     it('renders an input element for each attribute', () => {
 

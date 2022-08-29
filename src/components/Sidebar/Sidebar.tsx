@@ -1,6 +1,6 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
-import { Settings } from '@/components';
+import { Settings, AttributeTypeOptions } from '@/components';
 import { MinusSign, PlusSign } from '@/icons';
 
 export const Sidebar = () => {
@@ -12,7 +12,6 @@ export const Sidebar = () => {
   const removeAttribute = useStore(store => store.removeAttribute)
   const removeTable = useStore(store => store.removeTable)
   const onAttributeNameChange = useStore(store => store.onAttributeNameChange)
-  const onAttributeTypeChange = useStore(store => store.onAttributeTypeChange)
 
   const widthSidebar = useCustomizationStore(store => store.widthSidebar)
   const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
@@ -47,24 +46,13 @@ export const Sidebar = () => {
                         </div>
                       </button>
                       <input className="p-1 w-2/3 rounded-md" placeholder="Attribute" type="text" value={tables[tableId].attributes[attributeId].name} onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} />
-                      <select
-                        className="w-1/3"
-                        value={tables[tableId].attributes[attributeId].type}
-                        onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
-                      >
-                        {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
-                          'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
-                            <option
-                              key={item}
-                              value={item}
-                            >
-                              {item}
-                            </option>
-                        ))}
-
-                      </select>
+                      <div className="w-1/3">
+                        <AttributeTypeOptions tableId={tableId} attributeId={attributeId} /> 
+                      </div>
                     </div>
                   )
+
+                  
                 })
               }
               <button className="btn-first rounded-full m-1 aspect-square h-6" title="Add an attribute" onClick={() => addAttribute(tableId)}>

@@ -25,3 +25,4 @@ export * from './Settings/Settings';
 export * from './App/App';
 export * from './SidebarHandle/SidebarHandle';
 export * from './MainReactFlow/MainReactFlow';
+export * from './AttributeTypeOptions/AttributeTypeOptions';

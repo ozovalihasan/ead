@@ -9,9 +9,7 @@ export type CustomHandleType = {
 }
 
 export const CustomHandle = ({id, nodeId, handleType} : CustomHandleType) => {
-  const {
-      onChangeAssociationType,
-    } = useStore()
+  const onChangeAssociationType = useStore(store => store.onChangeAssociationType)
   
   return (
     

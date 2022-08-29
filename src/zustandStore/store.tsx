@@ -108,16 +108,22 @@ const useStore = create(devtools<State>((set, get) => ({
       })
     }),
     onNodeMouseEnter: ((_: React.MouseEvent, node: Node) => {
-      set({
-        isMouseOnNode: true,
-        mouseOnNodeId: node.id
-      })
+      if (get().mouseOnNodeId !== node.id){
+        set({
+          isMouseOnNode: true,
+          mouseOnNodeId: node.id
+        })
+      }
+      
     }),
     onNodeMouseLeave: (() => {
-      set({
-        isMouseOnNode: false,
-        mouseOnNodeId: null
-      })
+      if (get().isMouseOnNode) {
+        set({
+          isMouseOnNode: false,
+          mouseOnNodeId: null
+        })  
+      }
+      
     }),
     onTableNameChange: ((event: React.ChangeEvent<HTMLInputElement>, tableId: string) => {
       set(

@@ -18,8 +18,13 @@ Object {
           <label
             for="text"
           />
+          <button
+            class="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
+          >
+            mockName
+          </button>
           <input
-            class="w-32 p-1 rounded-md"
+            class="w-32 m-1 p-1 rounded-md hidden ring-0 ring-offset-0"
             id="text"
             name="text"
             placeholder="Entity"
@@ -49,8 +54,13 @@ Object {
         <label
           for="text"
         />
+        <button
+          class="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
+        >
+          mockName
+        </button>
         <input
-          class="w-32 p-1 rounded-md"
+          class="w-32 m-1 p-1 rounded-md hidden ring-0 ring-offset-0"
           id="text"
           name="text"
           placeholder="Entity"

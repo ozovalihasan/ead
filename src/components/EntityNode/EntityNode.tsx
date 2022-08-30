@@ -71,7 +71,7 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
           ref={inputEl}
           placeholder='Entity' 
           value={data.name} 
-          className="w-32 m-1 p-1 rounded-md  ring-0 ring-offset-0" 
+          className="w-32 m-1 p-1 rounded-md hidden ring-0 ring-offset-0" 
           id="text" 
           name="text" 
           onChange={event => onNodeInputChange(event, id)} 

@@ -120,23 +120,14 @@ describe('<EntityNode />', () => {
     
     expect(inputElement.style.display).toBe("none");
     expect(buttonElement.style.display).toBe("block");
+
+    fireEvent.focus(buttonElement);
+
+    expect(inputElement.style.display).toBe("block");
+    expect(buttonElement.style.display).toBe("none");
+
   });
 
-  // it('renders an input with a placeholder "Entity" when a button is clicked', () => {
-  //   render(renderReadyComponent );
-  //   const { result } = renderHook(() => useStore());
-    
-  //   const inputElement = screen.getByText(/Entity/i)
-
-  //   expect(inputElement).toBeInTheDocument();
-  //   expect(inputElement).toHaveValue("mockName");
-
-  //   fireEvent.change(inputElement, {target: {value: 'mockInput'}});
-
-  //   expect(result.current.onNodeInputChange).toHaveBeenCalledTimes(1);
-
-  // });
-  
 
   it('renders correctly', () => {
     useStore.setState({ 

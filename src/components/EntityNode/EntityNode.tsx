@@ -26,7 +26,11 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
   const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
   const onNodeInputChange = useStore(store => store.onNodeInputChange)
 
-  const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const showInputElement = useCallback(
+    (
+      e: React.MouseEvent<HTMLButtonElement, MouseEvent> | 
+        React.FocusEvent<HTMLButtonElement, Element> 
+    ) => {
     if (inputEl.current) {
       (inputEl.current as HTMLInputElement).style.display = "block";
       (inputEl.current as HTMLInputElement).focus();
@@ -57,8 +61,9 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
         <label htmlFor="text"></label>
         <button 
           ref={buttonEl}
-          onClick={event => handleClick(event)}
+          onClick={showInputElement}
           className="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
+          onFocusCapture={showInputElement}
         >
           {data.name.length == 0 ? "No name" : data.name} 
         </button>
@@ -66,11 +71,11 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
           ref={inputEl}
           placeholder='Entity' 
           value={data.name} 
-          className="w-32 m-1 p-1 rounded-md hidden ring-0 ring-offset-0" 
+          className="w-32 m-1 p-1 rounded-md  ring-0 ring-offset-0" 
           id="text" 
           name="text" 
           onChange={event => onNodeInputChange(event, id)} 
-          onBlur={event => handleBlur(event)}
+          onBlur={handleBlur}
         />
       </div>
 

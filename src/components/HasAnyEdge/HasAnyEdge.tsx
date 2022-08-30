@@ -41,6 +41,7 @@ export const HasAnyEdge = memo(({
   selected,
 }: HasAnyEdgeType) => {
 
+  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
 
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source) as Node)
   const targetNode = useStore(store => store.nodes.find( node => node.id === target) as Node)
@@ -71,8 +72,6 @@ export const HasAnyEdge = memo(({
   } else if (targetPosition === Position.Top) {
     orient = "0deg"
   }
-
-  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
   
   return (
     <>

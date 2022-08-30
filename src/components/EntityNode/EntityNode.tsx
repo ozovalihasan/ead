@@ -16,10 +16,11 @@ export type EntityNodeDataType = {
 export type EntityNodeType = {
   id: string, 
   data: EntityNodeDataType, 
-  selected: boolean
+  selected: boolean,
+  yPos: number
 }
 
-export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
+export const EntityNode = memo(({id, data, selected, yPos }: EntityNodeType) => {
   const inputEl = useRef(null);
   
   const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
@@ -43,6 +44,7 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
         className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
         id="text" 
         name="text" 
+        tabIndex={yPos}
         onChange={event => onNodeInputChange(event, id)} 
       />
 

@@ -19,6 +19,7 @@ Object {
           id="text"
           name="text"
           placeholder="Entity"
+          tabindex="10"
           value="mockName"
         />
         MockTableName tableId: 
@@ -45,6 +46,7 @@ Object {
         id="text"
         name="text"
         placeholder="Entity"
+        tabindex="10"
         value="mockName"
       />
       MockTableName tableId: 

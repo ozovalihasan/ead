@@ -172,7 +172,7 @@ Object {
           </button>
         </div>
         <button
-          class="p-1 btn-first rounded-full aspect-square h-10"
+          class="p-1 mt-4 btn-first rounded-full aspect-square h-10"
           title="Add a table"
         >
           <div
@@ -353,7 +353,7 @@ Object {
         </button>
       </div>
       <button
-        class="p-1 btn-first rounded-full aspect-square h-10"
+        class="p-1 mt-4 btn-first rounded-full aspect-square h-10"
         title="Add a table"
       >
         <div
@@ -591,7 +591,7 @@ Object {
           </button>
         </div>
         <button
-          class="p-1 btn-first rounded-full aspect-square h-10"
+          class="p-1 mt-4 btn-first rounded-full aspect-square h-10"
           title="Add a table"
         >
           <div
@@ -772,7 +772,7 @@ Object {
         </button>
       </div>
       <button
-        class="p-1 btn-first rounded-full aspect-square h-10"
+        class="p-1 mt-4 btn-first rounded-full aspect-square h-10"
         title="Add a table"
       >
         <div

@@ -69,7 +69,7 @@ export const Sidebar = () => {
           )
         })
       }
-      <button className="p-1 btn-first rounded-full aspect-square h-10" title="Add a table" onClick={addTable}>
+      <button className="p-1 mt-4 btn-first rounded-full aspect-square h-10" title="Add a table" onClick={addTable}>
         <div className="stroke-[40] w-5 h-5">
           <PlusSign />
         </div>

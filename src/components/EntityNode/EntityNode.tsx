@@ -28,20 +28,20 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
 
   const showInputElement = useCallback(
     (
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent> | 
-        React.FocusEvent<HTMLButtonElement, Element> 
+      e: React.FocusEvent<HTMLButtonElement, Element> |
+        React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
     if (inputEl.current) {
       (inputEl.current as HTMLInputElement).style.display = "block";
       (inputEl.current as HTMLInputElement).focus();
-      (e.target as HTMLDivElement).style.display= "none"
+      (e.target as HTMLButtonElement).style.display= "none"
     }
     
   },[])
 
-  const handleBlur = useCallback((e: React.FocusEvent<HTMLInputElement, Element>) => {
+  const showButton = useCallback((e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     if (buttonEl.current){
-      (buttonEl.current as HTMLDivElement).style.display = "block";
+      (buttonEl.current as HTMLButtonElement).style.display = "block";
       (e.target as HTMLInputElement).style.display= "none"
     }
   }, [])
@@ -61,9 +61,9 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
         <label htmlFor="text"></label>
         <button 
           ref={buttonEl}
+          className="hidden cursor-move m-1 p-1 w-32 text-ellipsis overflow-hidden rounded-md text-left"
+          onBlur={showInputElement}
           onClick={showInputElement}
-          className="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
-          onFocusCapture={showInputElement}
         >
           {data.name.length == 0 ? "No name" : data.name} 
         </button>
@@ -71,11 +71,11 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
           ref={inputEl}
           placeholder='Entity' 
           value={data.name} 
-          className="w-32 m-1 p-1 rounded-md hidden ring-0 ring-offset-0" 
+          className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
           id="text" 
           name="text" 
           onChange={event => onNodeInputChange(event, id)} 
-          onBlur={handleBlur}
+          onDoubleClick={showButton}
         />
       </div>
 

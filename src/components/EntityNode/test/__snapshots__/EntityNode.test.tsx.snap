@@ -19,12 +19,12 @@ Object {
             for="text"
           />
           <button
-            class="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
+            class="hidden cursor-move m-1 p-1 w-32 text-ellipsis overflow-hidden rounded-md text-left"
           >
             mockName
           </button>
           <input
-            class="w-32 m-1 p-1 rounded-md  ring-0 ring-offset-0"
+            class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
             id="text"
             name="text"
             placeholder="Entity"
@@ -55,12 +55,12 @@ Object {
           for="text"
         />
         <button
-          class="bg-slate-50 cursor-move m-1 p-1 w-32 rounded-md text-left"
+          class="hidden cursor-move m-1 p-1 w-32 text-ellipsis overflow-hidden rounded-md text-left"
         >
           mockName
         </button>
         <input
-          class="w-32 m-1 p-1 rounded-md  ring-0 ring-offset-0"
+          class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
           id="text"
           name="text"
           placeholder="Entity"

@@ -111,17 +111,22 @@ describe('<EntityNode />', () => {
     const buttonElement = screen.getByRole("button", { name: "mockName" });
     const inputElement = screen.getByPlaceholderText(/Entity/i)
 
-    fireEvent.click(buttonElement);
+    fireEvent.doubleClick(inputElement);
 
+    expect(inputElement.style.display).toBe("none");
+    expect(buttonElement.style.display).toBe("block");
+    
+    fireEvent.click(buttonElement);
+    
     expect(inputElement.style.display).toBe("block");
     expect(buttonElement.style.display).toBe("none");
 
-    fireEvent.focusOut(inputElement);
-    
+    fireEvent.doubleClick(inputElement);
+
     expect(inputElement.style.display).toBe("none");
     expect(buttonElement.style.display).toBe("block");
 
-    fireEvent.focus(buttonElement);
+    fireEvent.focusOut(buttonElement);
 
     expect(inputElement.style.display).toBe("block");
     expect(buttonElement.style.display).toBe("none");

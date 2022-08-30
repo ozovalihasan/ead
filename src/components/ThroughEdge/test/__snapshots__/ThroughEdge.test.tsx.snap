@@ -7,7 +7,7 @@ Object {
     <div>
       <svg>
         <path
-          class="stroke-first-500 fill-[none] stroke-[1] "
+          class="stroke-first-500 fill-[none] stroke-[1] custom-animation"
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111-first"
           style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
@@ -57,7 +57,7 @@ Object {
   "container": <div>
     <svg>
       <path
-        class="stroke-first-500 fill-[none] stroke-[1] "
+        class="stroke-first-500 fill-[none] stroke-[1] custom-animation"
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111-first"
         style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
@@ -164,7 +164,7 @@ Object {
     <div>
       <svg>
         <path
-          class="stroke-first-500 fill-[none] stroke-[1] "
+          class="stroke-first-500 fill-[none] stroke-[1] custom-animation"
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111-first"
         />
@@ -213,7 +213,7 @@ Object {
   "container": <div>
     <svg>
       <path
-        class="stroke-first-500 fill-[none] stroke-[1] "
+        class="stroke-first-500 fill-[none] stroke-[1] custom-animation"
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111-first"
       />
@@ -319,7 +319,7 @@ Object {
     <div>
       <svg>
         <path
-          class="stroke-first-500 fill-[none] stroke-[1] "
+          class="stroke-first-500 fill-[none] stroke-[1] custom-animation"
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111-first"
           style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
@@ -361,7 +361,7 @@ Object {
   "container": <div>
     <svg>
       <path
-        class="stroke-first-500 fill-[none] stroke-[1] "
+        class="stroke-first-500 fill-[none] stroke-[1] custom-animation"
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111-first"
         style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"

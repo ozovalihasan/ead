@@ -14,23 +14,13 @@ Object {
       >
         MockTargetHandle nodeId: 
         111
-        <div>
-          <label
-            for="text"
-          />
-          <button
-            class="hidden cursor-move m-1 p-1 w-32 text-ellipsis overflow-hidden rounded-md text-left"
-          >
-            mockName
-          </button>
-          <input
-            class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
-            id="text"
-            name="text"
-            placeholder="Entity"
-            value="mockName"
-          />
-        </div>
+        <input
+          class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
+          id="text"
+          name="text"
+          placeholder="Entity"
+          value="mockName"
+        />
         MockTableName tableId: 
         mockTableId
         MockAllHandlers nodeId: 
@@ -50,23 +40,13 @@ Object {
     >
       MockTargetHandle nodeId: 
       111
-      <div>
-        <label
-          for="text"
-        />
-        <button
-          class="hidden cursor-move m-1 p-1 w-32 text-ellipsis overflow-hidden rounded-md text-left"
-        >
-          mockName
-        </button>
-        <input
-          class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
-          id="text"
-          name="text"
-          placeholder="Entity"
-          value="mockName"
-        />
-      </div>
+      <input
+        class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
+        id="text"
+        name="text"
+        placeholder="Entity"
+        value="mockName"
+      />
       MockTableName tableId: 
       mockTableId
       MockAllHandlers nodeId: 

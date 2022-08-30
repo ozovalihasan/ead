@@ -5,7 +5,7 @@ import {
   TargetHandle
 } from "@/components"
 import useStore from '@/zustandStore/store';
-import React, { memo, useCallback, useRef } from "react";
+import { memo, useRef } from "react";
 
 
 export type EntityNodeDataType = {
@@ -21,30 +21,9 @@ export type EntityNodeType = {
 
 export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
   const inputEl = useRef(null);
-  const buttonEl = useRef(null);
   
   const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
   const onNodeInputChange = useStore(store => store.onNodeInputChange)
-
-  const showInputElement = useCallback(
-    (
-      e: React.FocusEvent<HTMLButtonElement, Element> |
-        React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) => {
-    if (inputEl.current) {
-      (inputEl.current as HTMLInputElement).style.display = "block";
-      (inputEl.current as HTMLInputElement).focus();
-      (e.target as HTMLButtonElement).style.display= "none"
-    }
-    
-  },[])
-
-  const showButton = useCallback((e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-    if (buttonEl.current){
-      (buttonEl.current as HTMLButtonElement).style.display = "block";
-      (e.target as HTMLInputElement).style.display= "none"
-    }
-  }, [])
 
   return (
     <div 
@@ -57,27 +36,15 @@ export const EntityNode = memo(({id, data, selected }: EntityNodeType) => {
       
       <TargetHandle nodeId={id} />
       
-      <div>
-        <label htmlFor="text"></label>
-        <button 
-          ref={buttonEl}
-          className="hidden cursor-move m-1 p-1 w-32 text-ellipsis overflow-hidden rounded-md text-left"
-          onBlur={showInputElement}
-          onClick={showInputElement}
-        >
-          {data.name.length == 0 ? "No name" : data.name} 
-        </button>
-        <input 
-          ref={inputEl}
-          placeholder='Entity' 
-          value={data.name} 
-          className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
-          id="text" 
-          name="text" 
-          onChange={event => onNodeInputChange(event, id)} 
-          onDoubleClick={showButton}
-        />
-      </div>
+      <input 
+        ref={inputEl}
+        placeholder='Entity' 
+        value={data.name} 
+        className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
+        id="text" 
+        name="text" 
+        onChange={event => onNodeInputChange(event, id)} 
+      />
 
       <TableName tableId={data.tableId} />
       

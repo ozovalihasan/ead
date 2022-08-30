@@ -81,14 +81,6 @@ describe('<EntityNode />', () => {
 
   });
 
-  it('renders a button having "mockName" name', () => {
-    render(renderReadyComponent );
-    
-    const buttonElement = screen.getByRole("button", { name: "mockName" });
-
-    expect(buttonElement).toBeInTheDocument();
-  })
-
   it('renders an input with a placeholder "Entity"', () => {
     render(renderReadyComponent );
     const { result } = renderHook(() => useStore());
@@ -101,35 +93,6 @@ describe('<EntityNode />', () => {
     fireEvent.change(inputElement, {target: {value: 'mockInput'}});
     
     expect(result.current.onNodeInputChange).toHaveBeenCalledTimes(1);
-
-  });
-  
-  it('has a button and an input element interacting each other', () => {
-    render(renderReadyComponent );
-    const { result } = renderHook(() => useStore());
-    
-    const buttonElement = screen.getByRole("button", { name: "mockName" });
-    const inputElement = screen.getByPlaceholderText(/Entity/i)
-
-    fireEvent.doubleClick(inputElement);
-
-    expect(inputElement.style.display).toBe("none");
-    expect(buttonElement.style.display).toBe("block");
-    
-    fireEvent.click(buttonElement);
-    
-    expect(inputElement.style.display).toBe("block");
-    expect(buttonElement.style.display).toBe("none");
-
-    fireEvent.doubleClick(inputElement);
-
-    expect(inputElement.style.display).toBe("none");
-    expect(buttonElement.style.display).toBe("block");
-
-    fireEvent.focusOut(buttonElement);
-
-    expect(inputElement.style.display).toBe("block");
-    expect(buttonElement.style.display).toBe("none");
 
   });
 

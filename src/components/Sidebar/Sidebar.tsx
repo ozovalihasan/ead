@@ -35,17 +35,17 @@ export const Sidebar = () => {
         Object.keys(tables).map((tableId: string) => {
           return (
             <div className="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md" key={tableId} onDragStart={(event) => onDragStart(event, 'default', tableId)} draggable>
-              <input className="p-2 rounded-md w-full" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} />
+              <input className="p-2 rounded-md w-full" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} tabIndex={4}/>
               {
                 Object.keys(tables[tableId].attributes).map((attributeId) => {
                   return (
                     <div className="flex m-1" key={attributeId} >
-                      <button className="btn-first rounded-full aspect-square h-6" title="Remove the attribute" onClick={() => removeAttribute(tableId, attributeId)} >
+                      <button className="btn-first rounded-full aspect-square h-6" title="Remove the attribute" onClick={() => removeAttribute(tableId, attributeId)}>
                         <div className="stroke-[40] w-3 h-3">
                           <MinusSign />
                         </div>
                       </button>
-                      <input className="p-1 w-2/3 rounded-md" placeholder="Attribute" type="text" value={tables[tableId].attributes[attributeId].name} onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} />
+                      <input className="p-1 w-2/3 rounded-md" placeholder="Attribute" type="text" value={tables[tableId].attributes[attributeId].name} onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} tabIndex={4} />
                       <div className="w-1/3">
                         <AttributeTypeOptions tableId={tableId} attributeId={attributeId} /> 
                       </div>

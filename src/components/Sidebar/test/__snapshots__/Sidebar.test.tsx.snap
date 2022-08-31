@@ -16,6 +16,7 @@ Object {
           <input
             class="p-2 rounded-md w-full"
             placeholder="Table name"
+            tabindex="4"
             type="text"
             value="MockFirstTable"
           />
@@ -35,6 +36,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockFirstAttribute"
             />
@@ -60,6 +62,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockSecondAttribute"
             />
@@ -97,6 +100,7 @@ Object {
           <input
             class="p-2 rounded-md w-full"
             placeholder="Table name"
+            tabindex="4"
             type="text"
             value="MockSecondTable"
           />
@@ -116,6 +120,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockThirdAttribute"
             />
@@ -141,6 +146,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockFourthAttribute"
             />
@@ -197,6 +203,7 @@ Object {
         <input
           class="p-2 rounded-md w-full"
           placeholder="Table name"
+          tabindex="4"
           type="text"
           value="MockFirstTable"
         />
@@ -216,6 +223,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockFirstAttribute"
           />
@@ -241,6 +249,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockSecondAttribute"
           />
@@ -278,6 +287,7 @@ Object {
         <input
           class="p-2 rounded-md w-full"
           placeholder="Table name"
+          tabindex="4"
           type="text"
           value="MockSecondTable"
         />
@@ -297,6 +307,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockThirdAttribute"
           />
@@ -322,6 +333,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockFourthAttribute"
           />
@@ -435,6 +447,7 @@ Object {
           <input
             class="p-2 rounded-md w-full"
             placeholder="Table name"
+            tabindex="4"
             type="text"
             value="MockFirstTable"
           />
@@ -454,6 +467,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockFirstAttribute"
             />
@@ -479,6 +493,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockSecondAttribute"
             />
@@ -516,6 +531,7 @@ Object {
           <input
             class="p-2 rounded-md w-full"
             placeholder="Table name"
+            tabindex="4"
             type="text"
             value="MockSecondTable"
           />
@@ -535,6 +551,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockThirdAttribute"
             />
@@ -560,6 +577,7 @@ Object {
             <input
               class="p-1 w-2/3 rounded-md"
               placeholder="Attribute"
+              tabindex="4"
               type="text"
               value="mockFourthAttribute"
             />
@@ -616,6 +634,7 @@ Object {
         <input
           class="p-2 rounded-md w-full"
           placeholder="Table name"
+          tabindex="4"
           type="text"
           value="MockFirstTable"
         />
@@ -635,6 +654,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockFirstAttribute"
           />
@@ -660,6 +680,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockSecondAttribute"
           />
@@ -697,6 +718,7 @@ Object {
         <input
           class="p-2 rounded-md w-full"
           placeholder="Table name"
+          tabindex="4"
           type="text"
           value="MockSecondTable"
         />
@@ -716,6 +738,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockThirdAttribute"
           />
@@ -741,6 +764,7 @@ Object {
           <input
             class="p-1 w-2/3 rounded-md"
             placeholder="Attribute"
+            tabindex="4"
             type="text"
             value="mockFourthAttribute"
           />

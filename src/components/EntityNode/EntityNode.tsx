@@ -44,7 +44,7 @@ export const EntityNode = memo(({id, data, selected, yPos }: EntityNodeType) => 
         className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
         id="text" 
         name="text" 
-        tabIndex={yPos}
+        tabIndex={3}
         onChange={event => onNodeInputChange(event, id)} 
       />
 

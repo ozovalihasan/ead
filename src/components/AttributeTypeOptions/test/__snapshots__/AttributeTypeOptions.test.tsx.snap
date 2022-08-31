@@ -7,6 +7,7 @@ Object {
     <div>
       <select
         class="w-full"
+        tabindex="4"
       >
         <option
           value="primary_key"
@@ -79,6 +80,7 @@ Object {
   "container": <div>
     <select
       class="w-full"
+      tabindex="4"
     >
       <option
         value="primary_key"

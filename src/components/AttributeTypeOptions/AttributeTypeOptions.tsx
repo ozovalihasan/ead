@@ -12,6 +12,7 @@ export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: stri
     className="w-full"
     value={type}
     onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
+    tabIndex={4}
   >
     {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
       'time', 'date', 'binary', 'boolean', 'references'].map((item) => (

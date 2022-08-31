@@ -270,12 +270,16 @@ const useStore = create(devtools<State>((set, get) => ({
       });
     },
     resetStore: () => {
-      set({
-        idCounter: 1,
-        tables: {},
-        nodes: [],
-        edges: [],
-      })
+      if (window.confirm("EAD will be reset permanently?")){
+
+        set({
+          idCounter: 1,
+          tables: {},
+          nodes: [],
+          edges: [],
+        })
+      }
+
     },
     uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileReader = new FileReader();

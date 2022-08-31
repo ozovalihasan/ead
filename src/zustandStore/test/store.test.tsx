@@ -397,6 +397,7 @@ describe('store', () => {
   });
 
   it('has a "resetStore" attribute to reset the store completely', () => {
+      window.confirm = jest.fn().mockImplementation(() => true)
     
       useStore.getState().resetStore()
     

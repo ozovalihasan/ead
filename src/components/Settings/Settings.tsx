@@ -16,7 +16,7 @@ export const Settings = memo(() => {
       </summary>
       <div className='mt-8 flex-col flex'>
         <label className='flex mb-5 cursor-pointer'>
-          <input className='mr-6 accent-first-600' type="checkbox" checked={ showTextOnEdges === true} onChange={toggleTextMode}/>
+          <input className='mr-6 accent-first-600' type="checkbox" checked={ showTextOnEdges} onChange={toggleTextMode}/>
           Show Association Names
         </label>
         <label className='flex mb-5 cursor-pointer'>

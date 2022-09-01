@@ -1,9 +1,10 @@
 details > summary {
   list-style: none;
 }
+
 details > summary::-webkit-details-marker {
   display: none;
-}  
+}
 
 @tailwind base;
 @tailwind components;
@@ -13,22 +14,22 @@ details > summary::-webkit-details-marker {
   .btn-first {
     @apply flex justify-center items-center bg-first-500 hover:bg-first-600 text-first-100 stroke-first-100 border-first-500 hover:border-first-600 border border-solid;
   }
+
   .btn-second {
     @apply flex justify-center items-center bg-first-50 hover:bg-first-100 text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600 border-first-500 border border-solid;
   }
+
   .btn-third {
     @apply flex justify-center items-center text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600 cursor-pointer;
   }
 }
 
-
 .custom-animation {
-  animation: dashdraw .5s linear infinite;
+  animation: dashdraw 0.5s linear infinite;
   stroke-dasharray: 5;
 }
 
 @keyframes dashdraw {
-  
   0% {
     stroke-dashoffset: 10;
   }

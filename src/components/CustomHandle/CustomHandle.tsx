@@ -3,7 +3,7 @@ import useStore from '@/zustandStore/store';
 import { memo } from 'react';
 
 
-export type CustomHandleType = {
+export interface CustomHandleType {
   id: string, 
   nodeId: string, 
   handleType: string

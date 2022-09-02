@@ -28,10 +28,10 @@ describe('<SidebarHandle />', () => {
     expect(handler).toBeInTheDocument();
 
     fireEvent.click(handler)
-    expect(result.current.toggleSidebarVisibility).toHaveBeenCalledTimes(1);;
+    expect(result.current.toggleSidebarVisibility).toHaveBeenCalledTimes(1);
 
     fireEvent.dragEnd(handler)
-    expect(result.current.handleSidebarWidthChange).toHaveBeenCalledTimes(1);;
+    expect(result.current.handleSidebarWidthChange).toHaveBeenCalledTimes(1);
 
   });
 

@@ -1,17 +1,13 @@
-export type AttributesType = {
-  [key: string]: {
+export type AttributesType = Record<string, {
     name: string;
     type: string;
-  }
-}
+  }>;
 
-export type TablesType = {
-  [key: string]: {
+export type TablesType = Record<string, {
     name: string;
     attributes: AttributesType
     
-  }
-}
+  }>;
 
 const initialTables: TablesType =  {
   "1": {

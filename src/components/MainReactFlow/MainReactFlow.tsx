@@ -44,7 +44,7 @@ export const MainReactFlow = memo(() => {
 
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
 
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
@@ -56,7 +56,7 @@ export const MainReactFlow = memo(() => {
     (event: React.DragEvent<HTMLDivElement>) => {
       event.preventDefault();
 
-      let reactFlowBounds: DOMRect = (reactFlowWrapper.current as HTMLDivElement).getBoundingClientRect();
+      const reactFlowBounds: DOMRect = (reactFlowWrapper.current!).getBoundingClientRect();
       
       const type = event.dataTransfer.getData('application/reactflow');
       const tableId = event.dataTransfer.getData('tableId');
@@ -65,13 +65,13 @@ export const MainReactFlow = memo(() => {
         return;
       }
 
-      let position: {x: number, y: number} = (reactFlowInstance as ReactFlowInstance).project({
+      const position: {x: number, y: number} = (reactFlowInstance!).project({
           x: event.clientX - reactFlowBounds.left,
           y: event.clientY - reactFlowBounds.top,
         });
 
       
-      let name = useStore.getState().tables[tableId].name;
+      const name = useStore.getState().tables[tableId].name;
 
       const newNode: Node<EntityNodeDataType> = {
         id: useStore.getState().idCounter.toString(),

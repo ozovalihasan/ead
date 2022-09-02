@@ -1,6 +1,6 @@
 import { Position, MarkerType, Node } from 'react-flow-renderer';
 
-type NodeIntersectionType = {
+interface NodeIntersectionType {
   x: number,
   y: number
 }
@@ -15,8 +15,8 @@ function getNodeIntersection(intersectionNode: Node, targetNode: Node, isThrough
   } = intersectionNode;
   const targetPosition = targetNode.position;
 
-  const w = (intersectionNodeWidth as number) / 2;
-  const h = (intersectionNodeHeight as number) / 2;
+  const w = (intersectionNodeWidth!) / 2;
+  const h = (intersectionNodeHeight!) / 2;
 
   const x2 = intersectionNodePosition.x + w;
   const y2 = intersectionNodePosition.y + h;
@@ -45,13 +45,13 @@ function getEdgePosition(node: Node, intersectionPoint: NodeIntersectionType) {
   if (px <= nx + 1) {
     return Position.Left;
   }
-  if (px >= nx + (n.width as number) - 1) {
+  if (px >= nx + (n.width!) - 1) {
     return Position.Right;
   }
   if (py <= ny + 1) {
     return Position.Top;
   }
-  if (py >= n.y + (n.height as number) - 1) {
+  if (py >= n.y + (n.height!) - 1) {
     return Position.Bottom;
   }
 
@@ -62,7 +62,7 @@ function getEdgePosition(node: Node, intersectionPoint: NodeIntersectionType) {
 export function getEdgeParams(source: Node, target: Node, isThrough = false, sourceBeginningNode: null | Node = null) {
 
   let sourceIntersectionPoint = null
-  let targetIntersectionPoint = getNodeIntersection(target, source, isThrough);
+  const targetIntersectionPoint = getNodeIntersection(target, source, isThrough);
 
   if (isThrough && sourceBeginningNode){
     sourceIntersectionPoint = getNodeIntersection(source, sourceBeginningNode);

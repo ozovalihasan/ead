@@ -95,7 +95,7 @@ describe('<Navbar />', () => {
 
       fireEvent.click(showHideNavbarButton);
 
-      expect(result.current.toggleNavbarVisibility).toHaveBeenCalledTimes(1);;
+      expect(result.current.toggleNavbarVisibility).toHaveBeenCalledTimes(1);
     });
 
     it('renders correctly', () => {
@@ -129,7 +129,7 @@ describe('<Navbar />', () => {
 
       fireEvent.click(downloadButton);
 
-      expect(saveJSON).toHaveBeenCalledTimes(1);;
+      expect(saveJSON).toHaveBeenCalledTimes(1);
     });
     
     it('renders a button to upload a EAD', () => {
@@ -144,7 +144,7 @@ describe('<Navbar />', () => {
 
       fireEvent.change(uploadButton.getElementsByTagName('input')[0], "");
       
-      expect(result.current.uploadStore).toHaveBeenCalledTimes(1);;
+      expect(result.current.uploadStore).toHaveBeenCalledTimes(1);
     });
 
     it('renders a button to download a EAD', () => {
@@ -158,7 +158,7 @@ describe('<Navbar />', () => {
 
       fireEvent.click(resetButton);
 
-      expect(result.current.resetStore).toHaveBeenCalledTimes(1);;
+      expect(result.current.resetStore).toHaveBeenCalledTimes(1);
     });
 
     it('renders GithubLogo component as an anchor', () => {

@@ -1,7 +1,7 @@
 import useStore from "@/zustandStore/store";
 import { XMark } from "@/icons";
 
-export type RemoveEdgeButtonType = {
+export interface RemoveEdgeButtonType {
   edgeId: string
 }
 

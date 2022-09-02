@@ -36,8 +36,8 @@ describe('<RemoveEdgeButton />', () => {
 
     fireEvent.click(resetButton);
     
-    expect(result.current.onEdgesChange).toHaveBeenCalledTimes(1);;
-    expect(result.current.onEdgesChange).toHaveBeenCalledWith([{"id": "1", "type": "remove"}] );;
+    expect(result.current.onEdgesChange).toHaveBeenCalledTimes(1);
+    expect(result.current.onEdgesChange).toHaveBeenCalledWith([{"id": "1", "type": "remove"}] );
   });
   
   it('renders correctly', () => {

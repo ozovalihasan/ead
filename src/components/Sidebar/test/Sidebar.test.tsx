@@ -114,22 +114,22 @@ describe('<Sidebar />', () => {
       const addAttributeButtons = screen.getAllByTitle(/Add an attribute/i)
       expect(addAttributeButtons.length).toBe(2);
       fireEvent.click(addAttributeButtons[0])
-      expect(result.current.addAttribute).toHaveBeenCalledTimes(1);;
+      expect(result.current.addAttribute).toHaveBeenCalledTimes(1);
       
       const removeAttributeButtons = screen.getAllByTitle(/Remove the attribute/i)
       expect(removeAttributeButtons.length).toBe(4);
       fireEvent.click(removeAttributeButtons[0])
-      expect(result.current.removeAttribute).toHaveBeenCalledTimes(1);;
+      expect(result.current.removeAttribute).toHaveBeenCalledTimes(1);
       
       const deleteTableButtons = screen.getAllByTitle(/Delete the table/i)
       expect(deleteTableButtons.length).toBe(2);
       fireEvent.click(deleteTableButtons[0])
-      expect(result.current.removeAttribute).toHaveBeenCalledTimes(1);;
+      expect(result.current.removeAttribute).toHaveBeenCalledTimes(1);
 
       const addTableButton = screen.getByTitle(/Add a table/i)
       expect(addTableButton).toBeInTheDocument();
       fireEvent.click(addTableButton)
-      expect(result.current.addTable).toHaveBeenCalledTimes(1);;
+      expect(result.current.addTable).toHaveBeenCalledTimes(1);
     });
 
     it('renders another component', () => {

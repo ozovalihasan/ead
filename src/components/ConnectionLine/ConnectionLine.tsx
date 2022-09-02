@@ -25,8 +25,8 @@ export const ConnectionLine = ({
         sourceX,
         sourceY,
         sourcePosition,
-        targetX: throughNode.position.x + (throughNode.width as number / 2),
-        targetY: throughNode.position.y + (throughNode.height as number / 2),
+        targetX: throughNode.position.x + (throughNode.width! / 2),
+        targetY: throughNode.position.y + (throughNode.height! / 2),
         targetPosition,
         curvature: 0.5
       })
@@ -37,8 +37,8 @@ export const ConnectionLine = ({
   let sourceUpdatedY = null
 
   if (throughNode) {
-    sourceUpdatedX = throughNode.position.x + (throughNode.width as number / 2);
-    sourceUpdatedY = throughNode.position.y + (throughNode.height as number / 2);
+    sourceUpdatedX = throughNode.position.x + (throughNode.width! / 2);
+    sourceUpdatedY = throughNode.position.y + (throughNode.height! / 2);
   } else{
   sourceUpdatedX = sourceX
     sourceUpdatedY = sourceY

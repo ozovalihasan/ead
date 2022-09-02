@@ -4,8 +4,8 @@ import useStore from '@/zustandStore/store';
 
 export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: string, attributeId: string} ) =>  {
   
-  let type = useStore((state) => state.tables[tableId].attributes[attributeId].type);
-  let onAttributeTypeChange = useStore((state) => state.onAttributeTypeChange);
+  const type = useStore((state) => state.tables[tableId].attributes[attributeId].type);
+  const onAttributeTypeChange = useStore((state) => state.onAttributeTypeChange);
 
   
   return <select

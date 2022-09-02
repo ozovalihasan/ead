@@ -1,6 +1,6 @@
 import { EdgeText } from "react-flow-renderer";
 
-export type ShowEdgeTextType = {
+export interface ShowEdgeTextType {
   centerX: number;
   centerY: number;
   label: React.ReactNode;

@@ -8,12 +8,12 @@ import useStore from '@/zustandStore/store';
 import { memo, useRef } from "react";
 
 
-export type EntityNodeDataType = {
+export interface EntityNodeDataType {
   tableId: string,
   name: string,
 }
 
-export type EntityNodeType = {
+export interface EntityNodeType {
   id: string, 
   data: EntityNodeDataType, 
   selected: boolean,

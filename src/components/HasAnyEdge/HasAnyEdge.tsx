@@ -23,10 +23,9 @@ export enum HasAnyEdgeLabel {
   HasOne = "has one",
 }
 
-export interface HasAnyEdgeType extends Omit<
+export type HasAnyEdgeType = Omit<
   EdgeProps, "sourcePosition" |"targetPosition" | "data"
-> {
-}
+>
 
 export const HasAnyEdge = memo(({
   id,
@@ -62,7 +61,7 @@ export const HasAnyEdge = memo(({
   });
 
   
-  let orient: string = "0deg" 
+  let orient = "0deg" 
   if (targetPosition === Position.Bottom) {
     orient = "180deg"
   } else if (targetPosition === Position.Left) {

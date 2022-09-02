@@ -2,7 +2,7 @@ import create from 'zustand';
 import { devtools } from 'zustand/middleware'
 
 
-type CustomizationStoreState = {
+interface CustomizationStoreState {
   locationSidebar: "left" | "right";
   widthSidebar: number | null;
   showTextOnEdges: boolean;
@@ -16,12 +16,12 @@ type CustomizationStoreState = {
 }
 
 if(!localStorage.locationSidebar){
-  let locationSidebar = "left"
+  const locationSidebar = "left"
   localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
 }
 
 if(!localStorage.widthSidebar){
-  let widthSidebar = Math.floor(window.innerWidth * 0.2)
+  const widthSidebar = Math.floor(window.innerWidth * 0.2)
   localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
 }
 

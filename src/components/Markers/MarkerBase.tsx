@@ -1,5 +1,5 @@
 import { ReactElement } from "react"
-export type MarkerType = {
+export interface MarkerType {
   orient: string,
   edgeId: string,
 }

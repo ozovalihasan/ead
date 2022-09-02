@@ -31,7 +31,7 @@ export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[]
   return (max + 1)
 }
 
-export type State = {
+export interface State {
   version: string;
   idCounter: number;
   nodes: Node<EntityNodeDataType>[];
@@ -68,7 +68,7 @@ export type State = {
   onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+}
 
 const useStore = create(devtools<State>((set, get) => ({
     version: "0.4.0",  
@@ -187,7 +187,7 @@ const useStore = create(devtools<State>((set, get) => ({
     onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) =>{
       
       set(produce((state: State) => {
-        let node: Node = (state.nodes.find(node => node.id === nodeId)) as Node
+        const node: Node = (state.nodes.find(node => node.id === nodeId)) as Node
         node.data.name = event.target.value
       }))
     },
@@ -219,11 +219,11 @@ const useStore = create(devtools<State>((set, get) => ({
       })
     }, 
     onConnect: (connection: Connection) => {
-      let id = get().idCounter
+      const id = get().idCounter
       let edge: Edge = {       
         id: id.toString(), 
-        source: connection.source as string, 
-        target: connection.target as string, 
+        source: connection.source!, 
+        target: connection.target!, 
         sourceHandle: connection.sourceHandle,
         targetHandle: connection.targetHandle,
       }
@@ -298,7 +298,7 @@ const useStore = create(devtools<State>((set, get) => ({
       
       };
   
-      fileReader.readAsText((event.target.files as FileList)[0], 'UTF-8');
+      fileReader.readAsText((event.target.files!)[0], 'UTF-8');
     }
     
   })

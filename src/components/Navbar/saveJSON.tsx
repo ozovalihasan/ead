@@ -1,7 +1,7 @@
 const saveJSON = (data: object, filename= 'EAD.json') => {
   
     let dataNew: object | string = data;
-    let filenameNew = filename;
+    const filenameNew = filename;
     if (!dataNew) {
       console.error('No data');
       return;

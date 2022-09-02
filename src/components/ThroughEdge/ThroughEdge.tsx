@@ -4,7 +4,7 @@ import { getEdgeParams } from '@/utils';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
 
-export type ThroughEdgeDataType = {
+export interface ThroughEdgeDataType {
   throughNodeId: string
 }
 
@@ -28,7 +28,7 @@ export const ThroughEdge = ({
   let rest = null
 
   const sourceNode = useStore(store => store.nodes.find( node => node.id === source)) as Node
-  const throughNode = useStore(store => store.nodes.find( node => node.id === (data as ThroughEdgeDataType).throughNodeId)) as Node
+  const throughNode = useStore(store => store.nodes.find( node => node.id === (data!).throughNodeId)) as Node
   const targetNode = useStore(store => store.nodes.find( node => node.id === target)) as Node
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId === id) 
   
@@ -47,7 +47,7 @@ export const ThroughEdge = ({
 
   const edgePath = getBezierPath({ targetX, targetY, targetPosition, ...rest })
   
-  let orient: string = "0deg" 
+  let orient = "0deg" 
   if (targetPosition === Position.Bottom) {
     orient = "180deg"
   } else if (targetPosition === Position.Left) {

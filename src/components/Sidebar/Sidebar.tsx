@@ -28,7 +28,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: widthSidebar as number}} >
+    <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible || 'hidden'}`} style={{width: widthSidebar!}} >
       
       {
         

@@ -17,10 +17,13 @@ EAD gem can be accessible from [this repository](https://github.com/ozovalihasan
 
 ![project-gif](./documents/images/project.gif)
 
-## Live Demo
+## Live Demo 
 
 Please check [live demo of EAD.](https://ead.ozovalihasan.com/)
 
+## Examples
+
+- Three [videos](https://drive.google.com/drive/folders/1ijDYvCQVRRb6kozWTUv3zUCs2EEGSWej?usp=sharing) are provided as example. If you want to check videos for previous versions, please check [this link](https://drive.google.com/drive/folders/1PrS0zW3H-ZKMjhHDAXTN2vRz-flhLDdE?usp=sharing).
 
 ## Built With
 
@@ -67,8 +70,6 @@ Then, there are two choices to use the generated JSON file;
 
 
 - If all files are generated as expected, run `bundle exec rails db:migrate`.
-
-- Three [videos](https://drive.google.com/drive/folders/1ijDYvCQVRRb6kozWTUv3zUCs2EEGSWej?usp=sharing) are provided as example. If you want to check videos for previous versions, please check [this link](https://drive.google.com/drive/folders/1PrS0zW3H-ZKMjhHDAXTN2vRz-flhLDdE?usp=sharing).
 ### Features
 
 - All association buttons are shown when the cursor is hovering on ![an entity](./documents/images/association-buttons.png).

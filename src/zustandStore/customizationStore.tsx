@@ -2,7 +2,7 @@ import create from 'zustand';
 import { devtools } from 'zustand/middleware'
 
 
-interface CustomizationStoreState {
+export interface CustomizationStoreState {
   locationSidebar: "left" | "right";
   widthSidebar: number;
   showTextOnEdges: boolean;

@@ -1,4 +1,5 @@
 import { 
+  EdgeProps,
   getBezierEdgeCenter, 
   getBezierPath, 
   Node, 
@@ -14,25 +15,16 @@ import {
 
 import { getEdgeParams } from '@/utils';
 import useStore from '@/zustandStore/store';
-import useCustomizationStore from '@/zustandStore/customizationStore';
+import useCustomizationStore, { CustomizationStoreState } from '@/zustandStore/customizationStore';
 import { memo } from 'react';
 
 export enum HasAnyEdgeLabel {
   HasMany = "has many",
   HasOne = "has one",
 }
-
-export interface HasAnyEdgePropsType {
-  id: string;
-  source: string;
-  target: string;
-  sourceX: number;
-  sourceY: number;
-  targetX: number;
-  targetY: number;
-  label: string;
-  selected: boolean;
-}
+export type HasAnyEdgePropsType = Omit<
+  EdgeProps<null>, "sourcePosition" |"targetPosition" | "data"
+>
 
 export const HasAnyEdge = memo(({
   id,
@@ -46,7 +38,7 @@ export const HasAnyEdge = memo(({
   selected,
 }: HasAnyEdgePropsType) => {
 
-  const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
+  const showTextOnEdges = useCustomizationStore((store: CustomizationStoreState) => (store.showTextOnEdges))
 
   const sourceNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === source))
   const targetNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === target))

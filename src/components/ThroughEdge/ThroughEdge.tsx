@@ -1,17 +1,12 @@
-import { getBezierPath, Node, Position } from 'react-flow-renderer';
+import { EdgeProps, getBezierPath, Node, Position } from 'react-flow-renderer';
 import { RemoveEdgeButton } from '@/components';
 import { getEdgeParams } from '@/utils';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore, { ThroughEdgeDataType } from '@/zustandStore/store';
 
-export interface ThroughEdgePropsType {
-  id: string; 
-  source: string; 
-  target: string; 
-  label: string; 
-  data: ThroughEdgeDataType; 
-  selected: boolean;
-}
+export type ThroughEdgePropsType = Omit<
+  EdgeProps<ThroughEdgeDataType>, "sourcePosition" |"targetPosition" | "sourceX" | "sourceY" | "targetX" | "targetY" | "targetYts"
+> 
 
 export const ThroughEdge = ({
   id,
@@ -24,7 +19,7 @@ export const ThroughEdge = ({
   
 
   const sourceNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === source))
-  const throughNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === data.throughNodeId))
+  const throughNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === data!.throughNodeId))
   const targetNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === target))
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId === id) 
   

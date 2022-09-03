@@ -38,10 +38,11 @@ jest.mock('@/components',  () => ({
   ),
   
   ShowEdgeText: (
-    (props: ShowEdgeTextType ) => ( 
+    ({label, ...rest}: ShowEdgeTextType ) => ( 
     <>
       MockShowEdgeText
-      { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
+      { Object.keys(rest).map((key) => `${key}: ${rest[key as keyof typeof rest]}`) }
+      label: { label }
     </>
   )
   ),

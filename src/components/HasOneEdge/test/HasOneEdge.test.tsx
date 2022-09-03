@@ -8,13 +8,27 @@ jest.mock('@/components',  () => ({
   HasAnyEdge: (
     (
       {
+        id,
+        source,
+        target,
+        sourceX,
+        sourceY,
+        targetX,
+        targetY,
+        label,
         selected,
-        ...rest
       }: HasAnyEdgePropsType 
     ) => (
       <>
-        MockRemoveEdgeButton
-        { Object.keys(rest).map((key) => `${key}: ${rest[key as keyof typeof rest]}`) }
+        MockHasAnyEdge
+        id: {id}
+        source: {source}
+        target: {target}
+        sourceX: {sourceX}
+        sourceY: {sourceY}
+        targetX: {targetX}
+        targetY: {targetY}
+        label: {label}
         {selected ? "selected" : "not selected"}
       </>
     )
@@ -45,7 +59,7 @@ describe('<HasOneEdge />', () => {
 
   it('renders HasAnyEdge component correctly', () => {
     render(renderReadyComponent );
-      expect(screen.getByText(/MockRemoveEdgeButton/i)).toBeInTheDocument();
+      expect(screen.getByText(/MockHasAnyEdge/i)).toBeInTheDocument();
   });
 
   it('renders correctly', () => {

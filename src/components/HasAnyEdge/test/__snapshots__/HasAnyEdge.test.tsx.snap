@@ -516,9 +516,10 @@ Object {
           id="111-wider"
         />
         MockShowEdgeText
-        label: has one
         centerX: 525
         centerY: 202.5
+        label: 
+        has one
       </svg>
     </div>
   </body>,
@@ -539,9 +540,10 @@ Object {
         id="111-wider"
       />
       MockShowEdgeText
-      label: has one
       centerX: 525
       centerY: 202.5
+      label: 
+      has one
     </svg>
   </div>,
   "debug": [Function],

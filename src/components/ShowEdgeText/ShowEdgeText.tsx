@@ -3,7 +3,7 @@ import { EdgeText } from "react-flow-renderer";
 export interface ShowEdgeTextType {
   centerX: number;
   centerY: number;
-  label: string;
+  label: string | React.ReactNode;
 }
 
 export const ShowEdgeText = ({centerX, centerY, label}: ShowEdgeTextType) => {

@@ -2,7 +2,8 @@ import { useState, useRef, useCallback, memo } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   ReactFlowInstance,
-  Controls
+  Controls,
+  EdgeTypes
 } from 'react-flow-renderer';
 
 import useStore from '@/zustandStore/store';
@@ -19,7 +20,7 @@ import {
 const nodeTypes = {
   entity: EntityNode,
 };
-const edgeTypes = {
+const edgeTypes: EdgeTypes = {
   hasMany: HasManyEdge,
   hasOne: HasOneEdge,
   through: ThroughEdge,

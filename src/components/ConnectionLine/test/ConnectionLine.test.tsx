@@ -1,5 +1,5 @@
 import { ConnectionLine } from '../ConnectionLine';
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 import { Position } from 'react-flow-renderer';
 
@@ -32,7 +32,7 @@ describe('<ConnectionLine />', () => {
         nodes: [
           {
             "id": "1",
-            "type": "mockType",
+            "type": "entity",
             "position": {
                 "x": 465,
                 "y": 150

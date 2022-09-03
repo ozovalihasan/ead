@@ -6,6 +6,7 @@ import {
 } from "@/components"
 import useStore from '@/zustandStore/store';
 import { memo, useRef } from "react";
+import { Node } from "react-flow-renderer";
 
 
 export interface EntityNodeDataType {
@@ -13,49 +14,54 @@ export interface EntityNodeDataType {
   name: string,
 }
 
-export interface EntityNodeType {
-  id: string, 
-  data: EntityNodeDataType, 
-  selected: boolean,
-  yPos: number
+export interface EntityNodePropsType {
+  id: string; 
+  data: EntityNodeDataType; 
+  selected: boolean;
 }
 
-export const EntityNode = memo(({id, data, selected, yPos }: EntityNodeType) => {
-  const inputEl = useRef(null);
+export type EntityNodeType = Node<EntityNodeDataType> & {
+  type: "entity",
+}
+
+export const EntityNode = memo(
+  ({id, data, selected }: EntityNodePropsType) => {
+    const inputEl = useRef(null);
+    
+    const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
+    const onNodeInputChange = useStore(store => store.onNodeInputChange)
   
-  const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
-  const onNodeInputChange = useStore(store => store.onNodeInputChange)
-
-  return (
-    <div 
-      className={`
-        border-black border border-solid p-1 rounded-sm 
-        ${ (isSelectedNodeForThrough) ?  "bg-second-400" : "bg-first-50"} 
-        ${ selected &&  "bg-first-200"}
-      `} 
-    >
-      
-      <TargetHandle nodeId={id} />
-      
-      <input 
-        ref={inputEl}
-        placeholder='Entity' 
-        value={data.name} 
-        className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
-        id="text" 
-        name="text" 
-        tabIndex={3}
-        onChange={event => onNodeInputChange(event, id)} 
-      />
-
-      <TableName tableId={data.tableId} />
-      
-      <AllHandlers nodeId={id} />
-
-      <SelectThroughNode nodeId={id}/>
-
-    </div>
-  );
-})
+    return (
+      <div 
+        className={`
+          border-black border border-solid p-1 rounded-sm 
+          ${ (isSelectedNodeForThrough) ?  "bg-second-400" : "bg-first-50"} 
+          ${ selected ? "bg-first-200": ""}
+        `} 
+      >
+        
+        <TargetHandle nodeId={id} />
+        
+        <input 
+          ref={inputEl}
+          placeholder='Entity' 
+          value={data.name} 
+          className="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0" 
+          id="text" 
+          name="text" 
+          tabIndex={3}
+          onChange={event => onNodeInputChange(event, id)} 
+        />
+  
+        <TableName tableId={data.tableId} />
+        
+        <AllHandlers nodeId={id} />
+  
+        <SelectThroughNode nodeId={id}/>
+  
+      </div>
+    );
+  }
+)
 
       

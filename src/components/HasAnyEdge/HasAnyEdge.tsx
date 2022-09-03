@@ -1,5 +1,4 @@
 import { 
-  EdgeProps, 
   getBezierEdgeCenter, 
   getBezierPath, 
   Node, 
@@ -23,9 +22,17 @@ export enum HasAnyEdgeLabel {
   HasOne = "has one",
 }
 
-export type HasAnyEdgeType = Omit<
-  EdgeProps, "sourcePosition" |"targetPosition" | "data"
->
+export interface HasAnyEdgePropsType {
+  id: string;
+  source: string;
+  target: string;
+  sourceX: number;
+  sourceY: number;
+  targetX: number;
+  targetY: number;
+  label: string;
+  selected: boolean;
+}
 
 export const HasAnyEdge = memo(({
   id,
@@ -35,15 +42,14 @@ export const HasAnyEdge = memo(({
   sourceY,
   targetX,
   targetY,
-  style = {},
   label,
   selected,
-}: HasAnyEdgeType) => {
+}: HasAnyEdgePropsType) => {
 
   const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
 
-  const sourceNode = useStore(store => store.nodes.find( node => node.id === source) as Node)
-  const targetNode = useStore(store => store.nodes.find( node => node.id === target) as Node)
+  const sourceNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === source))
+  const targetNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === target))
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId === id )
 
   if (!sourceNode || !targetNode) { return <div></div> }
@@ -82,7 +88,7 @@ export const HasAnyEdge = memo(({
       
       <path
         id={id}
-        style={(selected || mouseOnEdge) ? {stroke: "black", strokeWidth: 3, strokeDasharray: 0} : style}
+        style={(selected || mouseOnEdge) ? {stroke: "black", strokeWidth: 3, strokeDasharray: 0} : {}}
         className="stroke-first-500 fill-[none] stroke-[2] "
         d={edgePath}
         markerEnd={`url(#marker-def-${id})`}

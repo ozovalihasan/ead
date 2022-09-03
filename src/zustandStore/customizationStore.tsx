@@ -4,7 +4,7 @@ import { devtools } from 'zustand/middleware'
 
 interface CustomizationStoreState {
   locationSidebar: "left" | "right";
-  widthSidebar: number | null;
+  widthSidebar: number;
   showTextOnEdges: boolean;
   sidebarVisible: boolean;
   navbarVisible: boolean;
@@ -26,8 +26,8 @@ if(!localStorage.widthSidebar){
 }
 
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
-  locationSidebar: JSON.parse(localStorage.locationSidebar),
-  widthSidebar: JSON.parse(localStorage.widthSidebar),
+  locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),
+  widthSidebar: JSON.parse(localStorage.widthSidebar as string) as number,
   showTextOnEdges: false,
   sidebarVisible: true,
   navbarVisible: true,

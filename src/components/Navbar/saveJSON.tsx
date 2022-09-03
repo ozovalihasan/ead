@@ -2,10 +2,6 @@ const saveJSON = (data: object, filename= 'EAD.json') => {
   
     let dataNew: object | string = data;
     const filenameNew = filename;
-    if (!dataNew) {
-      console.error('No data');
-      return;
-    }
   
     if (typeof dataNew === 'object') {
       dataNew = JSON.stringify(dataNew, undefined, 4);

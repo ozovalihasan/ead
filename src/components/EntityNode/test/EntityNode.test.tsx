@@ -51,7 +51,6 @@ beforeEach(() => {
     <EntityNode 
       id="111"
       data={{name: "mockName", tableId: "mockTableId"}}
-      yPos={10}
       selected
     />
   );

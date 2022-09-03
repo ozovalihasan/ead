@@ -1,10 +1,7 @@
-import { ShowEdgeText, ShowEdgeTextType } from '../ShowEdgeText';
-import { render, screen, act, renderHook, fireEvent } from "@testing-library/react";
-import useCustomizationStore from "@/zustandStore/customizationStore";
+import { ShowEdgeText } from '../ShowEdgeText';
+import { render, screen } from "@testing-library/react";
 import { EdgeTextProps } from 'react-flow-renderer';
 import React from 'react';
-
-
 
 jest.mock('react-flow-renderer',  () => ({
   EdgeText: ({

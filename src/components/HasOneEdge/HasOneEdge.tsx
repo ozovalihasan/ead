@@ -1,8 +1,8 @@
 import {
   HasAnyEdge,
-  HasAnyEdgeType
+  HasAnyEdgePropsType
 } from "@/components"
 
-export const HasOneEdge = (props: HasAnyEdgeType) => (
+export const HasOneEdge = (props: HasAnyEdgePropsType) => (
   <HasAnyEdge {...props} />
 )

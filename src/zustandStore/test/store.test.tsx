@@ -5,6 +5,7 @@ import {  AttributesType } from '@/zustandStore/tables';
 import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';
+import { EntityNodeType } from '@/components';
 
 let edge: Omit<Edge, "id">;
 
@@ -227,13 +228,13 @@ describe('store', () => {
 
     it('has an "onNodeInputChange" attribute to change the name of the given node', () => {
     
-      let nodeOnStore: Node
-      nodeOnStore = (useStore.getState().nodes.find(node => node.id === "4")) as Node
+      let nodeOnStore: EntityNodeType
+      nodeOnStore = useStore.getState().nodes.find(node => node.id === "4")!
       expect(nodeOnStore.data.name).not.toBe("mockNodeDataName");
       
       useStore.getState().onNodeInputChange({target: {value: "mockNodeDataName"}} as React.ChangeEvent<HTMLInputElement>, "4")
       
-      nodeOnStore = (useStore.getState().nodes.find(node => node.id === "4")) as Node
+      nodeOnStore = (useStore.getState().nodes.find(node => node.id === "4"))!
       expect(nodeOnStore.data.name).toBe("mockNodeDataName");
     });
     
@@ -420,6 +421,7 @@ describe('store', () => {
         writable: true,
         value: jest.fn().mockImplementation(() => ({
           readAsText: function() { 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
             mock(); this.onload(
               {target: {result: []}}
             )
@@ -444,6 +446,7 @@ describe('store', () => {
         value: jest.fn().mockImplementation(() => ({
           readAsText: function() { 
             mock(); 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
             this.onload(
               {target: {result: JSON.stringify({idCounter: 1234})}}
             )

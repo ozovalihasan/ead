@@ -1,7 +1,7 @@
-import { Edge } from "react-flow-renderer";
+import { CustomEdgeType } from "@/zustandStore/store";
 
 
-const initialEdges: Edge[] = [
+const initialEdges: CustomEdgeType[] = [
   {
     "id": "7",
     "source": "4",

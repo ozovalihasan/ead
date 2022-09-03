@@ -9,7 +9,6 @@ Object {
         MockMarkerBase
         orient: mockOrient
         edgeId: 1
-        children: [object Object]
         <path
           class="stroke-[40] stroke-first-500"
           d="M 20,20 H 180 M 100,0 V 180"
@@ -23,7 +22,6 @@ Object {
       MockMarkerBase
       orient: mockOrient
       edgeId: 1
-      children: [object Object]
       <path
         class="stroke-[40] stroke-first-500"
         d="M 20,20 H 180 M 100,0 V 180"

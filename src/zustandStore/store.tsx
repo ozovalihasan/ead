@@ -18,7 +18,7 @@ import produce from "immer"
 import initialTables, { TablesType } from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
-import { EntityNodeDataType } from '@/components';
+import { EntityNodeType } from '@/components';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -31,11 +31,26 @@ export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[]
   return (max + 1)
 }
 
+export interface ThroughEdgeDataType {
+  throughNodeId: string
+}
+
+export type HasAnyEdgeType = Omit<Edge, "data"> & {
+  type: "hasMany" | "hasOne"
+};
+
+export type ThroughEdgeType = Omit<Edge, "data"> &{
+  data: ThroughEdgeDataType,
+  type: "through"
+}
+
+export type CustomEdgeType = HasAnyEdgeType | ThroughEdgeType;
+
 export interface State {
   version: string;
   idCounter: number;
-  nodes: Node<EntityNodeDataType>[];
-  edges: Edge[];
+  nodes: EntityNodeType[];
+  edges: CustomEdgeType[];
   tables: TablesType;
   connectionStartNodeId: string | null;
   isConnectContinue: boolean;
@@ -55,7 +70,7 @@ export interface State {
   onTableNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string) => void;
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
   onAttributeTypeChange: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string, attributeId: string) => void;
-  addNode: (node: Node) => void;
+  addNode: (node: EntityNodeType) => void;
   addTable: () => void;
   addAttribute: (tableId: string ) => void;
   removeAttribute: (tableId: string, attributeId: string ) => void;
@@ -165,13 +180,13 @@ const useStore = create(devtools<State>((set, get) => ({
       set(produce((state: State) => {
         delete state.tables[tableId]
         state.nodes = state.nodes.filter((node) => {
-          state.edges = state.edges.filter((edge) => (
+          state.edges = state.edges.filter((edge: CustomEdgeType) => (
 
             node.data.tableId !== tableId || 
             (
               (edge.source !== node.id) && 
               (edge.target !== node.id) && 
-              (edge.data?.throughNodeId !== node.id)
+              (edge.type !== "through" || edge.data.throughNodeId !== node.id)
             )
             
           ))
@@ -187,11 +202,11 @@ const useStore = create(devtools<State>((set, get) => ({
     onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) =>{
       
       set(produce((state: State) => {
-        const node: Node = (state.nodes.find(node => node.id === nodeId)) as Node
+        const node: EntityNodeType = (state.nodes.find(node => node.id === nodeId))!
         node.data.name = event.target.value
       }))
     },
-    addNode: (node: Node) =>{
+    addNode: (node: EntityNodeType) =>{
       set({
           nodes: get().nodes.concat(node),
       })
@@ -203,14 +218,14 @@ const useStore = create(devtools<State>((set, get) => ({
       }
       
       set({
-        nodes: applyNodeChanges(changes, get().nodes),
+        nodes: applyNodeChanges(changes, get().nodes) as EntityNodeType[],
         edges: edges,
       });
     },
     onEdgesChange: (changes: EdgeChange[]) => {
       
       set({
-        edges: applyEdgeChanges(changes, get().edges),
+        edges: applyEdgeChanges(changes, get().edges) as CustomEdgeType[],
       });
     },
     onMouseEnterThrough: (nodeId: string) => {
@@ -220,7 +235,7 @@ const useStore = create(devtools<State>((set, get) => ({
     }, 
     onConnect: (connection: Connection) => {
       const id = get().idCounter
-      let edge: Edge = {       
+      const edgeBase: Omit<CustomEdgeType, "label" | "type"> = {       
         id: id.toString(), 
         source: connection.source!, 
         target: connection.target!, 
@@ -228,18 +243,20 @@ const useStore = create(devtools<State>((set, get) => ({
         targetHandle: connection.targetHandle,
       }
    
+      let edge: CustomEdgeType;
+      
       if (get().associationType === "has_one"){
         
         edge = { 
-          ...edge,
+          ...edgeBase,
           label: 'has one', 
           type: "hasOne",
         }
        } else if (get().associationType === "has_many") {
         edge = { 
-          ...edge,
-          type: "hasMany",
+          ...edgeBase,
           label: 'has many',
+          type: "hasMany",
         }
       } else {
         const selectedNodeIdForThrough = get().selectedNodeIdForThrough
@@ -249,10 +266,10 @@ const useStore = create(devtools<State>((set, get) => ({
         }
         
         edge = { 
-          ...edge,
+          ...edgeBase,
           label: 'through',
           type: "through",
-          data: {throughNodeId: get().selectedNodeIdForThrough },
+          data: {throughNodeId: get().selectedNodeIdForThrough! },
         }
       }
 
@@ -284,9 +301,9 @@ const useStore = create(devtools<State>((set, get) => ({
     uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileReader = new FileReader();
       fileReader.onload = (event) => {
-        let data
+        let data: State;
         if (event.target && (typeof event.target.result === 'string')){
-          data = JSON.parse(event.target.result);
+          data = JSON.parse(event.target.result) as State;
           set(
             data
           )

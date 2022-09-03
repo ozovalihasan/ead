@@ -1,16 +1,22 @@
 import { HasManyEdge } from '../HasManyEdge';
 import { render, screen } from "@testing-library/react";
 import { 
-  HasAnyEdgeType,
+  HasAnyEdgePropsType,
 } from '@/components'
 
 
 jest.mock('@/components',  () => ({
   HasAnyEdge: (
-    (props: HasAnyEdgeType ) => (
+    (
+      {
+        selected,
+        ...rest
+      }: HasAnyEdgePropsType 
+    ) => (
       <>
         MockRemoveEdgeButton
-        { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
+        { Object.keys(rest).map((key) => `${key}: ${rest[key as keyof typeof rest]}`) }
+        {selected ? "selected" : "not selected"}
       </>
     )
   ),
@@ -31,7 +37,6 @@ beforeEach(() => {
         sourceY={444}
         targetX={555}
         targetY={666}
-        style = {{}}
         label={"has many"}
         selected={false}
       />

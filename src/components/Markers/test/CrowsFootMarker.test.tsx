@@ -3,14 +3,14 @@ import { render, screen } from "@testing-library/react";
 import { MarkerBaseType } from '@/components';
 
 jest.mock("@/components", () => ({
-  MarkerBase: (props: MarkerBaseType ) => (
+  MarkerBase: ({children, ...rest}: MarkerBaseType ) => (
     <>
       MockMarkerBase
       { 
-        Object.keys(props)
-          .map((key) => `${key}: ${props[key as keyof typeof props]}`) 
+        Object.keys(rest)
+          .map((key) => `${key}: ${rest[key as keyof typeof rest]}`) 
       }
-      {props.children}
+      {children}
     </>
   ),
 }))

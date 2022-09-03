@@ -1,7 +1,6 @@
 import { useState, useRef, useCallback, memo } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
-  Node,
   ReactFlowInstance,
   Controls
 } from 'react-flow-renderer';
@@ -10,12 +9,11 @@ import useStore from '@/zustandStore/store';
 
 import {
   EntityNode,
-  EntityNodeDataType,
   HasManyEdge,
   HasOneEdge,
   ThroughEdge,
   ConnectionLine,
-
+  EntityNodeType
 } from "@/components"
 
 const nodeTypes = {
@@ -73,11 +71,12 @@ export const MainReactFlow = memo(() => {
       
       const name = useStore.getState().tables[tableId].name;
 
-      const newNode: Node<EntityNodeDataType> = {
+      const newNode: EntityNodeType = {
         id: useStore.getState().idCounter.toString(),
-        type: "entity",
+        type: 'entity',
         position,
         data: { tableId, name },
+        selected: false
       };
       
       useStore.getState().increaseIdCounter()

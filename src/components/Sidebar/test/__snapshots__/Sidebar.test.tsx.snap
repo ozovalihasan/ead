@@ -437,7 +437,7 @@ Object {
   "baseElement": <body>
     <div>
       <aside
-        class="h-full relative py-3 px-2 overflow-y-scroll true"
+        class="h-full relative py-3 px-2 overflow-y-scroll "
         style="width: 204px;"
       >
         <div
@@ -624,7 +624,7 @@ Object {
   </body>,
   "container": <div>
     <aside
-      class="h-full relative py-3 px-2 overflow-y-scroll true"
+      class="h-full relative py-3 px-2 overflow-y-scroll "
       style="width: 204px;"
     >
       <div

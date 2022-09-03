@@ -1,7 +1,6 @@
-import { Node } from "react-flow-renderer";
-import { EntityNodeDataType } from "@/components"
+import { EntityNodeType } from "@/components"
 
-const initialNodes: Node<EntityNodeDataType>[] = [
+const initialNodes: EntityNodeType[] = [
   {
     "id": "4",
     "type": "entity",

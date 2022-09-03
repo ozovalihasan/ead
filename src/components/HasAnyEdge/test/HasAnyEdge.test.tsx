@@ -7,6 +7,7 @@ import {
   ShowEdgeTextType,
   RemoveEdgeButtonType,
   MarkerType,
+  EntityNodeType
 } from '@/components'
 
 
@@ -48,7 +49,7 @@ jest.mock('@/components',  () => ({
 
 let renderReadyComponent: JSX.Element;
 
-const nodes = [
+const nodes: EntityNodeType[] = [
   {
     "id": "1",
     "type": "entity",
@@ -61,27 +62,23 @@ const nodes = [
         "name": "Physician"
     },
     "width": 138,
-    "height": 45
+    "height": 45,
+    "selected": false,
   },
   {
-      "id": "2",
-      "type": "entity",
-      "position": {
-          "x": 585,
-          "y": 255
-      },
-      "data": {
-          "tableId": "2",
-          "name": "Appointment"
-      },
-      "width": 138,
-      "height": 45,
-      "selected": false,
-      "positionAbsolute": {
-          "x": 585,
-          "y": 255
-      },
-      "dragging": false
+    "id": "2",
+    "type": "entity",
+    "position": {
+        "x": 585,
+        "y": 255
+    },
+    "data": {
+        "tableId": "2",
+        "name": "Appointment"
+    },
+    "width": 138,
+    "height": 45,
+    "selected": false,
   },
 ]
 
@@ -105,7 +102,6 @@ beforeEach(() => {
         sourceY={nodes[0].position.y}
         targetX={nodes[1].position.x}
         targetY={nodes[1].position.y}
-        style = {{}}
         label={HasAnyEdgeLabel.HasOne}
         selected={false}
       />
@@ -155,7 +151,6 @@ describe('<HasAnyEdge />', () => {
             sourceY={nodes[0].position.y}
             targetX={nodes[1].position.x}
             targetY={nodes[1].position.y}
-            style = {{}}
             label={HasAnyEdgeLabel.HasOne}
             selected={false}
           />
@@ -189,7 +184,6 @@ describe('<HasAnyEdge />', () => {
             sourceY={nodes[0].position.y}
             targetX={nodes[1].position.x}
             targetY={nodes[1].position.y}
-            style = {{}}
             label={HasAnyEdgeLabel.HasMany}
             selected={false}
           />
@@ -223,7 +217,6 @@ describe('<HasAnyEdge />', () => {
             sourceY={nodes[0].position.y}
             targetX={nodes[1].position.x}
             targetY={nodes[1].position.y}
-            style = {{}}
             label={HasAnyEdgeLabel.HasOne}
             selected={true}
           />

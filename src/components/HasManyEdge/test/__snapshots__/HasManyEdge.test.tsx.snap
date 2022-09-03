@@ -14,9 +14,8 @@ Object {
         sourceY: 444
         targetX: 555
         targetY: 666
-        style: [object Object]
         label: has many
-        selected: false
+        not selected
       </svg>
     </div>
   </body>,
@@ -30,9 +29,8 @@ Object {
       sourceY: 444
       targetX: 555
       targetY: 666
-      style: [object Object]
       label: has many
-      selected: false
+      not selected
     </svg>
   </div>,
   "debug": [Function],

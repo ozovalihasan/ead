@@ -34,7 +34,7 @@ export const EntityNode = memo(
     return (
       <div 
         className={`
-          border-black border border-solid p-1 rounded-sm 
+          border border-solid p-1 rounded-sm
           ${ (isSelectedNodeForThrough) ?  "bg-second-400" : "bg-first-50"} 
           ${ selected ? "bg-first-200": ""}
         `} 

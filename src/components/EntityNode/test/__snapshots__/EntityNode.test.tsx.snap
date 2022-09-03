@@ -7,7 +7,7 @@ Object {
     <div>
       <div
         class="
-          border-black border border-solid p-1 rounded-sm 
+          border border-solid p-1 rounded-sm
           bg-first-50 
           bg-first-200
         "
@@ -34,7 +34,7 @@ Object {
   "container": <div>
     <div
       class="
-          border-black border border-solid p-1 rounded-sm 
+          border border-solid p-1 rounded-sm
           bg-first-50 
           bg-first-200
         "

@@ -10,7 +10,7 @@
     "test:one": "jest --silent=false --maxWorkers=1",
     "build": "vite build",
     "preview": "vite preview",
-    "eslint": "eslint . --fix"
+    "eslint:fix": "eslint . --fix"
   },
   "dependencies": {
     "immer": "^9.0.15",

@@ -1,24 +1,24 @@
-Entity Association Diagram
-==========================
+# Entity Association Diagram
 
-This document explains how to use EAD(Entity Association Diagram )
+
+This document explains how to use EAD(Entity Association Diagram).
 
 After reading this document, you will know:
 
 * How to generate basic associations for Ruby on Rails
 
---------------------------------------------------------------------------------
+---
 
-The Types of Associations
--------------------------
+## The Types of Associations
 
-EAD supports seven types of associations:
+
+EAD supports five types of associations:
 
 * [`belongs_to`](#The-belongs_to-Association)
 * [`has_one`](#The-has_one-Association)
 * [`has_many`](#The-has_many-Association)
-* [`has_many :through`](#The-has_many-:through-Association)
-* [`has_one :through`](#The-has_one-:through-Association)
+* [`has_many :through`](#the-has_many-through-association)
+* [`has_one :through`](#the-has_one-through-association)
 
 In the remainder of this documentation, you'll learn how to declare and use the various forms of associations. But first, a quick introduction to the situations where each association type is appropriate.
 
@@ -60,16 +60,22 @@ class CreateSuppliers < ActiveRecord::Migration[6.1]
   end
 end
 
-class CreateAccounts < ActiveRecord::Migration[6.1]
+class CreateAccounts < ActiveRecord::Migration[7.0]
   def change
     create_table :accounts do |t|
       t.string :account_number
-      t.references :supplier, null: false, foreign_key: true
 
       t.timestamps
     end
   end
 end
+
+class AddSupplierRefToAccount < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :accounts, :supplier, null: false, foreign_key: true
+  end
+end
+
 ```
 
 ### The `has_many` Association
@@ -94,7 +100,7 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreateAuthors < ActiveRecord::Migration[6.1]
+class CreateAuthors < ActiveRecord::Migration[7.0]
   def change
     create_table :authors do |t|
       t.string :name
@@ -104,14 +110,19 @@ class CreateAuthors < ActiveRecord::Migration[6.1]
   end
 end
 
-class CreateBooks < ActiveRecord::Migration[6.1]
+class CreateBooks < ActiveRecord::Migration[7.0]
   def change
     create_table :books do |t|
       t.datetime :published_at
-      t.references :author, null: false, foreign_key: true
 
       t.timestamps
     end
+  end
+end
+
+class AddAuthorRefToBook < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :books, :author, null: false, foreign_key: true
   end
 end
 
@@ -148,7 +159,7 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreatePhysicians < ActiveRecord::Migration[6.1]
+class CreatePhysicians < ActiveRecord::Migration[7.0]
   def change
     create_table :physicians do |t|
       t.string :name
@@ -158,7 +169,7 @@ class CreatePhysicians < ActiveRecord::Migration[6.1]
   end
 end
 
-class CreatePatients < ActiveRecord::Migration[6.1]
+class CreatePatients < ActiveRecord::Migration[7.0]
   def change
     create_table :patients do |t|
       t.string :name
@@ -168,21 +179,30 @@ class CreatePatients < ActiveRecord::Migration[6.1]
   end
 end
 
-class CreateAppointments < ActiveRecord::Migration[6.1]
+class CreateAppointments < ActiveRecord::Migration[7.0]
   def change
     create_table :appointments do |t|
       t.datetime :appointment_date
-      t.references :physician, null: false, foreign_key: true
-      t.references :patient, null: false, foreign_key: true
 
       t.timestamps
     end
   end
 end
 
+class AddPhysicianRefToAppointment < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :appointments, :physician, null: false, foreign_key: true
+  end
+end
+
+class AddPatientRefToAppointment < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :appointments, :patient, null: false, foreign_key: true
+  end
+end
+
 ```
 
-WARNING: The official Ruby on Rails documentation is suggesting one more feature of `has_many :through` as "shortcut" for nested `has_many` associations. But, this feature should be added manually for nest `has_many` associations.
 
 ### The `has_one :through` Association
 
@@ -210,7 +230,7 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreateSuppliers < ActiveRecord::Migration[6.1]
+class CreateSuppliers < ActiveRecord::Migration[7.0]
   def change
     create_table :suppliers do |t|
       t.string :name
@@ -220,28 +240,41 @@ class CreateSuppliers < ActiveRecord::Migration[6.1]
   end
 end
 
-class CreateAccounts < ActiveRecord::Migration[6.1]
+class CreateAccounts < ActiveRecord::Migration[7.0]
   def change
     create_table :accounts do |t|
       t.string :account_number
-      t.references :supplier, null: false, foreign_key: true
 
       t.timestamps
     end
   end
 end
 
-class CreateAccountHistories < ActiveRecord::Migration[6.1]
+class CreateAccountHistories < ActiveRecord::Migration[7.0]
   def change
     create_table :account_histories do |t|
       t.integer :credit_rating
-      t.references :account, null: false, foreign_key: true
 
       t.timestamps
     end
   end
 end
+
+class AddAccountRefToAccountHistory < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :account_histories, :account, null: false, foreign_key: true
+  end
+end
+
+class AddSupplierRefToAccount < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :accounts, :supplier, null: false, foreign_key: true
+  end
+end
+
 ```
+
+⚠️: It is not necessary to define "has_many :through" and "has_one :through" explicitly. The correct one will be added by EAD gem automatically when EAD gem is run. 
 
 ### The `has_and_belongs_to_many` Association
 
@@ -274,28 +307,30 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreatePictures < ActiveRecord::Migration[6.1]
+class CreatePictures < ActiveRecord::Migration[7.0]
   def change
     create_table :pictures do |t|
-      t.references :imageable, polymorphic: true, null: false  
+      t.references :imageable, polymorphic: true, null: false
 
       t.timestamps
     end
   end
 end
 
-class CreateEmployees < ActiveRecord::Migration[6.1]
+class CreateEmployees < ActiveRecord::Migration[7.0]
   def change
     create_table :employees do |t|
+      t.string :name
 
       t.timestamps
     end
   end
 end
 
-class CreateProducts < ActiveRecord::Migration[6.1]
+class CreateProducts < ActiveRecord::Migration[7.0]
   def change
     create_table :products do |t|
+      t.string :name
 
       t.timestamps
     end
@@ -308,7 +343,7 @@ end
 
 ```ruby
 class Employee < ApplicationRecord
-  belongs_to :subordinate , optional: true, class_name: "Employee"
+  belongs_to :subordinate, optional: true, class_name: "Employee"
   has_many :managers, class_name: "Employee", foreign_key: "subordinate_id"
 end
 ```
@@ -319,13 +354,18 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreateEmployees < ActiveRecord::Migration[6.1]
+class CreateEmployees < ActiveRecord::Migration[7.0]
   def change
     create_table :employees do |t|
-      t.references :subordinate, null: true, foreign_key: { to_table: :employees }
 
       t.timestamps
     end
+  end
+end
+
+class AddManagerRefToEmployee < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :employees, :manager, null: true, foreign_key: { to_table: :employees }
   end
 end
 
@@ -333,125 +373,144 @@ end
 
 ## Extra Features
 
-EAD has 'attribute' block to add an attribute to any entity.
+EAD has 'table's and 'attribute's to define tables and their attributes in a Rails project.
 
-EAD has 'entity container' block to put all entities in an organized block. Entities and their attributes can be defined in this container.
+!['table's and 'attribute's](./images/table_attribute.png)
 
-EAD has 'entities & associations' block to define any association. In this block, only [clone entities](#Clone-Entities) and associations can be used.
-## Clone Entities
+EAD has 'entity's and 'association's to define [any association](#The-Types-of-Associations) between entities.
+## How does EAD gem work?
 
-Clone entities can be added by selecting any 'entities & associations' or association block inside of 'entities & associations' block and clicking ![clone](./images/clone.png).
-
-![no selection EAD](./images/no-selection.png)
-![prepare clone EAD](./images/prepare-clone.png)
-![after clone EAD](./images/after-clone.png)
-![deselect block EAD](./images/deselect.png)
-![same names of real and clone entities EAD](./images/clone-and-real.png)
-
-Entity clones are used to define associations between two entity.
-![has_many EAD](./images/has-many-ead.png)
-
-The color of entity(called 'real entity') is ![blue-1](./images/blue-1.png). 
-
-The color of clone entity is ![orange](./images/orange.png). 
-
-
-- Model and migration files are generated for same real and clone names;
+- Model and migration files are generated for same table and entity names;
 
   ![has_many EAD](./images/has-many-ead.png)
 
 
 ```ruby
-  class Author < ApplicationRecord
-    has_many :books
-  end
+class Author < ApplicationRecord
+  has_many :books
+end
 
 
-  class Book < ApplicationRecord
-    belongs_to :author 
-  end
+class Book < ApplicationRecord
+  belongs_to :author 
+end
 
 
-  class CreateAuthors < ActiveRecord::Migration[6.1]
-    def change
-      create_table :authors do |t|
-        t.string :name
+class CreateAuthors < ActiveRecord::Migration[6.1]
+  def change
+    create_table :authors do |t|
+      t.string :name
 
-        t.timestamps
-      end
+      t.timestamps
     end
   end
+end
 
+class CreateBooks < ActiveRecord::Migration[7.0]
+  def change
+    create_table :books do |t|
+      t.datetime :published_at
 
-  class CreateBooks < ActiveRecord::Migration[6.1]
-    def change
-      create_table :books do |t|
-        t.datetime :published_at
-        t.references :author, null: false, foreign_key: true 
-
-        t.timestamps
-      end
+      t.timestamps
     end
   end
+end
+
+class AddAuthorRefToBook < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :books, :author, null: false, foreign_key: true
+  end
+end
 ```
 
-- Model and migration files are generated for different real and clone entity names;
+- Model and migration files are generated for different table and entity names;
 
-![different names of real and clone entities in an association EAD](./images/different-name-clone-real.png)
+![different names of an entity and its table in an association EAD](./images/different-name-clone-real.png)
 
 ```ruby
-  class Author < ApplicationRecord
-    has_many :novels, class_name: "Book", foreign_key: "publisher_id"
-  end
+class Author < ApplicationRecord
+  has_many :novels, class_name: "Book", foreign_key: "publisher_id"
+end
 
-  class Book < ApplicationRecord
-    belongs_to :publisher , class_name: "Author"
-  end
+class Book < ApplicationRecord
+  belongs_to :publisher, class_name: "Author"
+end
 
-  class CreateAuthors < ActiveRecord::Migration[6.1]
-    def change
-      create_table :authors do |t|
-        t.string :name
 
-        t.timestamps
-      end
+class CreateAuthors < ActiveRecord::Migration[7.0]
+  def change
+    create_table :authors do |t|
+      t.string :name
+
+      t.timestamps
     end
   end
+end
 
-  class CreateBooks < ActiveRecord::Migration[6.1]
-    def change
-      create_table :books do |t|
-        t.datetime :published_at
-        t.references :publisher, null: false, foreign_key: { to_table: :authors }
+class CreateBooks < ActiveRecord::Migration[7.0]
+  def change
+    create_table :books do |t|
+      t.date :published_at
 
-        t.timestamps
-      end
+      t.timestamps
     end
   end
+end
 
+class AddPublisherRefToBook < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :books, :publisher, null: false, foreign_key: { to_table: :authors }
+  end
+end
 ```
 
-## How to Add associations
+# Questions
 
-- 'has_many' association can be added by using ![has_many](./images/has_many.png) or has_many block.
-- 'has_one' association can be added by using ![has_one](./images/has_one.png) or has_one block.
-- ':through' association can be added by using ![through](./images/through.png) or :through block.
+Please check [the examples](../README.md#examples) if you need more clarification.
+## How to add and delete tables and their attributes?
+
+The related buttons should be clicked.
+
+![add delete table association  EAD](./images/add-delete-table-attribute.png)
+
+⚠️: If a table is deleted, the all entities referring to this table will be deleted automatically.
+## How to add associations?
+
+- All necessary buttons will be shown when the mouse hover on an entity.
+
+- 'has_one' association can be added by dragging ![has_one](./images/has_one.png) handler and dropping on one of the gray areas.
+- 'has_many' association can be added by dragging ![has_many](./images/has_many.png) handler.
+- ':through' association can be added by dragging ![through](./images/through.png) handler.
 
 ![association buttons EAD](./images/association-buttons.png)
-![association blocks EAD](./images/association-blocks.png)
 
-## Delete Blocks
+![drop area EAD](./images/drop-area-ead.png)
 
-A dragged block is deleted if it is not paired with another block. They are shown with ![removed block](./images/red.png). 
-Also, any block can be deleted by using ![delete](./images/delete.png).
-## Warnings
+## How to delete associations?
 
-⚠️ The name of entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
+Firstly, one association should be selected and then 'Delete' key should be pressed or a button, shown when the association is selected, should be clicked.
 
-⚠️ EAD allows using only one clone entity inside of any association block.
+![selected association EAD](./images/select-association.png)
 
-## Edge Cases
+## How to delete entities?
 
-- The name of entities cannot contain space. But, there is only one exception. If, "has_many :through" association is used between clones of the same entities, the middle entity should be 'one_entity || second_entity'. 
+Firstly, one entity should be selected and then 'Delete' key should be pressed.
+
+![selected node EAD](./images/select-node.png)
+
+⚠️: If an entity is deleted, the all associations connected to this entity will be deleted automatically.
+
+
+# Warnings
+
+⚠️ The names of tables, entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
+
+# Edge Cases
+
+- If there is a through association bidirectionally between two entities referring to the same table, entities used to define 'through' association should be separate. 
 
 ![same entities has many trough EAD](./images/same-entities-has-many-trough.png)
+
+- If not, [only one entity to define 'through' association](#The-has_many-:through-Association) is enough.
+
+![has_many :through EAD](./images/has-many-through-ead.png)

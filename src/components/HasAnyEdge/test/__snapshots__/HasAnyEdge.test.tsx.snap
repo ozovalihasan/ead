@@ -1,0 +1,601 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HasAnyEdge /> if it is selected renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockLineMarker
+        orient: 0deg
+        edgeId: 111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-111)"
+          style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+        <foreignobject
+          class="h-10 w-10"
+          x="515"
+          y="207.5"
+        >
+          MockRemoveEdgeButton
+          edgeId: 111
+        </foreignobject>
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockLineMarker
+      orient: 0deg
+      edgeId: 111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-111)"
+        style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+      <foreignobject
+        class="h-10 w-10"
+        x="515"
+        y="207.5"
+      >
+        MockRemoveEdgeButton
+        edgeId: 111
+      </foreignobject>
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> if the association is 'has many' renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockCrowsFootMarker
+        orient: 0deg
+        edgeId: 111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-111)"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockCrowsFootMarker
+      orient: 0deg
+      edgeId: 111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-111)"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> if the association is 'has one' renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockLineMarker
+        orient: 0deg
+        edgeId: 111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-111)"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockLineMarker
+      orient: 0deg
+      edgeId: 111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-111)"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> if the mouse hovers on the edge renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockLineMarker
+        orient: 0deg
+        edgeId: 111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-111)"
+          style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockLineMarker
+      orient: 0deg
+      edgeId: 111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-111)"
+        style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockLineMarker
+        orient: 0deg
+        edgeId: 111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-111)"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockLineMarker
+      orient: 0deg
+      edgeId: 111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-111)"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> shows an text if it is requested renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockLineMarker
+        orient: 0deg
+        edgeId: 111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-111)"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+        MockShowEdgeText
+        centerX: 525
+        centerY: 202.5
+        label: 
+        has one
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockLineMarker
+      orient: 0deg
+      edgeId: 111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-111)"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+      MockShowEdgeText
+      centerX: 525
+      centerY: 202.5
+      label: 
+      has one
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

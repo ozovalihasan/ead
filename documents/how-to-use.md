@@ -1,7 +1,7 @@
 # Entity Association Diagram
-==========================
 
-This document explains how to use EAD(Entity Association Diagram )
+
+This document explains how to use EAD(Entity Association Diagram).
 
 After reading this document, you will know:
 
@@ -463,30 +463,36 @@ class AddPublisherRefToBook < ActiveRecord::Migration[7.0]
   end
 end
 ```
-## How to add and delete tables and their attributes
+
+# Questions
+
+Please check [the examples](../README.md#examples) if you need more clarification.
+## How to add and delete tables and their attributes?
 
 The related buttons should be clicked.
 
 ![add delete table association  EAD](./images/add-delete-table-attribute.png)
 
 ⚠️: If a table is deleted, the all entities referring to this table will be deleted automatically.
-## How to add associations
+## How to add associations?
 
 - All necessary buttons will be shown when the mouse hover on an entity.
 
-- 'has_one' association can be added by dragging ![has_one](./images/has_one.png) handler.
+- 'has_one' association can be added by dragging ![has_one](./images/has_one.png) handler and dropping on one of the gray areas.
 - 'has_many' association can be added by dragging ![has_many](./images/has_many.png) handler.
 - ':through' association can be added by dragging ![through](./images/through.png) handler.
 
 ![association buttons EAD](./images/association-buttons.png)
 
-## How to delete associations
+![drop area EAD](./images/drop-area-ead.png)
+
+## How to delete associations?
 
 Firstly, one association should be selected and then 'Delete' key should be pressed or a button, shown when the association is selected, should be clicked.
 
 ![selected association EAD](./images/select-association.png)
 
-## How to delete entity
+## How to delete entities?
 
 Firstly, one entity should be selected and then 'Delete' key should be pressed.
 
@@ -495,11 +501,11 @@ Firstly, one entity should be selected and then 'Delete' key should be pressed.
 ⚠️: If an entity is deleted, the all associations connected to this entity will be deleted automatically.
 
 
-## Warnings
+# Warnings
 
 ⚠️ The names of tables, entities and attributes can be in any form like 'account_history', 'Account_history', 'Account_histories', 'account_histories', 'AccountHistory', and 'AccountHistories', but space between words is not allowed.
 
-## Edge Cases
+# Edge Cases
 
 - If there is a through association bidirectionally between two entities referring to the same table, entities used to define 'through' association should be separate. 
 

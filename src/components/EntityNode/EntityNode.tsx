@@ -53,7 +53,7 @@ export const EntityNode = memo(
           onChange={event => onNodeInputChange(event, id)} 
         />
   
-        <TableName tableId={data.tableId} />
+        <TableName nodeId={id} tableId={data.tableId} />
         
         <AllHandlers nodeId={id} />
   

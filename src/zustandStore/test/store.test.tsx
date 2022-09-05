@@ -226,6 +226,18 @@ describe('store', () => {
       })
     })
 
+    it('has an "onNodeTableChange" attribute to change the table of the given node', () => {
+    
+      let nodeOnStore: EntityNodeType
+      nodeOnStore = useStore.getState().nodes.find(node => node.id === "4")!
+      expect(nodeOnStore.data.tableId).not.toBe("2");
+      
+      useStore.getState().onNodeTableChange({target: {value: "2"}} as React.ChangeEvent<HTMLSelectElement>, "4")
+      
+      nodeOnStore = (useStore.getState().nodes.find(node => node.id === "4"))!
+      expect(nodeOnStore.data.tableId).toBe("2");
+    });
+
     it('has an "onNodeInputChange" attribute to change the name of the given node', () => {
     
       let nodeOnStore: EntityNodeType

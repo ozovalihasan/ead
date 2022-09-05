@@ -13,9 +13,10 @@ jest.mock('@/components',  () => ({
     )
   ),
   TableName: (
-    ({ tableId }: {tableId: string} ) => (
+    ({ nodeId, tableId }: {nodeId: string, tableId: string} ) => (
       <>
         MockTableName
+        nodeId: {nodeId}
         tableId: {tableId}
       </>
     )

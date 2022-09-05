@@ -22,7 +22,9 @@ Object {
           tabindex="3"
           value="mockName"
         />
-        MockTableName tableId: 
+        MockTableName nodeId: 
+        111
+        tableId: 
         mockTableId
         MockAllHandlers nodeId: 
         111
@@ -49,7 +51,9 @@ Object {
         tabindex="3"
         value="mockName"
       />
-      MockTableName tableId: 
+      MockTableName nodeId: 
+      111
+      tableId: 
       mockTableId
       MockAllHandlers nodeId: 
       111

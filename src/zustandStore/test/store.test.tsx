@@ -9,6 +9,20 @@ import { EntityNodeType } from '@/components';
 
 let edge: Omit<Edge, "id">;
 
+const fileReader = (uploadedFile: unknown) => (
+  Object.defineProperty(global, 'FileReader', {
+    writable: true,
+    value: jest.fn().mockImplementation(() => ({
+      readAsText: function() { 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+        this.onload(
+          uploadedFile
+        )
+      },
+    })),
+  })
+)
+
 describe('store', () => {
   it('has a "version" attribute and its value should be "0.4.0" as default', () => {
       expect(useStore.getState().version).toBe("0.4.0");
@@ -427,23 +441,9 @@ describe('store', () => {
 
       global.alert = jest.fn();
 
-      const mock = jest.fn()
-    
-      Object.defineProperty(global, 'FileReader', {
-        writable: true,
-        value: jest.fn().mockImplementation(() => ({
-          readAsText: function() { 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-            mock(); this.onload(
-              {target: {result: []}}
-            )
-          },
-        })),
-      })
-    
+      fileReader({target: {result: []}})
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
-      expect(mock).toHaveBeenCalledTimes(1);
       expect(global.alert).toHaveBeenCalledTimes(1);
       expect(global.alert).toHaveBeenCalledWith("An invalid file is installed. Please check your file.");
 
@@ -451,45 +451,22 @@ describe('store', () => {
 
     it('installs the file successfully', () => {
 
-      const mock = jest.fn()
-    
-      Object.defineProperty(global, 'FileReader', {
-        writable: true,
-        value: jest.fn().mockImplementation(() => ({
-          readAsText: function() { 
-            mock(); 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-            this.onload(
-              {target: {result: JSON.stringify({version: "0.4.1", idCounter: 1234})}}
-            )
-          },
-        })),
-      })
-    
+      fileReader({target: {result: JSON.stringify({version: "0.4.1", idCounter: 1234})}})
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
-      expect(mock).toHaveBeenCalledTimes(1);
       expect(useStore.getState().idCounter).toBe(1234);
+
+      fileReader({target: {result: JSON.stringify({version: "0.4.0", idCounter: 5678})}})
+      useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
+    
+      expect(useStore.getState().idCounter).toBe(5678);
     });
 
     it('warns about the file version if it is not compatible with the version used', () => {
       global.alert = jest.fn();
 
-      const mock = jest.fn()
-    
-      Object.defineProperty(global, 'FileReader', {
-        writable: true,
-        value: jest.fn().mockImplementation(() => ({
-          readAsText: function() { 
-            mock(); 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-            this.onload(
-              {target: {result: JSON.stringify({version: "0.3.1"})}}
-            )
-          },
-        })),
-      })
-    
+      fileReader({target: {result: JSON.stringify({version: "0.3.1"})}})
+
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(global.alert).toHaveBeenCalledTimes(1);

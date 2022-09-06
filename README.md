@@ -72,7 +72,8 @@ Then, there are two choices to use the generated JSON file;
 - If all files are generated as expected, run `bundle exec rails db:migrate`.
 ### Features
 
-- All association buttons are shown when the cursor is hovering on ![an entity](./documents/images/association-buttons.png).
+- All association buttons are shown when the cursor is hovering on an entity. 
+![an entity](./documents/images/association-buttons.png)
 - Any table, association, attribute can be deleted as shown in [the document](./documents/how-to-use.md#How-to-add-and-delete-tables-and-their-attributes).
 - 'has_many' association can be added by using ![has_many](./documents/images/has_many.png).
 - 'has_one' association can be added by using ![has_one](./documents/images/has_one.png).

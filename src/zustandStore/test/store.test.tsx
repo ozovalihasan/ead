@@ -24,8 +24,8 @@ const fileReader = (uploadedFile: unknown) => (
 )
 
 describe('store', () => {
-  it('has a "version" attribute and its value should be "0.4.0" as default', () => {
-      expect(useStore.getState().version).toBe("0.4.0");
+  it('has a "version" attribute and its value should be "0.4.1" as default', () => {
+      expect(useStore.getState().version).toBe("0.4.1");
   });
 
   it('has a "idCounter" attribute and its value should exist as default', () => {

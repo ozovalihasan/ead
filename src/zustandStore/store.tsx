@@ -87,7 +87,7 @@ export interface State {
 }
 
 const useStore = create(devtools<State>((set, get) => ({
-    version: "0.4.0",  
+    version: "0.4.1",  
     idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
     associationType: "has_one",
     nodes: initialNodes,

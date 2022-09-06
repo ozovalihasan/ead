@@ -460,7 +460,7 @@ describe('store', () => {
             mock(); 
             // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
             this.onload(
-              {target: {result: JSON.stringify({idCounter: 1234})}}
+              {target: {result: JSON.stringify({version: "0.4.1", idCounter: 1234})}}
             )
           },
         })),
@@ -470,6 +470,30 @@ describe('store', () => {
     
       expect(mock).toHaveBeenCalledTimes(1);
       expect(useStore.getState().idCounter).toBe(1234);
+    });
+
+    it('warns about the file version if it is not compatible with the version used', () => {
+      global.alert = jest.fn();
+
+      const mock = jest.fn()
+    
+      Object.defineProperty(global, 'FileReader', {
+        writable: true,
+        value: jest.fn().mockImplementation(() => ({
+          readAsText: function() { 
+            mock(); 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+            this.onload(
+              {target: {result: JSON.stringify({version: "0.3.1"})}}
+            )
+          },
+        })),
+      })
+    
+      useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
+    
+      expect(global.alert).toHaveBeenCalledTimes(1);
+      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.1).");
     });
   });
   

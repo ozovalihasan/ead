@@ -474,6 +474,19 @@ The related buttons should be clicked.
 ![add delete table association  EAD](./images/add-delete-table-attribute.png)
 
 ⚠️: If a table is deleted, the all entities referring to this table will be deleted automatically.
+
+## How to add an entity?
+
+An entity can be added by dragging and dropping a table.
+
+![add an entity EAD](./images/add-an-entity-ead.gif)
+
+## How to change the related table of an entity?
+
+When the table name of an entity is clicked by the middle mouse button, a dropdown list will be opened. The related table can be changed by selecting any of the table names.
+
+![change table name of entity EAD](./images/change-table-name-of-entity-ead.gif)
+
 ## How to add associations?
 
 - All necessary buttons will be shown when the mouse hover on an entity.
@@ -496,7 +509,7 @@ Firstly, one association should be selected and then 'Delete' key should be pres
 
 Firstly, one entity should be selected and then 'Delete' key should be pressed.
 
-![selected node EAD](./images/select-node.png)
+![select entity EAD](./images/select-entity.png)
 
 ⚠️: If an entity is deleted, the all associations connected to this entity will be deleted automatically.
 

@@ -87,7 +87,7 @@ export interface State {
 }
 
 const useStore = create(devtools<State>((set, get) => ({
-    version: "0.4.2",  
+    version: "0.4.4",  
     idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
     associationType: "has_one",
     nodes: initialNodes,
@@ -315,14 +315,14 @@ const useStore = create(devtools<State>((set, get) => ({
         if (event.target && (typeof event.target.result === 'string')){
           data = JSON.parse(event.target.result) as State;
           
-          if (["0.4.0", "0.4.1", "0.4.2"].includes(data.version)) {
-            data.version = "0.4.2";
+          if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4"].includes(data.version)) {
+            data.version = "0.4.4";
             
             set(
               data
             )  
           } else {
-            alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.2).`);  
+            alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.4).`);  
           }
           
         }else{

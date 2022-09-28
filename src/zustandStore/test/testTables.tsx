@@ -1,23 +1,15 @@
-export type AttributesType = Record<string, {
-    name: string;
-    type: string;
-  }>;
-
-export type TablesType = Record<string, {
-    name: string;
-    attributes: AttributesType
-    
-  }>;
+import { TablesType } from "../tables"
 
 const initialTables: TablesType =  {
   "1": {
-      "name": "Physician",
-      "attributes": {
-          "13": {
-              "name": "name",
-              "type": "string"
-          }
-      }
+    "name": "Physician",
+    "attributes": {
+        "13": {
+            "name": "name",
+            "type": "string"
+        }
+    },
+    "superclassId": ""
   },
   "2": {
       "name": "Appointment",
@@ -26,7 +18,8 @@ const initialTables: TablesType =  {
               "name": "appointment_date",
               "type": "datetime"
           }
-      }
+      },
+      "superclassId": ""
   },
   "3": {
       "name": "Patient",
@@ -35,7 +28,8 @@ const initialTables: TablesType =  {
               "name": "name",
               "type": "string"
           }
-      }
+      },
+      "superclassId": ""
   }
 }
     

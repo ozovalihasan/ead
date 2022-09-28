@@ -31,7 +31,7 @@ export const Navbar = () => {
               <EADLogo />
             </a>
             <div className='text-first-500 text-end text-xs '>
-              0.4.4
+              0.4.5
             </div>
           </div>
           <button

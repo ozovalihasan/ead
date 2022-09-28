@@ -5,9 +5,9 @@ export type AttributesType = Record<string, {
 
 export type TablesType = Record<string, {
     name: string;
-    attributes: AttributesType
-    
-  }>;
+    attributes: AttributesType;
+    superclassId: string;
+}>;
 
 const initialTables: TablesType =  {
   "1": {
@@ -17,7 +17,8 @@ const initialTables: TablesType =  {
               "name": "name",
               "type": "string"
           }
-      }
+      },
+      "superclassId": ""
   },
   "2": {
       "name": "Appointment",
@@ -26,7 +27,8 @@ const initialTables: TablesType =  {
               "name": "appointment_date",
               "type": "datetime"
           }
-      }
+      },
+      "superclassId": ""
   },
   "3": {
       "name": "Patient",
@@ -35,7 +37,8 @@ const initialTables: TablesType =  {
               "name": "name",
               "type": "string"
           }
-      }
+      },
+      "superclassId": ""
   }
 }
     

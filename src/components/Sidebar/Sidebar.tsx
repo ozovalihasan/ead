@@ -12,6 +12,7 @@ export const Sidebar = () => {
   const removeAttribute = useStore(store => store.removeAttribute)
   const removeTable = useStore(store => store.removeTable)
   const onAttributeNameChange = useStore(store => store.onAttributeNameChange)
+  const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
 
   const widthSidebar = useCustomizationStore(store => store.widthSidebar)
   const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
@@ -35,7 +36,29 @@ export const Sidebar = () => {
         Object.keys(tables).map((tableId: string) => {
           return (
             <div className="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md" key={tableId} onDragStart={(event) => onDragStart(event, 'default', tableId)} draggable>
-              <input className="p-2 rounded-md w-full" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} tabIndex={4}/>
+              <div className='flex'>
+                <input className="p-2 rounded-md w-full" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} tabIndex={4}/>
+                <select
+                  className="w-full appearance-none rounded-tr-md cursor-pointer"
+                  value={tables[tableId].superclassId}
+                  onChange={(event) => changeTableSuperclass(event, tableId)}
+                  tabIndex={5}
+                >
+                  <option />
+
+                  {Object.keys(tables).map((superTableId: string) => (
+                    <option
+                      key={superTableId}
+                      value={superTableId}
+                      disabled={superTableId == tableId}
+                    >
+                      {"< " + tables[superTableId].name}
+                    </option>
+                  ))}
+
+                </select>
+                
+              </div>
               {
                 Object.keys(tables[tableId].attributes).map((attributeId) => {
                   return (

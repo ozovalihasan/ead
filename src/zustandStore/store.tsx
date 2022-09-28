@@ -19,6 +19,7 @@ import initialTables, { TablesType } from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
+import transform_0_4_x_to_0_4_5 from './test/helpers/transform_0_4_x_to_0_4_5';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -328,11 +329,11 @@ const useStore = create(devtools<State>((set, get) => ({
           data = JSON.parse(event.target.result) as State;
           
           if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4", "0.4.5"].includes(data.version)) {
-            data.version = "0.4.5";
             
             set(
-              data
-            )  
+              transform_0_4_x_to_0_4_5(data)
+            ) 
+          
           } else {
             alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.5).`);  
           }

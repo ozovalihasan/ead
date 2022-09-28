@@ -1,13 +1,15 @@
 export type AttributesType = Record<string, {
     name: string;
     type: string;
-  }>;
-
-export type TablesType = Record<string, {
-    name: string;
-    attributes: AttributesType;
-    superclassId: string;
 }>;
+
+export type TablesType = Record<string, TableValueType>;
+
+export interface TableValueType {
+  name: string;
+  attributes: AttributesType;
+  superclassId: string;
+}
 
 const initialTables: TablesType =  {
   "1": {

@@ -47,7 +47,8 @@ beforeEach(() => {
             "name": "mockSecondAttribute",
             "type": "string"
           }
-        }
+        }, 
+        "superclassId": ""
       },
       "2": {
         "name": "MockSecondTable",
@@ -60,7 +61,8 @@ beforeEach(() => {
             "name": "mockFourthAttribute",
             "type": "string"
           }
-        }
+        },
+        "superclassId": ""
       },
     },
     resetStore: jest.fn(),
@@ -69,6 +71,7 @@ beforeEach(() => {
     removeAttribute: jest.fn(),
     removeTable: jest.fn(),
     addTable: jest.fn(),
+    changeTableSuperClass: jest.fn(),
     onAttributeNameChange: jest.fn(),
   })
     
@@ -140,6 +143,18 @@ describe('<Sidebar />', () => {
       expect(screen.getAllByText(/AttributeTypeOptions/i).length).toBe(4);
     });
 
+    it('renders a dropdown to select a superclass for each table', () => {
+
+      render(renderReadyComponent );
+      const { result } = renderHook(() => useStore());
+
+      const selectElement = screen.getAllByTitle(/Select a superclass to inherit/i)[0]
+      
+      fireEvent.change(selectElement, {target: {value: '1'}})
+
+      expect(result.current.changeTableSuperClass).toHaveBeenCalledTimes(1);
+    });
+    
     it('renders an input element for each attribute', () => {
 
       render(renderReadyComponent );

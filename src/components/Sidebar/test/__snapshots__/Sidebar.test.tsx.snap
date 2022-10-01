@@ -13,13 +13,35 @@ Object {
           class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
           draggable="true"
         >
-          <input
-            class="p-2 rounded-md w-full"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockFirstTable"
-          />
+          <div
+            class="flex"
+          >
+            <input
+              class="p-2 rounded-md w-full"
+              placeholder="Table name"
+              tabindex="4"
+              type="text"
+              value="MockFirstTable"
+            />
+            <select
+              class="w-full appearance-none rounded-tr-md cursor-pointer"
+              tabindex="5"
+              title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+            >
+              <option />
+              <option
+                disabled=""
+                value="1"
+              >
+                &lt; MockFirstTable
+              </option>
+              <option
+                value="2"
+              >
+                &lt; MockSecondTable
+              </option>
+            </select>
+          </div>
           <div
             class="flex m-1"
           >
@@ -97,13 +119,35 @@ Object {
           class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
           draggable="true"
         >
-          <input
-            class="p-2 rounded-md w-full"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockSecondTable"
-          />
+          <div
+            class="flex"
+          >
+            <input
+              class="p-2 rounded-md w-full"
+              placeholder="Table name"
+              tabindex="4"
+              type="text"
+              value="MockSecondTable"
+            />
+            <select
+              class="w-full appearance-none rounded-tr-md cursor-pointer"
+              tabindex="5"
+              title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+            >
+              <option />
+              <option
+                value="1"
+              >
+                &lt; MockFirstTable
+              </option>
+              <option
+                disabled=""
+                value="2"
+              >
+                &lt; MockSecondTable
+              </option>
+            </select>
+          </div>
           <div
             class="flex m-1"
           >
@@ -200,13 +244,35 @@ Object {
         class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
         draggable="true"
       >
-        <input
-          class="p-2 rounded-md w-full"
-          placeholder="Table name"
-          tabindex="4"
-          type="text"
-          value="MockFirstTable"
-        />
+        <div
+          class="flex"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            tabindex="4"
+            type="text"
+            value="MockFirstTable"
+          />
+          <select
+            class="w-full appearance-none rounded-tr-md cursor-pointer"
+            tabindex="5"
+            title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+          >
+            <option />
+            <option
+              disabled=""
+              value="1"
+            >
+              &lt; MockFirstTable
+            </option>
+            <option
+              value="2"
+            >
+              &lt; MockSecondTable
+            </option>
+          </select>
+        </div>
         <div
           class="flex m-1"
         >
@@ -284,13 +350,35 @@ Object {
         class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
         draggable="true"
       >
-        <input
-          class="p-2 rounded-md w-full"
-          placeholder="Table name"
-          tabindex="4"
-          type="text"
-          value="MockSecondTable"
-        />
+        <div
+          class="flex"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            tabindex="4"
+            type="text"
+            value="MockSecondTable"
+          />
+          <select
+            class="w-full appearance-none rounded-tr-md cursor-pointer"
+            tabindex="5"
+            title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+          >
+            <option />
+            <option
+              value="1"
+            >
+              &lt; MockFirstTable
+            </option>
+            <option
+              disabled=""
+              value="2"
+            >
+              &lt; MockSecondTable
+            </option>
+          </select>
+        </div>
         <div
           class="flex m-1"
         >
@@ -444,13 +532,35 @@ Object {
           class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
           draggable="true"
         >
-          <input
-            class="p-2 rounded-md w-full"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockFirstTable"
-          />
+          <div
+            class="flex"
+          >
+            <input
+              class="p-2 rounded-md w-full"
+              placeholder="Table name"
+              tabindex="4"
+              type="text"
+              value="MockFirstTable"
+            />
+            <select
+              class="w-full appearance-none rounded-tr-md cursor-pointer"
+              tabindex="5"
+              title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+            >
+              <option />
+              <option
+                disabled=""
+                value="1"
+              >
+                &lt; MockFirstTable
+              </option>
+              <option
+                value="2"
+              >
+                &lt; MockSecondTable
+              </option>
+            </select>
+          </div>
           <div
             class="flex m-1"
           >
@@ -528,13 +638,35 @@ Object {
           class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
           draggable="true"
         >
-          <input
-            class="p-2 rounded-md w-full"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockSecondTable"
-          />
+          <div
+            class="flex"
+          >
+            <input
+              class="p-2 rounded-md w-full"
+              placeholder="Table name"
+              tabindex="4"
+              type="text"
+              value="MockSecondTable"
+            />
+            <select
+              class="w-full appearance-none rounded-tr-md cursor-pointer"
+              tabindex="5"
+              title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+            >
+              <option />
+              <option
+                value="1"
+              >
+                &lt; MockFirstTable
+              </option>
+              <option
+                disabled=""
+                value="2"
+              >
+                &lt; MockSecondTable
+              </option>
+            </select>
+          </div>
           <div
             class="flex m-1"
           >
@@ -631,13 +763,35 @@ Object {
         class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
         draggable="true"
       >
-        <input
-          class="p-2 rounded-md w-full"
-          placeholder="Table name"
-          tabindex="4"
-          type="text"
-          value="MockFirstTable"
-        />
+        <div
+          class="flex"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            tabindex="4"
+            type="text"
+            value="MockFirstTable"
+          />
+          <select
+            class="w-full appearance-none rounded-tr-md cursor-pointer"
+            tabindex="5"
+            title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+          >
+            <option />
+            <option
+              disabled=""
+              value="1"
+            >
+              &lt; MockFirstTable
+            </option>
+            <option
+              value="2"
+            >
+              &lt; MockSecondTable
+            </option>
+          </select>
+        </div>
         <div
           class="flex m-1"
         >
@@ -715,13 +869,35 @@ Object {
         class="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md"
         draggable="true"
       >
-        <input
-          class="p-2 rounded-md w-full"
-          placeholder="Table name"
-          tabindex="4"
-          type="text"
-          value="MockSecondTable"
-        />
+        <div
+          class="flex"
+        >
+          <input
+            class="p-2 rounded-md w-full"
+            placeholder="Table name"
+            tabindex="4"
+            type="text"
+            value="MockSecondTable"
+          />
+          <select
+            class="w-full appearance-none rounded-tr-md cursor-pointer"
+            tabindex="5"
+            title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+          >
+            <option />
+            <option
+              value="1"
+            >
+              &lt; MockFirstTable
+            </option>
+            <option
+              disabled=""
+              value="2"
+            >
+              &lt; MockSecondTable
+            </option>
+          </select>
+        </div>
         <div
           class="flex m-1"
         >

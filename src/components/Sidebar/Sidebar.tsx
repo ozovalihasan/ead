@@ -43,6 +43,7 @@ export const Sidebar = () => {
                   value={tables[tableId].superclassId}
                   onChange={(event) => changeTableSuperclass(event, tableId)}
                   tabIndex={5}
+                  title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
                 >
                   <option />
 

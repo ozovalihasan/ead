@@ -72,7 +72,7 @@ export interface State {
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
   onAttributeTypeChange: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string, attributeId: string) => void;
   addNode: (node: EntityNodeType) => void;
-  changeTableSuperClass : ((event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => void );
+  changeTableSuperClass : (event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => void;
   addTable: () => void;
   addAttribute: (tableId: string ) => void;
   removeAttribute: (tableId: string, attributeId: string ) => void;
@@ -169,9 +169,11 @@ const useStore = create(devtools<State>((set, get) => ({
       }))
     }),
     changeTableSuperClass : ((event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => {
-      set(produce((state: State) => {
-        state.tables[tableId].superclassId = event.target.value
-      }))
+      set(
+        produce((state: State) => {
+          state.tables[tableId].superclassId = event.target.value
+        })
+      )
     }),
     addAttribute: ((tableId: string ) => {
       set(produce((state: State) => {

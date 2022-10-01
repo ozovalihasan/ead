@@ -19,7 +19,7 @@ const initialTables: TablesType =  {
               "type": "datetime"
           }
       },
-      "superclassId": ""
+      "superclassId": "1"
   },
   "3": {
       "name": "Patient",
@@ -29,7 +29,7 @@ const initialTables: TablesType =  {
               "type": "string"
           }
       },
-      "superclassId": ""
+      "superclassId": "1"
   }
 }
     

@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="relative w-full opacity-0"
+        class="relative w-full opacity-100"
         style="stroke-linecap: round;"
       >
         <div>
@@ -29,7 +29,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="relative w-full opacity-0"
+      class="relative w-full opacity-100"
       style="stroke-linecap: round;"
     >
       <div>

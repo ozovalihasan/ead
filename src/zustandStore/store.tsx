@@ -19,7 +19,7 @@ import initialTables, { TablesType } from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
-import transform_0_4_x_to_0_4_5 from './test/helpers/transform_0_4_x_to_0_4_5';
+import transform_0_4_x_to_0_4_5 from './helpers/transform_0_4_x_to_0_4_5';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   

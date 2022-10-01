@@ -1,20 +1,21 @@
 import { State } from '@/zustandStore/store';
 import { transform_0_4_x_to_0_4_5 } from '../transform_0_4_x_to_0_4_5';
 
-const data : unknown = {
-  version: "0.4.0",
-  tables: {
-    "1": {},
-    "2": {},
-  }
-} 
+let data : unknown;
 
 describe('<ThroughEdge />', () => {
-  describe("if the mouse hovers on the edge", () => {
+  describe("transform_0_4_x_to_0_4_5 function", () => {
    
-    it('update styles ', () => {
+    it('adds superclassId attributes to tables if the version of data is not up-to-date ', () => {
+      data = {
+        version: "0.4.0",
+        tables: {
+          "1": {},
+          "2": {},
+        }
+      } 
 
-      expect(transform_0_4_x_to_0_4_5(data as State)).toBe({
+      expect(transform_0_4_x_to_0_4_5(data as State)).toStrictEqual({
         version: "0.4.5",
         tables: {
           "1": {
@@ -26,6 +27,23 @@ describe('<ThroughEdge />', () => {
         }
       });
       
+    });
+    
+    it('doesn"t make any change if the version of data is up-to-date ', () => {
+
+      data = {
+        version: "0.4.5",
+        tables: {
+          "1": {
+            superclassId: ""
+          },
+          "2": {
+            superclassId: ""
+          },
+        }
+      } 
+      
+      expect(transform_0_4_x_to_0_4_5(data as State)).toStrictEqual( data );
       
     });
     

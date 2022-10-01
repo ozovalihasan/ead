@@ -59,8 +59,10 @@ describe('<TargetHandle />', () => {
 
       const mainElement = screen.getByText(/MockHandle/)
       
-      expect(mainElement.innerHTML).toContain("visible");
-      expect(mainElement.innerHTML).not.toContain("hidden");
+      expect(mainElement.innerHTML).toContain("w-full");
+      expect(mainElement.innerHTML).toContain("h-full");
+      expect(mainElement.innerHTML).not.toContain("w-0");
+      expect(mainElement.innerHTML).not.toContain("h-0");
   
     });
   
@@ -78,8 +80,11 @@ describe('<TargetHandle />', () => {
 
       const mainElement = screen.getByText(/MockHandle/)
 
-      expect(mainElement.innerHTML).toContain("hidden");
-      expect(mainElement.innerHTML).not.toContain(" visible");
+      expect(mainElement.innerHTML).toContain("w-0");
+      expect(mainElement.innerHTML).toContain("h-0");
+      expect(mainElement.innerHTML).not.toContain("w-full");
+      expect(mainElement.innerHTML).not.toContain("h-full");
+  
   
     });
   

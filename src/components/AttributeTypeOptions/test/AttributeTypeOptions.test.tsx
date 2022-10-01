@@ -14,13 +14,15 @@ beforeEach(() => {
         "attributes": {
           "13": {
             "name": "mockFirstAttribute",
-            "type": "string"
+            "type": "string",
+            
           },
           "14": {
             "name": "mockSecondAttribute",
-            "type": "string"
+            "type": "string",
           }
-        }
+        },
+        "superclassId": ""
       },
     },
     resetStore: jest.fn(),

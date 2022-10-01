@@ -7,8 +7,8 @@ let renderReadyComponent: JSX.Element;
 beforeEach(() => {
   useStore.setState({
     tables: {
-      "1": {name: "Mock Name", attributes: {}},
-      "2": {name: "Mock Second Name", attributes: {}}
+      "1": {name: "Mock Name", attributes: {}, superclassId: ""},
+      "2": {name: "Mock Second Name", attributes: {}, superclassId: ""}
     },
     onNodeTableChange: jest.fn() 
   })

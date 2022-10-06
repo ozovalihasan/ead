@@ -15,7 +15,7 @@ const initialTables: TablesType =  {
   "1": {
     "name": "Physician",
     "attributes": {
-      "13": {
+      "10": {
         "name": "name",
         "type": "string"
       }
@@ -25,7 +25,7 @@ const initialTables: TablesType =  {
   "2": {
     "name": "Appointment",
     "attributes": {
-      "12": {
+      "11": {
         "name": "appointment_date",
         "type": "datetime"
       }
@@ -35,7 +35,7 @@ const initialTables: TablesType =  {
   "3": {
     "name": "Patient",
     "attributes": {
-      "14": {
+      "12": {
         "name": "name",
         "type": "string"
       }

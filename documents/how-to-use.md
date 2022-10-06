@@ -50,7 +50,7 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreateSuppliers < ActiveRecord::Migration[6.1]
+class CreateSuppliers < ActiveRecord::Migration[7.0]
   def change
     create_table :suppliers do |t|
       t.string :name
@@ -429,7 +429,7 @@ class Book < ApplicationRecord
 end
 
 
-class CreateAuthors < ActiveRecord::Migration[6.1]
+class CreateAuthors < ActiveRecord::Migration[7.0]
   def change
     create_table :authors do |t|
       t.string :name

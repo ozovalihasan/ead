@@ -42,7 +42,7 @@ describe('store', () => {
       idCounter: initialIdCounter(testTables, testNodes, testEdges)
     })
   
-    expect(useStore.getState().idCounter).toBe(10);
+    expect(useStore.getState().idCounter).toBe(13);
     expect(useStore.getState().idCounter).toBeTruthy();
 
   });

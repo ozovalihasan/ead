@@ -23,11 +23,14 @@ import transform_0_4_x_to_0_4_5 from './helpers/transform_0_4_x_to_0_4_5';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
-  const tableIds = Object.keys(initialTables).map(( tableId )=> parseInt(tableId ))
-  const nodeIds = initialNodes.map((node)=> parseInt(node.id) )
-  const edgeIds = initialEdges.map((edge)=> parseInt(edge.id) )
+  let ids = ["0"]
+  ids = ids.concat(Object.keys(initialTables))
+  Object.keys(initialTables).map(( tableId )=> ids = ids.concat( Object.keys(initialTables[tableId].attributes)))
+  ids = ids.concat(Object.keys(initialNodes))
+  ids = ids.concat(Object.keys(initialEdges))
 
-  const max = Math.max( ...tableIds.concat(nodeIds).concat(edgeIds).concat([0]) ) 
+  const integer_ids = ids.map(id => parseInt(id))
+  const max = Math.max( ...integer_ids ) 
   
   return (max + 1)
 }

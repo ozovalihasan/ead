@@ -1,5 +1,7 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import { memo } from 'react';
+import Select from 'react-select'
+import { availableColors, setColorVariants } from '@/zustandStore/helpers/setColorVariants';
 
 export const Settings = memo(() => {
   
@@ -23,6 +25,14 @@ export const Settings = memo(() => {
           <input className='mr-6' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
           Show the sidebar at the right of the window
         </label>
+        <Select 
+          className="w-full capitalize" 
+          onChange={(selectedOption) => setColorVariants(selectedOption.value)} 
+          placeholder="Select main color..."
+          options={
+            availableColors.map((color: string) => ({ value: color, label: color }))
+          } 
+        />
       </div>
     </details>
   )

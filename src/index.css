@@ -10,6 +10,12 @@ details > summary::-webkit-details-marker {
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input[type="checkbox"] {
+    @apply accent-first-600
+  }
+}
+
 @layer components {
   .btn-first {
     @apply flex justify-center items-center bg-first-500 hover:bg-first-600 text-first-100 stroke-first-100 border-first-500 hover:border-first-600 border border-solid;

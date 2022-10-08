@@ -404,6 +404,10 @@ class CreateVehicles < ActiveRecord::Migration[7.0]
 end
 ```
 
+A model using STI can be used as any model 
+
+![Examples using STI EAD](./images/examples-using-sti.png)
+
 ## Extra Features
 
 EAD has 'table's and 'attribute's to define tables and their attributes in a Rails project.

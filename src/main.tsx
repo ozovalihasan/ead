@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client'
 import { App } from '@/components'
+import { availableColorsType, setColorVariants } from "@/zustandStore/helpers/setColorVariants"
 import './reset.css';
 import './index.css';
 
@@ -18,3 +19,5 @@ if (process.env.NODE_ENV === "production"){
   const links = head.querySelectorAll('[rel="stylesheet"]')
   Object.values(links).forEach((link) =>  head.append(link))
 }
+
+setColorVariants(localStorage.getItem("selected-color") as availableColorsType ?? "sky")

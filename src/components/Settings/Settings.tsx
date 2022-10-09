@@ -1,7 +1,7 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import { memo } from 'react';
 import Select from 'react-select'
-import { availableColors, setColorVariants } from '@/zustandStore/helpers/setColorVariants';
+import { availableColors, availableColorsType, setColorVariants } from '@/zustandStore/helpers/setColorVariants';
 
 export const Settings = memo(() => {
   
@@ -27,7 +27,7 @@ export const Settings = memo(() => {
         </label>
         <Select 
           className="w-full capitalize" 
-          onChange={(selectedOption) => setColorVariants(selectedOption.value)} 
+          onChange={(selectedOption) => setColorVariants((selectedOption!).value as availableColorsType)} 
           placeholder="Select main color..."
           options={
             availableColors.map((color: string) => ({ value: color, label: color }))

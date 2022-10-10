@@ -12,22 +12,16 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
   const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
 
   const handleMouseDown = () => {
-    if (selectEl.current!.style.display === "none"){
-      selectEl.current!.style.display = "block"
-    }else{
-      selectEl.current!.style.display = "none"
-    }
+    selectEl.current!.classList.toggle("hidden")
   }
   
   const handleMouseLeave = () => {
-    if (selectEl.current){
-      selectEl.current.style.display = "none"
-    }
+    selectEl.current!.classList.add("hidden")
   }
   
   return (
     <div 
-      className='relative [&>select]:focus-within:block w-1/2 bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border '
+      className='relative w-1/2 bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border '
       onMouseLeave={handleMouseLeave}
       tabIndex={4} 
     >

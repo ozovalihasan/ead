@@ -2,6 +2,7 @@ import {  Sidebar } from '../Sidebar';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
+import { SidebarOptionsType } from '@/components';
 
 jest.mock("@/components", () => ({
   Settings: () => (
@@ -12,6 +13,15 @@ jest.mock("@/components", () => ({
   AttributeTypeOptions: () => (
     <>
       MockAttributeTypeOptions
+    </>
+  ),
+  SidebarOptions: (props: SidebarOptionsType) => (
+    <>
+      MockSidebarOptions
+      { 
+        Object.keys(props)
+          .map((key) => `${key}: ${props[key as keyof typeof props]}`) 
+      }
     </>
   ),
 }))
@@ -145,14 +155,9 @@ describe('<Sidebar />', () => {
 
     it('renders a dropdown to select a superclass for each table', () => {
 
-      render(renderReadyComponent );
-      const { result } = renderHook(() => useStore());
-
-      const selectElement = screen.getAllByTitle(/Select a superclass to inherit/i)[0]
+      render(renderReadyComponent);
       
-      fireEvent.change(selectElement, {target: {value: '1'}})
-
-      expect(result.current.changeTableSuperClass).toHaveBeenCalledTimes(1);
+      expect(screen.getAllByText(/MockSidebarOptions/i).length).toBe(2);
     });
     
     it('renders an input element for each attribute', () => {

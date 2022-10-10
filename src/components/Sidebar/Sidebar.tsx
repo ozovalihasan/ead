@@ -2,7 +2,7 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
 import { Settings, AttributeTypeOptions } from '@/components';
 import { MinusSign, PlusSign } from '@/icons';
-
+import SidebarOptions from '../SidebarOptions/SidebarOptions';
 export const Sidebar = () => {
 
   const tables = useStore((state) => state.tables);
@@ -12,7 +12,6 @@ export const Sidebar = () => {
   const removeAttribute = useStore(store => store.removeAttribute)
   const removeTable = useStore(store => store.removeTable)
   const onAttributeNameChange = useStore(store => store.onAttributeNameChange)
-  const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
 
   const widthSidebar = useCustomizationStore(store => store.widthSidebar)
   const sidebarVisible = useCustomizationStore(store => store.sidebarVisible)
@@ -30,35 +29,13 @@ export const Sidebar = () => {
 
   return (
     <aside className={`h-full relative py-3 px-2 overflow-y-scroll ${sidebarVisible ? "" : 'hidden'}`} style={{width: widthSidebar}} >
-      
       {
-        
         Object.keys(tables).map((tableId: string) => {
           return (
             <div className="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md" key={tableId} onDragStart={(event) => onDragStart(event, 'default', tableId)} draggable>
               <div className='flex'>
-                <input className="p-2 rounded-md w-full" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} tabIndex={4}/>
-                <select
-                  className="w-full appearance-none rounded-tr-md cursor-pointer"
-                  value={tables[tableId].superclassId}
-                  onChange={(event) => changeTableSuperclass(event, tableId)}
-                  tabIndex={5}
-                  title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
-                >
-                  <option />
-
-                  {Object.keys(tables).map((superTableId: string) => (
-                    <option
-                      key={superTableId}
-                      value={superTableId}
-                      disabled={superTableId == tableId}
-                    >
-                      {"< " + tables[superTableId].name}
-                    </option>
-                  ))}
-
-                </select>
-                
+                <input className="p-2 rounded-md w-1/2" placeholder='Table name' type="text" value={tables[tableId].name} onChange={(event) => onTableNameChange(event, tableId)} tabIndex={4}/>
+                <SidebarOptions tableId={tableId} />
               </div>
               {
                 Object.keys(tables[tableId].attributes).map((attributeId) => {

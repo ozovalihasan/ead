@@ -9,7 +9,6 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
 
   const tables = useStore((state) => state.tables);
   const selectEl = useRef<HTMLSelectElement | null>(null);
-  const buttonEl = useRef<HTMLDivElement | null>(null);
   const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
 
   const handleMouseDown = () => {
@@ -18,7 +17,6 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
     }else{
       selectEl.current!.style.display = "none"
     }
-
   }
   
   const handleMouseLeave = () => {
@@ -35,7 +33,6 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
     >
       <div 
         className='truncate p-2 bg-slate-100 rounded-md cursor-pointer'  
-        ref={buttonEl} 
         onMouseDown={handleMouseDown} 
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}

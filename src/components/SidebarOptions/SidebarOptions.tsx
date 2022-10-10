@@ -1,24 +1,27 @@
 import useStore from '@/zustandStore/store';
 import { useRef } from 'react';
 
+export interface SidebarOptionsType {
+  tableId: string
+}
 
-const SidebarOptions = ({tableId}: {tableId: string} ) => {
+export const SidebarOptions = ({tableId}: {tableId: string} ) => {
 
   const tables = useStore((state) => state.tables);
   const selectEl = useRef<HTMLSelectElement | null>(null);
   const buttonEl = useRef<HTMLDivElement | null>(null);
   const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement> ) => {
-    if (selectEl.current.style.display === "none"){
-      selectEl.current.style.display = "block"
+  const handleMouseDown = () => {
+    if (selectEl.current!.style.display === "none"){
+      selectEl.current!.style.display = "block"
     }else{
-      selectEl.current.style.display = "none"
+      selectEl.current!.style.display = "none"
     }
 
   }
   
-  const handleMouseLeave = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseLeave = () => {
     if (selectEl.current){
       selectEl.current.style.display = "none"
     }
@@ -31,10 +34,9 @@ const SidebarOptions = ({tableId}: {tableId: string} ) => {
       tabIndex={4} 
     >
       <div 
-        className='truncate p-2 bg-slate-100 rounded-md'  
-        
+        className='truncate p-2 bg-slate-100 rounded-md cursor-pointer'  
         ref={buttonEl} 
-        onMouseDown={event => handleMouseDown(event)} 
+        onMouseDown={handleMouseDown} 
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}
       </div>
@@ -64,5 +66,3 @@ const SidebarOptions = ({tableId}: {tableId: string} ) => {
     </div>
   )
 }
-
-export default SidebarOptions;

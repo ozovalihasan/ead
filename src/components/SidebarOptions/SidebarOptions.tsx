@@ -1,11 +1,11 @@
 import useStore from '@/zustandStore/store';
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 
 export interface SidebarOptionsType {
   tableId: string
 }
 
-export const SidebarOptions = ({tableId}: {tableId: string} ) => {
+export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
 
   const tables = useStore((state) => state.tables);
   const selectEl = useRef<HTMLSelectElement | null>(null);
@@ -54,4 +54,4 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
       </select>
     </div>
   )
-}
+})

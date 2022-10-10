@@ -23,7 +23,6 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
     <div 
       className='relative w-1/2 bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border '
       onMouseLeave={handleMouseLeave}
-      tabIndex={4} 
     >
       <div 
         className='truncate p-2 bg-slate-100 rounded-md cursor-pointer'  

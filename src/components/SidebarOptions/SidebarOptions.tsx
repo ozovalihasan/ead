@@ -35,7 +35,6 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
         className="hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md"
         value={tables[tableId].superclassId}
         onChange={(event) => changeTableSuperclass(event, tableId)}
-        tabIndex={4}
         title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
         size={Object.keys(tables).length + 1 }
       >

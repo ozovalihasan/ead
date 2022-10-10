@@ -75,7 +75,7 @@ export interface State {
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
   onAttributeTypeChange: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string, attributeId: string) => void;
   addNode: (node: EntityNodeType) => void;
-  changeTableSuperClass : (event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => void;
+  changeTableSuperClass: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => void;
   addTable: () => void;
   addAttribute: (tableId: string ) => void;
   removeAttribute: (tableId: string, attributeId: string ) => void;

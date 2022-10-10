@@ -27,3 +27,4 @@ export * from './SidebarHandle/SidebarHandle';
 export * from './MainReactFlow/MainReactFlow';
 export * from './AttributeTypeOptions/AttributeTypeOptions';
 export * from './SidebarOptions/SidebarOptions';
+export * from './helpers/setColorVariants';

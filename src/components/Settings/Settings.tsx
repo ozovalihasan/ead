@@ -1,7 +1,7 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import { memo } from 'react';
 import Select from 'react-select'
-import { availableColors, availableColorsType, setColorVariants } from '@/zustandStore/helpers/setColorVariants';
+import { availableColors, availableColorsType, setColorVariants } from '@/components';
 
 export const Settings = memo(() => {
   

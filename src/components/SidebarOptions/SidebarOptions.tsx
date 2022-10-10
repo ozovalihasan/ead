@@ -11,7 +11,7 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
   const selectEl = useRef<HTMLSelectElement | null>(null);
   const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
 
-  const handleMouseDown = () => {
+  const handleMouseUp = () => {
     selectEl.current!.classList.toggle("hidden")
   }
   
@@ -26,7 +26,7 @@ export const SidebarOptions = ({tableId}: {tableId: string} ) => {
     >
       <div 
         className='truncate p-2 bg-slate-100 rounded-md cursor-pointer'  
-        onMouseDown={handleMouseDown} 
+        onMouseUp={handleMouseUp} 
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}
       </div>

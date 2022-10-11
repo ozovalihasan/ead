@@ -16,7 +16,6 @@ Object {
         <select
           class="hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md"
           size="4"
-          tabindex="4"
           title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
         >
           <option
@@ -60,7 +59,6 @@ Object {
       <select
         class="hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md"
         size="4"
-        tabindex="4"
         title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
       >
         <option

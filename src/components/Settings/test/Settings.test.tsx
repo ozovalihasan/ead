@@ -4,6 +4,14 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 
+jest.mock('@/components',  () => ({
+  MainColorDropdown: () => (
+    <>
+      MockMainColorDropdown
+    </>
+  )
+}));
+
 beforeEach(() => {
     
 useCustomizationStore.setState({ 
@@ -48,6 +56,18 @@ describe('<Settings />', () => {
     fireEvent.click(checkboxElement)
 
     expect(result.current.toggleTextMode).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders the MainColorDropdown component', () => {
+
+    render(renderReadyComponent );
+
+    expect(screen.getByText(/MockMainColorDropdown/i)).toBeInTheDocument();
+  });
+
+  it('renders correctly', () => {
+    const renderedContainer = render(renderReadyComponent );
+    expect(renderedContainer).toMatchSnapshot();
   });
 
 });

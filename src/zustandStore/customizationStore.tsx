@@ -1,3 +1,4 @@
+import { availableColors, availableColorsType, setColorVariants } from '@/helpers';
 import create from 'zustand';
 import { devtools } from 'zustand/middleware'
 
@@ -8,6 +9,8 @@ export interface CustomizationStoreState {
   showTextOnEdges: boolean;
   sidebarVisible: boolean;
   navbarVisible: boolean;
+  mainColor: availableColorsType;
+  changeMainColor: (color: availableColorsType) => void;
   toggleLocationSidebar: () => void;
   toggleSidebarVisibility: () => void;
   toggleNavbarVisibility: () => void;
@@ -25,12 +28,24 @@ if(!localStorage.widthSidebar){
   localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
 }
 
+if(!localStorage.mainColor){
+  localStorage.setItem("mainColor", JSON.stringify(availableColors[0]))
+}
+
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
   locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),
   widthSidebar: JSON.parse(localStorage.widthSidebar as string) as number,
   showTextOnEdges: false,
   sidebarVisible: true,
   navbarVisible: true,
+  mainColor: JSON.parse(localStorage.mainColor as string) as availableColorsType,
+  changeMainColor: (color: availableColorsType) => {
+    setColorVariants(color)
+
+    set({
+      mainColor: color,
+    })
+  },
   toggleLocationSidebar: () => {
     let location = get().locationSidebar
     

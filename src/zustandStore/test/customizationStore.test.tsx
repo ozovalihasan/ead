@@ -1,5 +1,11 @@
+import { availableColors, setColorVariants } from '@/helpers';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
+
+jest.mock('@/helpers',  () => ({
+  setColorVariants: jest.fn(),
+  availableColors: ["mock color"]
+}));
 
 jest.spyOn(Storage.prototype, 'setItem');
 Storage.prototype.setItem = jest.fn();
@@ -13,6 +19,10 @@ describe('useCustomizationStore', () => {
       expect(useCustomizationStore.getState().widthSidebar  ).toBeTruthy();
   });
 
+  it('has a "mainColor" attribute and its value should exist as default', () => {
+      expect(useCustomizationStore.getState().mainColor).toBeTruthy();
+  });
+
   it('has a "showTextOnEdges" attribute and its value should be false as default', () => {
     expect(useCustomizationStore.getState().showTextOnEdges).toBe(false);
     
@@ -24,6 +34,12 @@ describe('useCustomizationStore', () => {
 
   it('has a "navbarVisible" attribute and its value should be true as default', () => {
     expect(useCustomizationStore.getState().navbarVisible  ).toBe(true);
+  });
+
+  it('has a "changeMainColor" function to change the main color', () => {
+    useCustomizationStore.getState().changeMainColor(availableColors[0])
+
+    expect(setColorVariants).toHaveBeenCalledTimes(1);
   });
 
   it('has a "toggleLocationSidebar" function to toggle the location of the sidebar', () => {

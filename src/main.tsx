@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client'
 import { App } from '@/components'
-import { availableColorsType, setColorVariants } from "@/components"
 import './reset.css';
 import './index.css';
+import { setColorVariants } from '@/helpers';
 
 const container = document.getElementById('root');
 const root = createRoot(container!)
@@ -20,4 +20,4 @@ if (process.env.NODE_ENV === "production"){
   Object.values(links).forEach((link) =>  head.append(link))
 }
 
-setColorVariants(localStorage.getItem("selected-color") as availableColorsType ?? "sky" as availableColorsType)
+setColorVariants()

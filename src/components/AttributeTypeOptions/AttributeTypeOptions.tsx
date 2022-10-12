@@ -1,28 +1,53 @@
-import { memo } from 'react';
-import useStore from '@/zustandStore/store';
 
+
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
+import useStore from '@/zustandStore/store';
+import { memo, useRef } from 'react';
 
 export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: string, attributeId: string} ) =>  {
-  
+
   const type = useStore((state) => state.tables[tableId].attributes[attributeId].type);
   const onAttributeTypeChange = useStore((state) => state.onAttributeTypeChange);
+  const options = [
+    'primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
+    'time', 'date', 'binary', 'boolean', 'references'
+  ]
 
-  
-  return <select
-    className="w-full"
-    value={type}
-    onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
-    tabIndex={4}
-  >
-    {['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
-      'time', 'date', 'binary', 'boolean', 'references'].map((item) => (
-        <option
-          key={item}
-          value={item}
-        >
-          {item}
-        </option>
-      ))}
+  const selectEl = useRef<HTMLSelectElement | null>(null);
 
-  </select>;
+  return (
+    <div 
+      className='relative whitespace-nowrap w-full'
+      onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
+    >
+      <div 
+        className='truncate p-2 btn-select rounded-md min-w-full'   
+        onMouseUp={() => handleMouseUpForSelect(selectEl)} 
+      >
+        {type}
+      </div>
+      <select
+        ref={selectEl}
+        className="hidden cursor-pointer absolute right-0 top-full z-10 border border-first-500 min-w-full rounded-md"
+        value={type}
+        onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
+        title="Select attribute type"
+        size={options.length}
+      >
+
+      {
+        options.map((item) => (
+          <option
+            className="p-2 w-full"
+            key={item}
+            value={item}
+            title={item}
+          >
+            {item}
+          </option>
+        ))
+      }
+      </select>
+    </div>
+  )
 })

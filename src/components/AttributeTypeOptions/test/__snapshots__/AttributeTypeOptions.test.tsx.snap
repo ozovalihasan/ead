@@ -5,149 +5,221 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        class="relative whitespace-nowrap w-full"
+      >
+        <div
+          class="truncate p-2 btn-select rounded-md min-w-full"
+        >
+          string
+        </div>
+        <select
+          class="hidden cursor-pointer absolute right-0 top-full z-10 border border-first-500 min-w-full rounded-md"
+          size="13"
+          title="Select attribute type"
+        >
+          <option
+            class="p-2 w-full"
+            title="primary_key"
+            value="primary_key"
+          >
+            primary_key
+          </option>
+          <option
+            class="p-2 w-full"
+            title="string"
+            value="string"
+          >
+            string
+          </option>
+          <option
+            class="p-2 w-full"
+            title="text"
+            value="text"
+          >
+            text
+          </option>
+          <option
+            class="p-2 w-full"
+            title="integer"
+            value="integer"
+          >
+            integer
+          </option>
+          <option
+            class="p-2 w-full"
+            title="float"
+            value="float"
+          >
+            float
+          </option>
+          <option
+            class="p-2 w-full"
+            title="decimal"
+            value="decimal"
+          >
+            decimal
+          </option>
+          <option
+            class="p-2 w-full"
+            title="datetime"
+            value="datetime"
+          >
+            datetime
+          </option>
+          <option
+            class="p-2 w-full"
+            title="timestamp"
+            value="timestamp"
+          >
+            timestamp
+          </option>
+          <option
+            class="p-2 w-full"
+            title="time"
+            value="time"
+          >
+            time
+          </option>
+          <option
+            class="p-2 w-full"
+            title="date"
+            value="date"
+          >
+            date
+          </option>
+          <option
+            class="p-2 w-full"
+            title="binary"
+            value="binary"
+          >
+            binary
+          </option>
+          <option
+            class="p-2 w-full"
+            title="boolean"
+            value="boolean"
+          >
+            boolean
+          </option>
+          <option
+            class="p-2 w-full"
+            title="references"
+            value="references"
+          >
+            references
+          </option>
+        </select>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="relative whitespace-nowrap w-full"
+    >
+      <div
+        class="truncate p-2 btn-select rounded-md min-w-full"
+      >
+        string
+      </div>
       <select
-        class="w-full"
-        tabindex="4"
+        class="hidden cursor-pointer absolute right-0 top-full z-10 border border-first-500 min-w-full rounded-md"
+        size="13"
+        title="Select attribute type"
       >
         <option
+          class="p-2 w-full"
+          title="primary_key"
           value="primary_key"
         >
           primary_key
         </option>
         <option
+          class="p-2 w-full"
+          title="string"
           value="string"
         >
           string
         </option>
         <option
+          class="p-2 w-full"
+          title="text"
           value="text"
         >
           text
         </option>
         <option
+          class="p-2 w-full"
+          title="integer"
           value="integer"
         >
           integer
         </option>
         <option
+          class="p-2 w-full"
+          title="float"
           value="float"
         >
           float
         </option>
         <option
+          class="p-2 w-full"
+          title="decimal"
           value="decimal"
         >
           decimal
         </option>
         <option
+          class="p-2 w-full"
+          title="datetime"
           value="datetime"
         >
           datetime
         </option>
         <option
+          class="p-2 w-full"
+          title="timestamp"
           value="timestamp"
         >
           timestamp
         </option>
         <option
+          class="p-2 w-full"
+          title="time"
           value="time"
         >
           time
         </option>
         <option
+          class="p-2 w-full"
+          title="date"
           value="date"
         >
           date
         </option>
         <option
+          class="p-2 w-full"
+          title="binary"
           value="binary"
         >
           binary
         </option>
         <option
+          class="p-2 w-full"
+          title="boolean"
           value="boolean"
         >
           boolean
         </option>
         <option
+          class="p-2 w-full"
+          title="references"
           value="references"
         >
           references
         </option>
       </select>
     </div>
-  </body>,
-  "container": <div>
-    <select
-      class="w-full"
-      tabindex="4"
-    >
-      <option
-        value="primary_key"
-      >
-        primary_key
-      </option>
-      <option
-        value="string"
-      >
-        string
-      </option>
-      <option
-        value="text"
-      >
-        text
-      </option>
-      <option
-        value="integer"
-      >
-        integer
-      </option>
-      <option
-        value="float"
-      >
-        float
-      </option>
-      <option
-        value="decimal"
-      >
-        decimal
-      </option>
-      <option
-        value="datetime"
-      >
-        datetime
-      </option>
-      <option
-        value="timestamp"
-      >
-        timestamp
-      </option>
-      <option
-        value="time"
-      >
-        time
-      </option>
-      <option
-        value="date"
-      >
-        date
-      </option>
-      <option
-        value="binary"
-      >
-        binary
-      </option>
-      <option
-        value="boolean"
-      >
-        boolean
-      </option>
-      <option
-        value="references"
-      >
-        references
-      </option>
-    </select>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

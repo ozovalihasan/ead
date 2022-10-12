@@ -1,9 +1,15 @@
 import {  AttributeTypeOptions } from '../AttributeTypeOptions';
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
-
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 let renderReadyComponent: JSX.Element;
+
+jest.mock('@/helpers',  () => ({
+  handleMouseUpForSelect: jest.fn(),
+  handleMouseLeaveForSelect: jest.fn()
+}))
+
 
 beforeEach(() => {
     
@@ -48,7 +54,7 @@ describe('<AttributeTypeOptions />', () => {
     render(renderReadyComponent );
     const { result } = renderHook(() => useStore());
 
-    const stringType = screen.getByText(/string/i)
+    const stringType = screen.getAllByText(/string/i)[1]
     
     fireEvent.change(stringType.parentNode as Element, screen.getByText(/integer/i))
 
@@ -58,14 +64,38 @@ describe('<AttributeTypeOptions />', () => {
   it('renders all types', () => {
 
     render(renderReadyComponent );
+    const selectEl = screen.getByTitle(/Select attribute type/);
 
     ['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
     'time', 'date', 'binary', 'boolean', 'references'].forEach((item) => {
-      expect(screen.getByText(item)).toBeInTheDocument()
+      expect(selectEl.innerHTML).toContain(item)
     })
     
   });
+
+  it('calls the handleMouseUpForSelect function', () => {
+
+    render( renderReadyComponent );
+
+    const buttonEl = screen.getAllByText(/^string$/)[0];
+
+    fireEvent.mouseUp( buttonEl );
+    
+    expect(handleMouseUpForSelect).toHaveBeenCalledTimes(1)
+
+  });
   
+  it('calls the handleMouseLeaveForSelect function', () => {
+
+    render( renderReadyComponent );
+
+    const selectEl = screen.getByTitle(/Select attribute type/);
+    
+    fireEvent.mouseLeave( selectEl );
+
+    expect(handleMouseLeaveForSelect).toHaveBeenCalledTimes(1)
+
+  });
   it('renders correctly', () => {
     const renderedContainer = render(renderReadyComponent );
     expect(renderedContainer).toMatchSnapshot();

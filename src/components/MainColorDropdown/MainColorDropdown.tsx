@@ -17,7 +17,7 @@ export const MainColorDropdown = memo(() => {
       onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
-        className='btn-select truncate p-2 bg-slate-100 rounded-md capitalize'  
+        className='btn-select truncate p-2 btn-select rounded-md capitalize'  
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
       >
         Main Color: { selectedColor }

@@ -13,18 +13,18 @@ export const MainColorDropdown = memo(() => {
   
   return (
     <div 
-      className='w-full relative rounded-tr-md border border-first-500 whitespace-nowrap'
+      className='w-full relative  whitespace-nowrap'
       onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
-        className='truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize'  
+        className='btn-select truncate p-2 bg-slate-100 rounded-md capitalize'  
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
       >
         Main Color: { selectedColor }
       </div>
       <select
         ref={selectEl}
-        className="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-11/12 rounded-md"
+        className="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-full rounded-md"
         value={selectedColor}
         onChange={(selectedOption) => {
           changeMainColor(selectedOption.target.value as availableColorsType)}

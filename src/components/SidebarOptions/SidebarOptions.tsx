@@ -18,7 +18,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
-        className='truncate p-2 bg-slate-100 rounded-md cursor-pointer'  
+        className='truncate p-2 btn-select rounded-md'  
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}

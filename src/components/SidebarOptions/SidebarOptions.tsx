@@ -26,7 +26,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       <select
         ref={selectEl}
         className="
-          hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md 
+          hidden absolute left-0 top-full z-10 w-11/12 custom-select-options
           [&>option]:p-2 [&>option]:truncate
         "
         value={tables[tableId].superclassId}

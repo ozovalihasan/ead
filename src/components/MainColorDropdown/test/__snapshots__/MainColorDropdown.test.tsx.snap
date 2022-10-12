@@ -15,12 +15,13 @@ Object {
           sky
         </div>
         <select
-          class="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-full rounded-md"
+          class="hidden absolute left-0 bottom-full z-10 w-full custom-select-options"
           size="1"
           title="Select a main color"
         >
           <option
             class="p-2 truncate capitalize"
+            title="sky"
             value="sky"
           >
             sky
@@ -40,12 +41,13 @@ Object {
         sky
       </div>
       <select
-        class="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-full rounded-md"
+        class="hidden absolute left-0 bottom-full z-10 w-full custom-select-options"
         size="1"
         title="Select a main color"
       >
         <option
           class="p-2 truncate capitalize"
+          title="sky"
           value="sky"
         >
           sky

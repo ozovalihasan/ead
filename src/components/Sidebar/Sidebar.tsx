@@ -36,7 +36,7 @@ export const Sidebar = () => {
         Object.keys(tables).map((tableId: string) => {
           return (
             <div 
-              className="my-4 w-full bg-transparent border border-first-500 border-solid rounded-md" 
+              className="my-4 w-full bg-transparent border-2 general-border rounded-md" 
               key={tableId} 
               onDragStart={(event) => onDragStart(event, 'default', tableId)} 
               draggable

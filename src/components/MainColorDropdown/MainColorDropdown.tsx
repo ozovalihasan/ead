@@ -24,7 +24,7 @@ export const MainColorDropdown = memo(() => {
       </div>
       <select
         ref={selectEl}
-        className="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-full rounded-md"
+        className="hidden absolute left-0 bottom-full z-10 w-full custom-select-options"
         value={selectedColor}
         onChange={(selectedOption) => {
           changeMainColor(selectedOption.target.value as availableColorsType)}
@@ -37,6 +37,7 @@ export const MainColorDropdown = memo(() => {
             key={color}
             value={color}
             className="p-2 truncate capitalize"
+            title={color}
           >
             {color}
           </option>

@@ -9,7 +9,7 @@ Object {
         class="relative"
       >
         <nav
-          class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 hidden"
+          class="bg-transparent relative h-20 py-2 border-b general-border hidden"
         >
           <div
             class="flex items-center gap-4"
@@ -83,7 +83,7 @@ Object {
       class="relative"
     >
       <nav
-        class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 hidden"
+        class="bg-transparent relative h-20 py-2 border-b general-border hidden"
       >
         <div
           class="flex items-center gap-4"
@@ -214,7 +214,7 @@ Object {
         class="relative"
       >
         <nav
-          class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+          class="bg-transparent relative h-20 py-2 border-b general-border "
         >
           <div
             class="flex items-center gap-4"
@@ -288,7 +288,7 @@ Object {
       class="relative"
     >
       <nav
-        class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+        class="bg-transparent relative h-20 py-2 border-b general-border "
       >
         <div
           class="flex items-center gap-4"
@@ -419,7 +419,7 @@ Object {
         class="relative"
       >
         <nav
-          class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+          class="bg-transparent relative h-20 py-2 border-b general-border "
         >
           <div
             class="flex items-center gap-4"
@@ -493,7 +493,7 @@ Object {
       class="relative"
     >
       <nav
-        class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+        class="bg-transparent relative h-20 py-2 border-b general-border "
       >
         <div
           class="flex items-center gap-4"

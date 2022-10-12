@@ -22,7 +22,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -33,6 +33,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       slate: colors.slate,
+      zinc: colors.zinc,
       first: setVar("first"),
       second: colors.green,
       third: colors.gray,

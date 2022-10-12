@@ -28,7 +28,7 @@ export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: stri
       </div>
       <select
         ref={selectEl}
-        className="hidden cursor-pointer absolute right-0 top-full z-10 border border-first-500 min-w-full rounded-md"
+        className="hidden absolute right-0 top-full z-10 min-w-full custom-select-options"
         value={type}
         onChange={(event) => onAttributeTypeChange(event, tableId, attributeId)}
         title="Select attribute type"

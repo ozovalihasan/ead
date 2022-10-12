@@ -1,6 +1,6 @@
 export const GithubLogo = () => (
   <svg 
-    className="fill-white-500 bg-[white] rounded-full"
+    className="fill-slate-900 dark:fill-slate-50 bg-transparent rounded-full stroke-first-500"
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 496 512"
   >

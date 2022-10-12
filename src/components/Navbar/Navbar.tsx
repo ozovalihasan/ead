@@ -24,7 +24,7 @@ export const Navbar = () => {
 
   return (
     <div className='relative'>
-      <nav className={`bg-transparent relative h-20 py-2 border-b border-solid border-first-500 ${navbarVisible ? "" : 'hidden'}`} >
+      <nav className={`bg-transparent relative h-20 py-2 border-b general-border ${navbarVisible ? "" : 'hidden'}`} >
         <div className='flex items-center gap-4' >
           <div className="flex items-center mr-8">
             <a className='h-16 w-16 mr-2 ml-8' href="#">

@@ -6,17 +6,17 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="w-full relative rounded-tr-md border border-first-500 whitespace-nowrap"
+        class="w-full relative  whitespace-nowrap"
       >
         <div
-          class="truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize"
+          class="btn-select truncate p-2 bg-slate-100 rounded-md capitalize"
         >
           Main Color: 
           sky
         </div>
         <select
-          class="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-11/12 rounded-md"
-          size="9"
+          class="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-full rounded-md"
+          size="1"
           title="Select a main color"
         >
           <option
@@ -25,71 +25,23 @@ Object {
           >
             sky
           </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="neutral"
-          >
-            neutral
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="green"
-          >
-            green
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="red"
-          >
-            red
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="yellow"
-          >
-            yellow
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="pink"
-          >
-            pink
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="orange"
-          >
-            orange
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="emerald"
-          >
-            emerald
-          </option>
-          <option
-            class="p-2 truncate capitalize"
-            value="violet"
-          >
-            violet
-          </option>
         </select>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="w-full relative rounded-tr-md border border-first-500 whitespace-nowrap"
+      class="w-full relative  whitespace-nowrap"
     >
       <div
-        class="truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize"
+        class="btn-select truncate p-2 bg-slate-100 rounded-md capitalize"
       >
         Main Color: 
         sky
       </div>
       <select
-        class="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-11/12 rounded-md"
-        size="9"
+        class="hidden cursor-pointer absolute left-0 bottom-full z-10 border border-first-500 w-full rounded-md"
+        size="1"
         title="Select a main color"
       >
         <option
@@ -97,54 +49,6 @@ Object {
           value="sky"
         >
           sky
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="neutral"
-        >
-          neutral
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="green"
-        >
-          green
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="red"
-        >
-          red
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="yellow"
-        >
-          yellow
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="pink"
-        >
-          pink
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="orange"
-        >
-          orange
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="emerald"
-        >
-          emerald
-        </option>
-        <option
-          class="p-2 truncate capitalize"
-          value="violet"
-        >
-          violet
         </option>
       </select>
     </div>

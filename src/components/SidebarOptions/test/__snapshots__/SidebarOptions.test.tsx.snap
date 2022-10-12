@@ -9,7 +9,7 @@ Object {
         class="relative w-1/2 whitespace-nowrap"
       >
         <div
-          class="truncate p-2 bg-slate-100 rounded-md cursor-pointer"
+          class="truncate p-2 btn-select rounded-md"
         >
           &lt; Mock Name
         </div>
@@ -51,7 +51,7 @@ Object {
       class="relative w-1/2 whitespace-nowrap"
     >
       <div
-        class="truncate p-2 bg-slate-100 rounded-md cursor-pointer"
+        class="truncate p-2 btn-select rounded-md"
       >
         &lt; Mock Name
       </div>

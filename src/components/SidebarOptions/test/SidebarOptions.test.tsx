@@ -1,7 +1,12 @@
 import {  SidebarOptions } from '../SidebarOptions';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
+jest.mock('@/helpers',  () => ({
+  handleMouseUpForSelect: jest.fn(),
+  handleMouseLeaveForSelect: jest.fn()
+}))
 
 let renderReadyComponent: JSX.Element;
 
@@ -58,35 +63,27 @@ describe('<Sidebar />', () => {
     expect(result.current.changeTableSuperClass).toHaveBeenCalledTimes(1);
   });
   
-  it('toggles the "hidden" class when mouseUp is fired', () => {
+  it('calls the handleMouseUpForSelect function', () => {
 
     render( renderReadyComponent );
 
-    const selectEl = screen.getByTitle(/Select a superclass to inherit/);
     const buttonEl = screen.getByText(/< Mock Name/);
 
     fireEvent.mouseUp( buttonEl );
     
-    expect(selectEl.classList).not.toContain("hidden");
-
-    fireEvent.mouseUp( buttonEl );
-    
-    expect(selectEl.classList).toContain("hidden");
+    expect(handleMouseUpForSelect).toHaveBeenCalledTimes(1)
 
   });
   
-  it('adds the "hidden" class when the mouse leaves a defined element ', () => {
+  it('calls the handleMouseLeaveForSelect function', () => {
 
     render( renderReadyComponent );
 
     const selectEl = screen.getByTitle(/Select a superclass to inherit/);
-    selectEl.classList.remove("hidden")
-
-    expect(selectEl.classList).not.toContain("hidden");
 
     fireEvent.mouseLeave( selectEl );
 
-    expect(selectEl.classList).toContain("hidden");
+    expect(handleMouseLeaveForSelect).toHaveBeenCalledTimes(1)
 
   });
 

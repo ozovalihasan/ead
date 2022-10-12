@@ -1,12 +1,21 @@
 import { MainColorDropdown } from '../MainColorDropdown';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import useCustomizationStore from '@/zustandStore/customizationStore';
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 let renderReadyComponent: JSX.Element;
 
+
+
+jest.mock('@/helpers',  () => ({
+  handleMouseUpForSelect: jest.fn(),
+  handleMouseLeaveForSelect: jest.fn(),
+  availableColors: ["sky"]
+}))
+
 beforeEach(() => {
     
-useCustomizationStore.setState({ 
+  useCustomizationStore.setState({ 
     locationSidebar: "right",
     showTextOnEdges: true,
     mainColor: "sky",
@@ -32,35 +41,27 @@ describe('<MainColorDropdown />', () => {
     expect(result.current.changeMainColor).toHaveBeenCalledTimes(1);
   });
   
-  it('toggles the "hidden" class when mouseUp is fired', () => {
+  it('calls the handleMouseUpForSelect function', () => {
 
     render( renderReadyComponent );
 
-    const selectEl = screen.getByTitle(/Select a main color/);
     const buttonEl = screen.getAllByText(/^Main Color: sky$/i)[0];
 
     fireEvent.mouseUp( buttonEl );
     
-    expect(selectEl.classList).not.toContain("hidden");
-
-    fireEvent.mouseUp( buttonEl );
-    
-    expect(selectEl.classList).toContain("hidden");
+    expect(handleMouseUpForSelect).toHaveBeenCalledTimes(1)
 
   });
   
-  it('adds the "hidden" class when the mouse leaves a defined element ', () => {
+  it('calls the handleMouseLeaveForSelect function', () => {
 
     render( renderReadyComponent );
 
     const selectEl = screen.getByTitle(/Select a main color/);
-    selectEl.classList.remove("hidden")
-
-    expect(selectEl.classList).not.toContain("hidden");
-
+    
     fireEvent.mouseLeave( selectEl );
 
-    expect(selectEl.classList).toContain("hidden");
+    expect(handleMouseLeaveForSelect).toHaveBeenCalledTimes(1)
 
   });
 

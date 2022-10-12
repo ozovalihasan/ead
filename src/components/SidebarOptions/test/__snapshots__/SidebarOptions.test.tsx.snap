@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="relative w-1/2 bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border "
+        class="relative w-1/2 whitespace-nowrap"
       >
         <div
           class="truncate p-2 bg-slate-100 rounded-md cursor-pointer"
@@ -14,31 +14,30 @@ Object {
           &lt; Mock Name
         </div>
         <select
-          class="hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md"
+          class="
+          hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md 
+          [&>option]:p-2 [&>option]:truncate
+        "
           size="4"
           title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
         >
           <option
-            class="p-2 truncate"
             value=""
           >
             ActiveRecord::Base
           </option>
           <option
-            class="p-2 truncate"
             value="1"
           >
             Mock Name
           </option>
           <option
-            class="p-2 truncate"
             disabled=""
             value="2"
           >
             Mock Second Name
           </option>
           <option
-            class="p-2 truncate"
             value="3"
           >
             Mock Third Name
@@ -49,7 +48,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="relative w-1/2 bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border "
+      class="relative w-1/2 whitespace-nowrap"
     >
       <div
         class="truncate p-2 bg-slate-100 rounded-md cursor-pointer"
@@ -57,31 +56,30 @@ Object {
         &lt; Mock Name
       </div>
       <select
-        class="hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md"
+        class="
+          hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md 
+          [&>option]:p-2 [&>option]:truncate
+        "
         size="4"
         title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
       >
         <option
-          class="p-2 truncate"
           value=""
         >
           ActiveRecord::Base
         </option>
         <option
-          class="p-2 truncate"
           value="1"
         >
           Mock Name
         </option>
         <option
-          class="p-2 truncate"
           disabled=""
           value="2"
         >
           Mock Second Name
         </option>
         <option
-          class="p-2 truncate"
           value="3"
         >
           Mock Third Name

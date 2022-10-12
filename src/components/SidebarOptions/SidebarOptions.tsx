@@ -21,7 +21,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
   
   return (
     <div 
-      className='relative w-1/2 bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border '
+      className='relative w-1/2 whitespace-nowrap'
       onMouseLeave={handleMouseLeave}
     >
       <div 
@@ -32,20 +32,22 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       </div>
       <select
         ref={selectEl}
-        className="hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md"
+        className="
+          hidden cursor-pointer absolute left-0 top-full z-10 border border-first-500 w-11/12 rounded-md 
+          [&>option]:p-2 [&>option]:truncate
+        "
         value={tables[tableId].superclassId}
         onChange={(event) => changeTableSuperclass(event, tableId)}
         title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
         size={Object.keys(tables).length + 1 }
       >
-        <option value="" className='p-2 truncate'>{"ActiveRecord::Base"}</option>
+        <option value="" >{"ActiveRecord::Base"}</option>
 
         {Object.keys(tables).map((superTableId: string) => (
           <option
             key={superTableId}
             value={superTableId}
             disabled={superTableId == tableId}
-            className="p-2 truncate"
           >
             {tables[superTableId].name}
           </option>

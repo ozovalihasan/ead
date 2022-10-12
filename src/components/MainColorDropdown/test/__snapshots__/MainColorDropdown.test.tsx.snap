@@ -6,11 +6,12 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="w-full relative bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border "
+        class="w-full relative rounded-tr-md border border-first-500 whitespace-nowrap"
       >
         <div
           class="truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize"
         >
+          Main Color: 
           sky
         </div>
         <select
@@ -78,11 +79,12 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="w-full relative bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border "
+      class="w-full relative rounded-tr-md border border-first-500 whitespace-nowrap"
     >
       <div
         class="truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize"
       >
+        Main Color: 
         sky
       </div>
       <select

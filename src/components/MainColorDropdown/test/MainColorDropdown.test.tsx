@@ -37,7 +37,7 @@ describe('<MainColorDropdown />', () => {
     render( renderReadyComponent );
 
     const selectEl = screen.getByTitle(/Select a main color/);
-    const buttonEl = screen.getAllByText(/^sky$/i)[0];
+    const buttonEl = screen.getAllByText(/^Main Color: sky$/i)[0];
 
     fireEvent.mouseUp( buttonEl );
     

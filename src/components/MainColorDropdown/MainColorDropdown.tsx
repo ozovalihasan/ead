@@ -18,14 +18,14 @@ export const MainColorDropdown = memo(() => {
   
   return (
     <div 
-      className='w-full relative bg-first-50 rounded-tr-md border border-first-500 whitespace-nowrap  box-border '
+      className='w-full relative rounded-tr-md border border-first-500 whitespace-nowrap'
       onMouseLeave={handleMouseLeave}
     >
       <div 
         className='truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize'  
         onMouseUp={handleMouseUp} 
       >
-        { selectedColor }
+        Main Color: { selectedColor }
       </div>
       <select
         ref={selectEl}

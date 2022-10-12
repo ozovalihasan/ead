@@ -1,6 +1,8 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import { memo, useRef } from 'react';
 import { availableColors, availableColorsType} from '@/helpers';
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
+
 export const MainColorDropdown = memo(() => {
   
   const selectedColor = useCustomizationStore(store => store.mainColor)
@@ -8,22 +10,15 @@ export const MainColorDropdown = memo(() => {
 
   const selectEl = useRef<HTMLSelectElement | null>(null);
 
-  const handleMouseUp = () => {
-    selectEl.current!.classList.toggle("hidden")
-  }
-  
-  const handleMouseLeave = () => {
-    selectEl.current!.classList.add("hidden")
-  }
   
   return (
     <div 
       className='w-full relative rounded-tr-md border border-first-500 whitespace-nowrap'
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
         className='truncate p-2 bg-slate-100 rounded-md cursor-pointer capitalize'  
-        onMouseUp={handleMouseUp} 
+        onMouseUp={() => handleMouseUpForSelect(selectEl)} 
       >
         Main Color: { selectedColor }
       </div>

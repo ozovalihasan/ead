@@ -1,5 +1,6 @@
 import useStore from '@/zustandStore/store';
 import { memo, useRef } from 'react';
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 export interface SidebarOptionsType {
   tableId: string
@@ -10,23 +11,15 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
   const tables = useStore((state) => state.tables);
   const selectEl = useRef<HTMLSelectElement | null>(null);
   const changeTableSuperclass = useStore(store => store.changeTableSuperClass)
-
-  const handleMouseUp = () => {
-    selectEl.current!.classList.toggle("hidden")
-  }
-  
-  const handleMouseLeave = () => {
-    selectEl.current!.classList.add("hidden")
-  }
   
   return (
     <div 
       className='relative w-1/2 whitespace-nowrap'
-      onMouseLeave={handleMouseLeave}
+      onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
         className='truncate p-2 bg-slate-100 rounded-md cursor-pointer'  
-        onMouseUp={handleMouseUp} 
+        onMouseUp={() => handleMouseUpForSelect(selectEl)} 
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}
       </div>

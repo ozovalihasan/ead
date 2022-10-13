@@ -11,6 +11,7 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   NodeRemoveChange,
+  ReactFlowInstance
 } from 'react-flow-renderer';
 
 import { devtools } from 'zustand/middleware'
@@ -20,7 +21,6 @@ import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
 import transform_0_4_x_to_0_4_5 from './helpers/transform_0_4_x_to_0_4_5';
-import { ReactFlowInstance } from 'react-flow-renderer';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   

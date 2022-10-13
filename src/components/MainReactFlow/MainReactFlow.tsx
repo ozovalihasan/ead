@@ -1,8 +1,9 @@
-import { useRef, useCallback, memo } from 'react';
+import { useRef, useCallback, memo, useEffect } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   Controls,
-  EdgeTypes
+  EdgeTypes,
+  useReactFlow
 } from 'react-flow-renderer';
 
 import useStore from '@/zustandStore/store';
@@ -25,7 +26,7 @@ const edgeTypes: EdgeTypes = {
   through: ThroughEdge,
 };
 
-export const MainReactFlow = memo(() => {
+export const FlowWithoutProvider = memo(() => {
 
   const nodes = useStore(store => store.nodes)
   const edges = useStore(store => store.edges)
@@ -49,6 +50,8 @@ export const MainReactFlow = memo(() => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
+  
+  setReactFlowInstance(useReactFlow())
 
   const onDrop = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {
@@ -95,7 +98,6 @@ export const MainReactFlow = memo(() => {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
-          onInit={setReactFlowInstance}
           onDrop={onDrop}
           onConnectStart={onConnectStart}
           onConnectEnd={onConnectEnd}
@@ -120,3 +122,9 @@ export const MainReactFlow = memo(() => {
     </div>
   )
 })
+
+export const MainReactFlow = memo(() => (
+  <ReactFlowProvider>
+    <FlowWithoutProvider/>
+  </ReactFlowProvider>
+))

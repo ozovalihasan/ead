@@ -51,11 +51,6 @@ export const FlowWithoutProvider = memo(() => {
     event.dataTransfer.dropEffect = 'move';
   }, []);
   
-  const rfi = useReactFlow()
-  useEffect(() => {
-    setReactFlowInstance( rfi )
-  },[])
-
   const onDrop = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {
       event.preventDefault();
@@ -95,10 +90,12 @@ export const FlowWithoutProvider = memo(() => {
   return (
     <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
         <ReactFlow
+        // nodesDraggable={false}
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
+          onInit={setReactFlowInstance}
           onConnect={onConnect}
           onDrop={onDrop}
           onConnectStart={onConnectStart}

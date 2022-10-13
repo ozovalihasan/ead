@@ -51,7 +51,10 @@ export const FlowWithoutProvider = memo(() => {
     event.dataTransfer.dropEffect = 'move';
   }, []);
   
-  setReactFlowInstance(useReactFlow())
+  const rfi = useReactFlow()
+  useEffect(() => {
+    setReactFlowInstance( rfi )
+  },[])
 
   const onDrop = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {

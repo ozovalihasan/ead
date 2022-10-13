@@ -9,9 +9,7 @@ import {
 
 export const App = () => {
   
-  const {
-    locationSidebar,
-  } = useCustomizationStore()
+  const locationSidebar = useCustomizationStore((state) => state.locationSidebar)
   
   return (
 

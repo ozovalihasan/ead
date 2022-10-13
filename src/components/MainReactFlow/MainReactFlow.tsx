@@ -94,7 +94,6 @@ export const FlowWithoutProvider = memo(() => {
   
   return (
     <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
-      <ReactFlowProvider>      
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -120,7 +119,6 @@ export const FlowWithoutProvider = memo(() => {
           <Controls />
           
         </ReactFlow>
-      </ReactFlowProvider>
       
     </div>
   )

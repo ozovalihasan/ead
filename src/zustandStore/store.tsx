@@ -20,6 +20,7 @@ import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
 import transform_0_4_x_to_0_4_5 from './helpers/transform_0_4_x_to_0_4_5';
+import { ReactFlowInstance } from 'react-flow-renderer';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -64,6 +65,8 @@ export interface State {
   mouseOnEdgeId: string | null;
   mouseOnNodeId: string | null;
   associationType: string;
+  reactFlowInstance: ReactFlowInstance | null;
+  setReactFlowInstance: (flowInstance: ReactFlowInstance) => void; 
   onNodeMouseEnter: (_: React.MouseEvent, node: Node) => void; 
   onEdgeMouseEnter: (_: React.MouseEvent, edge: Edge) => void; 
   onNodesChange: OnNodesChange;
@@ -105,6 +108,13 @@ const useStore = create(devtools<State>((set, get) => ({
     mouseOnNodeId: null,
     mouseOnEdgeId: null,
     selectedNodeIdForThrough: null,
+    reactFlowInstance: null,
+    setReactFlowInstance: ((flowInstance: ReactFlowInstance) => {
+      set({
+        reactFlowInstance: flowInstance
+      })
+      
+    }),
     onConnectStart: (() => {
       set({
         isConnectContinue: true
@@ -334,7 +344,6 @@ const useStore = create(devtools<State>((set, get) => ({
           data = JSON.parse(event.target.result) as State;
           
           if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4", "0.4.5"].includes(data.version)) {
-            
             set(
               transform_0_4_x_to_0_4_5(data)
             ) 

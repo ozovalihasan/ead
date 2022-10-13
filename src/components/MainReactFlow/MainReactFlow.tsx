@@ -1,7 +1,6 @@
-import { useState, useRef, useCallback, memo } from 'react';
+import { useRef, useCallback, memo } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
-  ReactFlowInstance,
   Controls,
   EdgeTypes
 } from 'react-flow-renderer';
@@ -40,10 +39,10 @@ export const MainReactFlow = memo(() => {
   const onNodeMouseLeave = useStore(store => store.onNodeMouseLeave)
   const onEdgeMouseEnter = useStore(store => store.onEdgeMouseEnter)
   const onEdgeMouseLeave = useStore(store => store.onEdgeMouseLeave)
-
+  const setReactFlowInstance = useStore(store => store.setReactFlowInstance)
+  const reactFlowInstance = useStore(store => store.reactFlowInstance)
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
 
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {

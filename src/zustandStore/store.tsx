@@ -347,7 +347,8 @@ const useStore = create(devtools<State>((set, get) => ({
             set(
               transform_0_4_x_to_0_4_5(data)
             ) 
-          
+
+            setTimeout(get().reactFlowInstance!.fitView, 0);
           } else {
             alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.5).`);  
           }

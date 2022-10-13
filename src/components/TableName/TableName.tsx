@@ -31,7 +31,7 @@ export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: st
           ref={selectEl}
           className="absolute bottom-full left-0 hidden"
           value={tableId}
-          onChange={(event) => onNodeTableChange(event, nodeId)}
+          onClick={(event) => onNodeTableChange(event, nodeId)}
           size={options.length}
         >
           {options.map(({id, name} ) => (

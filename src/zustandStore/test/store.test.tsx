@@ -306,7 +306,7 @@ describe('store', () => {
       nodeOnStore = useStore.getState().nodes.find(node => node.id === "4")!
       expect(nodeOnStore.data.tableId).not.toBe("2");
       
-      useStore.getState().onNodeTableChange({target: {value: "2"}} as React.ChangeEvent<HTMLSelectElement>, "4")
+      useStore.getState().onNodeTableChange("2", "4")
       
       nodeOnStore = (useStore.getState().nodes.find(node => node.id === "4"))!
       expect(nodeOnStore.data.tableId).toBe("2");

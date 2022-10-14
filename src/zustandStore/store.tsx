@@ -88,7 +88,7 @@ export interface State {
   onConnectEnd: () => void;
   onNodeMouseLeave: () => void;
   onEdgeMouseLeave: () => void;
-  onNodeTableChange: (event: React.ChangeEvent<HTMLSelectElement>, nodeId: string) => void;
+  onNodeTableChange: (value: string, nodeId: string) => void;
   onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -224,10 +224,10 @@ const useStore = create(devtools<State>((set, get) => ({
       }))
     }),
     onNodeTableChange: (
-      (event: React.ChangeEvent<HTMLSelectElement>, nodeId: string) => {
+      (value: string, nodeId: string) => {
         set(produce((state: State) => {
           const node: EntityNodeType = (state.nodes.find(node => node.id === nodeId))!
-          node.data.tableId = event.target.value
+          node.data.tableId = value
         }))
       }
 

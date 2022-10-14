@@ -7,50 +7,60 @@ Object {
     <div>
       <div
         class="text-xs flex relative"
+        title="Middle button click to change the table"
       >
-        <div>
+        <div
+          class="font-bold"
+        >
           Mock Name
-          <select
-            class="absolute bottom-full left-0 hidden"
-            size="2"
-          >
-            <option
-              value="1"
-            >
-              Mock Name
-            </option>
-            <option
-              value="2"
-            >
-              Mock Second Name
-            </option>
-          </select>
         </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="text-xs flex relative"
-    >
-      <div>
-        Mock Name
         <select
-          class="absolute bottom-full left-0 hidden"
+          class="absolute bottom-full left-0 hidden custom-select-options"
           size="2"
         >
           <option
+            title="Mock Name"
             value="1"
           >
             Mock Name
           </option>
           <option
+            title="Mock Second Name"
             value="2"
           >
             Mock Second Name
           </option>
         </select>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="text-xs flex relative"
+      title="Middle button click to change the table"
+    >
+      <div
+        class="font-bold"
+      >
+        Mock Name
+      </div>
+      <select
+        class="absolute bottom-full left-0 hidden custom-select-options"
+        size="2"
+      >
+        <option
+          title="Mock Name"
+          value="1"
+        >
+          Mock Name
+        </option>
+        <option
+          title="Mock Second Name"
+          value="2"
+        >
+          Mock Second Name
+        </option>
+      </select>
     </div>
   </div>,
   "debug": [Function],

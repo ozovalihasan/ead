@@ -10,7 +10,7 @@ Object {
         style="width: 204px;"
       >
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
           draggable="true"
         >
           <div
@@ -100,7 +100,7 @@ Object {
           </button>
         </div>
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
           draggable="true"
         >
           <div
@@ -209,7 +209,7 @@ Object {
       style="width: 204px;"
     >
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
         draggable="true"
       >
         <div
@@ -299,7 +299,7 @@ Object {
         </button>
       </div>
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
         draggable="true"
       >
         <div
@@ -465,7 +465,7 @@ Object {
         style="width: 204px;"
       >
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
           draggable="true"
         >
           <div
@@ -555,7 +555,7 @@ Object {
           </button>
         </div>
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
           draggable="true"
         >
           <div
@@ -664,7 +664,7 @@ Object {
       style="width: 204px;"
     >
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
         draggable="true"
       >
         <div
@@ -754,7 +754,7 @@ Object {
         </button>
       </div>
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="my-4 w-full bg-transparent border-2 general-border rounded-md p-1"
         draggable="true"
       >
         <div

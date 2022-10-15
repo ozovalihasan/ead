@@ -9,7 +9,7 @@ Object {
         class="w-full relative  whitespace-nowrap"
       >
         <div
-          class="btn-select truncate p-2 btn-select rounded-md capitalize"
+          class="truncate p-2 rounded-md capitalize custom-select-button"
         >
           Main Color: 
           sky
@@ -35,7 +35,7 @@ Object {
       class="w-full relative  whitespace-nowrap"
     >
       <div
-        class="btn-select truncate p-2 btn-select rounded-md capitalize"
+        class="truncate p-2 rounded-md capitalize custom-select-button"
       >
         Main Color: 
         sky

@@ -39,7 +39,7 @@ export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: st
       onMouseLeave={handleMouseLeave} 
       title="Middle button click to change the table"
     >
-      <div onMouseUp={event => handleMouseUp(event)} className="font-bold">
+      <div onMouseUp={event => handleMouseUp(event)} className="font-bold custom-select-button p-1 rounded-md">
         {tableName}
       </div>
       <select

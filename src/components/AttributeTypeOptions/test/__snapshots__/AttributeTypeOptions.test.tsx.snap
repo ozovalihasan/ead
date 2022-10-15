@@ -9,7 +9,7 @@ Object {
         class="relative whitespace-nowrap w-full"
       >
         <div
-          class="truncate p-2 btn-select rounded-md min-w-full"
+          class="truncate p-2 rounded-md min-w-full custom-select-button m-1"
         >
           string
         </div>
@@ -118,7 +118,7 @@ Object {
       class="relative whitespace-nowrap w-full"
     >
       <div
-        class="truncate p-2 btn-select rounded-md min-w-full"
+        class="truncate p-2 rounded-md min-w-full custom-select-button m-1"
       >
         string
       </div>

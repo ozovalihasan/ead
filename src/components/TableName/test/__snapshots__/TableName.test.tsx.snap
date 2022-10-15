@@ -10,7 +10,7 @@ Object {
         title="Middle button click to change the table"
       >
         <div
-          class="font-bold"
+          class="font-bold custom-select-button p-1 rounded-md"
         >
           Mock Name
         </div>
@@ -40,7 +40,7 @@ Object {
       title="Middle button click to change the table"
     >
       <div
-        class="font-bold"
+        class="font-bold custom-select-button p-1 rounded-md"
       >
         Mock Name
       </div>

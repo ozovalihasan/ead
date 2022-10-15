@@ -9,7 +9,7 @@ Object {
         class="relative w-1/2 whitespace-nowrap"
       >
         <div
-          class="truncate p-2 btn-select rounded-md"
+          class="truncate p-2 rounded-md custom-select-button m-1"
         >
           &lt; Mock Name
         </div>
@@ -51,7 +51,7 @@ Object {
       class="relative w-1/2 whitespace-nowrap"
     >
       <div
-        class="truncate p-2 btn-select rounded-md"
+        class="truncate p-2 rounded-md custom-select-button m-1"
       >
         &lt; Mock Name
       </div>

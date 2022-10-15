@@ -21,7 +21,7 @@ export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: stri
       onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
-        className='truncate p-2 btn-select rounded-md min-w-full'   
+        className='truncate p-2 rounded-md min-w-full custom-select-button m-1'   
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
       >
         {type}

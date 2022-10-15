@@ -39,9 +39,9 @@ details > summary::-webkit-details-marker {
   .btn-third {
     @apply flex justify-center items-center text-first-500 dark:text-first-100 stroke-first-500 hover:text-first-600 hover:stroke-first-600 cursor-pointer;
   }
-  
-  .btn-select {
-    @apply bg-zinc-100 dark:bg-zinc-700 cursor-pointer rounded-md;
+
+  .custom-select-button {
+    @apply bg-zinc-100 dark:bg-zinc-600 cursor-pointer rounded-md;
   }
 
   .custom-select-options {
@@ -50,7 +50,7 @@ details > summary::-webkit-details-marker {
   }
   
   .custom-select-options > option {
-    @apply hover:bg-zinc-200 hover:text-zinc-700 dark:hover:bg-first-400 dark:checked:bg-first-400 
+    @apply hover:bg-zinc-200 hover:text-zinc-700 dark:hover:bg-first-400
   }
 
   .general-border {

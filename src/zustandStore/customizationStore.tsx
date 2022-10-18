@@ -10,12 +10,14 @@ export interface CustomizationStoreState {
   sidebarVisible: boolean;
   navbarVisible: boolean;
   mainColor: availableColorsType;
+  darkModeActive: boolean;
   changeMainColor: (color: availableColorsType) => void;
   toggleLocationSidebar: () => void;
   toggleSidebarVisibility: () => void;
   toggleNavbarVisibility: () => void;
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => void;
   toggleTextMode: () => void;
+  toggleDarkMode: () => void;
 }
 
 if(!localStorage.locationSidebar){
@@ -32,6 +34,15 @@ if(!localStorage.mainColor){
   localStorage.setItem("mainColor", JSON.stringify(availableColors[0]))
 }
 
+if(!localStorage.darkModeActive){
+  localStorage.setItem("darkModeActive", JSON.stringify(false))
+}else{
+  if (JSON.parse(localStorage.darkModeActive as string)){
+    const rootElement = document.querySelector("div#root")!
+    rootElement.classList.add("dark");
+  }
+}
+
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
   locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),
   widthSidebar: JSON.parse(localStorage.widthSidebar as string) as number,
@@ -39,6 +50,7 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   sidebarVisible: true,
   navbarVisible: true,
   mainColor: JSON.parse(localStorage.mainColor as string) as availableColorsType,
+  darkModeActive: JSON.parse(localStorage.darkModeActive as string) as boolean, 
   changeMainColor: (color: availableColorsType) => {
     setColorVariants(color)
 
@@ -89,6 +101,16 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   toggleTextMode: () => {
     set({
         showTextOnEdges: !get().showTextOnEdges
+    })
+  },
+  toggleDarkMode: () => {
+    const rootElement = document.querySelector("div#root")!
+    rootElement.classList.toggle("dark");
+
+    localStorage.setItem("darkModeActive", JSON.stringify(!get().darkModeActive))
+
+    set({
+      darkModeActive: !get().darkModeActive
     })
   }
 })))

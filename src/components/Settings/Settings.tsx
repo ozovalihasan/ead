@@ -7,6 +7,7 @@ export const Settings = memo(() => {
   const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges)
   const toggleLocationSidebar = useCustomizationStore(store => store.toggleLocationSidebar)
   const toggleTextMode = useCustomizationStore(store => store.toggleTextMode)
+  const toggleDarkMode = useCustomizationStore(store => store.toggleDarkMode)
 
   return (
     <details open className='mt-8 [&>summary>span:nth-child(1)]:open:hidden [&>summary>span:nth-child(2)]:open:inline '>
@@ -24,7 +25,9 @@ export const Settings = memo(() => {
           Show the sidebar at the right of the window
         </label>
         <MainColorDropdown />
-   
+        <button className="btn-second rounded-md my-2 p-2" onClick={toggleDarkMode}>
+          Dark Mode
+        </button>
       </div>
     </details>
   )

@@ -66,6 +66,7 @@ export interface State {
   mouseOnNodeId: string | null;
   associationType: string;
   reactFlowInstance: ReactFlowInstance | null;
+  needFitView: boolean,
   setReactFlowInstance: (flowInstance: ReactFlowInstance) => void; 
   onNodeMouseEnter: (_: React.MouseEvent, node: Node) => void; 
   onEdgeMouseEnter: (_: React.MouseEvent, edge: Edge) => void; 
@@ -92,6 +93,7 @@ export interface State {
   onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  toggleNeedFitView: () => void;
 }
 
 const useStore = create(devtools<State>((set, get) => ({
@@ -109,6 +111,7 @@ const useStore = create(devtools<State>((set, get) => ({
     mouseOnEdgeId: null,
     selectedNodeIdForThrough: null,
     reactFlowInstance: null,
+    needFitView: false,
     setReactFlowInstance: ((flowInstance: ReactFlowInstance) => {
       set({
         reactFlowInstance: flowInstance
@@ -336,6 +339,11 @@ const useStore = create(devtools<State>((set, get) => ({
       }
 
     },
+    toggleNeedFitView: () => {
+      set({
+        needFitView: !get().needFitView
+      })
+    },
     uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileReader = new FileReader();
       fileReader.onload = (event) => {
@@ -348,7 +356,9 @@ const useStore = create(devtools<State>((set, get) => ({
               transform_0_4_x_to_0_4_5(data)
             ) 
 
-            setTimeout(get().reactFlowInstance!.fitView, 1000);
+            set({
+              needFitView: true
+            })
           } else {
             alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.5).`);  
           }

@@ -41,7 +41,9 @@ export const FlowWithoutProvider = memo(() => {
   const onEdgeMouseEnter = useStore(store => store.onEdgeMouseEnter)
   const onEdgeMouseLeave = useStore(store => store.onEdgeMouseLeave)
   const setReactFlowInstance = useStore(store => store.setReactFlowInstance)
+  const toggleNeedFitView = useStore(store => store.toggleNeedFitView)
   const reactFlowInstance = useStore(store => store.reactFlowInstance)
+  const needFitView = useStore(store => store.needFitView)
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
 
@@ -87,6 +89,12 @@ export const FlowWithoutProvider = memo(() => {
     [reactFlowInstance]
   );
   
+  useEffect(() => {
+    if (needFitView){
+      reactFlowInstance?.fitView()
+      toggleNeedFitView()
+    }
+  }, [needFitView]) 
   return (
     <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
         <ReactFlow

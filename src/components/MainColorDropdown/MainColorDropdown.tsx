@@ -13,7 +13,7 @@ export const MainColorDropdown = memo(() => {
   
   return (
     <div 
-      className='w-full relative  whitespace-nowrap'
+      className='w-64 relative  whitespace-nowrap'
       onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
@@ -24,7 +24,7 @@ export const MainColorDropdown = memo(() => {
       </div>
       <select
         ref={selectEl}
-        className="hidden absolute left-0 bottom-full z-10 w-full custom-select-options"
+        className="hidden absolute left-0 top-full w-full custom-select-options"
         value={selectedColor}
         onChange={(selectedOption) => {
           changeMainColor(selectedOption.target.value as availableColorsType)}

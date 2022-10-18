@@ -2,6 +2,7 @@ import saveJSON from './saveJSON';
 import {
   EADLogo,
   GithubLogo,
+  Settings
 } from "@/components";
 
 import {
@@ -62,8 +63,12 @@ export const Navbar = () => {
           >
             Reset
           </button>
+
+          <div className='ml-auto'>
+            <Settings />
+          </div>
       
-          <a className='w-8 h-8 mx-8 ml-auto' href="https://github.com/ozovalihasan/ead" target="_blank" title="The repository of the project">
+          <a className='w-8 h-8 mx-8 ml-8' href="https://github.com/ozovalihasan/ead" target="_blank" title="The repository of the project">
             <GithubLogo />
           </a>
       

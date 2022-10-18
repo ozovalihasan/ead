@@ -1,6 +1,6 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
-import { Settings, AttributeTypeOptions } from '@/components';
+import { AttributeTypeOptions } from '@/components';
 import { MinusSign, PlusSign } from '@/icons';
 import { SidebarOptions } from '@/components';
 export const Sidebar = () => {
@@ -113,9 +113,6 @@ export const Sidebar = () => {
           <PlusSign />
         </div>
       </button>
-
-      <Settings />
-      
     </aside>
   );
 };

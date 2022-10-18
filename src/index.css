@@ -46,11 +46,11 @@ details > summary::-webkit-details-marker {
 
   .custom-select-options {
     @apply bg-zinc-100 dark:bg-zinc-700 rounded-md border border-zinc-800 dark:border-zinc-50 cursor-pointer
-    dark:checked:bg-first-400 outline-none 
+    outline-none 
   }
   
   .custom-select-options > option {
-    @apply hover:bg-zinc-200 hover:text-zinc-700 dark:hover:bg-first-400
+    @apply hover:bg-zinc-200 hover:text-zinc-700 dark:hover:bg-zinc-300
   }
 
   .general-border {

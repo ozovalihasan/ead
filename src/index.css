@@ -16,7 +16,7 @@ details > summary::-webkit-details-marker {
   }
 
   input[type="checkbox"] {
-    @apply accent-first-600
+    @apply accent-first-500 dark:accent-first-600
   }
 }
 

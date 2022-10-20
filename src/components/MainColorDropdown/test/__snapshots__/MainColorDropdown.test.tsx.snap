@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="w-full relative  whitespace-nowrap"
+        class="w-64 relative  whitespace-nowrap"
       >
         <div
           class="truncate p-2 rounded-md capitalize custom-select-button"
@@ -15,7 +15,7 @@ Object {
           sky
         </div>
         <select
-          class="hidden absolute left-0 bottom-full z-10 w-full custom-select-options"
+          class="hidden absolute left-0 top-full w-full custom-select-options"
           size="1"
           title="Select a main color"
         >
@@ -32,7 +32,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="w-full relative  whitespace-nowrap"
+      class="w-64 relative  whitespace-nowrap"
     >
       <div
         class="truncate p-2 rounded-md capitalize custom-select-button"
@@ -41,7 +41,7 @@ Object {
         sky
       </div>
       <select
-        class="hidden absolute left-0 bottom-full z-10 w-full custom-select-options"
+        class="hidden absolute left-0 top-full w-full custom-select-options"
         size="1"
         title="Select a main color"
       >

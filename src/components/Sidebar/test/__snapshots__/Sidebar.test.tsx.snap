@@ -199,7 +199,6 @@ Object {
             MockPlusSign
           </div>
         </button>
-        MockSettings
       </aside>
     </div>
   </body>,
@@ -398,7 +397,6 @@ Object {
           MockPlusSign
         </div>
       </button>
-      MockSettings
     </aside>
   </div>,
   "debug": [Function],
@@ -654,7 +652,6 @@ Object {
             MockPlusSign
           </div>
         </button>
-        MockSettings
       </aside>
     </div>
   </body>,
@@ -853,7 +850,6 @@ Object {
           MockPlusSign
         </div>
       </button>
-      MockSettings
     </aside>
   </div>,
   "debug": [Function],

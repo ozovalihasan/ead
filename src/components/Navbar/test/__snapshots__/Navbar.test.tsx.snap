@@ -55,8 +55,13 @@ Object {
             >
               Reset
             </button>
+            <div
+              class="ml-auto"
+            >
+              MockSettings
+            </div>
             <a
-              class="w-8 h-8 mx-8 ml-auto"
+              class="w-8 h-8 mx-8 ml-8"
               href="https://github.com/ozovalihasan/ead"
               target="_blank"
               title="The repository of the project"
@@ -129,8 +134,13 @@ Object {
           >
             Reset
           </button>
+          <div
+            class="ml-auto"
+          >
+            MockSettings
+          </div>
           <a
-            class="w-8 h-8 mx-8 ml-auto"
+            class="w-8 h-8 mx-8 ml-8"
             href="https://github.com/ozovalihasan/ead"
             target="_blank"
             title="The repository of the project"
@@ -260,8 +270,13 @@ Object {
             >
               Reset
             </button>
+            <div
+              class="ml-auto"
+            >
+              MockSettings
+            </div>
             <a
-              class="w-8 h-8 mx-8 ml-auto"
+              class="w-8 h-8 mx-8 ml-8"
               href="https://github.com/ozovalihasan/ead"
               target="_blank"
               title="The repository of the project"
@@ -334,8 +349,13 @@ Object {
           >
             Reset
           </button>
+          <div
+            class="ml-auto"
+          >
+            MockSettings
+          </div>
           <a
-            class="w-8 h-8 mx-8 ml-auto"
+            class="w-8 h-8 mx-8 ml-8"
             href="https://github.com/ozovalihasan/ead"
             target="_blank"
             title="The repository of the project"
@@ -465,8 +485,13 @@ Object {
             >
               Reset
             </button>
+            <div
+              class="ml-auto"
+            >
+              MockSettings
+            </div>
             <a
-              class="w-8 h-8 mx-8 ml-auto"
+              class="w-8 h-8 mx-8 ml-8"
               href="https://github.com/ozovalihasan/ead"
               target="_blank"
               title="The repository of the project"
@@ -539,8 +564,13 @@ Object {
           >
             Reset
           </button>
+          <div
+            class="ml-auto"
+          >
+            MockSettings
+          </div>
           <a
-            class="w-8 h-8 mx-8 ml-auto"
+            class="w-8 h-8 mx-8 ml-8"
             href="https://github.com/ozovalihasan/ead"
             target="_blank"
             title="The repository of the project"

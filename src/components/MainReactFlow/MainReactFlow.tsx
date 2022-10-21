@@ -98,7 +98,6 @@ export const FlowWithoutProvider = memo(() => {
   return (
     <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
         <ReactFlow
-        // nodesDraggable={false}
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
@@ -122,7 +121,6 @@ export const FlowWithoutProvider = memo(() => {
           snapToGrid={true}
         >
           <Controls />
-          
         </ReactFlow>
       
     </div>

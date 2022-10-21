@@ -5,11 +5,6 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 import { SidebarOptionsType } from '@/components';
 
 jest.mock("@/components", () => ({
-  Settings: () => (
-    <>
-      MockSettings
-    </>
-  ),
   AttributeTypeOptions: () => (
     <>
       MockAttributeTypeOptions
@@ -149,7 +144,6 @@ describe('<Sidebar />', () => {
 
       render(renderReadyComponent );
       
-      expect(screen.getByText(/MockSettings/i)).toBeInTheDocument();
       expect(screen.getAllByText(/AttributeTypeOptions/i).length).toBe(4);
     });
 

@@ -58,7 +58,7 @@ details > summary::-webkit-details-marker {
   }
 
   .association-handle {
-    @apply [&>svg]:w-3 [&>svg]:h-3 w-6 h-6 absolute  bg-slate-700  stroke-slate-50 stroke-[40] rounded-full -translate-x-1/2 flex justify-center items-center
+    @apply [&>svg]:w-3 [&>svg]:h-3 w-6 h-6 absolute  bg-slate-700 dark:bg-slate-50 stroke-slate-50 dark:stroke-slate-700 stroke-[40] rounded-full -translate-x-1/2 flex justify-center items-center
   }
 }
 

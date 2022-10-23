@@ -95,6 +95,10 @@ describe('store', () => {
     expect(useStore.getState().reactFlowInstance).toBeNull();
   });
 
+  it('has an "needFitView" attribute and its value should be false', () => {
+    expect(useStore.getState().needFitView).toBe(false);
+  });
+
   it('has an "setReactFlowInstance" attribute to set reactFlowInstance', () => {
     
     expect(useStore.getState().reactFlowInstance).toBe(null);
@@ -493,6 +497,18 @@ describe('store', () => {
       expect(useStore.getState().nodes).toEqual([]);
       expect(useStore.getState().edges).toEqual([]);
       
+  });
+
+  it('has a "toggleNeedFitView" attribute to toogle the needFitView attribute', () => {
+    expect(useStore.getState().needFitView).toBe(false);
+    
+    useStore.getState().toggleNeedFitView()
+    
+    expect(useStore.getState().needFitView).toBe(true);
+    
+    useStore.getState().toggleNeedFitView()
+
+    expect(useStore.getState().needFitView).toBe(false);
   });
 
   describe('has an "uploadStore" attribute to upload an EAD file', () => {

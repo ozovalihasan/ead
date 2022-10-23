@@ -27,7 +27,7 @@ Object {
             tableId: 1
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -40,9 +40,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockFirstAttribute"
             />
@@ -53,7 +54,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -66,9 +67,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockSecondAttribute"
             />
@@ -79,7 +81,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 aspect-square h-6"
+            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -117,7 +119,7 @@ Object {
             tableId: 2
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -130,9 +132,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockThirdAttribute"
             />
@@ -143,7 +146,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -156,9 +159,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockFourthAttribute"
             />
@@ -169,7 +173,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 aspect-square h-6"
+            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -225,7 +229,7 @@ Object {
           tableId: 1
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -238,9 +242,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockFirstAttribute"
           />
@@ -251,7 +256,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -264,9 +269,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockSecondAttribute"
           />
@@ -277,7 +283,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 aspect-square h-6"
+          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div
@@ -315,7 +321,7 @@ Object {
           tableId: 2
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -328,9 +334,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockThirdAttribute"
           />
@@ -341,7 +348,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -354,9 +361,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockFourthAttribute"
           />
@@ -367,7 +375,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 aspect-square h-6"
+          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div
@@ -480,7 +488,7 @@ Object {
             tableId: 1
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -493,9 +501,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockFirstAttribute"
             />
@@ -506,7 +515,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -519,9 +528,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockSecondAttribute"
             />
@@ -532,7 +542,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 aspect-square h-6"
+            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -570,7 +580,7 @@ Object {
             tableId: 2
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -583,9 +593,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockThirdAttribute"
             />
@@ -596,7 +607,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex m-1 items-center"
+            class="flex items-center space-x-2 p-0.5"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -609,9 +620,10 @@ Object {
               </div>
             </button>
             <input
-              class="p-2 w-2/3 rounded-md m-1 h-full"
+              class="p-2 w-2/3 rounded-md h-full"
               placeholder="Attribute"
               tabindex="4"
+              title="Name of attribute"
               type="text"
               value="mockFourthAttribute"
             />
@@ -622,7 +634,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 aspect-square h-6"
+            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -678,7 +690,7 @@ Object {
           tableId: 1
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -691,9 +703,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockFirstAttribute"
           />
@@ -704,7 +717,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -717,9 +730,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockSecondAttribute"
           />
@@ -730,7 +744,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 aspect-square h-6"
+          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div
@@ -768,7 +782,7 @@ Object {
           tableId: 2
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -781,9 +795,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockThirdAttribute"
           />
@@ -794,7 +809,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex m-1 items-center"
+          class="flex items-center space-x-2 p-0.5"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -807,9 +822,10 @@ Object {
             </div>
           </button>
           <input
-            class="p-2 w-2/3 rounded-md m-1 h-full"
+            class="p-2 w-2/3 rounded-md h-full"
             placeholder="Attribute"
             tabindex="4"
+            title="Name of attribute"
             type="text"
             value="mockFourthAttribute"
           />
@@ -820,7 +836,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 aspect-square h-6"
+          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div

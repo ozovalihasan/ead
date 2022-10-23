@@ -9,13 +9,14 @@ Object {
         class="relative whitespace-nowrap w-full"
       >
         <div
-          class="truncate p-2 rounded-md min-w-full custom-select-button m-1"
+          class="truncate p-2 rounded-md min-w-full custom-select-button"
+          title="string"
         >
           string
         </div>
         <select
           class="hidden absolute right-0 top-full z-10 min-w-full custom-select-options"
-          size="13"
+          size="11"
           title="Select attribute type"
         >
           <option
@@ -69,13 +70,6 @@ Object {
           </option>
           <option
             class="p-2 w-full"
-            title="timestamp"
-            value="timestamp"
-          >
-            timestamp
-          </option>
-          <option
-            class="p-2 w-full"
             title="time"
             value="time"
           >
@@ -102,13 +96,6 @@ Object {
           >
             boolean
           </option>
-          <option
-            class="p-2 w-full"
-            title="references"
-            value="references"
-          >
-            references
-          </option>
         </select>
       </div>
     </div>
@@ -118,13 +105,14 @@ Object {
       class="relative whitespace-nowrap w-full"
     >
       <div
-        class="truncate p-2 rounded-md min-w-full custom-select-button m-1"
+        class="truncate p-2 rounded-md min-w-full custom-select-button"
+        title="string"
       >
         string
       </div>
       <select
         class="hidden absolute right-0 top-full z-10 min-w-full custom-select-options"
-        size="13"
+        size="11"
         title="Select attribute type"
       >
         <option
@@ -178,13 +166,6 @@ Object {
         </option>
         <option
           class="p-2 w-full"
-          title="timestamp"
-          value="timestamp"
-        >
-          timestamp
-        </option>
-        <option
-          class="p-2 w-full"
           title="time"
           value="time"
         >
@@ -210,13 +191,6 @@ Object {
           value="boolean"
         >
           boolean
-        </option>
-        <option
-          class="p-2 w-full"
-          title="references"
-          value="references"
-        >
-          references
         </option>
       </select>
     </div>

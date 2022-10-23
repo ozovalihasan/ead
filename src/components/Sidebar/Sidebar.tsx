@@ -72,6 +72,7 @@ export const Sidebar = () => {
                         value={tables[tableId].attributes[attributeId].name} 
                         onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} 
                         tabIndex={4} 
+                        title="Name of attribute"
                       />
                       <div className="w-1/3">
                         <AttributeTypeOptions tableId={tableId} attributeId={attributeId} /> 

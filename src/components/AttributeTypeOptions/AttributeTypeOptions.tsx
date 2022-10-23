@@ -23,6 +23,7 @@ export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: stri
       <div 
         className='truncate p-2 rounded-md min-w-full custom-select-button'   
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
+        title={type}
       >
         {type}
       </div>

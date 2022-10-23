@@ -9,8 +9,8 @@ export const AttributeTypeOptions = memo(({tableId, attributeId}: {tableId: stri
   const type = useStore((state) => state.tables[tableId].attributes[attributeId].type);
   const onAttributeTypeChange = useStore((state) => state.onAttributeTypeChange);
   const options = [
-    'primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
-    'time', 'date', 'binary', 'boolean', 'references'
+    'primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime',
+    'time', 'date', 'binary', 'boolean'
   ]
 
   const selectEl = useRef<HTMLSelectElement | null>(null);

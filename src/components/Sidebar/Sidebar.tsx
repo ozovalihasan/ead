@@ -57,7 +57,7 @@ export const Sidebar = () => {
                   return (
                     <div className="flex items-center space-x-2 py-1 mx-1" key={attributeId} >
                       <button 
-                        className="btn-first rounded-full aspect-square h-6" 
+                        className="btn-second rounded-full aspect-square h-6" 
                         title="Remove the attribute" 
                         onClick={() => removeAttribute(tableId, attributeId)}
                       >
@@ -84,7 +84,7 @@ export const Sidebar = () => {
                 })
               }
               <button 
-                className="btn-first rounded-full m-1 mt-3 aspect-square h-6" 
+                className="btn-second rounded-full m-1 mt-3 aspect-square h-6" 
                 title="Add an attribute" 
                 onClick={() => addAttribute(tableId)}
               >

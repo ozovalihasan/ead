@@ -30,7 +30,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -57,7 +57,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -81,7 +81,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+            class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -122,7 +122,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -149,7 +149,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -173,7 +173,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+            class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -232,7 +232,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -259,7 +259,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -283,7 +283,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+          class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div
@@ -324,7 +324,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -351,7 +351,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -375,7 +375,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+          class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div
@@ -491,7 +491,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -518,7 +518,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -542,7 +542,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+            class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -583,7 +583,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -610,7 +610,7 @@ Object {
             class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
-              class="btn-first rounded-full aspect-square h-6"
+              class="btn-second rounded-full aspect-square h-6"
               title="Remove the attribute"
             >
               <div
@@ -634,7 +634,7 @@ Object {
             </div>
           </div>
           <button
-            class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+            class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
             title="Add an attribute"
           >
             <div
@@ -693,7 +693,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -720,7 +720,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -744,7 +744,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+          class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div
@@ -785,7 +785,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -812,7 +812,7 @@ Object {
           class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
-            class="btn-first rounded-full aspect-square h-6"
+            class="btn-second rounded-full aspect-square h-6"
             title="Remove the attribute"
           >
             <div
@@ -836,7 +836,7 @@ Object {
           </div>
         </div>
         <button
-          class="btn-first rounded-full m-1 mt-3 aspect-square h-6"
+          class="btn-second rounded-full m-1 mt-3 aspect-square h-6"
           title="Add an attribute"
         >
           <div

@@ -12,7 +12,7 @@ details > summary::-webkit-details-marker {
 
 @layer base {
   input {
-    @apply dark:bg-zinc-50 dark:bg-zinc-800
+    @apply bg-zinc-100 dark:bg-zinc-800
   }
 
   input[type="checkbox"] {

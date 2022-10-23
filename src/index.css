@@ -41,7 +41,7 @@ details > summary::-webkit-details-marker {
   }
 
   .custom-select-button {
-    @apply bg-zinc-100 dark:bg-zinc-600 cursor-pointer rounded-md;
+    @apply bg-zinc-200 dark:bg-zinc-600 cursor-pointer rounded-md;
   }
 
   .custom-select-options {

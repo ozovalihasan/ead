@@ -1,4 +1,5 @@
 import { EdgeText } from "react-flow-renderer";
+import useCustomizationStore, { CustomizationStoreState } from '@/zustandStore/customizationStore';
 
 export interface ShowEdgeTextType {
   centerX: number;
@@ -8,12 +9,14 @@ export interface ShowEdgeTextType {
 
 export const ShowEdgeText = ({centerX, centerY, label}: ShowEdgeTextType) => {
 
+  const darkModeActive = useCustomizationStore((store: CustomizationStoreState) => (store.darkModeActive))
+  
   return (
     <EdgeText
           x={centerX}
           y={centerY}
           label={label}
-          labelStyle={{ fill: 'black' }}
+          labelStyle={darkModeActive ? { fill: '#fff' } : { fill: '#000' }}
           labelShowBg
           labelBgStyle={{ fill: 'transparent' }}
           labelBgPadding={[2, 4]}

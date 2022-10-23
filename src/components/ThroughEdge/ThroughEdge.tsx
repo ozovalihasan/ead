@@ -24,6 +24,7 @@ export const ThroughEdge = ({
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId === id) 
   
   const showTextOnEdges = useCustomizationStore(store => store.showTextOnEdges);
+  const darkModeActive = useCustomizationStore(store => store.darkModeActive);
 
   if (!sourceNode || !throughNode || !targetNode) {
     return <div></div>
@@ -105,7 +106,7 @@ export const ThroughEdge = ({
       }
       {showTextOnEdges &&
         <text>
-          <textPath href={`#${id}-first`} style={{ fontSize: '12px' }} startOffset="0" >
+          <textPath href={`#${id}-first`} style={{ fontSize: '12px', fill: (darkModeActive ? "#fff" : "#000") }} startOffset="0" >
             {label}
           </textPath>
         </text>

@@ -55,7 +55,7 @@ export const Sidebar = () => {
               {
                 Object.keys(tables[tableId].attributes).map((attributeId) => {
                   return (
-                    <div className="flex items-center space-x-2 p-0.5" key={attributeId} >
+                    <div className="flex items-center space-x-2 py-1 mx-1" key={attributeId} >
                       <button 
                         className="btn-first rounded-full aspect-square h-6" 
                         title="Remove the attribute" 

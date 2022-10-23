@@ -27,7 +27,7 @@ Object {
             tableId: 1
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -54,7 +54,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -119,7 +119,7 @@ Object {
             tableId: 2
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -146,7 +146,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -229,7 +229,7 @@ Object {
           tableId: 1
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -256,7 +256,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -321,7 +321,7 @@ Object {
           tableId: 2
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -348,7 +348,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -488,7 +488,7 @@ Object {
             tableId: 1
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -515,7 +515,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -580,7 +580,7 @@ Object {
             tableId: 2
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -607,7 +607,7 @@ Object {
             </div>
           </div>
           <div
-            class="flex items-center space-x-2 p-0.5"
+            class="flex items-center space-x-2 py-1 mx-1"
           >
             <button
               class="btn-first rounded-full aspect-square h-6"
@@ -690,7 +690,7 @@ Object {
           tableId: 1
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -717,7 +717,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -782,7 +782,7 @@ Object {
           tableId: 2
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"
@@ -809,7 +809,7 @@ Object {
           </div>
         </div>
         <div
-          class="flex items-center space-x-2 p-0.5"
+          class="flex items-center space-x-2 py-1 mx-1"
         >
           <button
             class="btn-first rounded-full aspect-square h-6"

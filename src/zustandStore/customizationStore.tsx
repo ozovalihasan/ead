@@ -20,28 +20,33 @@ export interface CustomizationStoreState {
   toggleDarkMode: () => void;
 }
 
-if(!localStorage.locationSidebar){
-  const locationSidebar = "left"
-  localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
-}
+export const checkLocalStorage = () => {
 
-if(!localStorage.widthSidebar){
-  const widthSidebar = Math.floor(window.innerWidth * 0.2)
-  localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
-}
+  if(!localStorage.locationSidebar){
+    const locationSidebar = "left"
+    localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
+  }
 
-if(!localStorage.mainColor){
-  localStorage.setItem("mainColor", JSON.stringify(availableColors[0]))
-}
+  if(!localStorage.widthSidebar){
+    const widthSidebar = Math.floor(window.innerWidth * 0.2)
+    localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
+  }
 
-if(!localStorage.darkModeActive){
-  localStorage.setItem("darkModeActive", JSON.stringify(false))
-}else{
-  if (JSON.parse(localStorage.darkModeActive as string)){
-    const rootElement = document.querySelector("div#root")!
-    rootElement.classList.add("dark");
+  if(!localStorage.mainColor){
+    localStorage.setItem("mainColor", JSON.stringify(availableColors[0]))
+  }
+
+  if(!localStorage.darkModeActive){
+    localStorage.setItem("darkModeActive", JSON.stringify(false))
+  }else{
+    if (JSON.parse(localStorage.darkModeActive as string)){
+      const rootElement = document.querySelector("div#root")!
+      rootElement.classList.add("dark");
+    }
   }
 }
+
+checkLocalStorage();
 
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
   locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),

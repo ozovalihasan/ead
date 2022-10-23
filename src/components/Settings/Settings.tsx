@@ -13,7 +13,7 @@ export const Settings = memo(() => {
   return (
 
     <div className='relative'>
-      <button className='btn-third' onClick={() => setIsOpen(!isOpen)} >
+      <button className='btn-third' onClick={() => setIsOpen(!isOpen)} title="Settings">
         Settings
       </button>
       { isOpen && (

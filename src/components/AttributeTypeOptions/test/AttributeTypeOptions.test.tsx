@@ -66,8 +66,8 @@ describe('<AttributeTypeOptions />', () => {
     render(renderReadyComponent );
     const selectEl = screen.getByTitle(/Select attribute type/);
 
-    ['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime', 'timestamp',
-    'time', 'date', 'binary', 'boolean', 'references'].forEach((item) => {
+    ['primary_key', 'string', 'text', 'integer', 'float', 'decimal', 'datetime',
+    'time', 'date', 'binary', 'boolean'].forEach((item) => {
       expect(selectEl.innerHTML).toContain(item)
     })
     

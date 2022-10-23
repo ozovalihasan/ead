@@ -6,6 +6,7 @@ This document explains how to use EAD(Entity Association Diagram).
 After reading this document, you will know:
 
 * How to generate basic associations for Ruby on Rails
+* How to add STI model
 
 ---
 
@@ -404,7 +405,7 @@ class CreateVehicles < ActiveRecord::Migration[7.0]
 end
 ```
 
-A model using STI can be used as any model 
+A model using STI can be used as any model.
 
 ![Examples using STI EAD](./images/examples-using-sti.png)
 

@@ -55,7 +55,7 @@ export const Sidebar = () => {
               {
                 Object.keys(tables[tableId].attributes).map((attributeId) => {
                   return (
-                    <div className="flex m-1 items-center" key={attributeId} >
+                    <div className="flex items-center space-x-2 p-0.5" key={attributeId} >
                       <button 
                         className="btn-first rounded-full aspect-square h-6" 
                         title="Remove the attribute" 
@@ -66,7 +66,7 @@ export const Sidebar = () => {
                         </div>
                       </button>
                       <input 
-                        className="p-2 w-2/3 rounded-md m-1 h-full" 
+                        className="p-2 w-2/3 rounded-md h-full" 
                         placeholder="Attribute" 
                         type="text" 
                         value={tables[tableId].attributes[attributeId].name} 
@@ -83,7 +83,7 @@ export const Sidebar = () => {
                 })
               }
               <button 
-                className="btn-first rounded-full m-1 aspect-square h-6" 
+                className="btn-first rounded-full m-1 mt-3 aspect-square h-6" 
                 title="Add an attribute" 
                 onClick={() => addAttribute(tableId)}
               >

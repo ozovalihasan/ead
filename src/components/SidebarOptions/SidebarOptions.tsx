@@ -34,13 +34,14 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
         title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
         size={Object.keys(tables).length + 1 }
       >
-        <option value="" >{"ActiveRecord::Base"}</option>
+        <option title={"ActiveRecord::Base"} value="" >ActiveRecord::Base</option>
 
         {Object.keys(tables).map((superTableId: string) => (
           <option
             key={superTableId}
             value={superTableId}
             disabled={superTableId == tableId}
+            title={tables[superTableId].name}
           >
             {tables[superTableId].name}
           </option>

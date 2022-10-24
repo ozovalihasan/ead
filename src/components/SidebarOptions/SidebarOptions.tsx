@@ -20,6 +20,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       <div 
         className='truncate p-2 rounded-md custom-select-button m-1'
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
+        title="Select a superclass to inherit"
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}
       </div>
@@ -31,7 +32,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
         "
         value={tables[tableId].superclassId}
         onChange={(event) => changeTableSuperclass(event, tableId)}
-        title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+        title="Select a superclass to inherit"
         size={Object.keys(tables).length + 1 }
       >
         <option title={"ActiveRecord::Base"} value="" >ActiveRecord::Base</option>

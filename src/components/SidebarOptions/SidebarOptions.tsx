@@ -18,7 +18,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       onMouseLeave={() => handleMouseLeaveForSelect(selectEl)}
     >
       <div 
-        className='truncate p-2 rounded-md custom-select-button m-1'
+        className='truncate p-2 custom-select-button rounded-none rounded-tr-md'
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
         title="Select a superclass to inherit"
       >
@@ -27,7 +27,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       <select
         ref={selectEl}
         className="
-          hidden absolute left-0 top-full z-10 w-11/12 custom-select-options
+          hidden absolute left-0 top-full z-20 w-11/12 custom-select-options
           [&>option]:p-2 [&>option]:truncate
         "
         value={tables[tableId].superclassId}

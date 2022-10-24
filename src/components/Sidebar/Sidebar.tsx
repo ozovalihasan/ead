@@ -36,14 +36,14 @@ export const Sidebar = () => {
         Object.keys(tables).map((tableId: string) => {
           return (
             <div 
-              className="my-4 w-full bg-transparent border-2 general-border rounded-md p-1" 
+            className="my-4 w-full bg-transparent border-2 general-border rounded-md" 
               key={tableId} 
               onDragStart={(event) => onDragStart(event, 'default', tableId)} 
               draggable
             >
               <div className='flex'>
                 <input
-                  className="p-2 rounded-md w-1/2 m-1"
+                  className="p-2 rounded-tl-md w-1/2 z-10"
                   placeholder='Table name'
                   type="text"
                   value={tables[tableId].name}
@@ -55,7 +55,7 @@ export const Sidebar = () => {
               {
                 Object.keys(tables[tableId].attributes).map((attributeId) => {
                   return (
-                    <div className="flex items-center space-x-2 py-1 mx-1" key={attributeId} >
+                    <div className="flex items-center space-x-2 py-1 mx-2 my-1" key={attributeId} >
                       <button 
                         className="btn-second rounded-full aspect-square h-6" 
                         title="Remove the attribute" 
@@ -65,18 +65,22 @@ export const Sidebar = () => {
                           <MinusSign />
                         </div>
                       </button>
-                      <input 
-                        className="p-2 w-2/3 rounded-md h-full" 
-                        placeholder="Attribute" 
-                        type="text" 
-                        value={tables[tableId].attributes[attributeId].name} 
-                        onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} 
-                        tabIndex={4} 
-                        title="Name of attribute"
-                      />
-                      <div className="w-1/3">
-                        <AttributeTypeOptions tableId={tableId} attributeId={attributeId} /> 
+                      <div className='flex w-full'>
+                        <input
+                          className="p-2 w-2/3 rounded-l-md h-full z-10" 
+                          placeholder="Attribute" 
+                          type="text" 
+                          value={tables[tableId].attributes[attributeId].name} 
+                          onChange={(event) => onAttributeNameChange(event, tableId, attributeId)} 
+                          tabIndex={4} 
+                          title="Name of attribute"
+                        />
+                        <div className="w-1/3">
+                          <AttributeTypeOptions tableId={tableId} attributeId={attributeId} /> 
+                        </div>
+
                       </div>
+                      
                     </div>
                   )
 
@@ -84,7 +88,7 @@ export const Sidebar = () => {
                 })
               }
               <button 
-                className="btn-second rounded-full m-1 mt-3 aspect-square h-6" 
+                className="btn-second rounded-full mx-2 mb-1 mt-3 aspect-square h-6" 
                 title="Add an attribute" 
                 onClick={() => addAttribute(tableId)}
               >
@@ -93,7 +97,7 @@ export const Sidebar = () => {
                 </div>
               </button>
               <button 
-                className="right-0 absolute -translate-x-full -translate-y-1/2 btn-first rounded-full aspect-square h-6 " 
+                className="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 " 
                 title="Delete the table" 
                 onClick={() => removeTable(tableId)}
               >
@@ -106,7 +110,7 @@ export const Sidebar = () => {
         })
       }
       <button 
-        className="p-1 mt-4 btn-first rounded-full aspect-square h-10" 
+        className="p-1 mt-2 btn-first rounded-full aspect-square h-10" 
         title="Add a table" 
         onClick={addTable}
       >

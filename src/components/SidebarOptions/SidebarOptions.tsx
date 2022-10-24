@@ -20,7 +20,7 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
       <div 
         className='truncate p-2 custom-select-button rounded-none rounded-tr-md'
         onMouseUp={() => handleMouseUpForSelect(selectEl)} 
-        title="Select a superclass to inherit"
+        title="Click to select a superclass to inherit"
       >
         {tables[tableId].superclassId === "" ? "Base" : `< ${tables[(tables[tableId].superclassId)].name}`}
       </div>

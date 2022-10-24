@@ -9,35 +9,40 @@ Object {
         class="relative w-1/2 whitespace-nowrap"
       >
         <div
-          class="truncate p-2 rounded-md custom-select-button m-1"
+          class="truncate p-2 custom-select-button rounded-none rounded-tr-md"
+          title="Click to select a superclass to inherit"
         >
           &lt; Mock Name
         </div>
         <select
           class="
-          hidden absolute left-0 top-full z-10 w-11/12 custom-select-options
+          hidden absolute left-0 top-full z-20 w-11/12 custom-select-options
           [&>option]:p-2 [&>option]:truncate
         "
           size="4"
-          title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+          title="Select a superclass to inherit"
         >
           <option
+            title="ActiveRecord::Base"
             value=""
           >
             ActiveRecord::Base
           </option>
           <option
+            title="Mock Name"
             value="1"
           >
             Mock Name
           </option>
           <option
             disabled=""
+            title="Mock Second Name"
             value="2"
           >
             Mock Second Name
           </option>
           <option
+            title="Mock Third Name"
             value="3"
           >
             Mock Third Name
@@ -51,35 +56,40 @@ Object {
       class="relative w-1/2 whitespace-nowrap"
     >
       <div
-        class="truncate p-2 rounded-md custom-select-button m-1"
+        class="truncate p-2 custom-select-button rounded-none rounded-tr-md"
+        title="Click to select a superclass to inherit"
       >
         &lt; Mock Name
       </div>
       <select
         class="
-          hidden absolute left-0 top-full z-10 w-11/12 custom-select-options
+          hidden absolute left-0 top-full z-20 w-11/12 custom-select-options
           [&>option]:p-2 [&>option]:truncate
         "
         size="4"
-        title="Select a superclass to inherit. If it is empty, it inherits from ActiveRecord::Base"
+        title="Select a superclass to inherit"
       >
         <option
+          title="ActiveRecord::Base"
           value=""
         >
           ActiveRecord::Base
         </option>
         <option
+          title="Mock Name"
           value="1"
         >
           Mock Name
         </option>
         <option
           disabled=""
+          title="Mock Second Name"
           value="2"
         >
           Mock Second Name
         </option>
         <option
+          title="Mock Third Name"
           value="3"
         >
           Mock Third Name

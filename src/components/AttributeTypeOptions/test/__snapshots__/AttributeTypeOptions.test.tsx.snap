@@ -9,13 +9,13 @@ Object {
         class="relative whitespace-nowrap w-full"
       >
         <div
-          class="truncate p-2 rounded-md min-w-full custom-select-button"
+          class="truncate p-2 rounded-l-none  custom-select-button "
           title="string"
         >
           string
         </div>
         <select
-          class="hidden absolute right-0 top-full z-10 min-w-full custom-select-options"
+          class="hidden absolute right-0 top-full z-20 min-w-full custom-select-options"
           size="11"
           title="Select attribute type"
         >
@@ -105,13 +105,13 @@ Object {
       class="relative whitespace-nowrap w-full"
     >
       <div
-        class="truncate p-2 rounded-md min-w-full custom-select-button"
+        class="truncate p-2 rounded-l-none  custom-select-button "
         title="string"
       >
         string
       </div>
       <select
-        class="hidden absolute right-0 top-full z-10 min-w-full custom-select-options"
+        class="hidden absolute right-0 top-full z-20 min-w-full custom-select-options"
         size="11"
         title="Select attribute type"
       >

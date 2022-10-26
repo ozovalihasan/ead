@@ -11,7 +11,6 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   NodeRemoveChange,
-  ReactFlowInstance
 } from 'react-flow-renderer';
 
 import { devtools } from 'zustand/middleware'
@@ -65,9 +64,7 @@ export interface State {
   mouseOnEdgeId: string | null;
   mouseOnNodeId: string | null;
   associationType: string;
-  reactFlowInstance: ReactFlowInstance | null;
   needFitView: boolean,
-  setReactFlowInstance: (flowInstance: ReactFlowInstance) => void; 
   onNodeMouseEnter: (_: React.MouseEvent, node: Node) => void; 
   onEdgeMouseEnter: (_: React.MouseEvent, edge: Edge) => void; 
   onNodesChange: OnNodesChange;
@@ -110,14 +107,7 @@ const useStore = create(devtools<State>((set, get) => ({
     mouseOnNodeId: null,
     mouseOnEdgeId: null,
     selectedNodeIdForThrough: null,
-    reactFlowInstance: null,
     needFitView: false,
-    setReactFlowInstance: ((flowInstance: ReactFlowInstance) => {
-      set({
-        reactFlowInstance: flowInstance
-      })
-      
-    }),
     onConnectStart: (() => {
       set({
         isConnectContinue: true

@@ -1,8 +1,9 @@
-import { useRef, useCallback, memo, useEffect } from 'react';
+import { useRef, useCallback, memo, useEffect, useState } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   Controls,
   EdgeTypes,
+  ReactFlowInstance,
 } from 'react-flow-renderer';
 
 import useStore from '@/zustandStore/store';
@@ -39,13 +40,11 @@ export const FlowWithoutProvider = memo(() => {
   const onNodeMouseLeave = useStore(store => store.onNodeMouseLeave)
   const onEdgeMouseEnter = useStore(store => store.onEdgeMouseEnter)
   const onEdgeMouseLeave = useStore(store => store.onEdgeMouseLeave)
-  const setReactFlowInstance = useStore(store => store.setReactFlowInstance)
   const toggleNeedFitView = useStore(store => store.toggleNeedFitView)
-  const reactFlowInstance = useStore(store => store.reactFlowInstance)
   const needFitView = useStore(store => store.needFitView)
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<any, any> | null>(null);
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();

@@ -1,12 +1,11 @@
 import useStore, { initialIdCounter, State } from '@/zustandStore/store';
-import { Connection,Edge, Node, useReactFlow, ReactFlowProvider } from 'react-flow-renderer';
+import { Connection,Edge, Node } from 'react-flow-renderer';
 import {  AttributesType } from '@/zustandStore/tables';
 import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';
 import { EntityNodeType } from '@/components';
 import transform_0_4_x_to_0_4_5 from '../helpers/transform_0_4_x_to_0_4_5'
-import { render } from '@testing-library/react';
 
 jest.mock('../helpers/transform_0_4_x_to_0_4_5',  () => ({
   default: jest.fn((data: State) => data)
@@ -91,32 +90,8 @@ describe('store', () => {
     expect(useStore.getState().selectedNodeIdForThrough).toBeNull();
   });
 
-  it('has an "reactFlowInstance" attribute and its value should be null', () => {
-    expect(useStore.getState().reactFlowInstance).toBeNull();
-  });
-
   it('has an "needFitView" attribute and its value should be false', () => {
     expect(useStore.getState().needFitView).toBe(false);
-  });
-
-  it('has an "setReactFlowInstance" attribute to set reactFlowInstance', () => {
-    
-    expect(useStore.getState().reactFlowInstance).toBe(null);
-
-    const MockFlow = () => {
-      useStore.getState().setReactFlowInstance( useReactFlow() )
-    
-      return <div></div>
-    }
-    
-    const MockReactFlowWithProvider = () => (
-      <ReactFlowProvider>
-        <MockFlow />
-      </ReactFlowProvider>
-    )
-    render( <MockReactFlowWithProvider /> )
-
-    expect(useStore.getState().reactFlowInstance).not.toBe(null);
   });
 
   it('has an "onConnectStart" attribute to change isConnectContinue as true', () => {
@@ -526,20 +501,6 @@ describe('store', () => {
     })
 
     it('installs the file successfully', () => {
-
-      const MockFlow = () => {
-        useStore.getState().setReactFlowInstance( useReactFlow() )
-      
-        return <div></div>
-      }
-      
-      const MockReactFlowWithProvider = () => (
-        <ReactFlowProvider>
-          <MockFlow />
-        </ReactFlowProvider>
-      )
-      render( <MockReactFlowWithProvider /> )
-
       fileReader({target: {result: JSON.stringify({version: "0.4.5", idCounter: 1234})}})
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     

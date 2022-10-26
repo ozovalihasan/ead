@@ -36,7 +36,7 @@ Object {
           </option>
           <option
             disabled=""
-            title="Mock Second Name"
+            title="Mock Second Name(Disabled)"
             value="2"
           >
             Mock Second Name
@@ -83,7 +83,7 @@ Object {
         </option>
         <option
           disabled=""
-          title="Mock Second Name"
+          title="Mock Second Name(Disabled)"
           value="2"
         >
           Mock Second Name

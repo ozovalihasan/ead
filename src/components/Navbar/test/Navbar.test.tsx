@@ -8,30 +8,6 @@ jest.mock('../saveJSON',  () => ({
   default: jest.fn()
 }))
 
-jest.mock('@/components',  () => ({
-  EADLogo: (
-    () => (
-      <>
-        MockEADLogo
-      </>
-    )
-  ),
-  GithubLogo: (
-    ( ) => (
-      <>
-        MockGithubLogo
-      </>
-    )
-  ),
-  Settings: (
-    ( ) => (
-      <>
-        MockSettings
-      </>
-    )
-  ),
-}))
-
 jest.mock('@/icons',  () => ({
   AngleDown: (
     ( ) => (

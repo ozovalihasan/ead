@@ -16,12 +16,10 @@ Object {
             d="M100 20v160 M100 20 20 180 m80-160 80 160"
           />
         </svg>
-        nodeId: 
-        1
-        id: 
-        bottom2
-        handleType: 
-        has_many
+        MockCustomHandle
+        handleType: has_many
+        nodeId: 1
+        id: bottom2
       </div>
     </div>
   </body>,
@@ -37,12 +35,10 @@ Object {
           d="M100 20v160 M100 20 20 180 m80-160 80 160"
         />
       </svg>
-      nodeId: 
-      1
-      id: 
-      bottom2
-      handleType: 
-      has_many
+      MockCustomHandle
+      handleType: has_many
+      nodeId: 1
+      id: bottom2
     </div>
   </div>,
   "debug": [Function],

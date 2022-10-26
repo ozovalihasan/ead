@@ -2,24 +2,7 @@ import {  Sidebar } from '../Sidebar';
 import { render, screen, renderHook, fireEvent, cleanup } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
-import { SidebarOptionsType } from '@/components';
 
-jest.mock("@/components", () => ({
-  AttributeTypeOptions: () => (
-    <>
-      MockAttributeTypeOptions
-    </>
-  ),
-  SidebarOptions: (props: SidebarOptionsType) => (
-    <>
-      MockSidebarOptions
-      { 
-        Object.keys(props)
-          .map((key) => `${key}: ${props[key as keyof typeof props]}`) 
-      }
-    </>
-  ),
-}))
 
 jest.mock("@/icons", () => ({
   PlusSign: () => (

@@ -2,27 +2,6 @@ import { AllHandlers } from '../AllHandlers';
 import { render, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 
-jest.mock('@/components',  () => ({
-  HasOneHandle: ({ nodeId }: {nodeId : string}) => (
-    <div>
-      nodeId: {nodeId}
-      has_one
-    </div>
-  ),
-  HasManyHandle: ({ nodeId }: {nodeId : string}) => (
-    <div>
-      nodeId: {nodeId}
-      has_many
-    </div>
-  ),
-  ThroughHandle: ({ nodeId }: {nodeId : string}) => (
-    <div>
-      nodeId: {nodeId}
-      through
-    </div>
-  ),
-}));
-
 let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {
@@ -43,8 +22,11 @@ describe('<AllHandlers />', () => {
 
     expect(screen.getAllByText(/111/i).length).toBe(3);
     expect(screen.getByText(/has_one/i)).toBeInTheDocument();
+    expect(screen.getByText(/MockHasOneHandle/i)).toBeInTheDocument();
     expect(screen.getByText(/has_many/i)).toBeInTheDocument();
+    expect(screen.getByText(/MockHasManyHandle/i)).toBeInTheDocument();
     expect(screen.getByText(/through/i)).toBeInTheDocument();
+    expect(screen.getByText(/MockThroughHandle/i)).toBeInTheDocument();
   });
 
   it('will be visible if the necessary conditions are satisfied', () => {

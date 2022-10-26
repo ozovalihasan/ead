@@ -48,8 +48,8 @@ Object {
           x="789.6428571428571"
           y="205"
         >
-          MockRemoveEdgeButton edgeId: 
-          111
+          MockRemoveEdgeButton
+          edgeId: 111
         </foreignobject>
       </svg>
     </div>
@@ -98,8 +98,8 @@ Object {
         x="789.6428571428571"
         y="205"
       >
-        MockRemoveEdgeButton edgeId: 
-        111
+        MockRemoveEdgeButton
+        edgeId: 111
       </foreignobject>
     </svg>
   </div>,

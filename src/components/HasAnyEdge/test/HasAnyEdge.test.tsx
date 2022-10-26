@@ -4,49 +4,8 @@ import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
 import { 
-  ShowEdgeTextType,
-  RemoveEdgeButtonType,
-  MarkerType,
   EntityNodeType
 } from '@/components'
-
-
-jest.mock('@/components',  () => ({
-  LineMarker: (
-    (props: MarkerType ) => (
-      <>
-        MockLineMarker
-        { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
-      </>
-    )
-  ),
-  CrowsFootMarker: (
-    (props: MarkerType ) => (
-      <>
-        MockCrowsFootMarker
-        { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
-      </>
-    )
-  ),
-  RemoveEdgeButton: (
-    (props: RemoveEdgeButtonType ) => (
-      <>
-        MockRemoveEdgeButton
-        { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
-      </>
-    )
-  ),
-  
-  ShowEdgeText: (
-    ({label, ...rest}: ShowEdgeTextType ) => ( 
-    <>
-      MockShowEdgeText
-      { Object.keys(rest).map((key) => `${key}: ${rest[key as keyof typeof rest]}`) }
-      label: { label }
-    </>
-  )
-  ),
-}))
 
 let renderReadyComponent: JSX.Element;
 

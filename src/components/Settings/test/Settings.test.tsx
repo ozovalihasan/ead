@@ -4,14 +4,6 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 
-jest.mock('@/components',  () => ({
-  MainColorDropdown: () => (
-    <div>
-      MockMainColorDropdown
-    </div>
-  )
-}));
-
 beforeEach(() => {
     
 useCustomizationStore.setState({ 

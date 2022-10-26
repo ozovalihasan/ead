@@ -22,12 +22,10 @@ Object {
             d="m 100,90 v 20"
           />
         </svg>
-        nodeId: 
-        1
-        id: 
-        bottom3
-        handleType: 
-        through
+        MockCustomHandle
+        handleType: through
+        nodeId: 1
+        id: bottom3
       </div>
     </div>
   </body>,
@@ -49,12 +47,10 @@ Object {
           d="m 100,90 v 20"
         />
       </svg>
-      nodeId: 
-      1
-      id: 
-      bottom3
-      handleType: 
-      through
+      MockCustomHandle
+      handleType: through
+      nodeId: 1
+      id: bottom3
     </div>
   </div>,
   "debug": [Function],

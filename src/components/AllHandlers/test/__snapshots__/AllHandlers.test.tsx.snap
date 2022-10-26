@@ -10,17 +10,17 @@ Object {
         style="stroke-linecap: round;"
       >
         <div>
-          nodeId: 
+          MockHasOneHandle nodeId: 
           111
           has_one
         </div>
         <div>
-          nodeId: 
+          MockHasManyHandle nodeId: 
           111
           has_many
         </div>
         <div>
-          nodeId: 
+          MockThroughHandle nodeId: 
           111
           through
         </div>
@@ -33,17 +33,17 @@ Object {
       style="stroke-linecap: round;"
     >
       <div>
-        nodeId: 
+        MockHasOneHandle nodeId: 
         111
         has_one
       </div>
       <div>
-        nodeId: 
+        MockHasManyHandle nodeId: 
         111
         has_many
       </div>
       <div>
-        nodeId: 
+        MockThroughHandle nodeId: 
         111
         through
       </div>

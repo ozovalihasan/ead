@@ -1,20 +1,5 @@
 import { CrowsFootMarker } from '../CrowsFootMarker';
 import { render, screen } from "@testing-library/react";
-import { MarkerBaseType } from '@/components';
-
-jest.mock("@/components", () => ({
-  MarkerBase: ({children, ...rest}: MarkerBaseType ) => (
-    <>
-      MockMarkerBase
-      { 
-        Object.keys(rest)
-          .map((key) => `${key}: ${rest[key as keyof typeof rest]}`) 
-      }
-      {children}
-    </>
-  ),
-}))
-
 
 let renderReadyComponent: JSX.Element;
 

@@ -51,7 +51,7 @@ export const Sidebar = () => {
                 />
                 <SidebarOptions tableId={tableId} />
               </div>
-              {
+              { (tables[tableId].superclassId == "") &&
                 Object.keys(tables[tableId].attributes).map((attributeId) => {
                   return (
                     <div className="flex items-center space-x-2 py-1 mx-2 my-1" key={attributeId} >
@@ -86,15 +86,19 @@ export const Sidebar = () => {
                   
                 })
               }
-              <button 
-                className="btn-second rounded-full mx-2 mb-1 mt-3 aspect-square h-6" 
-                title="Add an attribute" 
-                onClick={() => addAttribute(tableId)}
-              >
-                <div className="stroke-[40] w-3 h-3">
-                  <PlusSign />
-                </div>
-              </button>
+              { (tables[tableId].superclassId == "") ?
+                <button 
+                  className="btn-second rounded-full mx-2 mb-1 mt-3 aspect-square h-6" 
+                  title="Add an attribute" 
+                  onClick={() => addAttribute(tableId)}
+                >
+                  <div className="stroke-[40] w-3 h-3">
+                    <PlusSign />
+                  </div>
+                </button> 
+                :
+                <div className="my-6"></div>
+              }
               <button 
                 className="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 " 
                 title="Delete the table" 

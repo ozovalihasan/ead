@@ -1,5 +1,5 @@
 import {  Sidebar } from '../Sidebar';
-import { render, screen, renderHook, fireEvent } from "@testing-library/react";
+import { render, screen, renderHook, fireEvent, cleanup } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import { SidebarOptionsType } from '@/components';
@@ -69,6 +69,20 @@ beforeEach(() => {
         },
         "superclassId": ""
       },
+      "3": {
+        "name": "MockThirdTable",
+        "attributes": {
+          "15": {
+            "name": "mockFifthAttribute",
+            "type": "string"
+          },
+          "16": {
+            "name": "mockSixthAttribute",
+            "type": "string"
+          }
+        },
+        "superclassId": "1"
+      },
     },
     resetStore: jest.fn(),
     uploadStore: jest.fn(),
@@ -111,7 +125,10 @@ describe('<Sidebar />', () => {
       expect(screen.getByDisplayValue(/mockSecondAttribute/i)).toBeInTheDocument();
       expect(screen.getByDisplayValue(/mockThirdAttribute/i)).toBeInTheDocument();
       expect(screen.getByDisplayValue(/mockFourthAttribute/i)).toBeInTheDocument();
+      
     });
+
+    
 
     it('renders the necessary buttons', () => {
 
@@ -130,7 +147,7 @@ describe('<Sidebar />', () => {
       expect(result.current.removeAttribute).toHaveBeenCalledTimes(1);
       
       const deleteTableButtons = screen.getAllByTitle(/Delete the table/i)
-      expect(deleteTableButtons.length).toBe(2);
+      expect(deleteTableButtons.length).toBe(3);
       fireEvent.click(deleteTableButtons[0])
       expect(result.current.removeAttribute).toHaveBeenCalledTimes(1);
 
@@ -140,18 +157,47 @@ describe('<Sidebar />', () => {
       expect(result.current.addTable).toHaveBeenCalledTimes(1);
     });
 
+    it('doesn"t render attributes and a button used to add an attribute if the table has a superclass', () => {
+
+      useStore.getState().tables["3"].superclassId = "1"
+      render(renderReadyComponent );
+
+      expect(screen.queryByDisplayValue(/mockFifthAttribute/i)).not.toBeInTheDocument();
+      expect(screen.queryByDisplayValue(/mocksixthAttribute/i)).not.toBeInTheDocument();
+      
+      let removeAttributeButtons = screen.getAllByTitle(/Remove the attribute/i)
+      expect(removeAttributeButtons.length).toBe(4);
+
+      let addAttributeButtons = screen.getAllByTitle(/Add an attribute/i)
+      expect(addAttributeButtons.length).toBe(2);
+
+      cleanup()
+      
+      useStore.getState().tables["3"].superclassId = ""
+      render(renderReadyComponent );
+
+      expect(screen.queryByDisplayValue(/mockFifthAttribute/i)).toBeInTheDocument();
+      expect(screen.queryByDisplayValue(/mocksixthAttribute/i)).toBeInTheDocument();
+      
+      removeAttributeButtons = screen.getAllByTitle(/Remove the attribute/i)
+      expect(removeAttributeButtons.length).toBe(6);
+
+      addAttributeButtons = screen.getAllByTitle(/Add an attribute/i)
+      expect(addAttributeButtons.length).toBe(3);
+    });
+
     it('renders another component', () => {
 
       render(renderReadyComponent );
       
-      expect(screen.getAllByText(/AttributeTypeOptions/i).length).toBe(4);
+      expect(screen.getAllByText(/MockAttributeTypeOptions/i).length).toBe(4);
     });
 
     it('renders a dropdown to select a superclass for each table', () => {
 
       render(renderReadyComponent);
       
-      expect(screen.getAllByText(/MockSidebarOptions/i).length).toBe(2);
+      expect(screen.getAllByText(/MockSidebarOptions/i).length).toBe(3);
     });
     
     it('renders an input element for each attribute', () => {
@@ -170,6 +216,8 @@ describe('<Sidebar />', () => {
       const renderedContainer = render(renderReadyComponent );
       expect(renderedContainer).toMatchSnapshot();
     });
+
+
   })  
 
   describe('if the sidebar is invisible', () => {

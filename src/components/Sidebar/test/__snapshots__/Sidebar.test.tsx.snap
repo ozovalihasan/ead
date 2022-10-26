@@ -209,6 +209,37 @@ Object {
             </div>
           </button>
         </div>
+        <div
+          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          draggable="true"
+        >
+          <div
+            class="flex"
+          >
+            <input
+              class="p-2 rounded-tl-md w-1/2 z-10"
+              placeholder="Table name"
+              tabindex="4"
+              type="text"
+              value="MockThirdTable"
+            />
+            MockSidebarOptions
+            tableId: 3
+          </div>
+          <div
+            class="my-6"
+          />
+          <button
+            class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
+            title="Delete the table"
+          >
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
+          </button>
+        </div>
         <button
           class="p-1 mt-2 btn-first rounded-full aspect-square h-10"
           title="Add a table"
@@ -416,6 +447,37 @@ Object {
             MockPlusSign
           </div>
         </button>
+        <button
+          class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
+          title="Delete the table"
+        >
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockMinusSign
+          </div>
+        </button>
+      </div>
+      <div
+        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        draggable="true"
+      >
+        <div
+          class="flex"
+        >
+          <input
+            class="p-2 rounded-tl-md w-1/2 z-10"
+            placeholder="Table name"
+            tabindex="4"
+            type="text"
+            value="MockThirdTable"
+          />
+          MockSidebarOptions
+          tableId: 3
+        </div>
+        <div
+          class="my-6"
+        />
         <button
           class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
           title="Delete the table"
@@ -702,6 +764,37 @@ Object {
             </div>
           </button>
         </div>
+        <div
+          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          draggable="true"
+        >
+          <div
+            class="flex"
+          >
+            <input
+              class="p-2 rounded-tl-md w-1/2 z-10"
+              placeholder="Table name"
+              tabindex="4"
+              type="text"
+              value="MockThirdTable"
+            />
+            MockSidebarOptions
+            tableId: 3
+          </div>
+          <div
+            class="my-6"
+          />
+          <button
+            class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
+            title="Delete the table"
+          >
+            <div
+              class="stroke-[40] w-3 h-3"
+            >
+              MockMinusSign
+            </div>
+          </button>
+        </div>
         <button
           class="p-1 mt-2 btn-first rounded-full aspect-square h-10"
           title="Add a table"
@@ -909,6 +1002,37 @@ Object {
             MockPlusSign
           </div>
         </button>
+        <button
+          class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
+          title="Delete the table"
+        >
+          <div
+            class="stroke-[40] w-3 h-3"
+          >
+            MockMinusSign
+          </div>
+        </button>
+      </div>
+      <div
+        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        draggable="true"
+      >
+        <div
+          class="flex"
+        >
+          <input
+            class="p-2 rounded-tl-md w-1/2 z-10"
+            placeholder="Table name"
+            tabindex="4"
+            type="text"
+            value="MockThirdTable"
+          />
+          MockSidebarOptions
+          tableId: 3
+        </div>
+        <div
+          class="my-6"
+        />
         <button
           class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
           title="Delete the table"

@@ -1,5 +1,13 @@
 import React from "react";
-import {  CustomHandleType, HasAnyEdgePropsType, MarkerBaseType, MarkerType, RemoveEdgeButtonType, ShowEdgeTextType, SidebarOptionsType } from "../../src/components"
+import { 
+  CustomHandleType, 
+  HasAnyEdgePropsType, 
+  MarkerBaseType, 
+  MarkerType, 
+  RemoveEdgeButtonType, 
+  ShowEdgeTextType, 
+  SidebarOptionsType 
+} from "../../src/components"
 
 export const AttributeTypeOptions = () => (
   <>

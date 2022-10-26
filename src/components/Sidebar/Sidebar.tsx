@@ -1,8 +1,7 @@
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore from '@/zustandStore/store';
-import { AttributeTypeOptions } from '@/components';
 import { MinusSign, PlusSign } from '@/icons';
-import { SidebarOptions } from '@/components';
+import { AttributeTypeOptions, SidebarOptions } from '@/components';
 export const Sidebar = () => {
 
   const tables = useStore((state) => state.tables);

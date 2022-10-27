@@ -6,45 +6,31 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockHasAnyEdge id: 
-        111
-        source: 
-        1
-        target: 
-        2
-        sourceX: 
-        333
-        sourceY: 
-        444
-        targetX: 
-        555
-        targetY: 
-        666
-        label: 
-        has one
-        not selected
+        MockHasAnyEdge
+        id: 111
+        source: 1
+        target: 2
+        sourceX: 333
+        sourceY: 444
+        targetX: 555
+        targetY: 666
+        label: has one
+        selected: false
       </svg>
     </div>
   </body>,
   "container": <div>
     <svg>
-      MockHasAnyEdge id: 
-      111
-      source: 
-      1
-      target: 
-      2
-      sourceX: 
-      333
-      sourceY: 
-      444
-      targetX: 
-      555
-      targetY: 
-      666
-      label: 
-      has one
-      not selected
+      MockHasAnyEdge
+      id: 111
+      source: 1
+      target: 2
+      sourceX: 333
+      sourceY: 444
+      targetX: 555
+      targetY: 666
+      label: has one
+      selected: false
     </svg>
   </div>,
   "debug": [Function],

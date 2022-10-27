@@ -1,5 +1,6 @@
 import { memo, useRef } from 'react';
 import useStore from '@/zustandStore/store';
+import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: string}) => {
 
@@ -11,43 +12,56 @@ export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: st
   const tables = useStore((state) => state.tables);
   const options = Object.entries(tables).map(([id, table]) => {return {id: id, name: table.name}});
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement> ) => {
-    if (event.button === 1 && selectEl.current){
-      selectEl.current.style.display = "block"
-      selectEl.current.focus()
+  const handleMouseUp = (event: React.MouseEvent<HTMLDivElement> ) => {
+    if (event.button === 1){
+      handleMouseUpForSelect(selectEl)
+      selectEl.current!.focus()
     }
   }
   
   const handleMouseLeave = () => {
-    if (selectEl.current){
-      selectEl.current.style.display = "none"
+    handleMouseLeaveForSelect(selectEl)
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onNodeTableChange(event.target.value, nodeId)
+  }
+
+  const handleClick = (event: React.MouseEvent<HTMLSelectElement>) => {
+    if ((event.target as HTMLElement).tagName === "OPTION" ){
+      onNodeTableChange((event.target as HTMLOptionElement).value, nodeId)
     }
   }
-  return (
-    <div className='text-xs flex relative' >
-       <div onMouseDown={event => handleMouseDown(event)} onMouseLeave={handleMouseLeave}>
-        {tableName}
-        <select
-          ref={selectEl}
-          className="absolute bottom-full left-0 hidden"
-          value={tableId}
-          onChange={(event) => onNodeTableChange(event, nodeId)}
-          size={options.length}
-        >
-          {options.map(({id, name} ) => (
-            <option
-              key={id}
-              value={id}
-            >
-              {name}
-            </option>
-          ))}
 
-        </select>
+  return (
+    <div 
+      className='text-xs flex relative'
+      onMouseLeave={handleMouseLeave} 
+      title="Middle button click to change the table"
+    >
+      <div onMouseUp={event => handleMouseUp(event)} className="font-bold custom-select-button p-1 rounded-md">
+        {tableName}
       </div>
-      
-     
-    </div >
+      <select
+        ref={selectEl}
+        className="absolute bottom-full left-0 hidden custom-select-options"
+        value={tableId}
+        onClick={handleClick} 
+        onChange={handleChange}
+        size={options.length}
+      >
+        {options.map(({id, name} ) => (
+          <option
+            key={id}
+            value={id}
+            title={name}
+          >
+            {name}
+          </option>
+        ))}
+
+      </select>
+    </div>
   )
 })
 

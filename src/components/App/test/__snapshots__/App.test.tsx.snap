@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="text-first-500 font-default  bg-first-50 flex flex-col h-screen"
+        class="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen"
       >
         MockNavbar
         <div
@@ -21,7 +21,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="text-first-500 font-default  bg-first-50 flex flex-col h-screen"
+      class="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen"
     >
       MockNavbar
       <div
@@ -93,7 +93,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="text-first-500 font-default  bg-first-50 flex flex-col h-screen"
+        class="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen"
       >
         MockNavbar
         <div
@@ -108,7 +108,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="text-first-500 font-default  bg-first-50 flex flex-col h-screen"
+      class="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen"
     >
       MockNavbar
       <div
@@ -180,7 +180,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="text-first-500 font-default  bg-first-50 flex flex-col h-screen"
+        class="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen"
       >
         MockNavbar
         <div
@@ -195,7 +195,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="text-first-500 font-default  bg-first-50 flex flex-col h-screen"
+      class="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen"
     >
       MockNavbar
       <div

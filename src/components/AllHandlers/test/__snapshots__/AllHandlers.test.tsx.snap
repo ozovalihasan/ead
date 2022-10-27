@@ -6,21 +6,21 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="relative w-full opacity-0"
+        class="relative w-full opacity-100"
         style="stroke-linecap: round;"
       >
         <div>
-          nodeId: 
+          MockHasOneHandle nodeId: 
           111
           has_one
         </div>
         <div>
-          nodeId: 
+          MockHasManyHandle nodeId: 
           111
           has_many
         </div>
         <div>
-          nodeId: 
+          MockThroughHandle nodeId: 
           111
           through
         </div>
@@ -29,21 +29,21 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="relative w-full opacity-0"
+      class="relative w-full opacity-100"
       style="stroke-linecap: round;"
     >
       <div>
-        nodeId: 
+        MockHasOneHandle nodeId: 
         111
         has_one
       </div>
       <div>
-        nodeId: 
+        MockHasManyHandle nodeId: 
         111
         has_many
       </div>
       <div>
-        nodeId: 
+        MockThroughHandle nodeId: 
         111
         through
       </div>

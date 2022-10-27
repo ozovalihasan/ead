@@ -8,23 +8,6 @@ jest.mock('../saveJSON',  () => ({
   default: jest.fn()
 }))
 
-jest.mock('@/components',  () => ({
-  EADLogo: (
-    () => (
-      <>
-        MockEADLogo
-      </>
-    )
-  ),
-  GithubLogo: (
-    ( ) => (
-      <>
-        MockGithubLogo
-      </>
-    )
-  ),
-}))
-
 jest.mock('@/icons',  () => ({
   AngleDown: (
     ( ) => (
@@ -159,6 +142,15 @@ describe('<Navbar />', () => {
       fireEvent.click(resetButton);
 
       expect(result.current.resetStore).toHaveBeenCalledTimes(1);
+    });
+
+    it('renders Settings component', () => {
+
+      render(renderReadyComponent );
+
+      const settingsElement = screen.getByText(/Settings/i)
+
+      expect(settingsElement).toBeInTheDocument();
     });
 
     it('renders GithubLogo component as an anchor', () => {

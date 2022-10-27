@@ -2,6 +2,7 @@ import saveJSON from './saveJSON';
 import {
   EADLogo,
   GithubLogo,
+  Settings
 } from "@/components";
 
 import {
@@ -24,14 +25,14 @@ export const Navbar = () => {
 
   return (
     <div className='relative'>
-      <nav className={`bg-transparent relative h-20 py-2 border-b border-solid border-first-500 ${navbarVisible ? "" : 'hidden'}`} >
+      <nav className={`bg-transparent relative h-20 py-2 border-b general-border ${navbarVisible ? "" : 'hidden'}`} >
         <div className='flex items-center gap-4' >
           <div className="flex items-center mr-8">
             <a className='h-16 w-16 mr-2 ml-8' href="#">
               <EADLogo />
             </a>
             <div className='text-first-500 text-end text-xs '>
-              0.4.4
+              0.4.5
             </div>
           </div>
           <button
@@ -62,8 +63,12 @@ export const Navbar = () => {
           >
             Reset
           </button>
+
+          <div className='ml-auto'>
+            <Settings />
+          </div>
       
-          <a className='w-8 h-8 mx-8 ml-auto' href="https://github.com/ozovalihasan/ead" target="_blank" title="The repository of the project">
+          <a className='w-8 h-8 mx-8 ml-8' href="https://github.com/ozovalihasan/ead" target="_blank" title="The repository of the project">
             <GithubLogo />
           </a>
       

@@ -10,17 +10,55 @@ details > summary::-webkit-details-marker {
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input {
+    @apply bg-zinc-100 dark:bg-zinc-800
+  }
+
+  input[type="checkbox"] {
+    @apply accent-first-500 dark:accent-first-600
+  }
+}
+
 @layer components {
   .btn-first {
-    @apply flex justify-center items-center bg-first-500 hover:bg-first-600 text-first-100 stroke-first-100 border-first-500 hover:border-first-600 border border-solid;
+    @apply flex justify-center items-center 
+    bg-first-500 dark:bg-first-600 hover:bg-first-600 dark:hover:bg-first-600 
+    border-first-500 dark:border-first-700 hover:border-first-600 
+    text-first-100 stroke-first-100 
+    border border-solid;
   }
 
   .btn-second {
-    @apply flex justify-center items-center bg-first-50 hover:bg-first-100 text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600 border-first-500 border border-solid;
+    @apply flex justify-center items-center bg-transparent 
+    hover:dark:bg-zinc-700 hover:bg-first-100 text-first-500 
+    dark:text-first-100 stroke-first-500 hover:text-first-600 dark:hover:text-first-50 
+    hover:stroke-first-600 border-first-500 border border-solid;
   }
 
   .btn-third {
-    @apply flex justify-center items-center text-first-500 stroke-first-500 hover:text-first-600 hover:stroke-first-600 cursor-pointer;
+    @apply flex justify-center items-center text-first-500 dark:text-first-100 stroke-first-500 hover:text-first-600 hover:stroke-first-600 cursor-pointer;
+  }
+
+  .custom-select-button {
+    @apply bg-zinc-200 dark:bg-zinc-600 cursor-pointer rounded-md;
+  }
+
+  .custom-select-options {
+    @apply bg-zinc-100 dark:bg-zinc-700 rounded-md border border-zinc-800 dark:border-zinc-50 cursor-pointer
+    outline-none 
+  }
+  
+  .custom-select-options > option {
+    @apply hover:bg-zinc-200 hover:text-zinc-700 dark:hover:bg-zinc-300
+  }
+
+  .general-border {
+    @apply border-solid border-zinc-400 dark:border-zinc-800
+  }
+
+  .association-handle {
+    @apply [&>svg]:w-3 [&>svg]:h-3 w-6 h-6 absolute  bg-slate-700 dark:bg-slate-50 stroke-slate-50 dark:stroke-slate-700 stroke-[40] rounded-full -translate-x-1/2 flex justify-center items-center
   }
 }
 

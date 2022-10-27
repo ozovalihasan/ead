@@ -48,8 +48,8 @@ Object {
           x="789.6428571428571"
           y="205"
         >
-          MockRemoveEdgeButton edgeId: 
-          111
+          MockRemoveEdgeButton
+          edgeId: 111
         </foreignobject>
       </svg>
     </div>
@@ -98,8 +98,8 @@ Object {
         x="789.6428571428571"
         y="205"
       >
-        MockRemoveEdgeButton edgeId: 
-        111
+        MockRemoveEdgeButton
+        edgeId: 111
       </foreignobject>
     </svg>
   </div>,
@@ -202,7 +202,7 @@ Object {
           <textpath
             href="#111-first"
             startOffset="0"
-            style="font-size: 12px;"
+            style="font-size: 12px; fill: #000;"
           >
             through
           </textpath>
@@ -251,7 +251,7 @@ Object {
         <textpath
           href="#111-first"
           startOffset="0"
-          style="font-size: 12px;"
+          style="font-size: 12px; fill: #000;"
         >
           through
         </textpath>

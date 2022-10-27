@@ -7,9 +7,9 @@ Object {
     <div>
       <div
         class="
-          border border-solid p-1 rounded-sm
-          bg-first-50 
-          bg-first-200
+          p-1 rounded-md
+          bg-first-500 dark:bg-first-600 
+          bg-first-400 dark:bg-first-500
         "
       >
         MockTargetHandle nodeId: 
@@ -36,9 +36,9 @@ Object {
   "container": <div>
     <div
       class="
-          border border-solid p-1 rounded-sm
-          bg-first-50 
-          bg-first-200
+          p-1 rounded-md
+          bg-first-500 dark:bg-first-600 
+          bg-first-400 dark:bg-first-500
         "
     >
       MockTargetHandle nodeId: 

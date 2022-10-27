@@ -1,9 +1,9 @@
-import { useState, useRef, useCallback, memo } from 'react';
+import { useRef, useCallback, memo, useEffect, useState } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
-  ReactFlowInstance,
   Controls,
-  EdgeTypes
+  EdgeTypes,
+  ReactFlowInstance,
 } from 'react-flow-renderer';
 
 import useStore from '@/zustandStore/store';
@@ -26,7 +26,7 @@ const edgeTypes: EdgeTypes = {
   through: ThroughEdge,
 };
 
-export const MainReactFlow = memo(() => {
+export const FlowWithoutProvider = memo(() => {
 
   const nodes = useStore(store => store.nodes)
   const edges = useStore(store => store.edges)
@@ -40,17 +40,17 @@ export const MainReactFlow = memo(() => {
   const onNodeMouseLeave = useStore(store => store.onNodeMouseLeave)
   const onEdgeMouseEnter = useStore(store => store.onEdgeMouseEnter)
   const onEdgeMouseLeave = useStore(store => store.onEdgeMouseLeave)
-
+  const toggleNeedFitView = useStore(store => store.toggleNeedFitView)
+  const needFitView = useStore(store => store.needFitView)
 
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
-
 
   const onDragOver = useCallback((event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
-
+  
   const onDrop = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {
       event.preventDefault();
@@ -87,16 +87,22 @@ export const MainReactFlow = memo(() => {
     [reactFlowInstance]
   );
   
+  useEffect(() => {
+    if (needFitView){
+      reactFlowInstance?.fitView()
+      toggleNeedFitView()
+    }
+  }, [needFitView]) 
+  
   return (
     <div className="h-full flex-grow relative" ref={reactFlowWrapper}>
-      <ReactFlowProvider>      
         <ReactFlow
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
-          onConnect={onConnect}
           onInit={setReactFlowInstance}
+          onConnect={onConnect}
           onDrop={onDrop}
           onConnectStart={onConnectStart}
           onConnectEnd={onConnectEnd}
@@ -114,10 +120,14 @@ export const MainReactFlow = memo(() => {
           snapToGrid={true}
         >
           <Controls />
-          
         </ReactFlow>
-      </ReactFlowProvider>
       
     </div>
   )
 })
+
+export const MainReactFlow = memo(() => (
+  <ReactFlowProvider>
+    <FlowWithoutProvider/>
+  </ReactFlowProvider>
+))

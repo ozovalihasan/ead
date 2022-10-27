@@ -4,18 +4,6 @@ import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
 
-jest.mock('@/components',  () => ({
-  RemoveEdgeButton: (
-    ({ edgeId }: {edgeId: string} ) => (
-      <>
-        MockRemoveEdgeButton
-        edgeId: {edgeId}
-      </>
-    )
-  ),
-      
-}))
-
 let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {

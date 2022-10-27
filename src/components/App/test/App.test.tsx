@@ -12,39 +12,6 @@ jest.mock('react-flow-renderer',  () => ({
   ),
 }))
 
-jest.mock('@/components',  () => ({
-  Sidebar: (
-    () => (
-      <>
-        MockSidebar
-      </>
-    )
-  ),
-  Navbar: (
-    () => (
-      <>
-        MockNavbar
-      </>
-    )
-  ),
-  SidebarHandle: (
-    () => (
-      <>
-        MockSidebarHandle
-      </>
-    )
-  ),
-  MainReactFlow: (
-    () => (
-      <>
-        MockMainReactFlow
-      </>
-    )
-  ),
-
-}))
-  
-
 let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {

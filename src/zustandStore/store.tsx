@@ -19,14 +19,18 @@ import initialTables, { TablesType } from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
+import transform_0_4_x_to_0_4_5 from './helpers/transform_0_4_x_to_0_4_5';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
-  const tableIds = Object.keys(initialTables).map(( tableId )=> parseInt(tableId ))
-  const nodeIds = initialNodes.map((node)=> parseInt(node.id) )
-  const edgeIds = initialEdges.map((edge)=> parseInt(edge.id) )
+  let ids = ["0"]
+  ids = ids.concat(Object.keys(initialTables))
+  Object.keys(initialTables).map(( tableId )=> ids = ids.concat( Object.keys(initialTables[tableId].attributes)))
+  ids = ids.concat(Object.keys(initialNodes))
+  ids = ids.concat(Object.keys(initialEdges))
 
-  const max = Math.max( ...tableIds.concat(nodeIds).concat(edgeIds).concat([0]) ) 
+  const integer_ids = ids.map(id => parseInt(id))
+  const max = Math.max( ...integer_ids ) 
   
   return (max + 1)
 }
@@ -60,6 +64,7 @@ export interface State {
   mouseOnEdgeId: string | null;
   mouseOnNodeId: string | null;
   associationType: string;
+  needFitView: boolean,
   onNodeMouseEnter: (_: React.MouseEvent, node: Node) => void; 
   onEdgeMouseEnter: (_: React.MouseEvent, edge: Edge) => void; 
   onNodesChange: OnNodesChange;
@@ -71,6 +76,7 @@ export interface State {
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
   onAttributeTypeChange: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string, attributeId: string) => void;
   addNode: (node: EntityNodeType) => void;
+  changeTableSuperClass: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => void;
   addTable: () => void;
   addAttribute: (tableId: string ) => void;
   removeAttribute: (tableId: string, attributeId: string ) => void;
@@ -80,14 +86,15 @@ export interface State {
   onConnectEnd: () => void;
   onNodeMouseLeave: () => void;
   onEdgeMouseLeave: () => void;
-  onNodeTableChange: (event: React.ChangeEvent<HTMLSelectElement>, nodeId: string) => void;
+  onNodeTableChange: (value: string, nodeId: string) => void;
   onNodeInputChange: (event: React.ChangeEvent<HTMLInputElement>, nodeId: string) => void;
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  toggleNeedFitView: () => void;
 }
 
 const useStore = create(devtools<State>((set, get) => ({
-    version: "0.4.4",  
+    version: "0.4.5",  
     idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
     associationType: "has_one",
     nodes: initialNodes,
@@ -100,6 +107,7 @@ const useStore = create(devtools<State>((set, get) => ({
     mouseOnNodeId: null,
     mouseOnEdgeId: null,
     selectedNodeIdForThrough: null,
+    needFitView: false,
     onConnectStart: (() => {
       set({
         isConnectContinue: true
@@ -162,9 +170,16 @@ const useStore = create(devtools<State>((set, get) => ({
     }),
     addTable: (() => {
       set(produce((state: State) => {
-        state.tables[get().idCounter.toString()] = {name: "", attributes: {}},
+        state.tables[get().idCounter.toString()] = {name: "", attributes: {}, superclassId: ""},
         state.idCounter ++
       }))
+    }),
+    changeTableSuperClass : ((event: React.ChangeEvent<HTMLSelectElement>, tableId: string) => {
+      set(
+        produce((state: State) => {
+          state.tables[tableId].superclassId = event.target.value
+        })
+      )
     }),
     addAttribute: ((tableId: string ) => {
       set(produce((state: State) => {
@@ -193,13 +208,19 @@ const useStore = create(devtools<State>((set, get) => ({
           ))
           return (node.data.tableId !== tableId)
         })
+        
+        Object.values(state.tables).forEach(table => {
+          if (table.superclassId === tableId){
+            table.superclassId = ""
+          }
+        })
       }))
     }),
     onNodeTableChange: (
-      (event: React.ChangeEvent<HTMLSelectElement>, nodeId: string) => {
+      (value: string, nodeId: string) => {
         set(produce((state: State) => {
           const node: EntityNodeType = (state.nodes.find(node => node.id === nodeId))!
-          node.data.tableId = event.target.value
+          node.data.tableId = value
         }))
       }
 
@@ -308,6 +329,11 @@ const useStore = create(devtools<State>((set, get) => ({
       }
 
     },
+    toggleNeedFitView: () => {
+      set({
+        needFitView: !get().needFitView
+      })
+    },
     uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => {
       const fileReader = new FileReader();
       fileReader.onload = (event) => {
@@ -315,14 +341,16 @@ const useStore = create(devtools<State>((set, get) => ({
         if (event.target && (typeof event.target.result === 'string')){
           data = JSON.parse(event.target.result) as State;
           
-          if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4"].includes(data.version)) {
-            data.version = "0.4.4";
-            
+          if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4", "0.4.5"].includes(data.version)) {
             set(
-              data
-            )  
+              transform_0_4_x_to_0_4_5(data)
+            ) 
+
+            set({
+              needFitView: true
+            })
           } else {
-            alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.4).`);  
+            alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.5).`);  
           }
           
         }else{

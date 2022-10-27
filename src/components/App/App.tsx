@@ -9,13 +9,11 @@ import {
 
 export const App = () => {
   
-  const {
-    locationSidebar,
-  } = useCustomizationStore()
+  const locationSidebar = useCustomizationStore((state) => state.locationSidebar)
   
   return (
 
-    <div className="text-first-500 font-default  bg-first-50 flex flex-col h-screen">
+    <div className="text-zinc-600 dark:text-zinc-100 font-default bg-zinc-50 dark:bg-zinc-700 flex flex-col h-screen">
       <Navbar />
       <div  className={`h-[calc(100vh-5rem)] w-screen  flex flex-grow ${locationSidebar == "left" ? "flex-row" : "flex-row-reverse"}`}>
         <Sidebar />

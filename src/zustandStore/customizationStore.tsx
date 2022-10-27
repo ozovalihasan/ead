@@ -1,3 +1,4 @@
+import { availableColors, availableColorsType, setColorVariants } from '@/helpers';
 import create from 'zustand';
 import { devtools } from 'zustand/middleware'
 
@@ -8,22 +9,44 @@ export interface CustomizationStoreState {
   showTextOnEdges: boolean;
   sidebarVisible: boolean;
   navbarVisible: boolean;
+  mainColor: availableColorsType;
+  darkModeActive: boolean;
+  changeMainColor: (color: availableColorsType) => void;
   toggleLocationSidebar: () => void;
   toggleSidebarVisibility: () => void;
   toggleNavbarVisibility: () => void;
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => void;
   toggleTextMode: () => void;
+  toggleDarkMode: () => void;
 }
 
-if(!localStorage.locationSidebar){
-  const locationSidebar = "left"
-  localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
+export const checkLocalStorage = () => {
+
+  if(!localStorage.locationSidebar){
+    const locationSidebar = "left"
+    localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
+  }
+
+  if(!localStorage.widthSidebar){
+    const widthSidebar = Math.floor(window.innerWidth * 0.2)
+    localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
+  }
+
+  if(!localStorage.mainColor){
+    localStorage.setItem("mainColor", JSON.stringify(availableColors[0]))
+  }
+
+  if(!localStorage.darkModeActive){
+    localStorage.setItem("darkModeActive", JSON.stringify(false))
+  }else{
+    if (JSON.parse(localStorage.darkModeActive as string)){
+      const rootElement = document.querySelector("div#root")!
+      rootElement.classList.add("dark");
+    }
+  }
 }
 
-if(!localStorage.widthSidebar){
-  const widthSidebar = Math.floor(window.innerWidth * 0.2)
-  localStorage.setItem("widthSidebar", JSON.stringify(widthSidebar))
-}
+checkLocalStorage();
 
 const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
   locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),
@@ -31,6 +54,15 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   showTextOnEdges: false,
   sidebarVisible: true,
   navbarVisible: true,
+  mainColor: JSON.parse(localStorage.mainColor as string) as availableColorsType,
+  darkModeActive: JSON.parse(localStorage.darkModeActive as string) as boolean, 
+  changeMainColor: (color: availableColorsType) => {
+    setColorVariants(color)
+
+    set({
+      mainColor: color,
+    })
+  },
   toggleLocationSidebar: () => {
     let location = get().locationSidebar
     
@@ -74,6 +106,16 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
   toggleTextMode: () => {
     set({
         showTextOnEdges: !get().showTextOnEdges
+    })
+  },
+  toggleDarkMode: () => {
+    const rootElement = document.querySelector("div#root")!
+    rootElement.classList.toggle("dark");
+
+    localStorage.setItem("darkModeActive", JSON.stringify(!get().darkModeActive))
+
+    set({
+      darkModeActive: !get().darkModeActive
     })
   }
 })))

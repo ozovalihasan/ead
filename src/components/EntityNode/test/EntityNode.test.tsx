@@ -2,44 +2,6 @@ import { EntityNode } from '../EntityNode';
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 
-
-jest.mock('@/components',  () => ({
-  TargetHandle: (
-    ({ nodeId }: {nodeId: string} ) => (
-      <>
-        MockTargetHandle
-        nodeId: {nodeId}
-      </>
-    )
-  ),
-  TableName: (
-    ({ nodeId, tableId }: {nodeId: string, tableId: string} ) => (
-      <>
-        MockTableName
-        nodeId: {nodeId}
-        tableId: {tableId}
-      </>
-    )
-  ),
-  AllHandlers: (
-    ({ nodeId }: {nodeId: string} ) => (
-      <>
-        MockAllHandlers
-        nodeId: {nodeId}
-      </>
-    )
-  ),
-  SelectThroughNode: (
-    ({ nodeId }: {nodeId: string} ) => (
-      <>
-        MockSelectThroughNode
-        nodeId: {nodeId}
-      </>
-    )
-  ),
-      
-}))
-
 let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {

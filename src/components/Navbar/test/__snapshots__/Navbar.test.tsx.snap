@@ -9,7 +9,7 @@ Object {
         class="relative"
       >
         <nav
-          class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 hidden"
+          class="bg-transparent relative h-20 py-2 border-b general-border hidden"
         >
           <div
             class="flex items-center gap-4"
@@ -26,7 +26,7 @@ Object {
               <div
                 class="text-first-500 text-end text-xs "
               >
-                0.4.4
+                0.4.5
               </div>
             </div>
             <button
@@ -55,8 +55,13 @@ Object {
             >
               Reset
             </button>
+            <div
+              class="ml-auto"
+            >
+              MockSettings
+            </div>
             <a
-              class="w-8 h-8 mx-8 ml-auto"
+              class="w-8 h-8 mx-8 ml-8"
               href="https://github.com/ozovalihasan/ead"
               target="_blank"
               title="The repository of the project"
@@ -83,7 +88,7 @@ Object {
       class="relative"
     >
       <nav
-        class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 hidden"
+        class="bg-transparent relative h-20 py-2 border-b general-border hidden"
       >
         <div
           class="flex items-center gap-4"
@@ -100,7 +105,7 @@ Object {
             <div
               class="text-first-500 text-end text-xs "
             >
-              0.4.4
+              0.4.5
             </div>
           </div>
           <button
@@ -129,8 +134,13 @@ Object {
           >
             Reset
           </button>
+          <div
+            class="ml-auto"
+          >
+            MockSettings
+          </div>
           <a
-            class="w-8 h-8 mx-8 ml-auto"
+            class="w-8 h-8 mx-8 ml-8"
             href="https://github.com/ozovalihasan/ead"
             target="_blank"
             title="The repository of the project"
@@ -214,7 +224,7 @@ Object {
         class="relative"
       >
         <nav
-          class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+          class="bg-transparent relative h-20 py-2 border-b general-border "
         >
           <div
             class="flex items-center gap-4"
@@ -231,7 +241,7 @@ Object {
               <div
                 class="text-first-500 text-end text-xs "
               >
-                0.4.4
+                0.4.5
               </div>
             </div>
             <button
@@ -260,8 +270,13 @@ Object {
             >
               Reset
             </button>
+            <div
+              class="ml-auto"
+            >
+              MockSettings
+            </div>
             <a
-              class="w-8 h-8 mx-8 ml-auto"
+              class="w-8 h-8 mx-8 ml-8"
               href="https://github.com/ozovalihasan/ead"
               target="_blank"
               title="The repository of the project"
@@ -288,7 +303,7 @@ Object {
       class="relative"
     >
       <nav
-        class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+        class="bg-transparent relative h-20 py-2 border-b general-border "
       >
         <div
           class="flex items-center gap-4"
@@ -305,7 +320,7 @@ Object {
             <div
               class="text-first-500 text-end text-xs "
             >
-              0.4.4
+              0.4.5
             </div>
           </div>
           <button
@@ -334,8 +349,13 @@ Object {
           >
             Reset
           </button>
+          <div
+            class="ml-auto"
+          >
+            MockSettings
+          </div>
           <a
-            class="w-8 h-8 mx-8 ml-auto"
+            class="w-8 h-8 mx-8 ml-8"
             href="https://github.com/ozovalihasan/ead"
             target="_blank"
             title="The repository of the project"
@@ -419,7 +439,7 @@ Object {
         class="relative"
       >
         <nav
-          class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+          class="bg-transparent relative h-20 py-2 border-b general-border "
         >
           <div
             class="flex items-center gap-4"
@@ -436,7 +456,7 @@ Object {
               <div
                 class="text-first-500 text-end text-xs "
               >
-                0.4.4
+                0.4.5
               </div>
             </div>
             <button
@@ -465,8 +485,13 @@ Object {
             >
               Reset
             </button>
+            <div
+              class="ml-auto"
+            >
+              MockSettings
+            </div>
             <a
-              class="w-8 h-8 mx-8 ml-auto"
+              class="w-8 h-8 mx-8 ml-8"
               href="https://github.com/ozovalihasan/ead"
               target="_blank"
               title="The repository of the project"
@@ -493,7 +518,7 @@ Object {
       class="relative"
     >
       <nav
-        class="bg-transparent relative h-20 py-2 border-b border-solid border-first-500 "
+        class="bg-transparent relative h-20 py-2 border-b general-border "
       >
         <div
           class="flex items-center gap-4"
@@ -510,7 +535,7 @@ Object {
             <div
               class="text-first-500 text-end text-xs "
             >
-              0.4.4
+              0.4.5
             </div>
           </div>
           <button
@@ -539,8 +564,13 @@ Object {
           >
             Reset
           </button>
+          <div
+            class="ml-auto"
+          >
+            MockSettings
+          </div>
           <a
-            class="w-8 h-8 mx-8 ml-auto"
+            class="w-8 h-8 mx-8 ml-8"
             href="https://github.com/ozovalihasan/ead"
             target="_blank"
             title="The repository of the project"

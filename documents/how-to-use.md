@@ -6,6 +6,7 @@ This document explains how to use EAD(Entity Association Diagram).
 After reading this document, you will know:
 
 * How to generate basic associations for Ruby on Rails
+* How to add STI model
 
 ---
 
@@ -50,7 +51,7 @@ end
 The corresponding migration might look like this:
 
 ```ruby
-class CreateSuppliers < ActiveRecord::Migration[6.1]
+class CreateSuppliers < ActiveRecord::Migration[7.0]
   def change
     create_table :suppliers do |t|
       t.string :name
@@ -371,6 +372,43 @@ end
 
 ```
 
+### Single Table Inheritance (STI)
+Sometimes, you may want to share fields and behavior between different models.
+
+```ruby
+class Vehicle < ApplicationRecord
+end
+
+class Car < Vehicle
+end
+
+class SportCar < Car
+end
+```
+
+
+![Single Table Inheritance EAD](./images/single-table-inheritance-ead.png)
+
+The corresponding migration might look like this:
+
+```ruby
+class CreateVehicles < ActiveRecord::Migration[7.0]
+  def change
+    create_table :vehicles do |t|
+      t.string :type
+      t.string :color
+      t.decimal :price
+
+      t.timestamps
+    end
+  end
+end
+```
+
+A model using STI can be used as any model.
+
+![Examples using STI EAD](./images/examples-using-sti.png)
+
 ## Extra Features
 
 EAD has 'table's and 'attribute's to define tables and their attributes in a Rails project.
@@ -396,7 +434,7 @@ class Book < ApplicationRecord
 end
 
 
-class CreateAuthors < ActiveRecord::Migration[6.1]
+class CreateAuthors < ActiveRecord::Migration[7.0]
   def change
     create_table :authors do |t|
       t.string :name
@@ -474,6 +512,12 @@ The related buttons should be clicked.
 ![add delete table association  EAD](./images/add-delete-table-attribute.png)
 
 ⚠️: If a table is deleted, the all entities referring to this table will be deleted automatically.
+
+## How to use STI?
+
+STI can be used by selecting a dropdown next to a table name.
+
+![use STI EAD](./images/use-sti-ead.gif)
 
 ## How to add an entity?
 

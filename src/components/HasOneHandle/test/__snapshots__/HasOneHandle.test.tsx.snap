@@ -6,10 +6,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="w-6 h-6 absolute left-1/4 -translate-x-1/2 bg-slate-700 rounded-full flex justify-center items-center"
+        class="left-1/4 association-handle"
       >
         <svg
-          class="w-3 h-3 stroke-[40] stroke-slate-50"
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -17,21 +16,18 @@ Object {
             d="M 100,20 V 180"
           />
         </svg>
-        nodeId: 
-        1
-        id: 
-        bottom1
-        handleType: 
-        has_one
+        MockCustomHandle
+        handleType: has_one
+        nodeId: 1
+        id: bottom1
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="w-6 h-6 absolute left-1/4 -translate-x-1/2 bg-slate-700 rounded-full flex justify-center items-center"
+      class="left-1/4 association-handle"
     >
       <svg
-        class="w-3 h-3 stroke-[40] stroke-slate-50"
         viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -39,12 +35,10 @@ Object {
           d="M 100,20 V 180"
         />
       </svg>
-      nodeId: 
-      1
-      id: 
-      bottom1
-      handleType: 
-      has_one
+      MockCustomHandle
+      handleType: has_one
+      nodeId: 1
+      id: bottom1
     </div>
   </div>,
   "debug": [Function],

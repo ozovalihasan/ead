@@ -1,39 +1,5 @@
 import { HasOneEdge } from '../HasOneEdge';
 import { render, screen } from "@testing-library/react";
-import { 
-  HasAnyEdgePropsType,
-} from '@/components'
-
-jest.mock('@/components',  () => ({
-  HasAnyEdge: (
-    (
-      {
-        id,
-        source,
-        target,
-        sourceX,
-        sourceY,
-        targetX,
-        targetY,
-        label,
-        selected,
-      }: HasAnyEdgePropsType 
-    ) => (
-      <>
-        MockHasAnyEdge
-        id: {id}
-        source: {source}
-        target: {target}
-        sourceX: {sourceX}
-        sourceY: {sourceY}
-        targetX: {targetX}
-        targetY: {targetY}
-        label: {label}
-        {selected ? "selected" : "not selected"}
-      </>
-    )
-  ),
-}))
 
 let renderReadyComponent: JSX.Element;
 

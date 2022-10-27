@@ -1,11 +1,16 @@
-import useStore, { initialIdCounter } from '@/zustandStore/store';
-import { Connection, Edge, Node } from 'react-flow-renderer';
+import useStore, { initialIdCounter, State } from '@/zustandStore/store';
+import { Connection,Edge, Node } from 'react-flow-renderer';
 import {  AttributesType } from '@/zustandStore/tables';
-
 import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';
 import { EntityNodeType } from '@/components';
+import transform_0_4_x_to_0_4_5 from '../helpers/transform_0_4_x_to_0_4_5'
+
+jest.mock('../helpers/transform_0_4_x_to_0_4_5',  () => ({
+  default: jest.fn((data: State) => data)
+}))
+
 
 let edge: Omit<Edge, "id">;
 
@@ -24,8 +29,8 @@ const fileReader = (uploadedFile: unknown) => (
 )
 
 describe('store', () => {
-  it('has a "version" attribute and its value should be "0.4.4" as default', () => {
-      expect(useStore.getState().version).toBe("0.4.4");
+  it('has a "version" attribute and its value should be "0.4.5" as default', () => {
+      expect(useStore.getState().version).toBe("0.4.5");
   });
 
   it('has a "idCounter" attribute and its value should exist as default', () => {
@@ -36,7 +41,7 @@ describe('store', () => {
       idCounter: initialIdCounter(testTables, testNodes, testEdges)
     })
   
-    expect(useStore.getState().idCounter).toBe(10);
+    expect(useStore.getState().idCounter).toBe(13);
     expect(useStore.getState().idCounter).toBeTruthy();
 
   });
@@ -71,6 +76,22 @@ describe('store', () => {
 
   it('has an "isMouseOnEdge" attribute and its value should be false', () => {
     expect(useStore.getState().isMouseOnEdge).toBeFalsy();
+  });
+  
+  it('has an "mouseOnNodeId" attribute and its value should be null', () => {
+    expect(useStore.getState().mouseOnNodeId).toBeNull();
+  });
+
+  it('has an "mouseOnEdgeId" attribute and its value should be null', () => {
+    expect(useStore.getState().mouseOnEdgeId).toBeNull();
+  });
+  
+  it('has an "selectedNodeIdForThrough" attribute and its value should be null', () => {
+    expect(useStore.getState().selectedNodeIdForThrough).toBeNull();
+  });
+
+  it('has an "needFitView" attribute and its value should be false', () => {
+    expect(useStore.getState().needFitView).toBe(false);
   });
 
   it('has an "onConnectStart" attribute to change isConnectContinue as true', () => {
@@ -153,8 +174,10 @@ describe('store', () => {
                 name: "mockOldAttributeName",
                 type: "mockOldAttributeType"
               }
-            } as AttributesType
+            } as AttributesType,
+            superclassId: ""
           },
+
         }
       })
     })
@@ -184,8 +207,17 @@ describe('store', () => {
       expect(useStore.getState().tables["333"]).toBeFalsy();
 
       useStore.getState().addTable()
-      expect(useStore.getState().tables["333"]).toBeTruthy();
+      expect(useStore.getState().tables["333"]).toStrictEqual(
+        {name: "", attributes: {}, superclassId: ""}
+      );
       expect(useStore.getState().idCounter).toBe(334);
+    });
+
+    it('has a "changeTableSuperClass" attribute to change the superclass of a table', () => {
+      expect(useStore.getState().tables["111"].superclassId).toBe("");
+
+      useStore.getState().changeTableSuperClass({target: {value: "444"}} as React.ChangeEvent<HTMLSelectElement>, "111")
+      expect(useStore.getState().tables["111"].superclassId).toBe("444");
     });
 
     it('has an "addAttribute" attribute to add an attribute to the given table', () => {
@@ -209,13 +241,20 @@ describe('store', () => {
         nodes: testNodes,
         edges: testEdges,
       })
-      
+
       expect(useStore.getState().tables["1"]).toBeTruthy();
+      expect(useStore.getState().nodes.length).toBe(3);
+      expect(useStore.getState().edges.length).toBe(3);
+      expect(useStore.getState().tables["2"].superclassId).toBe("1");
+      expect(useStore.getState().tables["3"].superclassId).toBe("1");
+
 
       useStore.getState().removeTable("1")
       expect(useStore.getState().tables["1"]).toBeFalsy();
       expect(useStore.getState().nodes.length).toBe(2);
       expect(useStore.getState().edges.length).toBe(1);
+      expect(useStore.getState().tables["2"].superclassId).toBe("");
+      expect(useStore.getState().tables["3"].superclassId).toBe("");
     });
   })
 
@@ -246,7 +285,7 @@ describe('store', () => {
       nodeOnStore = useStore.getState().nodes.find(node => node.id === "4")!
       expect(nodeOnStore.data.tableId).not.toBe("2");
       
-      useStore.getState().onNodeTableChange({target: {value: "2"}} as React.ChangeEvent<HTMLSelectElement>, "4")
+      useStore.getState().onNodeTableChange("2", "4")
       
       nodeOnStore = (useStore.getState().nodes.find(node => node.id === "4"))!
       expect(nodeOnStore.data.tableId).toBe("2");
@@ -435,6 +474,18 @@ describe('store', () => {
       
   });
 
+  it('has a "toggleNeedFitView" attribute to toogle the needFitView attribute', () => {
+    expect(useStore.getState().needFitView).toBe(false);
+    
+    useStore.getState().toggleNeedFitView()
+    
+    expect(useStore.getState().needFitView).toBe(true);
+    
+    useStore.getState().toggleNeedFitView()
+
+    expect(useStore.getState().needFitView).toBe(false);
+  });
+
   describe('has an "uploadStore" attribute to upload an EAD file', () => {
     
     it('shows a warning if a correct file is not installed', () => {
@@ -450,17 +501,13 @@ describe('store', () => {
     })
 
     it('installs the file successfully', () => {
-
-      fileReader({target: {result: JSON.stringify({version: "0.4.4", idCounter: 1234})}})
+      fileReader({target: {result: JSON.stringify({version: "0.4.5", idCounter: 1234})}})
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(useStore.getState().idCounter).toBe(1234);
-
-      fileReader({target: {result: JSON.stringify({version: "0.4.0", idCounter: 5678})}})
-      useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
+      expect(useStore.getState().version).toBe("0.4.5");
     
-      expect(useStore.getState().idCounter).toBe(5678);
-      expect(useStore.getState().version).toBe("0.4.4");
+      expect(transform_0_4_x_to_0_4_5).toHaveBeenCalledTimes(1);
     });
 
     it('warns about the file version if it is not compatible with the version used', () => {
@@ -471,7 +518,7 @@ describe('store', () => {
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(global.alert).toHaveBeenCalledTimes(1);
-      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.4).");
+      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.5).");
     });
   });
   

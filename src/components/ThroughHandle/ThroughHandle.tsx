@@ -4,9 +4,8 @@ import { memo } from 'react';
 export const ThroughHandle = memo(({nodeId} : {nodeId: string}) => {
 
   return (
-    <div className="w-6 h-6 absolute left-3/4 bg-slate-700 rounded-full -translate-x-1/2 flex justify-center items-center" >
+    <div className="left-3/4 association-handle" >
       <svg 
-        className="stroke-[40] stroke-slate-50 w-3 h-3 "
         viewBox="0 0 200 200" 
         xmlns="http://www.w3.org/2000/svg"
       >

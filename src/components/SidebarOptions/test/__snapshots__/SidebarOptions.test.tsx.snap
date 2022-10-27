@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidebar /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="relative w-1/2 whitespace-nowrap"
+      >
+        <div
+          class="truncate p-2 custom-select-button rounded-none rounded-tr-md"
+          title="Click to select a superclass to inherit"
+        >
+          &lt; Mock Name
+        </div>
+        <select
+          class="
+          hidden absolute left-0 top-full z-20 w-11/12 custom-select-options
+          [&>option]:p-2 [&>option]:truncate
+        "
+          size="4"
+          title="Select a superclass to inherit"
+        >
+          <option
+            title="ActiveRecord::Base"
+            value=""
+          >
+            ActiveRecord::Base
+          </option>
+          <option
+            title="Mock Name"
+            value="1"
+          >
+            Mock Name
+          </option>
+          <option
+            disabled=""
+            title="Mock Second Name(Disabled)"
+            value="2"
+          >
+            Mock Second Name
+          </option>
+          <option
+            title="Mock Third Name"
+            value="3"
+          >
+            Mock Third Name
+          </option>
+        </select>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="relative w-1/2 whitespace-nowrap"
+    >
+      <div
+        class="truncate p-2 custom-select-button rounded-none rounded-tr-md"
+        title="Click to select a superclass to inherit"
+      >
+        &lt; Mock Name
+      </div>
+      <select
+        class="
+          hidden absolute left-0 top-full z-20 w-11/12 custom-select-options
+          [&>option]:p-2 [&>option]:truncate
+        "
+        size="4"
+        title="Select a superclass to inherit"
+      >
+        <option
+          title="ActiveRecord::Base"
+          value=""
+        >
+          ActiveRecord::Base
+        </option>
+        <option
+          title="Mock Name"
+          value="1"
+        >
+          Mock Name
+        </option>
+        <option
+          disabled=""
+          title="Mock Second Name(Disabled)"
+          value="2"
+        >
+          Mock Second Name
+        </option>
+        <option
+          title="Mock Third Name"
+          value="3"
+        >
+          Mock Third Name
+        </option>
+      </select>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

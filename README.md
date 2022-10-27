@@ -87,7 +87,7 @@ Then, there are two choices to use the generated JSON file;
 - Dark mode is available.
 - Main color can be changed.
 - Showing the name of associations is an option.
-- 
+
 
 ## Run EAD locally
 

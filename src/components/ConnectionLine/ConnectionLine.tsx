@@ -8,7 +8,7 @@ export const ConnectionLine = ({
   targetX,
   targetY,
   targetPosition,
-}: Omit<ConnectionLineComponentProps, 'connectionLineType'>) => {
+}: Omit<ConnectionLineComponentProps, 'connectionLineType' | "fromX" | "fromY" | "toX" | "toY" | "fromPosition" | "toPosition">) => {
 
   const associationType = useStore(state => state.associationType)
 

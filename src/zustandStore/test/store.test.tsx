@@ -5,9 +5,9 @@ import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';
 import { EntityNodeType } from '@/components';
-import transform_0_4_x_to_0_4_5 from '../helpers/transform_0_4_x_to_0_4_5'
+import update_data from '../helpers/update_data'
 
-jest.mock('../helpers/transform_0_4_x_to_0_4_5',  () => ({
+jest.mock('../helpers/update_data',  () => ({
   default: jest.fn((data: State) => data)
 }))
 
@@ -29,8 +29,8 @@ const fileReader = (uploadedFile: unknown) => (
 )
 
 describe('store', () => {
-  it('has a "version" attribute and its value should be "0.4.5" as default', () => {
-      expect(useStore.getState().version).toBe("0.4.5");
+  it('has a "version" attribute and its value should be "0.4.6" as default', () => {
+      expect(useStore.getState().version).toBe("0.4.6");
   });
 
   it('has a "idCounter" attribute and its value should exist as default', () => {
@@ -501,13 +501,13 @@ describe('store', () => {
     })
 
     it('installs the file successfully', () => {
-      fileReader({target: {result: JSON.stringify({version: "0.4.5", idCounter: 1234})}})
+      fileReader({target: {result: JSON.stringify({version: "0.4.6", idCounter: 1234})}})
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(useStore.getState().idCounter).toBe(1234);
-      expect(useStore.getState().version).toBe("0.4.5");
+      expect(useStore.getState().version).toBe("0.4.6");
     
-      expect(transform_0_4_x_to_0_4_5).toHaveBeenCalledTimes(1);
+      expect(update_data).toHaveBeenCalledTimes(1);
     });
 
     it('warns about the file version if it is not compatible with the version used', () => {
@@ -518,7 +518,7 @@ describe('store', () => {
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(global.alert).toHaveBeenCalledTimes(1);
-      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.5).");
+      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.6).");
     });
   });
   

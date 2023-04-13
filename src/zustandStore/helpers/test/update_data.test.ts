@@ -1,9 +1,9 @@
 import { State } from '@/zustandStore/store';
-import { transform_0_4_x_to_0_4_5 } from '../transform_0_4_x_to_0_4_5';
+import { update_data } from '../update_data';
 
 let data : unknown;
 
-describe("transform_0_4_x_to_0_4_5 function", () => {
+describe("update_data function", () => {
   
   it('adds superclassId attributes to tables if the version of data is not up-to-date ', () => {
     data = {
@@ -14,8 +14,8 @@ describe("transform_0_4_x_to_0_4_5 function", () => {
       }
     } 
 
-    expect(transform_0_4_x_to_0_4_5(data as State)).toStrictEqual({
-      version: "0.4.5",
+    expect(update_data(data as State)).toStrictEqual({
+      version: "0.4.6",
       tables: {
         "1": {
           "superclassId": "",
@@ -31,7 +31,7 @@ describe("transform_0_4_x_to_0_4_5 function", () => {
   it('doesn"t make any change if the version of data is up-to-date ', () => {
 
     data = {
-      version: "0.4.5",
+      version: "0.4.6",
       tables: {
         "1": {
           superclassId: ""
@@ -42,7 +42,7 @@ describe("transform_0_4_x_to_0_4_5 function", () => {
       }
     } 
     
-    expect(transform_0_4_x_to_0_4_5(data as State)).toStrictEqual( data );
+    expect(update_data(data as State)).toStrictEqual( data );
     
   });
   

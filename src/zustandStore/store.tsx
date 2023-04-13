@@ -19,7 +19,7 @@ import initialTables, { TablesType } from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
-import transform_0_4_x_to_0_4_5 from './helpers/transform_0_4_x_to_0_4_5';
+import update_data from './helpers/update_data';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -94,7 +94,7 @@ export interface State {
 }
 
 const useStore = create(devtools<State>((set, get) => ({
-    version: "0.4.5",  
+    version: "0.4.6",  
     idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
     associationType: "has_one",
     nodes: initialNodes,
@@ -341,16 +341,16 @@ const useStore = create(devtools<State>((set, get) => ({
         if (event.target && (typeof event.target.result === 'string')){
           data = JSON.parse(event.target.result) as State;
           
-          if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4", "0.4.5"].includes(data.version)) {
+          if (["0.4.0", "0.4.1", "0.4.2", "0.4.3", "0.4.4", "0.4.5", "0.4.6"].includes(data.version)) {
             set(
-              transform_0_4_x_to_0_4_5(data)
+              update_data(data)
             ) 
 
             set({
               needFitView: true
             })
           } else {
-            alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.5).`);  
+            alert(`The version of your file is v${data.version}. It is not compatible with the version used(v0.4.6).`);  
           }
           
         }else{

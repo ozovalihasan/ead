@@ -19,7 +19,7 @@ EAD gem can be accessible from [this repository](https://github.com/ozovalihasan
 
 ## Live Demo 
 
-Please check [live demo of EAD.](https://ead.ozovalihasan.com/)
+Please check [live demo of EAD.](https://ozovalihasan.com/ead)
 
 ## Examples
 

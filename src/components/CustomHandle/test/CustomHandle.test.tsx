@@ -1,11 +1,12 @@
 import { CustomHandle } from '../CustomHandle';
 import { render, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
-import { HandleComponentProps } from 'react-flow-renderer/dist/esm/components/Handle';
+import { Handle } from 'reactflow';
+import { ComponentProps } from 'react';
 
-jest.mock('react-flow-renderer',  () => ({
+jest.mock('reactflow',  () => ({
   Handle: (
-    ({ id, className, type, position, onMouseDown }: HandleComponentProps & { onMouseDown: () => void }) => (
+    ({ id, className, type, position, onMouseDown }: ComponentProps<typeof Handle> & { onMouseDown: () => void }) => (
       <>
         MockHandle
         id: {id}

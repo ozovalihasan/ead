@@ -1,16 +1,19 @@
-details > summary {
-  list-style: none;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
-}
+@import "reset.css";
+@import "reactflow/dist/style.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  details > summary {
+    list-style: none;
+  }
+  
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
   input {
     @apply bg-zinc-100 dark:bg-zinc-800
   }
@@ -60,15 +63,16 @@ details > summary::-webkit-details-marker {
   .association-handle {
     @apply [&>svg]:w-3 [&>svg]:h-3 w-6 h-6 absolute  bg-slate-700 dark:bg-slate-50 stroke-slate-50 dark:stroke-slate-700 stroke-[40] rounded-full -translate-x-1/2 flex justify-center items-center
   }
-}
 
-.custom-animation {
-  animation: dashdraw 0.5s linear infinite;
-  stroke-dasharray: 5;
-}
-
-@keyframes dashdraw {
-  0% {
-    stroke-dashoffset: 10;
+  .custom-animation {
+    animation: dashdraw 0.5s linear infinite;
+    stroke-dasharray: 5;
   }
+
+  @keyframes dashdraw {
+    0% {
+      stroke-dashoffset: 10;
+    }
+  }
+
 }

@@ -6,19 +6,19 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        <g>
+        <g
+          class="stroke-third-800 dark:stroke-third-200 "
+        >
           <path
             class="custom-animation"
             d="M10,20 C10,96.25 534,96.25 534,172.5"
             fill="none"
-            stroke="#222"
             stroke-width="1.5"
           />
           <path
             class="custom-animation"
             d="M534,172.5 C534,316.38580541526676 30,-103.88580541526673 30,40"
             fill="none"
-            stroke="#222"
             stroke-width="1.5"
           />
           <circle
@@ -26,7 +26,6 @@ Object {
             cy="40"
             fill="#fff"
             r="3"
-            stroke="#222"
             stroke-width="1.5"
           />
         </g>
@@ -35,19 +34,19 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      <g>
+      <g
+        class="stroke-third-800 dark:stroke-third-200 "
+      >
         <path
           class="custom-animation"
           d="M10,20 C10,96.25 534,96.25 534,172.5"
           fill="none"
-          stroke="#222"
           stroke-width="1.5"
         />
         <path
           class="custom-animation"
           d="M534,172.5 C534,316.38580541526676 30,-103.88580541526673 30,40"
           fill="none"
-          stroke="#222"
           stroke-width="1.5"
         />
         <circle
@@ -55,7 +54,6 @@ Object {
           cy="40"
           fill="#fff"
           r="3"
-          stroke="#222"
           stroke-width="1.5"
         />
       </g>
@@ -121,12 +119,13 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        <g>
+        <g
+          class="stroke-third-800 dark:stroke-third-200 "
+        >
           <path
             class=""
             d="M10,20 C10,30 30,30 30,40"
             fill="none"
-            stroke="#222"
             stroke-width="1.5"
           />
           <circle
@@ -134,7 +133,6 @@ Object {
             cy="40"
             fill="#fff"
             r="3"
-            stroke="#222"
             stroke-width="1.5"
           />
         </g>
@@ -143,12 +141,13 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      <g>
+      <g
+        class="stroke-third-800 dark:stroke-third-200 "
+      >
         <path
           class=""
           d="M10,20 C10,30 30,30 30,40"
           fill="none"
-          stroke="#222"
           stroke-width="1.5"
         />
         <circle
@@ -156,7 +155,6 @@ Object {
           cy="40"
           fill="#fff"
           r="3"
-          stroke="#222"
           stroke-width="1.5"
         />
       </g>

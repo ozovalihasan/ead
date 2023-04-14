@@ -39,7 +39,7 @@ describe('<MainReactFlow />', () => {
 
     render(renderReadyComponent );
 
-    const dropElement = screen.getAllByText("")[0].getElementsByClassName("react-flow__renderer react-flow__container")[0]
+    const dropElement = screen.getAllByText("")[0].getElementsByClassName("react-flow__renderer")[0]
     expect(dropElement).toBeInTheDocument();
     
     // fireEvent.drop(dropElement, {

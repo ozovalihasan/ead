@@ -1,4 +1,4 @@
-import { EdgeProps, getBezierPath, Node, Position } from 'react-flow-renderer';
+import { EdgeProps, getBezierPath, Node, Position } from 'reactflow';
 import { RemoveEdgeButton } from '@/components';
 import { getEdgeParams } from '@/utils';
 import useCustomizationStore from '@/zustandStore/customizationStore';
@@ -30,14 +30,14 @@ export const ThroughEdge = ({
     return <div></div>
   }
 
-  const throughEdgePath = getBezierPath(
+  const [throughEdgePath] = getBezierPath(
     getEdgeParams(sourceNode, throughNode)
   );
 
 
   const { targetX, targetY, targetPosition, ...rest } = getEdgeParams(throughNode, targetNode, label === "through", sourceNode);
 
-  const edgePath = getBezierPath({ targetX, targetY, targetPosition, ...rest })
+  const [edgePath] = getBezierPath({ targetX, targetY, targetPosition, ...rest })
   
   let orient = "0deg" 
   if (targetPosition === Position.Bottom) {

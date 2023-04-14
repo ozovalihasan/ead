@@ -1,5 +1,5 @@
 import useStore, { initialIdCounter, State } from '@/zustandStore/store';
-import { Connection,Edge, Node } from 'react-flow-renderer';
+import { Connection,Edge, Node } from 'reactflow';
 import {  AttributesType } from '@/zustandStore/tables';
 import testNodes from './testNodes';
 import testEdges from './testEdges';

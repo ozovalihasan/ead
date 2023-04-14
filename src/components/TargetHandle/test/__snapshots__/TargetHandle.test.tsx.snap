@@ -8,7 +8,7 @@ Object {
       MockHandle id: 
       top
       className: 
-      border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 w-full h-full
+      border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 min-w-0 min-h-0 w-full h-full
       type: 
       target
       position: 
@@ -19,7 +19,7 @@ Object {
     MockHandle id: 
     top
     className: 
-    border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 w-full h-full
+    border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 min-w-0 min-h-0 w-full h-full
     type: 
     target
     position: 
@@ -87,7 +87,7 @@ Object {
       MockHandle id: 
       top
       className: 
-      border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 w-0 h-0
+      border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 min-w-0 min-h-0 w-0 h-0
       type: 
       target
       position: 
@@ -98,7 +98,7 @@ Object {
     MockHandle id: 
     top
     className: 
-    border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 w-0 h-0
+    border-none my-1 rounded-none opacity-20 hover:bg-first-500 z-10 min-w-0 min-h-0 w-0 h-0
     type: 
     target
     position: 

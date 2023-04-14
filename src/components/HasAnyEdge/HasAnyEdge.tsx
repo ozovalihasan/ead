@@ -1,10 +1,9 @@
 import { 
   EdgeProps,
-  getBezierEdgeCenter, 
   getBezierPath, 
   Node, 
   Position 
-} from 'react-flow-renderer';
+} from 'reactflow';
 
 import {
   RemoveEdgeButton,
@@ -48,16 +47,8 @@ export const HasAnyEdge = memo(({
 
   const { targetPosition, ...rest } = getEdgeParams(sourceNode, targetNode);
 
-  const edgePath = getBezierPath({...rest, targetPosition})
+  const [edgePath, labelX, labelY] = getBezierPath({...rest, targetPosition})
   
-
-  const [centerX, centerY] = getBezierEdgeCenter({
-    sourceX,
-    sourceY,
-    targetX: targetX,
-    targetY: targetY,
-  });
-
   
   let orient = "0deg" 
   if (targetPosition === Position.Bottom) {
@@ -94,8 +85,8 @@ export const HasAnyEdge = memo(({
       { selected && 
         <foreignObject
           className='h-10 w-10'
-          x={centerX - 20 / 2}
-          y={centerY + 10 / 2}
+          x={labelX - 20 / 2}
+          y={labelY + 10 / 2}
         >
           <RemoveEdgeButton edgeId={id}/>
         </foreignObject> 
@@ -103,7 +94,7 @@ export const HasAnyEdge = memo(({
 
       {
         showTextOnEdges && 
-        <ShowEdgeText label={label} centerX={centerX} centerY={centerY} />
+        <ShowEdgeText label={label} centerX={labelX} centerY={labelY} />
       }
       
     </>

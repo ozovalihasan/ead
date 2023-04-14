@@ -11,7 +11,7 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   NodeRemoveChange,
-} from 'react-flow-renderer';
+} from 'reactflow';
 
 import { devtools } from 'zustand/middleware'
 import produce from "immer"

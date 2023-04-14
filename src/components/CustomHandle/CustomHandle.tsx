@@ -1,4 +1,4 @@
-import { Handle, Position } from 'react-flow-renderer';
+import { Handle, Position } from 'reactflow';
 import useStore from '@/zustandStore/store';
 import { memo } from 'react';
 

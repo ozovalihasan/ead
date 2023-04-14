@@ -1,14 +1,14 @@
-import { ConnectionLineComponentProps, getBezierPath, Node } from "react-flow-renderer";
+import { ConnectionLineComponentProps, getBezierPath, Node } from "reactflow";
 import useStore from "@/zustandStore/store";
 
 export const ConnectionLine = ({
-  sourceX,
-  sourceY,
-  sourcePosition,
-  targetX,
-  targetY,
-  targetPosition,
-}: Omit<ConnectionLineComponentProps, 'connectionLineType' | "fromX" | "fromY" | "toX" | "toY" | "fromPosition" | "toPosition">) => {
+  fromX,
+  fromY,
+  fromPosition,
+  toX,
+  toY,
+  toPosition
+}: Omit<ConnectionLineComponentProps, 'connectionLineType' | 'connectionStatus' >) => {
 
   const associationType = useStore(state => state.associationType)
 
@@ -21,13 +21,13 @@ export const ConnectionLine = ({
     throughNode = useStore(store => store.nodes.find( node => node.id === selectedNodeIdForThrough)) as Node
     
     if (throughNode){
-      throughEdgePath = getBezierPath({
-        sourceX,
-        sourceY,
-        sourcePosition,
+      [throughEdgePath] = getBezierPath({
+        sourceX: fromX,
+        sourceY: fromY,
+        sourcePosition: fromPosition,
         targetX: throughNode.position.x + (throughNode.width! / 2),
         targetY: throughNode.position.y + (throughNode.height! / 2),
-        targetPosition,
+        targetPosition: toPosition,
         curvature: 0.5
       })
     }
@@ -40,30 +40,27 @@ export const ConnectionLine = ({
     sourceUpdatedX = throughNode.position.x + (throughNode.width! / 2);
     sourceUpdatedY = throughNode.position.y + (throughNode.height! / 2);
   } else{
-  sourceUpdatedX = sourceX
-    sourceUpdatedY = sourceY
+    sourceUpdatedX = fromX
+    sourceUpdatedY = fromY
   }
 
-  const edgePath = getBezierPath({
+  const [edgePath] = getBezierPath({
     sourceX: sourceUpdatedX,
     sourceY: sourceUpdatedY,
-    sourcePosition,
-    targetX,
-    targetY,
-    targetPosition,
+    sourcePosition: fromPosition,
+    targetX: toX,
+    targetY: toY,
+    targetPosition: toPosition,
     curvature: 0.5
   })
 
-  
-  
   return (
     <>
-      <g>
+      <g className="stroke-third-800 dark:stroke-third-200 ">
         {
           throughEdgePath &&
           <path
-            fill="none"
-            stroke="#222"
+            fill="none" 
             strokeWidth={1.5}
             className="custom-animation"
             d={throughEdgePath}
@@ -71,14 +68,13 @@ export const ConnectionLine = ({
         }
       
         <path
-          fill="none"
-          stroke="#222"
+          fill="none" 
           strokeWidth={1.5}
           className={associationType === 'through' ? "custom-animation" : ""}
           d={edgePath}
         />
       
-        <circle cx={targetX} cy={targetY} fill="#fff" r={3} stroke="#222" strokeWidth={1.5} />
+        <circle cx={toX} cy={toY} fill="#fff" r={3} strokeWidth={1.5} />
       </g>
     </>
   );

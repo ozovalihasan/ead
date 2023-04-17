@@ -13,10 +13,10 @@ export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: st
   const options = Object.entries(tables).map(([id, table]) => {return {id: id, name: table.name}});
 
   const handleMouseUp = (event: React.MouseEvent<HTMLDivElement> ) => {
-    if (event.button === 1){
-      handleMouseUpForSelect(selectEl)
-      selectEl.current!.focus()
-    }
+    event.preventDefault()
+    
+    handleMouseUpForSelect(selectEl);
+    selectEl.current!.focus();
   }
   
   const handleMouseLeave = () => {
@@ -35,11 +35,11 @@ export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: st
 
   return (
     <div 
-      className='text-xs flex relative'
+      className='text-xs flex relative nopan'
       onMouseLeave={handleMouseLeave} 
-      title="Middle button click to change the table"
+      title="Right button click to change the table"
     >
-      <div onMouseUp={event => handleMouseUp(event)} className="font-bold custom-select-button p-1 rounded-md">
+      <div onContextMenu={event => handleMouseUp(event)} className="font-bold custom-select-button p-1 rounded-md">
         {tableName}
       </div>
       <select

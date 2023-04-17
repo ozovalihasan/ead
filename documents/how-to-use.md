@@ -527,7 +527,7 @@ An entity can be added by dragging and dropping a table.
 
 ## How to change the related table of an entity?
 
-When the table name of an entity is clicked by the middle mouse button, a dropdown list will be opened. The related table can be changed by selecting any of the table names.
+When the table name of an entity is clicked by the right mouse button, a dropdown list will be opened. The related table can be changed by selecting any of the table names.
 
 ![change table name of entity EAD](./images/change-table-name-of-entity-ead.gif)
 

@@ -30,7 +30,7 @@ describe('<TableName />', () => {
       render(renderReadyComponent);
   
       const buttonEl = screen.getAllByText(/Mock Name/i)[0]
-      fireEvent.mouseUp(buttonEl, {button: 1})
+      fireEvent.contextMenu(buttonEl)
       
     });
 

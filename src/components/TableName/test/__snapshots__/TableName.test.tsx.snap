@@ -6,8 +6,8 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="text-xs flex relative"
-        title="Middle button click to change the table"
+        class="text-xs flex relative nopan"
+        title="Right button click to change the table"
       >
         <div
           class="font-bold custom-select-button p-1 rounded-md"
@@ -36,8 +36,8 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="text-xs flex relative"
-      title="Middle button click to change the table"
+      class="text-xs flex relative nopan"
+      title="Right button click to change the table"
     >
       <div
         class="font-bold custom-select-button p-1 rounded-md"

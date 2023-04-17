@@ -29,10 +29,6 @@ export const HasAnyEdge = memo(({
   id,
   source,
   target,
-  sourceX,
-  sourceY,
-  targetX,
-  targetY,
   label,
   selected,
 }: HasAnyEdgePropsType) => {

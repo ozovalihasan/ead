@@ -4,8 +4,6 @@ import ReactFlow, {
   Controls,
   EdgeTypes,
   ReactFlowInstance,
-  SelectionMode,
-  ConnectionMode,
 } from 'reactflow';
 
 import useStore from '@/zustandStore/store';

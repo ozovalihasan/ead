@@ -23,8 +23,8 @@ Object {
         />
         <foreignobject
           class="h-10 w-10"
-          x="515"
-          y="207.5"
+          x="584.0000000000001"
+          y="230"
         >
           MockRemoveEdgeButton
           edgeId: 111
@@ -51,8 +51,8 @@ Object {
       />
       <foreignobject
         class="h-10 w-10"
-        x="515"
-        y="207.5"
+        x="584.0000000000001"
+        y="230"
       >
         MockRemoveEdgeButton
         edgeId: 111
@@ -516,8 +516,8 @@ Object {
           id="111-wider"
         />
         MockShowEdgeText
-        centerX: 525
-        centerY: 202.5
+        centerX: 594.0000000000001
+        centerY: 225
         label: 
         has one
       </svg>
@@ -540,8 +540,8 @@ Object {
         id="111-wider"
       />
       MockShowEdgeText
-      centerX: 525
-      centerY: 202.5
+      centerX: 594.0000000000001
+      centerY: 225
       label: 
       has one
     </svg>

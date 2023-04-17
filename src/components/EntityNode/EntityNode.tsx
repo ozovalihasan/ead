@@ -6,7 +6,7 @@ import {
 } from "@/components"
 import useStore from '@/zustandStore/store';
 import { memo, useRef } from "react";
-import { Node } from "react-flow-renderer";
+import { Node } from "reactflow";
 
 
 export interface EntityNodeDataType {

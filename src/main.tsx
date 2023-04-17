@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client'
 import { App } from '@/components'
-import './reset.css';
 import './index.css';
 import { setColorVariants } from '@/helpers';
 

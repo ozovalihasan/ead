@@ -4,7 +4,9 @@ import ReactFlow, {
   Controls,
   EdgeTypes,
   ReactFlowInstance,
-} from 'react-flow-renderer';
+  SelectionMode,
+  ConnectionMode,
+} from 'reactflow';
 
 import useStore from '@/zustandStore/store';
 
@@ -118,6 +120,7 @@ export const FlowWithoutProvider = memo(() => {
           fitView
           nodeTypes={nodeTypes}
           snapToGrid={true}
+          connectionRadius={0}
         >
           <Controls />
         </ReactFlow>

@@ -10,33 +10,44 @@ Object {
       >
         <div
           class="react-flow"
+          data-testid="rf__wrapper"
+          style="width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
         >
           <div
-            class="react-flow__renderer react-flow__container"
+            class="react-flow__renderer"
+            style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
           >
             <div
-              class="react-flow__viewport react-flow__container"
-              style="transform: translate(0px,0px) scale(1);"
+              class="react-flow__pane"
+              style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
             >
-              <svg
-                class="react-flow__edges react-flow__container"
-                height="500"
-                style="z-index: 0;"
-                width="500"
-              >
-                <defs />
-                <g />
-              </svg>
               <div
-                class="react-flow__nodes react-flow__container"
-              />
+                class="react-flow__viewport react-flow__container"
+                style="transform: translate(0px,0px) scale(1);"
+              >
+                <svg
+                  class="react-flow__edges react-flow__container"
+                  height="500"
+                  style="z-index: 0;"
+                  width="500"
+                >
+                  <defs />
+                  <g />
+                </svg>
+                <div
+                  class="react-flow__edgelabel-renderer"
+                />
+                <div
+                  class="react-flow__nodes"
+                  style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                />
+              </div>
             </div>
-            <div
-              class="react-flow__pane react-flow__container"
-            />
           </div>
           <div
-            class="react-flow__controls"
+            class="react-flow__panel react-flow__controls bottom left"
+            data-testid="rf__controls"
+            style="pointer-events: all;"
           >
             <button
               aria-label="zoom in"
@@ -100,10 +111,12 @@ Object {
             </button>
           </div>
           <div
-            class="react-flow__attribution bottom right"
-            data-message="Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev/pricing"
+            class="react-flow__panel react-flow__attribution bottom right"
+            data-message="Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+            style="pointer-events: all;"
           >
             <a
+              aria-label="React Flow attribution"
               href="https://reactflow.dev"
               rel="noopener noreferrer"
               target="_blank"
@@ -111,6 +124,27 @@ Object {
               React Flow
             </a>
           </div>
+          <div
+            id="react-flow__node-desc-1"
+            style="display: none;"
+          >
+            Press enter or space to select a node.
+            You can then use the arrow keys to move the node around.
+             Press delete to remove it and escape to cancel.
+             
+          </div>
+          <div
+            id="react-flow__edge-desc-1"
+            style="display: none;"
+          >
+            Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.
+          </div>
+          <div
+            aria-atomic="true"
+            aria-live="assertive"
+            id="react-flow__aria-live-1"
+            style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+          />
         </div>
       </div>
     </div>
@@ -121,33 +155,44 @@ Object {
     >
       <div
         class="react-flow"
+        data-testid="rf__wrapper"
+        style="width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
       >
         <div
-          class="react-flow__renderer react-flow__container"
+          class="react-flow__renderer"
+          style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
         >
           <div
-            class="react-flow__viewport react-flow__container"
-            style="transform: translate(0px,0px) scale(1);"
+            class="react-flow__pane"
+            style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
           >
-            <svg
-              class="react-flow__edges react-flow__container"
-              height="500"
-              style="z-index: 0;"
-              width="500"
-            >
-              <defs />
-              <g />
-            </svg>
             <div
-              class="react-flow__nodes react-flow__container"
-            />
+              class="react-flow__viewport react-flow__container"
+              style="transform: translate(0px,0px) scale(1);"
+            >
+              <svg
+                class="react-flow__edges react-flow__container"
+                height="500"
+                style="z-index: 0;"
+                width="500"
+              >
+                <defs />
+                <g />
+              </svg>
+              <div
+                class="react-flow__edgelabel-renderer"
+              />
+              <div
+                class="react-flow__nodes"
+                style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+              />
+            </div>
           </div>
-          <div
-            class="react-flow__pane react-flow__container"
-          />
         </div>
         <div
-          class="react-flow__controls"
+          class="react-flow__panel react-flow__controls bottom left"
+          data-testid="rf__controls"
+          style="pointer-events: all;"
         >
           <button
             aria-label="zoom in"
@@ -211,10 +256,12 @@ Object {
           </button>
         </div>
         <div
-          class="react-flow__attribution bottom right"
-          data-message="Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev/pricing"
+          class="react-flow__panel react-flow__attribution bottom right"
+          data-message="Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
+          style="pointer-events: all;"
         >
           <a
+            aria-label="React Flow attribution"
             href="https://reactflow.dev"
             rel="noopener noreferrer"
             target="_blank"
@@ -222,6 +269,27 @@ Object {
             React Flow
           </a>
         </div>
+        <div
+          id="react-flow__node-desc-1"
+          style="display: none;"
+        >
+          Press enter or space to select a node.
+          You can then use the arrow keys to move the node around.
+           Press delete to remove it and escape to cancel.
+           
+        </div>
+        <div
+          id="react-flow__edge-desc-1"
+          style="display: none;"
+        >
+          Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.
+        </div>
+        <div
+          aria-atomic="true"
+          aria-live="assertive"
+          id="react-flow__aria-live-1"
+          style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+        />
       </div>
     </div>
   </div>,

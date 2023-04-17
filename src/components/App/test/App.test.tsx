@@ -2,7 +2,7 @@ import {  App } from '../App';
 import { render, screen } from "@testing-library/react";
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
-jest.mock('react-flow-renderer',  () => ({
+jest.mock('reactflow',  () => ({
   Sidebar:(
     () => (
       <>

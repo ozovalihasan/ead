@@ -1,4 +1,4 @@
-import { EdgeText } from "react-flow-renderer";
+import { EdgeText } from "reactflow";
 import useCustomizationStore, { CustomizationStoreState } from '@/zustandStore/customizationStore';
 
 export interface ShowEdgeTextType {

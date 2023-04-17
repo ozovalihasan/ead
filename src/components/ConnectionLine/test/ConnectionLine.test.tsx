@@ -1,7 +1,7 @@
 import { ConnectionLine } from '../ConnectionLine';
 import { render } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
-import { Position } from 'react-flow-renderer';
+import { Position } from 'reactflow';
 
 
 
@@ -12,12 +12,12 @@ beforeEach(() => {
   renderReadyComponent = (
     <svg>
       <ConnectionLine
-        sourceX={10}
-        sourceY={20}
-        sourcePosition={Position.Bottom}
-        targetX={30}
-        targetY={40}
-        targetPosition={Position.Top}
+        fromX={10}
+        fromY={20}
+        fromPosition={Position.Bottom}
+        toX={30}
+        toY={40}
+        toPosition={Position.Top}
       />
     </svg>
   );

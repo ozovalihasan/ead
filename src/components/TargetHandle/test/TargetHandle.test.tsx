@@ -1,12 +1,14 @@
 import { TargetHandle } from '../TargetHandle';
 import { render, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
-import { HandleComponentProps } from 'react-flow-renderer/dist/esm/components/Handle';
+import { Handle } from 'reactflow';
+import { ComponentProps } from 'react';
 
 
-jest.mock('react-flow-renderer',  () => ({
+
+jest.mock('reactflow',  () => ({
   Handle: (
-    ({ id, className, type, position }: HandleComponentProps) => (
+    ({ id, className, type, position }: ComponentProps<typeof Handle>) => (
       <>
         MockHandle
         id: {id}
@@ -61,8 +63,8 @@ describe('<TargetHandle />', () => {
       
       expect(mainElement.innerHTML).toContain("w-full");
       expect(mainElement.innerHTML).toContain("h-full");
-      expect(mainElement.innerHTML).not.toContain("w-0");
-      expect(mainElement.innerHTML).not.toContain("h-0");
+      expect(mainElement.innerHTML).not.toContain(" w-0");
+      expect(mainElement.innerHTML).not.toContain(" h-0");
   
     });
   

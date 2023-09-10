@@ -25,6 +25,13 @@ export type HasAnyEdgePropsType = Omit<
   EdgeProps<null>, "sourcePosition" |"targetPosition" | "data"
 >
 
+const positionToOrient = {
+  [Position.Bottom]: "180deg",
+  [Position.Left]: "-90deg",
+  [Position.Right]: "90deg",
+  [Position.Top]: "0deg",
+};
+
 export const HasAnyEdge = memo(({
   id,
   source,
@@ -41,28 +48,18 @@ export const HasAnyEdge = memo(({
 
   if (!sourceNode || !targetNode) { return <div></div> }
 
-  const { targetPosition, ...rest } = getEdgeParams(sourceNode, targetNode);
+  const { targetPosition, sourcePosition, ...rest } = getEdgeParams(sourceNode, targetNode);
 
-  const [edgePath, labelX, labelY] = getBezierPath({...rest, targetPosition})
+  const [edgePath, labelX, labelY] = getBezierPath({...rest, sourcePosition, targetPosition})
   
-  
-  let orient = "0deg" 
-  if (targetPosition === Position.Bottom) {
-    orient = "180deg"
-  } else if (targetPosition === Position.Left) {
-    orient = "-90deg"
-  } else if (targetPosition === Position.Right) {
-    orient = "90deg"
-  } else if (targetPosition === Position.Top) {
-    orient = "0deg"
-  }
+  let endOrient = positionToOrient[targetPosition]
   
   return (
     <>
       {
         (label === HasAnyEdgeLabel.HasMany) ? 
-          <CrowsFootMarker orient={orient} edgeId={id} /> : 
-          <CrossMarker orient={orient} edgeId={id} />
+          <CrowsFootMarker orient={endOrient} edgeId={`end-${id}`} /> : 
+          <CrossMarker orient={endOrient} edgeId={`end-${id}`} />
       }
       
       <path
@@ -70,7 +67,7 @@ export const HasAnyEdge = memo(({
         style={(selected || mouseOnEdge) ? {stroke: "black", strokeWidth: 3, strokeDasharray: 0} : {}}
         className="stroke-first-500 fill-[none] stroke-[2] "
         d={edgePath}
-        markerEnd={`url(#marker-def-${id})`}
+        markerEnd={`url(#marker-def-end-${id})`}
       />
 
       <path

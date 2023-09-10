@@ -1,4 +1,4 @@
-import { LineMarker } from '../LineMarker';
+import { CrossMarker } from '../CrossMarker';
 import { render, screen } from "@testing-library/react";
 
 let renderReadyComponent: JSX.Element;
@@ -6,12 +6,12 @@ let renderReadyComponent: JSX.Element;
 beforeEach(() => {
   renderReadyComponent = (
     <svg>
-      <LineMarker orient={"mockOrient"} edgeId={"1"} />
+      <CrossMarker orient={"mockOrient"} edgeId={"1"} />
     </svg>
   );
 });
 
-describe('<LineMarker />', () => {
+describe('<CrossMarker />', () => {
   it('renders a path in MarkerBase component', () => {
     render(renderReadyComponent);
     const parentElement = screen.getByText(/MockMarkerBase/i)

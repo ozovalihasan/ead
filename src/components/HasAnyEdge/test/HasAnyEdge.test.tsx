@@ -122,7 +122,7 @@ describe('<HasAnyEdge />', () => {
     it('renders line marker', () => {
       
       render(renderReadyComponent );
-      expect(screen.getByText(/MockLineMarker/i)).toBeInTheDocument();
+      expect(screen.getByText(/MockCrossMarker/i)).toBeInTheDocument();
     });
 
     it('renders correctly', () => {

@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockLineMarker
+        MockCrossMarker
         orient: 0deg
         edgeId: 111
         <path
@@ -34,7 +34,7 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockLineMarker
+      MockCrossMarker
       orient: 0deg
       edgeId: 111
       <path
@@ -214,7 +214,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockLineMarker
+        MockCrossMarker
         orient: 0deg
         edgeId: 111
         <path
@@ -233,7 +233,7 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockLineMarker
+      MockCrossMarker
       orient: 0deg
       edgeId: 111
       <path
@@ -309,7 +309,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockLineMarker
+        MockCrossMarker
         orient: 0deg
         edgeId: 111
         <path
@@ -329,7 +329,7 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockLineMarker
+      MockCrossMarker
       orient: 0deg
       edgeId: 111
       <path
@@ -406,7 +406,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockLineMarker
+        MockCrossMarker
         orient: 0deg
         edgeId: 111
         <path
@@ -425,7 +425,7 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockLineMarker
+      MockCrossMarker
       orient: 0deg
       edgeId: 111
       <path
@@ -501,7 +501,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockLineMarker
+        MockCrossMarker
         orient: 0deg
         edgeId: 111
         <path
@@ -525,7 +525,7 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockLineMarker
+      MockCrossMarker
       orient: 0deg
       edgeId: 111
       <path

@@ -89,10 +89,10 @@ export const Settings = (
   )
 )
 
-export const LineMarker = (
+export const CrossMarker = (
   (props: MarkerType ) => (
     <>
-      MockLineMarker
+      MockCrossMarker
       { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
     </>
   )

@@ -8,7 +8,7 @@ import {
 import {
   RemoveEdgeButton,
   ShowEdgeText,
-  LineMarker,
+  CrossMarker,
   CrowsFootMarker
 } from "@/components"
 
@@ -62,7 +62,7 @@ export const HasAnyEdge = memo(({
       {
         (label === HasAnyEdgeLabel.HasMany) ? 
           <CrowsFootMarker orient={orient} edgeId={id} /> : 
-          <LineMarker orient={orient} edgeId={id} />
+          <CrossMarker orient={orient} edgeId={id} />
       }
       
       <path

@@ -107,6 +107,24 @@ export const CrowsFootMarker = (
   )
 )
 
+export const CircleLineMarker = (
+  (props: MarkerType ) => (
+    <>
+      MockCircleLineMarker
+      { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
+    </>
+  )
+)
+
+export const StraightLineMarker = (
+  (props: MarkerType ) => (
+    <>
+      MockStraightLineMarker
+      { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
+    </>
+  )
+)
+
 export const RemoveEdgeButton = (
   (props: RemoveEdgeButtonType ) => (
     <>

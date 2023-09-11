@@ -14,7 +14,7 @@ import {
 } from "@/components"
 
 import { getEdgeParams } from '@/utils';
-import useStore from '@/zustandStore/store';
+import useStore, { CustomEdgeType } from '@/zustandStore/store';
 import useCustomizationStore, { CustomizationStoreState } from '@/zustandStore/customizationStore';
 import { hasManyEdgePartial } from '@/zustandStore/edgePartials';
 
@@ -29,13 +29,12 @@ const positionToOrient = {
   [Position.Top]: "0deg",
 };
 
-export const HasAnyEdge = memo(({
-  id,
-  source,
-  target,
-  label,
-  selected,
-}: HasAnyEdgePropsType) => {
+export const HasAnyEdge = memo(({ id }: HasAnyEdgePropsType) => {
+  
+  const edge: CustomEdgeType | undefined = useStore(store => store.edges.find( node => node.id === id))
+  if (!edge) { return <div></div> }
+
+  const {source, target, label, selected} = edge
 
   const showTextOnEdges = useCustomizationStore((store: CustomizationStoreState) => (store.showTextOnEdges))
 
@@ -54,7 +53,7 @@ export const HasAnyEdge = memo(({
   return (
     <>
       {
-        (label === hasManyEdgePartial.label) ? 
+        (edge.type === hasManyEdgePartial.type) ? 
           <CrowsFootMarker orient={endOrient} edgeId={`end-${id}`} /> : 
           <CrossMarker orient={endOrient} edgeId={`end-${id}`} />
       }

@@ -29,8 +29,8 @@ const fileReader = (uploadedFile: unknown) => (
 )
 
 describe('store', () => {
-  it('has a "version" attribute and its value should be "0.4.6" as default', () => {
-      expect(useStore.getState().version).toBe("0.4.6");
+  it('has a "version" attribute and its value should be "0.4.7" as default', () => {
+      expect(useStore.getState().version).toBe("0.4.7");
   });
 
   it('has a "idCounter" attribute and its value should exist as default', () => {
@@ -501,11 +501,11 @@ describe('store', () => {
     })
 
     it('installs the file successfully', () => {
-      fileReader({target: {result: JSON.stringify({version: "0.4.6", idCounter: 1234})}})
+      fileReader({target: {result: JSON.stringify({version: "0.4.7", idCounter: 1234})}})
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(useStore.getState().idCounter).toBe(1234);
-      expect(useStore.getState().version).toBe("0.4.6");
+      expect(useStore.getState().version).toBe("0.4.7");
     
       expect(update_data).toHaveBeenCalledTimes(1);
     });
@@ -518,7 +518,7 @@ describe('store', () => {
       useStore.getState().uploadStore({target: {files: {}}} as React.ChangeEvent<HTMLInputElement>)
     
       expect(global.alert).toHaveBeenCalledTimes(1);
-      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.6).");
+      expect(global.alert).toHaveBeenCalledWith("The version of your file is v0.3.1. It is not compatible with the version used(v0.4.7).");
     });
   });
   

@@ -3,13 +3,12 @@ import { TableValueType } from "@/zustandStore/tables";
 
 export const update_data = (data: State) => {
 
-  if ( !(["0.4.5", "0.4.6"].includes( data.version )) ) {
+  if ( !(["0.4.5", "0.4.6", "0.4.7"].includes( data.version )) ) {
     Object.values(data.tables).forEach((table: TableValueType) => {
       table.superclassId = ""
     })
   }
-  
-  data.version = "0.4.6";
+  data.version = "0.4.7";
   
   return data
 }

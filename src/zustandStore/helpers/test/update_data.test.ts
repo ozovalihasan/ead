@@ -15,7 +15,7 @@ describe("update_data function", () => {
     } 
 
     expect(update_data(data as State)).toStrictEqual({
-      version: "0.4.6",
+      version: "0.4.7",
       tables: {
         "1": {
           "superclassId": "",
@@ -31,7 +31,7 @@ describe("update_data function", () => {
   it('doesn"t make any change if the version of data is up-to-date ', () => {
 
     data = {
-      version: "0.4.6",
+      version: "0.4.7",
       tables: {
         "1": {
           superclassId: ""

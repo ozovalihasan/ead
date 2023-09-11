@@ -132,3 +132,10 @@ export function createNodesAndEdges() {
 
   return { nodes, edges };
 }
+
+export const positionToOrient = {
+  [Position.Bottom]: "180deg",
+  [Position.Left]: "-90deg",
+  [Position.Right]: "90deg",
+  [Position.Top]: "0deg",
+};

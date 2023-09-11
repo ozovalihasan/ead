@@ -13,7 +13,7 @@ import {
   CrowsFootMarker
 } from "@/components"
 
-import { getEdgeParams } from '@/utils';
+import { getEdgeParams, positionToOrient } from '@/utils';
 import useStore, { CustomEdgeType } from '@/zustandStore/store';
 import useCustomizationStore, { CustomizationStoreState } from '@/zustandStore/customizationStore';
 import { hasManyEdgePartial } from '@/zustandStore/edgePartials';
@@ -21,13 +21,6 @@ import { hasManyEdgePartial } from '@/zustandStore/edgePartials';
 export type HasAnyEdgePropsType = Omit<
   EdgeProps<null>, "sourcePosition" |"targetPosition" | "data"
 >
-
-const positionToOrient = {
-  [Position.Bottom]: "180deg",
-  [Position.Left]: "-90deg",
-  [Position.Right]: "90deg",
-  [Position.Top]: "0deg",
-};
 
 export const HasAnyEdge = memo(({ id }: HasAnyEdgePropsType) => {
   

@@ -1,6 +1,6 @@
 import { EdgeProps, getBezierPath, Node, Position } from 'reactflow';
 import { RemoveEdgeButton } from '@/components';
-import { getEdgeParams } from '@/utils';
+import { getEdgeParams, positionToOrient } from '@/utils';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore, { ThroughEdgeDataType } from '@/zustandStore/store';
 
@@ -39,16 +39,7 @@ export const ThroughEdge = ({
 
   const [edgePath] = getBezierPath({ targetX, targetY, targetPosition, ...rest })
   
-  let orient = "0deg" 
-  if (targetPosition === Position.Bottom) {
-    orient = "180deg"
-  } else if (targetPosition === Position.Left) {
-    orient = "-90deg"
-  } else if (targetPosition === Position.Right) {
-    orient = "90deg"
-  } else if (targetPosition === Position.Top) {
-    orient = "0deg"
-  }
+  let orient = positionToOrient[targetPosition] 
   
   return (
     <>

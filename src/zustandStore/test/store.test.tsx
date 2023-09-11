@@ -29,8 +29,8 @@ const fileReader = (uploadedFile: unknown) => (
 )
 
 describe('store', () => {
-  it('has a "version" attribute and its value should be "0.4.7" as default', () => {
-      expect(useStore.getState().version).toBe("0.4.7");
+  it('has a "version" attribute and its value should be "0.4.6" as default', () => {
+      expect(useStore.getState().version).toBe("0.4.6");
   });
 
   it('has a "idCounter" attribute and its value should exist as default', () => {
@@ -474,7 +474,7 @@ describe('store', () => {
       
   });
 
-  it('has a "toggleNeedFitView" attribute to toogle the needFitView attribute', () => {
+  it('has a "toggleNeedFitView" attribute to toggle the needFitView attribute', () => {
     expect(useStore.getState().needFitView).toBe(false);
     
     useStore.getState().toggleNeedFitView()

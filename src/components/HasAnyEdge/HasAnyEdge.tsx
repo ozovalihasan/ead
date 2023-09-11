@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { 
   EdgeProps,
   getBezierPath, 
@@ -15,12 +16,8 @@ import {
 import { getEdgeParams } from '@/utils';
 import useStore from '@/zustandStore/store';
 import useCustomizationStore, { CustomizationStoreState } from '@/zustandStore/customizationStore';
-import { memo } from 'react';
+import { hasManyEdgePartial } from '@/zustandStore/edgePartials';
 
-export enum HasAnyEdgeLabel {
-  HasMany = "has many",
-  HasOne = "has one",
-}
 export type HasAnyEdgePropsType = Omit<
   EdgeProps<null>, "sourcePosition" |"targetPosition" | "data"
 >
@@ -57,7 +54,7 @@ export const HasAnyEdge = memo(({
   return (
     <>
       {
-        (label === HasAnyEdgeLabel.HasMany) ? 
+        (label === hasManyEdgePartial.label) ? 
           <CrowsFootMarker orient={endOrient} edgeId={`end-${id}`} /> : 
           <CrossMarker orient={endOrient} edgeId={`end-${id}`} />
       }

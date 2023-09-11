@@ -1,5 +1,4 @@
-import { CustomEdgeType } from "@/zustandStore/store";
-
+import { CustomEdgeType, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from "@/zustandStore/store";
 
 const initialEdges: CustomEdgeType[] = [
   {
@@ -8,8 +7,7 @@ const initialEdges: CustomEdgeType[] = [
     "target": "5",
     "sourceHandle": "bottom2",
     "targetHandle": "top",
-    "type": "hasMany",
-    "label": "has many"
+    ...hasManyEdgePartial
   },
   {
     "id": "8",
@@ -17,12 +15,11 @@ const initialEdges: CustomEdgeType[] = [
     "target": "5",
     "sourceHandle": "bottom1",
     "targetHandle": "top",
-    "label": "has one",
     "labelStyle": {
-        "fill": "red",
-        "fontWeight": 700
+      "fill": "red",
+      "fontWeight": 700
     },
-    "type": "hasOne"
+    ...hasOneEdgePartial
   },
   {
     "id": "9",
@@ -30,8 +27,7 @@ const initialEdges: CustomEdgeType[] = [
     "target": "6",
     "sourceHandle": "bottom3",
     "targetHandle": "top",
-    "label": "through",
-    "type": "through",
+    ...throughEdgePartial,
     "data": {
         "throughNodeId": "5"
     }

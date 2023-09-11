@@ -7,6 +7,7 @@ import ReactFlow, {
 } from 'reactflow';
 
 import useStore from '@/zustandStore/store';
+import { hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore/edgePartials';
 
 import {
   EntityNode,
@@ -21,9 +22,9 @@ const nodeTypes = {
   entity: EntityNode,
 };
 const edgeTypes: EdgeTypes = {
-  hasMany: HasManyEdge,
-  hasOne: HasOneEdge,
-  through: ThroughEdge,
+  [hasManyEdgePartial.type]: HasManyEdge,
+  [hasOneEdgePartial.type]: HasOneEdge,
+  [throughEdgePartial.type]: ThroughEdge,
 };
 
 export const FlowWithoutProvider = memo(() => {

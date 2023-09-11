@@ -20,6 +20,7 @@ import initialNodes from './nodes';
 import initialEdges from './edges';
 import { EntityNodeType } from '@/components';
 import update_data from './helpers/update_data';
+import { hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore/edgePartials';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -39,14 +40,16 @@ export interface ThroughEdgeDataType {
   throughNodeId: string
 }
 
-export type HasAnyEdgeType = Omit<Edge, "data"> & {
-  type: "hasMany" | "hasOne"
-};
+export type HasOneEdgeType = Omit<Edge, "data"> & (typeof hasOneEdgePartial); 
 
-export type ThroughEdgeType = Omit<Edge, "data"> &{
-  data: ThroughEdgeDataType,
-  type: "through"
+export type HasManyEdgeType = Omit<Edge, "data"> & (typeof hasManyEdgePartial);
+
+export type HasAnyEdgeType = HasOneEdgeType | HasManyEdgeType
+
+export type ThroughEdgeType = Omit<Edge, "data"> & (typeof throughEdgePartial) & {
+  data: ThroughEdgeDataType
 }
+
 
 export type CustomEdgeType = HasAnyEdgeType | ThroughEdgeType;
 
@@ -202,7 +205,7 @@ const useStore = create(devtools<State>((set, get) => ({
             (
               (edge.source !== node.id) && 
               (edge.target !== node.id) && 
-              (edge.type !== "through" || edge.data.throughNodeId !== node.id)
+              (edge.type !== "through" || (edge as ThroughEdgeType).data.throughNodeId !== node.id)
             )
             
           ))
@@ -245,7 +248,7 @@ const useStore = create(devtools<State>((set, get) => ({
     onNodesChange: (changes: NodeChange[]) => {
       let edges = get().edges
       if (changes[0].type === "remove"){
-        edges = get().edges.filter((edge) => edge.type !== 'through' || edge.data.throughNodeId !== (changes[0] as NodeRemoveChange).id)
+        edges = get().edges.filter((edge) => edge.type !== 'through' || (edge as ThroughEdgeType).data.throughNodeId !== (changes[0] as NodeRemoveChange).id)
       }
       
       set({
@@ -274,21 +277,29 @@ const useStore = create(devtools<State>((set, get) => ({
         targetHandle: connection.targetHandle,
       }
    
-      let edge: CustomEdgeType;
+      const addEdge = (edge: CustomEdgeType) => set({
+        edges: get().edges.concat(edge),
+        idCounter: get().idCounter + 1,
+        selectedNodeIdForThrough: null,
+      })
       
       if (get().associationType === "has_one"){
         
-        edge = { 
+        const edge: HasOneEdgeType = { 
           ...edgeBase,
-          label: 'has one', 
-          type: "hasOne",
+          ...hasOneEdgePartial
         }
+
+        addEdge(edge)
+
        } else if (get().associationType === "has_many") {
-        edge = { 
+        const edge: HasManyEdgeType = { 
           ...edgeBase,
-          label: 'has many',
-          type: "hasMany",
+          ...hasManyEdgePartial
         }
+
+        addEdge(edge)
+        
       } else {
         const selectedNodeIdForThrough = get().selectedNodeIdForThrough
         if (selectedNodeIdForThrough === null){
@@ -296,19 +307,15 @@ const useStore = create(devtools<State>((set, get) => ({
           return 
         }
         
-        edge = { 
+        const edge: ThroughEdgeType = { 
           ...edgeBase,
-          label: 'through',
-          type: "through",
+          ...throughEdgePartial,
           data: {throughNodeId: get().selectedNodeIdForThrough! },
         }
-      }
 
-      set({
-        edges: get().edges.concat(edge),
-        idCounter: get().idCounter + 1,
-        selectedNodeIdForThrough: null,
-      })
+        addEdge(edge)
+
+      }
     },
    
     onChangeAssociationType: (associationType: string, id: string) =>{

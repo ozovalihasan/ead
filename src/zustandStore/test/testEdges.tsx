@@ -1,4 +1,5 @@
-import { CustomEdgeType, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from "@/zustandStore/store";
+import { CustomEdgeType,  } from "@/zustandStore/store";
+import { hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from "@/zustandStore/edgePartials";
 
 const initialEdges: CustomEdgeType[] = [
   {
@@ -7,7 +8,10 @@ const initialEdges: CustomEdgeType[] = [
     "target": "5",
     "sourceHandle": "bottom2",
     "targetHandle": "top",
-    ...hasManyEdgePartial
+    ...hasManyEdgePartial,
+    "data": {
+      "optional": false
+    }
   },
   {
     "id": "8",
@@ -19,7 +23,10 @@ const initialEdges: CustomEdgeType[] = [
       "fill": "red",
       "fontWeight": 700
     },
-    ...hasOneEdgePartial
+    ...hasOneEdgePartial,
+    "data": {
+      "optional": false
+    }
   },
   {
     "id": "9",

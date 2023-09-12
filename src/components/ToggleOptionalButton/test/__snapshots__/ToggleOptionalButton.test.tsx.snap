@@ -1,33 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HasOneEdge /> renders correctly 1`] = `
+exports[`<ToggleOptionalButton /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <svg>
-        MockHasAnyEdge
-        type: hasOne
-        id: 111
-        source: 1
-        target: 2
-        label: has one
-        selected: false
-        data: [object Object]
-      </svg>
+      <button
+        class="btn-first w-6 h-6 border-none rounded-full"
+      >
+        <div
+          class="stroke-[40] w-3 h-3"
+        >
+          MockCircleAndLine
+        </div>
+      </button>
     </div>
   </body>,
   "container": <div>
-    <svg>
-      MockHasAnyEdge
-      type: hasOne
-      id: 111
-      source: 1
-      target: 2
-      label: has one
-      selected: false
-      data: [object Object]
-    </svg>
+    <button
+      class="btn-first w-6 h-6 border-none rounded-full"
+    >
+      <div
+        class="stroke-[40] w-3 h-3"
+      >
+        MockCircleAndLine
+      </div>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

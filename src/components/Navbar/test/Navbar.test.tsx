@@ -8,22 +8,7 @@ jest.mock('../saveJSON',  () => ({
   default: jest.fn()
 }))
 
-jest.mock('@/icons',  () => ({
-  AngleDown: (
-    ( ) => (
-      <>
-        MockAngleDown
-      </>
-    )
-  ),
-  UpArrow: (
-    ( ) => (
-      <>
-        MockUpArrow
-      </>
-    )
-  ),
-}))
+
   
 
 let renderReadyComponent: JSX.Element;

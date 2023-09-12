@@ -1,4 +1,4 @@
-import useStore, { initialIdCounter, State } from '@/zustandStore/store';
+import useStore, { HasManyEdgeType, HasOneEdgeType, initialIdCounter, State } from '@/zustandStore/store';
 import { Connection,Edge, Node } from 'reactflow';
 import {  AttributesType } from '@/zustandStore/tables';
 import testNodes from './testNodes';
@@ -6,6 +6,7 @@ import testEdges from './testEdges';
 import testTables from './testTables';
 import { EntityNodeType } from '@/components';
 import update_data from '../helpers/update_data'
+import { hasManyEdgePartial, hasOneEdgePartial } from '../edgePartials';
 
 jest.mock('../helpers/update_data',  () => ({
   default: jest.fn((data: State) => data)
@@ -29,8 +30,8 @@ const fileReader = (uploadedFile: unknown) => (
 )
 
 describe('store', () => {
-  it('has a "version" attribute and its value should be "0.4.6" as default', () => {
-      expect(useStore.getState().version).toBe("0.4.6");
+  it('has a "version" attribute and its value should be "0.4.7" as default', () => {
+      expect(useStore.getState().version).toBe("0.4.7");
   });
 
   it('has a "idCounter" attribute and its value should exist as default', () => {
@@ -398,8 +399,17 @@ describe('store', () => {
   
         const edgeOnStore = (useStore.getState().edges.find(edge => edge.id === "333"))
   
-        expect(edgeOnStore).toEqual({...edge, id:"333", label: "has one", type: "hasOne"});  
-
+        expect(edgeOnStore).toEqual(
+          {
+            ...edge, 
+            id:"333", 
+            label: "has one", 
+            type: "hasOne", 
+            data:{
+              optional: false 
+            }
+          }
+        );  
       });
       
       it('a "hasMany" edge', () => {
@@ -417,7 +427,16 @@ describe('store', () => {
   
         const edgeOnStore = (useStore.getState().edges.find(edge => edge.id === "333"))
   
-        expect(edgeOnStore).toEqual({...edge, id:"333", label: "has many", type: "hasMany"});  
+        expect(edgeOnStore).toEqual({
+                                      ...edge, 
+                                      id:"333", 
+                                      label: "has many", 
+                                      type: "hasMany", 
+                                      data:{
+                                        optional: false
+                                      }
+                                    }
+        );  
       });
 
       it('a "through" edge', () => {
@@ -484,6 +503,50 @@ describe('store', () => {
     useStore.getState().toggleNeedFitView()
 
     expect(useStore.getState().needFitView).toBe(false);
+  });
+
+  describe('has a "toggleOptional" attribute to toggle the attribute "optional" of edges', () => {
+    beforeEach( () => {
+      
+      useStore.setState({
+        idCounter: 333,
+        nodes: testNodes,
+        edges: testEdges,
+        tables: testTables
+      })
+    })
+
+    it ("if the edge is a hasManyEdge", () => {  
+      const hasManyEdge = useStore.getState().edges.find(edge => edge.type === hasManyEdgePartial.type) as HasManyEdgeType
+
+      expect(hasManyEdge?.data?.optional).toBe(false);
+    
+      useStore.getState().toggleOptional( hasManyEdge.id )
+
+      let hasManyEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasManyEdge.id)) as HasManyEdgeType
+      expect(hasManyEdgeOnStore?.data?.optional).toEqual( true );
+
+      useStore.getState().toggleOptional( hasManyEdgeOnStore.id )
+      hasManyEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasManyEdgeOnStore.id)) as HasManyEdgeType
+
+      expect(hasManyEdgeOnStore?.data?.optional).toEqual( false );
+    }) 
+
+    it ("if the edge is a hasOneEdge", () => {  
+      const hasOneEdge = useStore.getState().edges.find(edge => edge.type === hasOneEdgePartial.type) as HasOneEdgeType
+
+      expect(hasOneEdge?.data?.optional).toBe(false);
+    
+      useStore.getState().toggleOptional( hasOneEdge.id )
+
+      let hasOneEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasOneEdge.id)) as HasOneEdgeType
+      expect(hasOneEdgeOnStore?.data?.optional).toEqual( true );
+
+      useStore.getState().toggleOptional( hasOneEdgeOnStore.id )
+      hasOneEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasOneEdgeOnStore.id)) as HasOneEdgeType
+
+      expect(hasOneEdgeOnStore?.data?.optional).toEqual( false );
+    }) 
   });
 
   describe('has an "uploadStore" attribute to upload an EAD file', () => {

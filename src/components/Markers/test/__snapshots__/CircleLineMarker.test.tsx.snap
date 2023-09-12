@@ -17,7 +17,12 @@ Object {
         />
         <path
           class="stroke-[40] stroke-first-500"
-          d="M 100,180 V 0"
+          d="M 100,37.5 V 0"
+          style="stroke-linecap: round;"
+        />
+        <path
+          class="stroke-[40] stroke-first-500"
+          d="M 100,137.5 V 180"
           style="stroke-linecap: round;"
         />
       </svg>
@@ -36,7 +41,12 @@ Object {
       />
       <path
         class="stroke-[40] stroke-first-500"
-        d="M 100,180 V 0"
+        d="M 100,37.5 V 0"
+        style="stroke-linecap: round;"
+      />
+      <path
+        class="stroke-[40] stroke-first-500"
+        d="M 100,137.5 V 180"
         style="stroke-linecap: round;"
       />
     </svg>

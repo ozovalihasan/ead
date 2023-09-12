@@ -1,4 +1,4 @@
-import { RemoveEdgeButton } from '../RemoveEdgeButton';
+import { ToggleOptionalButton } from '../ToggleOptionalButton';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 
@@ -6,17 +6,17 @@ let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {
   renderReadyComponent = (
-    <RemoveEdgeButton edgeId={"1"} />
+    <ToggleOptionalButton edgeId={"1"} />
   );
 });
 
-describe('<RemoveEdgeButton />', () => {
+describe('<ToggleOptionalButton />', () => {
   
 
-  it('run the onEdgesChange function from the store when "x" is clicked', () => {
+  it('run the toggleOptional function from the store when "x" is clicked', () => {
     
     useStore.setState({ 
-      onEdgesChange: jest.fn() 
+      toggleOptional: jest.fn() 
     })
 
     render(renderReadyComponent );
@@ -28,14 +28,14 @@ describe('<RemoveEdgeButton />', () => {
 
     fireEvent.click(resetButton);
     
-    expect(result.current.onEdgesChange).toHaveBeenCalledTimes(1);
-    expect(result.current.onEdgesChange).toHaveBeenCalledWith([{"id": "1", "type": "remove"}] );
+    expect(result.current.toggleOptional).toHaveBeenCalledTimes(1);
+    expect(result.current.toggleOptional).toHaveBeenCalledWith("1" );
   });
 
-  it('renders XMark', () => {
+  it('renders CircleAndLine', () => {
       
     render(renderReadyComponent );
-    expect(screen.getByText(/MockXMark/i)).toBeInTheDocument();
+    expect(screen.getByText(/MockCircleAndLine/i)).toBeInTheDocument();
   });
   
   it('renders correctly', () => {

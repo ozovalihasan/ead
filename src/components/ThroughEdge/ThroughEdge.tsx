@@ -4,22 +4,18 @@ import { getEdgeParams, positionToOrient } from '@/utils';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 import useStore, { ThroughEdgeDataType } from '@/zustandStore/store';
 
-export type ThroughEdgePropsType = Omit<
-  EdgeProps<ThroughEdgeDataType>, "sourcePosition" |"targetPosition" | "sourceX" | "sourceY" | "targetX" | "targetY" | "targetYts"
-> 
-
 export const ThroughEdge = ({
   id,
   source,
   target,
   label,
   data,
-  selected,
-}: ThroughEdgePropsType ) => {
+  selected
+}: Required<Pick<EdgeProps<ThroughEdgeDataType>, "id" | "source" | "target" | "label" | "selected" | "data" >> ) => {
   
 
   const sourceNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === source))
-  const throughNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === data!.throughNodeId))
+  const throughNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === data.throughNodeId))
   const targetNode: Node | undefined = useStore(store => store.nodes.find( node => node.id === target))
   const mouseOnEdge = useStore(store => store.mouseOnEdgeId === id) 
   

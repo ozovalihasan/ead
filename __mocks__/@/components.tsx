@@ -6,7 +6,8 @@ import {
   MarkerType, 
   RemoveEdgeButtonType, 
   ShowEdgeTextType, 
-  SidebarOptionsType 
+  SidebarOptionsType, 
+  ToggleOptionalButtonType
 } from "../../src/components"
 
 export const AttributeTypeOptions = () => (
@@ -129,6 +130,15 @@ export const RemoveEdgeButton = (
   (props: RemoveEdgeButtonType ) => (
     <>
       MockRemoveEdgeButton
+      { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
+    </>
+  )
+)
+
+export const ToggleOptionalButton = (
+  (props: ToggleOptionalButtonType ) => (
+    <>
+      MockToggleOptionalButton
       { Object.keys(props).map((key) => `${key}: ${props[key as keyof typeof props]}`) }
     </>
   )

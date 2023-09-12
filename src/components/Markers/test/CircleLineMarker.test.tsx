@@ -16,7 +16,7 @@ describe('<CircleLineMarker />', () => {
     render(renderReadyComponent);
     const parentElement = screen.getByText(/MockMarkerBase/i)
     expect(parentElement).toBeInTheDocument();
-    expect(parentElement.getElementsByTagName('path').length).toBe(1);
+    expect(parentElement.getElementsByTagName('path').length).toBe(2);
   });
 
 

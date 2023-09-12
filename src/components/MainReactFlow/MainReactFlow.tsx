@@ -21,11 +21,12 @@ import {
 const nodeTypes = {
   entity: EntityNode,
 };
-const edgeTypes: EdgeTypes = {
+
+const edgeTypes = {
   [hasManyEdgePartial.type]: HasManyEdge,
   [hasOneEdgePartial.type]: HasOneEdge,
   [throughEdgePartial.type]: ThroughEdge,
-};
+} as EdgeTypes;
 
 export const FlowWithoutProvider = memo(() => {
 

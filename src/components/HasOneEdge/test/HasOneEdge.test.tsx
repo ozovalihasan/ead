@@ -10,12 +10,9 @@ beforeEach(() => {
         id={"111"}
         source={"1"}
         target={"2"}
-        sourceX={333}
-        sourceY={444}
-        targetX={555}
-        targetY={666}
         label={ "has one" }
         selected={false}
+        data={{optional: false}}
       />
     </svg>
   );

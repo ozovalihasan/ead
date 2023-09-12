@@ -16,7 +16,12 @@ export const CircleLineMarker = memo((props: MarkerType) => {
         <path
           className="stroke-[40] stroke-first-500"
           style={{strokeLinecap:"round"}} 
-          d="M 100,180 V 0"
+          d="M 100,37.5 V 0"
+        />
+        <path
+          className="stroke-[40] stroke-first-500"
+          style={{strokeLinecap:"round"}} 
+          d="M 100,137.5 V 180"
         />
       </>
     </MarkerBase>

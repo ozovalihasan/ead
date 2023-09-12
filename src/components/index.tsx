@@ -18,6 +18,7 @@ export * from './HasOneHandle/HasOneHandle';
 export * from './TableName/TableName';
 export * from './ThroughHandle/ThroughHandle';
 export * from './RemoveEdgeButton/RemoveEdgeButton';
+export * from './ToggleOptionalButton/ToggleOptionalButton';
 export * from './ShowEdgeText/ShowEdgeText';
 export * from './Navbar/Navbar'; 
 export * from './EADLogo/EADLogo'; 

@@ -1,4 +1,4 @@
-import { HasAnyEdge, HasAnyEdgeLabel } from '../HasAnyEdge';
+import { HasAnyEdge } from '../HasAnyEdge';
 import { render, screen } from "@testing-library/react";
 import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
@@ -6,6 +6,7 @@ import useCustomizationStore from '@/zustandStore/customizationStore';
 import { 
   EntityNodeType
 } from '@/components'
+import { hasManyEdgePartial, hasOneEdgePartial } from '@/zustandStore/edgePartials';
 
 let renderReadyComponent: JSX.Element;
 
@@ -51,6 +52,7 @@ beforeEach(() => {
   useCustomizationStore.setState({ 
     showTextOnEdges: false
   })
+  
 
   renderReadyComponent = (
     <svg>
@@ -58,12 +60,10 @@ beforeEach(() => {
         id={"111"}
         source={"1"}
         target={"2"}
-        sourceX={nodes[0].position.x}
-        sourceY={nodes[0].position.y}
-        targetX={nodes[1].position.x}
-        targetY={nodes[1].position.y}
-        label={HasAnyEdgeLabel.HasOne}
+        label={hasManyEdgePartial.label}
         selected={false}
+        data={{optional: false}}
+        type={hasManyEdgePartial.type}
       />
     </svg>
   );
@@ -107,19 +107,17 @@ describe('<HasAnyEdge />', () => {
             id={"111"}
             source={"1"}
             target={"2"}
-            sourceX={nodes[0].position.x}
-            sourceY={nodes[0].position.y}
-            targetX={nodes[1].position.x}
-            targetY={nodes[1].position.y}
-            label={HasAnyEdgeLabel.HasOne}
+            label={hasOneEdgePartial.label}
             selected={false}
+            type={hasOneEdgePartial.type}
+            data={{optional: false}}
           />
         </svg>
       )
     })
 
 
-    it('renders line marker', () => {
+    it('renders CrossMarker marker', () => {
       
       render(renderReadyComponent );
       expect(screen.getByText(/MockCrossMarker/i)).toBeInTheDocument();
@@ -140,19 +138,17 @@ describe('<HasAnyEdge />', () => {
             id={"111"}
             source={"1"}
             target={"2"}
-            sourceX={nodes[0].position.x}
-            sourceY={nodes[0].position.y}
-            targetX={nodes[1].position.x}
-            targetY={nodes[1].position.y}
-            label={HasAnyEdgeLabel.HasMany}
+            label={hasManyEdgePartial.label}
             selected={false}
+            type={hasManyEdgePartial.type}
+            data={{optional: false}}
           />
         </svg>
       )
     })
 
 
-    it('renders crow"s foot marker', () => {
+    it('renders CrowsFootMarker', () => {
       
       render(renderReadyComponent );
       expect(screen.getByText(/MockCrowsFootMarker/i)).toBeInTheDocument();
@@ -173,19 +169,22 @@ describe('<HasAnyEdge />', () => {
             id={"111"}
             source={"1"}
             target={"2"}
-            sourceX={nodes[0].position.x}
-            sourceY={nodes[0].position.y}
-            targetX={nodes[1].position.x}
-            targetY={nodes[1].position.y}
-            label={HasAnyEdgeLabel.HasOne}
+            label={hasOneEdgePartial.label}
             selected={true}
+            type={hasOneEdgePartial.type}
+            data={{optional: false}}
           />
         </svg>
       )
     })
 
+    it('renders RemoveEdgeButton', () => {
+      
+      render(renderReadyComponent );
+      expect(screen.getByText(/MockRemoveEdgeButton/i)).toBeInTheDocument();
+    });
 
-    it('renders another component', () => {
+    it('renders ToggleOptionalButton', () => {
       
       render(renderReadyComponent );
       expect(screen.getByText(/MockRemoveEdgeButton/i)).toBeInTheDocument();
@@ -219,6 +218,70 @@ describe('<HasAnyEdge />', () => {
       expect(screen.getByText(/MockShowEdgeText/i)).toBeInTheDocument();
     });
   
+    it('renders correctly', () => {
+      const renderedContainer = render(renderReadyComponent );
+      expect(renderedContainer).toMatchSnapshot();
+    });
+    
+  })
+
+  describe("if the edge is optional", () => {
+    beforeEach(()=> {
+      renderReadyComponent =(
+        <svg>
+          <HasAnyEdge
+            id={"111"}
+            source={"1"}
+            target={"2"}
+            label={hasOneEdgePartial.label}
+            selected={false}
+            type={hasOneEdgePartial.type}
+            data={{optional: true}}
+          />
+        </svg>
+      )
+    })
+
+
+    it('renders CircleLineMarker', () => {
+      
+      render(renderReadyComponent );
+      expect(screen.getByText(/MockCircleLineMarker/i)).toBeInTheDocument();
+      expect(screen.queryByText(/MockStraightLineMarker/i)).not.toBeInTheDocument();
+    });
+
+    it('renders correctly', () => {
+      const renderedContainer = render(renderReadyComponent );
+      expect(renderedContainer).toMatchSnapshot();
+    });
+    
+  })
+
+  describe("if the edge is not optional", () => {
+    beforeEach(()=> {
+      renderReadyComponent =(
+        <svg>
+          <HasAnyEdge
+            id={"111"}
+            source={"1"}
+            target={"2"}
+            label={hasOneEdgePartial.label}
+            selected={false}
+            type={hasOneEdgePartial.type}
+            data={{optional: false}}
+          />
+        </svg>
+      )
+    })
+
+
+    it('renders StraightLineMarker', () => {
+      
+      render(renderReadyComponent );
+      expect(screen.queryByText(/MockCircleLineMarker/i)).not.toBeInTheDocument();
+      expect(screen.getByText(/MockStraightLineMarker/i)).toBeInTheDocument();
+    });
+
     it('renders correctly', () => {
       const renderedContainer = render(renderReadyComponent );
       expect(renderedContainer).toMatchSnapshot();

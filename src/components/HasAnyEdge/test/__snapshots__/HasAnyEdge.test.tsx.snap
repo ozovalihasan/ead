@@ -9,11 +9,15 @@ Object {
         MockCrossMarker
         orient: 0deg
         edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
         <path
           class="stroke-first-500 fill-[none] stroke-[2] "
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111"
           marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
           style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
         />
         <path
@@ -22,12 +26,18 @@ Object {
           id="111-wider"
         />
         <foreignobject
-          class="h-10 w-10"
-          x="584.0000000000001"
+          class="h-8 w-16 "
+          x="594.0000000000001"
           y="230"
         >
-          MockRemoveEdgeButton
-          edgeId: 111
+          <div
+            class="gap-2 p-1 w-full h-full flex flex-row"
+          >
+            MockToggleOptionalButton
+            edgeId: 111
+            MockRemoveEdgeButton
+            edgeId: 111
+          </div>
         </foreignobject>
       </svg>
     </div>
@@ -37,11 +47,15 @@ Object {
       MockCrossMarker
       orient: 0deg
       edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
       <path
         class="stroke-first-500 fill-[none] stroke-[2] "
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111"
         marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
         style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
       />
       <path
@@ -50,12 +64,18 @@ Object {
         id="111-wider"
       />
       <foreignobject
-        class="h-10 w-10"
-        x="584.0000000000001"
+        class="h-8 w-16 "
+        x="594.0000000000001"
         y="230"
       >
-        MockRemoveEdgeButton
-        edgeId: 111
+        <div
+          class="gap-2 p-1 w-full h-full flex flex-row"
+        >
+          MockToggleOptionalButton
+          edgeId: 111
+          MockRemoveEdgeButton
+          edgeId: 111
+        </div>
       </foreignobject>
     </svg>
   </div>,
@@ -122,11 +142,15 @@ Object {
         MockCrowsFootMarker
         orient: 0deg
         edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
         <path
           class="stroke-first-500 fill-[none] stroke-[2] "
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111"
           marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
         />
         <path
           class="fill-[none] stroke-[15] stroke-transparent"
@@ -141,11 +165,15 @@ Object {
       MockCrowsFootMarker
       orient: 0deg
       edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
       <path
         class="stroke-first-500 fill-[none] stroke-[2] "
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111"
         marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
       />
       <path
         class="fill-[none] stroke-[15] stroke-transparent"
@@ -217,11 +245,15 @@ Object {
         MockCrossMarker
         orient: 0deg
         edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
         <path
           class="stroke-first-500 fill-[none] stroke-[2] "
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111"
           marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
         />
         <path
           class="fill-[none] stroke-[15] stroke-transparent"
@@ -236,11 +268,221 @@ Object {
       MockCrossMarker
       orient: 0deg
       edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
       <path
         class="stroke-first-500 fill-[none] stroke-[2] "
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111"
         marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> if the edge is not optional renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockCrossMarker
+        orient: 0deg
+        edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockCrossMarker
+      orient: 0deg
+      edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
+      />
+      <path
+        class="fill-[none] stroke-[15] stroke-transparent"
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111-wider"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`<HasAnyEdge /> if the edge is optional renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg>
+        MockCrossMarker
+        orient: 0deg
+        edgeId: end-111
+        MockCircleLineMarker
+        orient: 180deg
+        edgeId: start-111
+        <path
+          class="stroke-first-500 fill-[none] stroke-[2] "
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111"
+          marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
+        />
+        <path
+          class="fill-[none] stroke-[15] stroke-transparent"
+          d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+          id="111-wider"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg>
+      MockCrossMarker
+      orient: 0deg
+      edgeId: end-111
+      MockCircleLineMarker
+      orient: 180deg
+      edgeId: start-111
+      <path
+        class="stroke-first-500 fill-[none] stroke-[2] "
+        d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
+        id="111"
+        marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
       />
       <path
         class="fill-[none] stroke-[15] stroke-transparent"
@@ -309,14 +551,18 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockCrossMarker
+        MockCrowsFootMarker
         orient: 0deg
         edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
         <path
           class="stroke-first-500 fill-[none] stroke-[2] "
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111"
           marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
           style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
         />
         <path
@@ -329,14 +575,18 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockCrossMarker
+      MockCrowsFootMarker
       orient: 0deg
       edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
       <path
         class="stroke-first-500 fill-[none] stroke-[2] "
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111"
         marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
         style="stroke: black; stroke-width: 3; stroke-dasharray: 0;"
       />
       <path
@@ -406,14 +656,18 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockCrossMarker
+        MockCrowsFootMarker
         orient: 0deg
         edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
         <path
           class="stroke-first-500 fill-[none] stroke-[2] "
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111"
           marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
         />
         <path
           class="fill-[none] stroke-[15] stroke-transparent"
@@ -425,14 +679,18 @@ Object {
   </body>,
   "container": <div>
     <svg>
-      MockCrossMarker
+      MockCrowsFootMarker
       orient: 0deg
       edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
       <path
         class="stroke-first-500 fill-[none] stroke-[2] "
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111"
         marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
       />
       <path
         class="fill-[none] stroke-[15] stroke-transparent"
@@ -501,14 +759,18 @@ Object {
   "baseElement": <body>
     <div>
       <svg>
-        MockCrossMarker
+        MockCrowsFootMarker
         orient: 0deg
         edgeId: end-111
+        MockStraightLineMarker
+        orient: 180deg
+        edgeId: start-111
         <path
           class="stroke-first-500 fill-[none] stroke-[2] "
           d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
           id="111"
           marker-end="url(#marker-def-end-111)"
+          marker-start="url(#marker-def-start-111)"
         />
         <path
           class="fill-[none] stroke-[15] stroke-transparent"
@@ -519,20 +781,24 @@ Object {
         centerX: 594.0000000000001
         centerY: 225
         label: 
-        has one
+        has many
       </svg>
     </div>
   </body>,
   "container": <div>
     <svg>
-      MockCrossMarker
+      MockCrowsFootMarker
       orient: 0deg
       edgeId: end-111
+      MockStraightLineMarker
+      orient: 180deg
+      edgeId: start-111
       <path
         class="stroke-first-500 fill-[none] stroke-[2] "
         d="M559.7142857142857,205 C559.7142857142857,225 628.2857142857143,225 628.2857142857143,245"
         id="111"
         marker-end="url(#marker-def-end-111)"
+        marker-start="url(#marker-def-start-111)"
       />
       <path
         class="fill-[none] stroke-[15] stroke-transparent"
@@ -543,7 +809,7 @@ Object {
       centerX: 594.0000000000001
       centerY: 225
       label: 
-      has one
+      has many
     </svg>
   </div>,
   "debug": [Function],

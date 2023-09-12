@@ -1,8 +1,10 @@
-import {
-  HasAnyEdge,
-  HasAnyEdgePropsType
-} from "@/components"
+import { HasAnyEdge } from "@/components"
+import { hasManyEdgePartial } from "@/zustandStore/edgePartials"
+import { HasManyEdgeDataType } from "@/zustandStore/store"
+import { EdgeProps } from "reactflow"
 
-export const HasManyEdge = (props: HasAnyEdgePropsType) => (
-  <HasAnyEdge {...props} />
+export type HasManyEdgePropsType = Required<Pick<EdgeProps<HasManyEdgeDataType>, "id" | "source" | "target" | "label" | "selected" | "data" >>
+
+export const HasManyEdge = (props: HasManyEdgePropsType) => (
+  <HasAnyEdge type={hasManyEdgePartial.type} {...props} />
 )

@@ -4,19 +4,6 @@ import useStore from '@/zustandStore/store';
 import useCustomizationStore from '@/zustandStore/customizationStore';
 
 
-jest.mock("@/icons", () => ({
-  PlusSign: () => (
-    <>
-      MockPlusSign
-    </>
-  ),
-  MinusSign: () => (
-    <>
-      MockMinusSign
-    </>
-  ),
-}))
-
 
 let renderReadyComponent: JSX.Element;
 

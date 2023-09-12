@@ -1,3 +1,4 @@
+import { hasManyEdgePartial } from '@/zustandStore/edgePartials';
 import { HasManyEdge } from '../HasManyEdge';
 import { render, screen } from "@testing-library/react";
 
@@ -10,12 +11,9 @@ beforeEach(() => {
         id={"111"}
         source={"1"}
         target={"2"}
-        sourceX={333}
-        sourceY={444}
-        targetX={555}
-        targetY={666}
-        label={"has many"}
+        label={hasManyEdgePartial.label}
         selected={false}
+        data={{optional: false}}
       />
     </svg>
   );

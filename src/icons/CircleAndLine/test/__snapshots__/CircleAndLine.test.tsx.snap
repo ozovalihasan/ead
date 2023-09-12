@@ -1,32 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<HasOneEdge /> renders correctly 1`] = `
+exports[`<CircleAndLine /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <svg>
-        MockHasAnyEdge
-        type: hasOne
-        id: 111
-        source: 1
-        target: 2
-        label: has one
-        selected: false
-        data: [object Object]
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="100"
+          cy="100"
+          fill="transparent"
+          r="50"
+        />
+        <path
+          d="M 100,50 V 0"
+          style="stroke-linecap: round;"
+        />
+        <path
+          d="M 100,150 V 180"
+          style="stroke-linecap: round;"
+        />
       </svg>
     </div>
   </body>,
   "container": <div>
-    <svg>
-      MockHasAnyEdge
-      type: hasOne
-      id: 111
-      source: 1
-      target: 2
-      label: has one
-      selected: false
-      data: [object Object]
+    <svg
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="100"
+        cy="100"
+        fill="transparent"
+        r="50"
+      />
+      <path
+        d="M 100,50 V 0"
+        style="stroke-linecap: round;"
+      />
+      <path
+        d="M 100,150 V 180"
+        style="stroke-linecap: round;"
+      />
     </svg>
   </div>,
   "debug": [Function],

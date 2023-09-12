@@ -41,18 +41,18 @@ export interface HasOneEdgeDataType {
   optional: boolean
 }
 
-export type HasOneEdgeType = Omit<Edge<HasOneEdgeDataType>, "data"> & Required<Pick<Edge<HasOneEdgeDataType>, "data">> & (typeof hasOneEdgePartial)
+export type HasOneEdgeType = Pick<Edge<HasOneEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle"> & Required<Pick<Edge<HasOneEdgeDataType>, "data">> & (typeof hasOneEdgePartial)
 export interface HasManyEdgeDataType {
   optional: boolean
 }
 
-export type HasManyEdgeType = Omit<Edge<HasManyEdgeDataType>, "data"> & Required<Pick<Edge<HasManyEdgeDataType>, "data">> & (typeof hasManyEdgePartial)
+export type HasManyEdgeType = Pick<Edge<HasManyEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle"> & Required<Pick<Edge<HasManyEdgeDataType>, "data">> & (typeof hasManyEdgePartial)
 
 export interface ThroughEdgeDataType {
   throughNodeId: string
 }
 
-export type ThroughEdgeType = Edge<ThroughEdgeDataType> & (typeof throughEdgePartial) 
+export type ThroughEdgeType = Pick<Edge<ThroughEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle"> & Required<Pick<Edge<ThroughEdgeDataType>, "data">> & (typeof throughEdgePartial) 
 
 export type HasAnyEdgeType = HasOneEdgeType | HasManyEdgeType
 export type CustomEdgeType = HasAnyEdgeType | ThroughEdgeType;

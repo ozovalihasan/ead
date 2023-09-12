@@ -19,10 +19,6 @@ const initialEdges: CustomEdgeType[] = [
     "target": "5",
     "sourceHandle": "bottom1",
     "targetHandle": "top",
-    "labelStyle": {
-      "fill": "red",
-      "fontWeight": 700
-    },
     ...hasOneEdgePartial,
     "data": {
       "optional": false

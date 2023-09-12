@@ -519,33 +519,33 @@ describe('store', () => {
     it ("if the edge is a hasManyEdge", () => {  
       const hasManyEdge = useStore.getState().edges.find(edge => edge.type === hasManyEdgePartial.type) as HasManyEdgeType
 
-      expect(hasManyEdge?.data?.optional).toBe(false);
+      expect(hasManyEdge.data.optional).toBe(false);
     
       useStore.getState().toggleOptional( hasManyEdge.id )
 
       let hasManyEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasManyEdge.id)) as HasManyEdgeType
-      expect(hasManyEdgeOnStore?.data?.optional).toEqual( true );
+      expect(hasManyEdgeOnStore.data.optional).toEqual( true );
 
       useStore.getState().toggleOptional( hasManyEdgeOnStore.id )
       hasManyEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasManyEdgeOnStore.id)) as HasManyEdgeType
 
-      expect(hasManyEdgeOnStore?.data?.optional).toEqual( false );
+      expect(hasManyEdgeOnStore.data.optional).toEqual( false );
     }) 
 
     it ("if the edge is a hasOneEdge", () => {  
       const hasOneEdge = useStore.getState().edges.find(edge => edge.type === hasOneEdgePartial.type) as HasOneEdgeType
 
-      expect(hasOneEdge?.data?.optional).toBe(false);
+      expect(hasOneEdge.data.optional).toBe(false);
     
       useStore.getState().toggleOptional( hasOneEdge.id )
 
       let hasOneEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasOneEdge.id)) as HasOneEdgeType
-      expect(hasOneEdgeOnStore?.data?.optional).toEqual( true );
+      expect(hasOneEdgeOnStore.data.optional).toEqual( true );
 
       useStore.getState().toggleOptional( hasOneEdgeOnStore.id )
       hasOneEdgeOnStore = (useStore.getState().edges.find(edge => edge.id === hasOneEdgeOnStore.id)) as HasOneEdgeType
 
-      expect(hasOneEdgeOnStore?.data?.optional).toEqual( false );
+      expect(hasOneEdgeOnStore.data.optional).toEqual( false );
     }) 
   });
 

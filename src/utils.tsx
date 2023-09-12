@@ -1,4 +1,4 @@
-import { Position, MarkerType, Node } from 'reactflow';
+import { Position, Node } from 'reactflow';
 
 interface NodeIntersectionType {
   x: number,

@@ -35,7 +35,7 @@ export const ThroughEdge = ({
 
   const [edgePath] = getBezierPath({ targetX, targetY, targetPosition, ...rest })
   
-  let orient = positionToOrient[targetPosition] 
+  const orient = positionToOrient[targetPosition] 
   
   return (
     <>

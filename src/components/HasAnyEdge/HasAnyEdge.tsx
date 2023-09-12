@@ -1,10 +1,7 @@
 import { memo } from 'react';
 import { 
-  Edge,
-  EdgeProps,
   getBezierPath, 
-  Node, 
-  Position 
+  Node
 } from 'reactflow';
 
 import {
@@ -49,8 +46,8 @@ export const HasAnyEdge = memo(({
 
   const [edgePath, labelX, labelY] = getBezierPath({...rest, sourcePosition, targetPosition})
   
-  let endOrient = positionToOrient[targetPosition]
-  let startOrient = positionToOrient[sourcePosition]
+  const endOrient = positionToOrient[targetPosition]
+  const startOrient = positionToOrient[sourcePosition]
   
   return (
     <>

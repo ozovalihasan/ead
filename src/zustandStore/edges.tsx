@@ -10,7 +10,7 @@ const initialEdges: CustomEdgeType[] = [
     "targetHandle": "top",
     ...hasManyEdgePartial,
     data: {
-        optional: true
+      optional: true
     }
   },
   {
@@ -25,7 +25,7 @@ const initialEdges: CustomEdgeType[] = [
         "fontWeight": 700
     },
     data: {
-        optional: false
+      optional: false
     }
   },
   {

@@ -282,7 +282,7 @@ const useStore = create(devtools<State>((set, get) => ({
     onEdgesChange: (changes: EdgeChange[]) => {
       
       set({
-        edges: applyEdgeChanges<any>(changes, get().edges) as CustomEdgeType[],
+        edges: applyEdgeChanges<HasOneEdgeDataType | HasManyEdgeDataType | ThroughEdgeDataType>(changes, get().edges) as CustomEdgeType[],
       });
       
     },
@@ -384,13 +384,13 @@ const useStore = create(devtools<State>((set, get) => ({
 
       if (edge.type === throughEdgePartial.type) {
         return;
-      };
+      }
 
       const index: number = edges.indexOf(edge);
       
       set(produce((state: State) => {
         
-        ((state.edges[index] as HasAnyEdgeType).data as HasOneEdgeDataType | HasManyEdgeDataType ).optional = !edge.data?.optional
+        (state.edges[index] as HasAnyEdgeType).data.optional = !edge.data.optional
       }))
     },
 

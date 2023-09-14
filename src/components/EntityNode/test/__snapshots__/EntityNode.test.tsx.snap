@@ -8,7 +8,6 @@ Object {
       <div
         class="
           p-1 rounded-md
-          bg-first-500 dark:bg-first-600 
           bg-first-400 dark:bg-first-500
         "
       >
@@ -37,7 +36,6 @@ Object {
     <div
       class="
           p-1 rounded-md
-          bg-first-500 dark:bg-first-600 
           bg-first-400 dark:bg-first-500
         "
     >

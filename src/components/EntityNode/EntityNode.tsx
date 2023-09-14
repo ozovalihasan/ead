@@ -30,13 +30,16 @@ export const EntityNode = memo(
     
     const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
     const onNodeInputChange = useStore(store => store.onNodeInputChange)
-  
+
+    let nodeBGClasses = "bg-first-500 dark:bg-first-600";
+    if (selected) { nodeBGClasses = "bg-first-400 dark:bg-first-500" }
+    if (isSelectedNodeForThrough) { nodeBGClasses = "bg-third-400 dark:bg-third-500" }
+
     return (
       <div 
         className={`
           p-1 rounded-md
-          ${ (isSelectedNodeForThrough) ?  "bg-second-400 dark:bg-second-700" : "bg-first-500 dark:bg-first-600"} 
-          ${ selected ? "bg-first-400 dark:bg-first-500": ""}
+          ${ nodeBGClasses}
         `} 
       >
         

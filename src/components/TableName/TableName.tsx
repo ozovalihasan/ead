@@ -7,7 +7,7 @@ export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: st
   const selectEl = useRef<HTMLSelectElement | null>(null);
 
   const onNodeTableChange = useStore((state) => state.onNodeTableChange);
-  const tableName = useStore((state) => state.tables[tableId].name);
+  const tableName = useStore((state) => state.tables[tableId]?.name);
   
   const tables = useStore((state) => state.tables);
   const options = Object.entries(tables).map(([id, table]) => {return {id: id, name: table.name}});

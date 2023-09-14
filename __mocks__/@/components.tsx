@@ -7,7 +7,8 @@ import {
   RemoveEdgeButtonType, 
   ShowEdgeTextType, 
   SidebarOptionsType, 
-  ToggleOptionalButtonType
+  ToggleOptionalButtonType,
+  TableOptionsType
 } from "../../src/components"
 
 export const AttributeTypeOptions = () => (
@@ -219,6 +220,16 @@ export const TableName =(
   ({ nodeId, tableId }: {nodeId: string, tableId: string} ) => (
     <>
       MockTableName
+      nodeId: {nodeId}
+      tableId: {tableId}
+    </>
+  )
+)
+
+export const TableOptions =(
+  ({ nodeId, tableId }: TableOptionsType ) => (
+    <>
+      MockTableOptions
       nodeId: {nodeId}
       tableId: {tableId}
     </>

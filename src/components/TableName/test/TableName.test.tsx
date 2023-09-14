@@ -8,13 +8,12 @@ beforeEach(() => {
   useStore.setState({
     tables: {
       "1": {name: "Mock Name", attributes: {}, superclassId: ""},
-      "2": {name: "Mock Second Name", attributes: {}, superclassId: ""}
     },
     onNodeTableChange: jest.fn() 
   })
   
   renderReadyComponent = (
-    <TableName nodeId="2" tableId={"1"}></TableName>
+    <TableName nodeId="2" tableId="1"></TableName>
   );
 });
 
@@ -24,51 +23,30 @@ describe('<TableName />', () => {
     expect(screen.getAllByText(/Mock Name/i)[0]).toBeInTheDocument();
   });
 
-  describe("displays a select element", () => {
+  it('renders a dropdown menu to select the table when the table name is clicked by right mouse button', () => {
+    render(renderReadyComponent);
 
-    beforeEach(() => {
-      render(renderReadyComponent);
-  
-      const buttonEl = screen.getAllByText(/Mock Name/i)[0]
-      fireEvent.contextMenu(buttonEl)
-      
-    });
-
-    it('renders all table names as an option', () => {
-      const mainEl = screen.getAllByText("")[0]
-      const selectEl = mainEl.getElementsByTagName("select")[0]
-
-      expect(selectEl.getElementsByTagName("option").length).toBe(2);
-      expect(selectEl).toHaveTextContent("Mock Name");
-      expect(selectEl).toHaveTextContent("Mock Second Name");
-    });
-
-    // it('can be hidden or shown with different events', () => {
-    //   const mainEl = screen.getAllByText("")[0]
-    //   const buttonEl = screen.getAllByText(/Mock Name/i)[0]
-    //   const selectEl = mainEl.getElementsByTagName("select")[0]
-      
-    //   expect(selectEl.classList).not.toContain("hidden");
-    //   expect(document.activeElement).toBe(mainEl.querySelector("select"));
-  
-    //   fireEvent.mouseLeave(selectEl)
-  
-    //   expect(selectEl.classList).not.toContain("hidden");
-
-    // });
+    expect(screen.queryByText(/MockTableOptions/i)).not.toBeInTheDocument();
     
-    it('calls the onNodeTableChange function when the select element is changed', () => {
-      const { result } = renderHook(() => useStore());
+    const buttonEl = screen.getAllByText("Mock Name")[0]
+    fireEvent.contextMenu(buttonEl)
 
-      const selectEl = screen.getAllByText("")[0].getElementsByTagName("select")[0] 
-      
-      fireEvent.change( selectEl, {target: {value: '2'}})
+    expect(screen.getByText(/MockTableOptions/i)).toBeInTheDocument();
+  });
+
+  it('hides the dropdown menu when the parent element of the table name is left', () => {
+    render(renderReadyComponent);
+    
+    const buttonEl = screen.getAllByText("Mock Name")[0]
+    fireEvent.contextMenu(buttonEl);
+
+    expect(screen.getByText(/MockTableOptions/i)).toBeInTheDocument();
+
+    fireEvent.mouseLeave(buttonEl.parentElement!);
+
+    expect(screen.queryByText(/MockTableOptions/i)).not.toBeInTheDocument();
+  });
   
-      expect(result.current.onNodeTableChange).toHaveBeenCalledTimes(1);
-    });
-
-  })
-
   it('renders correctly', () => {
     const renderedContainer = render(renderReadyComponent );
     expect(renderedContainer).toMatchSnapshot();

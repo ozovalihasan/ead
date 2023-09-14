@@ -31,3 +31,4 @@ export * from './MainReactFlow/MainReactFlow';
 export * from './AttributeTypeOptions/AttributeTypeOptions';
 export * from './SidebarOptions/SidebarOptions';
 export * from './MainColorDropdown/MainColorDropdown';
+export * from './TableOptions/TableOptions';

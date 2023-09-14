@@ -1,33 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TableName /> renders correctly 1`] = `
+exports[`<TableOptions /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="text-xs flex relative nopan"
-        title="Right button click to change the table"
+      <select
+        class="absolute bottom-full left-0  custom-select-options"
+        size="2"
       >
-        <div
-          class="font-bold custom-select-button p-1 rounded-md"
+        <option
+          title="Mock Name"
+          value="1"
         >
           Mock Name
-        </div>
-      </div>
+        </option>
+        <option
+          title="Mock Second Name"
+          value="2"
+        >
+          Mock Second Name
+        </option>
+      </select>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="text-xs flex relative nopan"
-      title="Right button click to change the table"
+    <select
+      class="absolute bottom-full left-0  custom-select-options"
+      size="2"
     >
-      <div
-        class="font-bold custom-select-button p-1 rounded-md"
+      <option
+        title="Mock Name"
+        value="1"
       >
         Mock Name
-      </div>
-    </div>
+      </option>
+      <option
+        title="Mock Second Name"
+        value="2"
+      >
+        Mock Second Name
+      </option>
+    </select>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

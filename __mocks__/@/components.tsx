@@ -136,6 +136,14 @@ export const RemoveEdgeButton = (
   )
 )
 
+export const RemoveNodeEdgeButton = (
+  () => (
+    <>
+      MockRemoveEdgeButton
+    </>
+  )
+)
+
 export const ToggleOptionalButton = (
   (props: ToggleOptionalButtonType ) => (
     <>

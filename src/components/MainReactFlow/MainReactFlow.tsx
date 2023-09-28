@@ -15,7 +15,8 @@ import {
   HasOneEdge,
   ThroughEdge,
   ConnectionLine,
-  EntityNodeType
+  EntityNodeType,
+  RemoveNodeEdgeButton
 } from "@/components"
 
 const nodeTypes = {
@@ -123,6 +124,9 @@ export const FlowWithoutProvider = memo(() => {
           connectionRadius={0}
         >
           <Controls />
+          <div className='absolute right-10 bottom-10 z-10'>
+            <RemoveNodeEdgeButton />
+          </div> 
         </ReactFlow>
       
     </div>

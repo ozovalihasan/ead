@@ -111,6 +111,11 @@ Object {
             </button>
           </div>
           <div
+            class="absolute right-10 bottom-10 z-10"
+          >
+            MockRemoveEdgeButton
+          </div>
+          <div
             class="react-flow__panel react-flow__attribution bottom right"
             data-message="Please only hide this attribution when you are subscribed to React Flow Pro: https://pro.reactflow.dev"
             style="pointer-events: all;"
@@ -254,6 +259,11 @@ Object {
               />
             </svg>
           </button>
+        </div>
+        <div
+          class="absolute right-10 bottom-10 z-10"
+        >
+          MockRemoveEdgeButton
         </div>
         <div
           class="react-flow__panel react-flow__attribution bottom right"

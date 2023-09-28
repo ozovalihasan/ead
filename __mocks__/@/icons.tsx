@@ -30,6 +30,12 @@ export const PlusSign = () => (
   </>
 )
 
+export const Trash = () => (
+  <>
+    MockTrash
+  </>
+)
+
 export const CircleAndLine = () => (
   <>
     MockCircleAndLine

@@ -8,6 +8,7 @@ const initialEdges: CustomEdgeType[] = [
     "target": "5",
     "sourceHandle": "bottom2",
     "targetHandle": "top",
+    "selected": false,
     ...hasManyEdgePartial,
     data: {
       optional: true
@@ -19,6 +20,7 @@ const initialEdges: CustomEdgeType[] = [
     "target": "5",
     "sourceHandle": "bottom1",
     "targetHandle": "top",
+    "selected": false,
     ...hasOneEdgePartial,
     data: {
       optional: false
@@ -30,6 +32,7 @@ const initialEdges: CustomEdgeType[] = [
     "target": "6",
     "sourceHandle": "bottom3",
     "targetHandle": "top",
+    "selected": false,
     ...throughEdgePartial,
     "data": {
         "throughNodeId": "5"

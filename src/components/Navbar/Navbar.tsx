@@ -9,9 +9,8 @@ import {
   UpArrow, 
   AngleDown
 } from "@/icons";
-
-import useCustomizationStore from '@/zustandStore/customizationStore';
-import useStore from '@/zustandStore/store';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
+import { useStore } from '@/zustandStore';
 
 export const Navbar = () => {
 

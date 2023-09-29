@@ -1,6 +1,6 @@
 import { availableColors, setColorVariants } from '@/helpers';
-import useCustomizationStore, { checkLocalStorage } from '@/zustandStore/customizationStore';
 import { render, screen } from '@testing-library/react';
+import { useCustomizationStore, checkLocalStorage } from '@/zustandStore/customizationStore';
 
 
 jest.mock('@/helpers',  () => ({

@@ -1,6 +1,6 @@
 import {  AttributeTypeOptions } from '../AttributeTypeOptions';
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 let renderReadyComponent: JSX.Element;

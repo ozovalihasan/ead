@@ -18,9 +18,8 @@ import produce from "immer"
 import initialTables, { TablesType } from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
-import { EntityNodeType } from '@/components';
 import update_data from './helpers/update_data';
-import { hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore/edgePartials';
+import { entityNodePartial, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -36,6 +35,12 @@ export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[]
   return (max + 1)
 }
 
+export interface EntityNodeDataType {
+  tableId: string,
+  name: string,
+}
+
+export type EntityNodeType = Node<EntityNodeDataType> & (typeof entityNodePartial)
 
 export interface HasOneEdgeDataType {
   optional: boolean
@@ -101,7 +106,7 @@ export interface State {
   toggleOptional: (edgeId: string) => void;
 }
 
-const useStore = create(devtools<State>((set, get) => ({
+export const useStore = create(devtools<State>((set, get) => ({
     version: "0.4.7",  
     idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
     associationType: "has_one",
@@ -427,4 +432,4 @@ const useStore = create(devtools<State>((set, get) => ({
   })
 ));
 
-export default useStore;
+

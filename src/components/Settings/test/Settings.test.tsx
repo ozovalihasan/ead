@@ -1,6 +1,7 @@
 import { Settings } from '../Settings';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import useCustomizationStore from '@/zustandStore/customizationStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
+
 
 let renderReadyComponent: JSX.Element;
 

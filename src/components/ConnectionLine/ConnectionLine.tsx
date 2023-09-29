@@ -1,5 +1,5 @@
 import { ConnectionLineComponentProps, getBezierPath, Node } from "reactflow";
-import useStore from "@/zustandStore/store";
+import { useStore } from '@/zustandStore';
 
 export const ConnectionLine = ({
   fromX,

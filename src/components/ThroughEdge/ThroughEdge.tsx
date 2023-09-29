@@ -1,8 +1,8 @@
 import { EdgeProps, getBezierPath, Node, Position } from 'reactflow';
 import { RemoveEdgeButton } from '@/components';
 import { getEdgeParams, positionToOrient } from '@/utils';
-import useCustomizationStore from '@/zustandStore/customizationStore';
-import useStore, { ThroughEdgeDataType } from '@/zustandStore/store';
+import { useStore, ThroughEdgeDataType } from '@/zustandStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 export const ThroughEdge = ({
   id,

@@ -1,4 +1,4 @@
-import useCustomizationStore from '@/zustandStore/customizationStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 export const SidebarHandle = () => {
 

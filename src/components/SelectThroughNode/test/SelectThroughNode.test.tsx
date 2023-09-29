@@ -1,6 +1,6 @@
 import { SelectThroughNode } from '../SelectThroughNode';
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 
 let renderReadyComponent: JSX.Element;
 

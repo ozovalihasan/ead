@@ -1,11 +1,10 @@
-import useCustomizationStore from '@/zustandStore/customizationStore';
-
 import {
   Sidebar, 
   Navbar,
   SidebarHandle,
   MainReactFlow
 } from "@/components"
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 export const App = () => {
   

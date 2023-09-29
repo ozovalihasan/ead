@@ -1,6 +1,5 @@
-import { State } from "@/zustandStore/store";
+import { State, throughEdgePartial } from "@/zustandStore";
 import { TableValueType } from "@/zustandStore/tables";
-import { throughEdgePartial } from "../edgePartials";
 
 export const update_data = (data: State) => {
 

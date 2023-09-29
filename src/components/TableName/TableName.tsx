@@ -1,5 +1,5 @@
 import { memo, useState } from 'react';
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { TableOptions } from '@/components';
 
 export const TableName =memo( ({ nodeId, tableId }: {nodeId: string, tableId: string}) => {

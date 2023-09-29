@@ -1,4 +1,4 @@
-import useCustomizationStore from '@/zustandStore/customizationStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 import { memo, useRef } from 'react';
 import { availableColors, availableColorsType} from '@/helpers';
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';

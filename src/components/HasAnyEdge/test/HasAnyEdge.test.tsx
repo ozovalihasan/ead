@@ -1,12 +1,7 @@
 import { HasAnyEdge } from '../HasAnyEdge';
 import { render, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
-import useCustomizationStore from '@/zustandStore/customizationStore';
-
-import { 
-  EntityNodeType
-} from '@/components'
-import { hasManyEdgePartial, hasOneEdgePartial } from '@/zustandStore/edgePartials';
+import { useStore, EntityNodeType, hasManyEdgePartial, hasOneEdgePartial } from '@/zustandStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 

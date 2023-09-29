@@ -2,7 +2,6 @@ import { availableColors, availableColorsType, setColorVariants } from '@/helper
 import create from 'zustand';
 import { devtools } from 'zustand/middleware'
 
-
 export interface CustomizationStoreState {
   locationSidebar: "left" | "right";
   widthSidebar: number;
@@ -48,7 +47,7 @@ export const checkLocalStorage = () => {
 
 checkLocalStorage();
 
-const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
+export const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
   locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),
   widthSidebar: JSON.parse(localStorage.widthSidebar as string) as number,
   showTextOnEdges: false,
@@ -118,6 +117,4 @@ const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get
       darkModeActive: !get().darkModeActive
     })
   }
-})))
-
-export default useCustomizationStore;
+})));

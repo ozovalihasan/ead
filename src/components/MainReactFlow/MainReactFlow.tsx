@@ -4,10 +4,17 @@ import ReactFlow, {
   Controls,
   EdgeTypes,
   ReactFlowInstance,
+  NodeTypes,
 } from 'reactflow';
 
-import useStore from '@/zustandStore/store';
-import { hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore/edgePartials';
+import { 
+  useStore, 
+  EntityNodeType, 
+  hasManyEdgePartial, 
+  hasOneEdgePartial, 
+  throughEdgePartial, 
+  entityNodePartial 
+} from '@/zustandStore';
 
 import {
   EntityNode,
@@ -15,13 +22,12 @@ import {
   HasOneEdge,
   ThroughEdge,
   ConnectionLine,
-  EntityNodeType,
   RemoveNodeEdgeButton
 } from "@/components"
 
 const nodeTypes = {
-  entity: EntityNode,
-};
+  [entityNodePartial.type]: EntityNode,
+} as NodeTypes;
 
 const edgeTypes = {
   [hasManyEdgePartial.type]: HasManyEdge,
@@ -68,19 +74,19 @@ export const FlowWithoutProvider = memo(() => {
       }
 
       const position: {x: number, y: number} = (reactFlowInstance!).project({
-          x: event.clientX - reactFlowBounds.left,
-          y: event.clientY - reactFlowBounds.top,
-        });
+                                                 x: event.clientX - reactFlowBounds.left,
+                                                 y: event.clientY - reactFlowBounds.top,
+                                               });
 
       
       const name = useStore.getState().tables[tableId].name;
 
       const newNode: EntityNodeType = {
         id: useStore.getState().idCounter.toString(),
-        type: 'entity',
         position,
         data: { tableId, name },
-        selected: false
+        selected: false,
+        ...entityNodePartial
       };
       
       useStore.getState().increaseIdCounter()

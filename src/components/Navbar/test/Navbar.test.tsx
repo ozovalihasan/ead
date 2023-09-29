@@ -1,8 +1,8 @@
 import {  Navbar } from '../Navbar';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
-import useCustomizationStore from '@/zustandStore/customizationStore';
+import { useStore } from '@/zustandStore';
 import saveJSON from "../saveJSON"
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 jest.mock('../saveJSON',  () => ({
   default: jest.fn()

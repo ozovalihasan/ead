@@ -1,4 +1,4 @@
-import useCustomizationStore from '@/zustandStore/customizationStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 import { memo, useState } from 'react';
 import { MainColorDropdown } from '@/components';
 export const Settings = memo(() => {

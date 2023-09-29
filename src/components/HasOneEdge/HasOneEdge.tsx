@@ -1,6 +1,5 @@
 import { HasAnyEdge } from "@/components"
-import { hasOneEdgePartial } from "@/zustandStore/edgePartials"
-import { HasOneEdgeDataType } from "@/zustandStore/store"
+import { hasOneEdgePartial, HasOneEdgeDataType } from "@/zustandStore"
 import { EdgeProps } from "reactflow"
 
 export type HasOneEdgePropsType = Required<Pick<EdgeProps<HasOneEdgeDataType>, "id" | "source" | "target" | "label" | "selected" | "data" >>

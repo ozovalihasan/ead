@@ -1,12 +1,19 @@
-import useStore, { HasManyEdgeType, HasOneEdgeType, initialIdCounter, State } from '@/zustandStore/store';
+import { 
+  useStore, 
+  HasManyEdgeType, 
+  HasOneEdgeType, 
+  initialIdCounter, 
+  State, 
+  hasManyEdgePartial, 
+  hasOneEdgePartial 
+} from '@/zustandStore';
 import { Connection,Edge, Node } from 'reactflow';
 import {  AttributesType } from '@/zustandStore/tables';
 import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';
-import { EntityNodeType } from '@/components';
+import { EntityNodeType } from '@/zustandStore';
 import update_data from '../helpers/update_data'
-import { hasManyEdgePartial, hasOneEdgePartial } from '../edgePartials';
 
 jest.mock('../helpers/update_data',  () => ({
   default: jest.fn((data: State) => data)

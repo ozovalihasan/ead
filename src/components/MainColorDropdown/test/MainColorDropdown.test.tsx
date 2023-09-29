@@ -1,7 +1,7 @@
 import { MainColorDropdown } from '../MainColorDropdown';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import useCustomizationStore from '@/zustandStore/customizationStore';
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 

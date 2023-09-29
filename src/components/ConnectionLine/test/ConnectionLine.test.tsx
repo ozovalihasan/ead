@@ -1,6 +1,6 @@
 import { ConnectionLine } from '../ConnectionLine';
 import { render } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { Position } from 'reactflow';
 
 

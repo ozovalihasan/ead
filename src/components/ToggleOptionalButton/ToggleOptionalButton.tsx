@@ -1,4 +1,4 @@
-import useStore from "@/zustandStore/store";
+import { useStore } from '@/zustandStore';
 import { CircleAndLine } from "@/icons";
 
 export interface ToggleOptionalButtonType {

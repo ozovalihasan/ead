@@ -1,4 +1,4 @@
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 
 export type TableOptionsType = {nodeId: string, tableId: string};
 

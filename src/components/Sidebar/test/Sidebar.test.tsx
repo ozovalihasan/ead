@@ -1,9 +1,7 @@
 import {  Sidebar } from '../Sidebar';
 import { render, screen, renderHook, fireEvent, cleanup } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
-import useCustomizationStore from '@/zustandStore/customizationStore';
-
-
+import { useStore } from '@/zustandStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 

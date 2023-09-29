@@ -1,5 +1,4 @@
-import { CustomEdgeType,  } from "@/zustandStore/store";
-import { hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from "@/zustandStore/edgePartials";
+import { CustomEdgeType, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from "@/zustandStore";
 
 const initialEdges: CustomEdgeType[] = [
   {

@@ -1,6 +1,6 @@
 import { CustomHandle } from '../CustomHandle';
 import { render, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { Handle } from 'reactflow';
 import { ComponentProps } from 'react';
 

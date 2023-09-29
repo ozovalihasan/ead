@@ -1,6 +1,6 @@
 import { RemoveNodeEdgeButton } from '../RemoveNodeEdgeButton';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import testNodes from '@/zustandStore/nodes';
 import testEdges from '@/zustandStore/edges';
 import produce from 'immer';

@@ -1,4 +1,4 @@
-import { hasManyEdgePartial } from '@/zustandStore/edgePartials';
+import { hasManyEdgePartial } from '@/zustandStore';
 import { HasManyEdge } from '../HasManyEdge';
 import { render, screen } from "@testing-library/react";
 

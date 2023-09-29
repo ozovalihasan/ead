@@ -1,6 +1,6 @@
 import { AllHandlers } from '../AllHandlers';
 import { render, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 
 let renderReadyComponent: JSX.Element;
 

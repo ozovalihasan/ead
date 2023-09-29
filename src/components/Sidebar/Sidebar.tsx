@@ -1,5 +1,6 @@
-import useCustomizationStore from '@/zustandStore/customizationStore';
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
+
 import { MinusSign, PlusSign } from '@/icons';
 import { AttributeTypeOptions, SidebarOptions } from '@/components';
 export const Sidebar = () => {

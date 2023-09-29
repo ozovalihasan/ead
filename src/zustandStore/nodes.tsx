@@ -1,4 +1,4 @@
-import { EntityNodeType } from "@/components"
+import { EntityNodeType } from "@/zustandStore";
 
 const initialNodes: EntityNodeType[] = [
   {
@@ -12,6 +12,8 @@ const initialNodes: EntityNodeType[] = [
         "tableId": "1",
         "name": "Physician"
     },
+    "width": 136,
+    "height": 171
   },
   {
     "id": "5",
@@ -24,6 +26,8 @@ const initialNodes: EntityNodeType[] = [
         "tableId": "2",
         "name": "Appointment"
     },
+    "width": 136,
+    "height": 71
   },
   {
     "id": "6",
@@ -36,6 +40,8 @@ const initialNodes: EntityNodeType[] = [
         "tableId": "3",
         "name": "Patient"
     },
+    "width": 136,
+    "height": 71
   }
 ];
 

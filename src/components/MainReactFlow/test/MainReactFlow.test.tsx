@@ -1,6 +1,6 @@
 import {  MainReactFlow } from '../MainReactFlow';
 import { render, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 
 window.ResizeObserver = window.ResizeObserver || jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),

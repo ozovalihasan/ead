@@ -17,9 +17,8 @@ import {
 } from "@/components"
 
 import { getEdgeParams, positionToOrient } from '@/utils';
-import useStore from '@/zustandStore/store';
-import useCustomizationStore from '@/zustandStore/customizationStore';
-import { hasManyEdgePartial, hasOneEdgePartial } from '@/zustandStore/edgePartials';
+import { useStore, hasManyEdgePartial, hasOneEdgePartial } from '@/zustandStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 export type HasAnyEdgePropsType = ((HasManyEdgePropsType & ({type: typeof hasManyEdgePartial.type})) | (HasOneEdgePropsType & {type: typeof hasOneEdgePartial.type }))
 

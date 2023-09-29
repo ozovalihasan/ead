@@ -4,28 +4,15 @@ import {
   SelectThroughNode,
   TargetHandle
 } from "@/components"
-import useStore from '@/zustandStore/store';
-import { memo, useRef } from "react";
-import { Node } from "reactflow";
+import { useStore, EntityNodeDataType } from '@/zustandStore';
+import { FC, memo, useRef } from "react";
+import { NodeProps } from "reactflow";
 
+export type EntityNodePropsType = FC<Pick<NodeProps<EntityNodeDataType>, "id" | "data" | "selected">> 
 
-export interface EntityNodeDataType {
-  tableId: string,
-  name: string,
-}
-
-export interface EntityNodePropsType {
-  id: string; 
-  data: EntityNodeDataType; 
-  selected: boolean;
-}
-
-export type EntityNodeType = Node<EntityNodeDataType> & {
-  type: "entity",
-}
-
-export const EntityNode = memo(
-  ({id, data, selected }: EntityNodePropsType) => {
+export const EntityNode: EntityNodePropsType = memo(
+  ({id, data, selected }) => {
+    
     const inputEl = useRef(null);
     
     const isSelectedNodeForThrough = useStore(store => store.selectedNodeIdForThrough === id)
@@ -42,7 +29,7 @@ export const EntityNode = memo(
           ${ nodeBGClasses}
         `} 
       >
-        
+      
         <TargetHandle nodeId={id} />
         
         <input 
@@ -55,16 +42,13 @@ export const EntityNode = memo(
           tabIndex={3}
           onChange={event => onNodeInputChange(event, id)} 
         />
-  
+
         <TableName nodeId={id} tableId={data.tableId} />
         
         <AllHandlers nodeId={id} />
   
         <SelectThroughNode nodeId={id}/>
-  
       </div>
     );
   }
 )
-
-      

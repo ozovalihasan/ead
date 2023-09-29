@@ -4,7 +4,7 @@ import {
   ThroughHandle 
 } from "@/components"
 
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { memo } from "react";
 
 export const AllHandlers = memo(({nodeId}: {nodeId: string}) => {

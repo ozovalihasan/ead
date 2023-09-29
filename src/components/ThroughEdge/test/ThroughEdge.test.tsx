@@ -1,8 +1,7 @@
 import { ThroughEdge } from '../ThroughEdge';
 import { render, screen } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
-import useCustomizationStore from '@/zustandStore/customizationStore';
-
+import {useStore } from '@/zustandStore';
+import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 

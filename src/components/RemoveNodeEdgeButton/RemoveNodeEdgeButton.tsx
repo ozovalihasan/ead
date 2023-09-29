@@ -1,4 +1,4 @@
-import useStore from "@/zustandStore/store";
+import { useStore } from '@/zustandStore';
 import { Trash } from "@/icons";
 import { EdgeChange, NodeChange } from "reactflow";
 

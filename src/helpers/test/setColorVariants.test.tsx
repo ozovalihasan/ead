@@ -1,9 +1,5 @@
-// import { State } from '@/zustandStore/store';
 import { setColorVariants } from '../setColorVariants';
 import { render } from "@testing-library/react";
-
-
-
 
 jest.mock('tailwindcss/colors',  () => ({
   default: {

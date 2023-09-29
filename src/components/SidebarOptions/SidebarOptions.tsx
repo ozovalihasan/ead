@@ -1,4 +1,4 @@
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { memo, useRef } from 'react';
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 

@@ -1,6 +1,6 @@
 import { ToggleOptionalButton } from '../ToggleOptionalButton';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 
 let renderReadyComponent: JSX.Element;
 

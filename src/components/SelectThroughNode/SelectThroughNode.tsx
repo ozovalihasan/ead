@@ -1,4 +1,4 @@
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 
 export const SelectThroughNode = ({nodeId} : {nodeId: string}) => {
 

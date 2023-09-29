@@ -1,4 +1,4 @@
-import { State } from '@/zustandStore/store';
+import { State } from '@/zustandStore';
 import { update_data } from '../update_data';
 
 let data : unknown;

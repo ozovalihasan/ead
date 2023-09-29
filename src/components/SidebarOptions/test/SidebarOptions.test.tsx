@@ -1,6 +1,6 @@
 import {  SidebarOptions } from '../SidebarOptions';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 jest.mock('@/helpers',  () => ({

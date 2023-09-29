@@ -1,5 +1,5 @@
 import { Handle, Position } from 'reactflow';
-import useStore from '@/zustandStore/store';
+import { useStore } from '@/zustandStore';
 import { memo } from 'react';
 
 

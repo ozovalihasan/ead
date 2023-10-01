@@ -2,16 +2,6 @@ import {  App } from '../App';
 import { render, screen } from "@testing-library/react";
 import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
-jest.mock('reactflow',  () => ({
-  Sidebar:(
-    () => (
-      <>
-        MockEADLogo
-      </>
-    )
-  ),
-}))
-
 let renderReadyComponent: JSX.Element;
 
 beforeEach(() => {

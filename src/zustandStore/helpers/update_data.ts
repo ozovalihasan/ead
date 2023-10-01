@@ -14,8 +14,14 @@ export const update_data = (data: State) => {
     data.edges = data.edges.map(
       edge => edge.type === throughEdgePartial.type ? edge : {...edge, data: {optional: false}} 
     )
+
+    data.nodes = data.nodes.map(
+      (node) => ({
+        ...node, style: {width: node.width, height: node.height}
+      })
+    ) 
+
   }
-  
   data.version = "0.4.7";
   
   return data;

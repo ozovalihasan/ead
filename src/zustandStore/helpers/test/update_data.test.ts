@@ -13,6 +13,7 @@ describe("update_data function", () => {
           "1": {},
           "2": {},
         },
+        nodes: [],
         edges: []
       } 
 
@@ -26,6 +27,7 @@ describe("update_data function", () => {
             "superclassId": "",
           },
         },
+        nodes: [],
         edges: []
       });
       
@@ -35,6 +37,7 @@ describe("update_data function", () => {
       data = {
         version: "0.4.0",
         tables: {},
+        nodes: [],
         edges: [
           { "id": "1", },
           { "id": "2", }
@@ -44,10 +47,42 @@ describe("update_data function", () => {
       expect(update_data(data as State)).toStrictEqual({
         version: "0.4.7",
         tables: {},
+        nodes: [],
         edges: [
           { "id": "1", data: {optional: false} },
           { "id": "2", data: {optional: false} }
         ]
+      });
+      
+    })
+
+    it('adds style attributes to nodes ', () => {
+      data = {
+        version: "0.4.0",
+        tables: {},
+        nodes: [
+          {
+            height: 100,
+            width: 100,
+          }
+        ],
+        edges: []
+      } 
+
+      expect(update_data(data as State)).toStrictEqual({
+        version: "0.4.7",
+        tables: {},
+        nodes: [
+          {
+            height: 100,
+            width: 100,
+            style: {
+              height: 100,
+              width: 100
+            }
+          }
+        ],
+        edges: []
       });
       
     })
@@ -65,6 +100,7 @@ describe("update_data function", () => {
           superclassId: ""
         },
       },
+      nodes: [],
       edges: [
         { "id": "1", data: {optional: false} },
         { "id": "2", data: {optional: false} }

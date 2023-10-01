@@ -113,7 +113,7 @@ Object {
 }
 `;
 
-exports[`<ConnectionLine /> if association type is"not "through" renders correctly 1`] = `
+exports[`<ConnectionLine /> if association type is'not 'through' renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

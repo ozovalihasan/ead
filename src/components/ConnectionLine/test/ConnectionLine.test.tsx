@@ -58,7 +58,7 @@ describe('<ConnectionLine />', () => {
     
   })
 
-  describe('if association type is"not "through"', () => {
+  describe("if association type is'not 'through'", () => {
     it('renders correctly', () => {
       useStore.setState({ 
         associationType: 'has_many'

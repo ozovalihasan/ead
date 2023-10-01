@@ -36,6 +36,12 @@ export const Trash = () => (
   </>
 )
 
+export const ExpandToRight = () => (
+  <>
+    MockExpandToRight
+  </>
+)
+
 export const CircleAndLine = () => (
   <>
     MockCircleAndLine

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExpandToRight /> renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M 0.30075684,0.08009847 V 199.9201 H 39.699386 v -79.91812 l 82.216684,0.008 -28.247886,22.07049 c -8.704703,6.80037 -10.2482,19.36993 -3.447334,28.07425 5.846961,7.18058 19.50495,9.82507 28.28871,3.07837 24.91381,-19.46586 49.8242,-38.55306 74.51793,-58.16648 4.64905,-4.32046 6.96812,-9.78197 6.96805,-15.05489 h 5.2e-4 v -0.007 -0.0067 h -5.2e-4 c -2e-5,-5.272921 -2.319,-10.734437 -6.96805,-15.054895 C 168.33376,65.329717 143.42337,46.243037 118.50956,26.777177 109.7258,20.030474 96.067811,22.674965 90.22085,29.855542 83.419984,38.55986 84.963481,51.129426 93.668184,57.929797 L 121.91607,79.999768 H 40.000142 L 39.699386,0.08009847 Z"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M 0.30075684,0.08009847 V 199.9201 H 39.699386 v -79.91812 l 82.216684,0.008 -28.247886,22.07049 c -8.704703,6.80037 -10.2482,19.36993 -3.447334,28.07425 5.846961,7.18058 19.50495,9.82507 28.28871,3.07837 24.91381,-19.46586 49.8242,-38.55306 74.51793,-58.16648 4.64905,-4.32046 6.96812,-9.78197 6.96805,-15.05489 h 5.2e-4 v -0.007 -0.0067 h -5.2e-4 c -2e-5,-5.272921 -2.319,-10.734437 -6.96805,-15.054895 C 168.33376,65.329717 143.42337,46.243037 118.50956,26.777177 109.7258,20.030474 96.067811,22.674965 90.22085,29.855542 83.419984,38.55986 84.963481,51.129426 93.668184,57.929797 L 121.91607,79.999768 H 40.000142 L 39.699386,0.08009847 Z"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

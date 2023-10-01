@@ -21,7 +21,11 @@ beforeEach(() => {
             "name": "Physician"
         },
         "width": 138,
-        "height": 45
+        "height": 45,
+        "style": {
+          "width": 138,
+          "height": 45
+        }
       },
       {
           "id": "2",
@@ -41,7 +45,11 @@ beforeEach(() => {
               "x": 585,
               "y": 255
           },
-          "dragging": false
+          "dragging": false,
+          "style": {
+            "width": 138,
+            "height": 45
+          }
       },
       {
           "id": "3",
@@ -60,6 +68,10 @@ beforeEach(() => {
           "positionAbsolute": {
               "x": 720,
               "y": 150
+          },
+          "style": {
+            "width": 138,
+          "height": 45,
           },
           "dragging": false
       }

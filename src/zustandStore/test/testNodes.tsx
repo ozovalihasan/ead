@@ -1,9 +1,9 @@
-import { EntityNodeType } from "@/zustandStore"
+import { EntityNodeType, entityNodePartial } from "@/zustandStore"
 
 const initialNodes: EntityNodeType[] = [
   {
     "id": "4",
-    "type": "entity",
+    ...entityNodePartial,    
     "position": {
         "x": 465,
         "y": 150
@@ -12,12 +12,10 @@ const initialNodes: EntityNodeType[] = [
         "tableId": "1",
         "name": "Physician"
     },
-    "width": 136,
-    "height": 71,
   },
   {
     "id": "5",
-    "type": "entity",
+    ...entityNodePartial,    
     "position": {
         "x": 585,
         "y": 255
@@ -26,12 +24,10 @@ const initialNodes: EntityNodeType[] = [
         "tableId": "2",
         "name": "Appointment"
     },
-    "width": 136,
-    "height": 71,
   },
   {
     "id": "6",
-    "type": "entity",
+    ...entityNodePartial,    
     "position": {
         "x": 720,
         "y": 150
@@ -40,8 +36,6 @@ const initialNodes: EntityNodeType[] = [
         "tableId": "3",
         "name": "Patient"
     },
-    "width": 136,
-    "height": 71,
   }
 ];
 

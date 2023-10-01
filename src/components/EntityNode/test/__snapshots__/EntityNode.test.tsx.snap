@@ -7,24 +7,34 @@ Object {
     <div>
       <div
         class="
-          p-1 rounded-md
+          p-1 rounded-md w-full h-full
           bg-first-400 dark:bg-first-500
         "
       >
         MockTargetHandle nodeId: 
         111
-        <input
-          class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
-          id="text"
-          name="text"
-          placeholder="Entity"
-          tabindex="3"
-          value="mockName"
-        />
+        <div
+          class="w-auto p-1"
+        >
+          <input
+            class="p-1 rounded-md ring-0 ring-offset-0 w-full"
+            id="text"
+            name="text"
+            placeholder="Entity"
+            tabindex="3"
+            value="mockName"
+          />
+        </div>
         MockTableName nodeId: 
         111
         tableId: 
         mockTableId
+        MockNodeResizeControl
+        <div
+          class="fill-first-400 dark:fill-first-500 w-3 h-3 absolute -right-4 top-1/2 -translate-y-1/2 "
+        >
+          MockExpandToRight
+        </div>
         MockAllHandlers nodeId: 
         111
         MockSelectThroughNode nodeId: 
@@ -35,24 +45,34 @@ Object {
   "container": <div>
     <div
       class="
-          p-1 rounded-md
+          p-1 rounded-md w-full h-full
           bg-first-400 dark:bg-first-500
         "
     >
       MockTargetHandle nodeId: 
       111
-      <input
-        class="w-32 m-1 p-1 rounded-md ring-0 ring-offset-0"
-        id="text"
-        name="text"
-        placeholder="Entity"
-        tabindex="3"
-        value="mockName"
-      />
+      <div
+        class="w-auto p-1"
+      >
+        <input
+          class="p-1 rounded-md ring-0 ring-offset-0 w-full"
+          id="text"
+          name="text"
+          placeholder="Entity"
+          tabindex="3"
+          value="mockName"
+        />
+      </div>
       MockTableName nodeId: 
       111
       tableId: 
       mockTableId
+      MockNodeResizeControl
+      <div
+        class="fill-first-400 dark:fill-first-500 w-3 h-3 absolute -right-4 top-1/2 -translate-y-1/2 "
+      >
+        MockExpandToRight
+      </div>
       MockAllHandlers nodeId: 
       111
       MockSelectThroughNode nodeId: 

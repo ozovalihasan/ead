@@ -27,7 +27,7 @@ import {
 
 const nodeTypes = {
   [entityNodePartial.type]: EntityNode,
-} as NodeTypes;
+};
 
 const edgeTypes = {
   [hasManyEdgePartial.type]: HasManyEdge,

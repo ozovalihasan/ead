@@ -5,10 +5,10 @@ import {
   initialIdCounter, 
   State, 
   hasManyEdgePartial, 
-  hasOneEdgePartial 
+  hasOneEdgePartial,
+  AttributesType
 } from '@/zustandStore';
 import { Connection,Edge, Node } from 'reactflow';
-import {  AttributesType } from '@/zustandStore/tables';
 import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';

@@ -1,15 +1,4 @@
-export type AttributesType = Record<string, {
-    name: string;
-    type: string;
-}>;
-
-export type TablesType = Record<string, TableValueType>;
-
-export interface TableValueType {
-  name: string;
-  attributes: AttributesType;
-  superclassId: string;
-}
+import { TablesType } from "./store"
 
 const initialTables: TablesType =  {
   "1": {

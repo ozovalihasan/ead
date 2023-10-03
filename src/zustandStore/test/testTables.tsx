@@ -1,4 +1,4 @@
-import { TablesType } from "../tables"
+import { TablesType } from "@/zustandStore"
 
 const initialTables: TablesType =  {
   "1": {

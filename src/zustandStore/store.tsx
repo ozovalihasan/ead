@@ -15,10 +15,10 @@ import {
 
 import { devtools } from 'zustand/middleware'
 import produce from "immer"
-import initialTables, { TablesType } from './tables';
+import initialTables from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
-import update_data from './helpers/update_data';
+import { update_data } from '@/zustandStore';
 import { entityNodePartial, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
@@ -34,6 +34,19 @@ export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[]
   
   return (max + 1)
 }
+
+export type AttributesType = Record<string, {
+  name: string;
+  type: string;
+}>;
+
+export interface TableValueType {
+  name: string;
+  attributes: AttributesType;
+  superclassId: string;
+  }
+
+export type TablesType = Record<string, TableValueType>;
 
 export interface EntityNodeDataType {
   tableId: string,

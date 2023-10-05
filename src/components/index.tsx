@@ -33,3 +33,7 @@ export * from './AttributeTypeOptions/AttributeTypeOptions';
 export * from './SidebarOptions/SidebarOptions';
 export * from './MainColorDropdown/MainColorDropdown';
 export * from './TableOptions/TableOptions';
+export * from './TableAttributes/TableAttributes';
+export * from './AddTableButton/AddTableButton';
+export * from './AddAttributeButton/AddAttributeButton';
+export * from './RemoveAttributeButton/RemoveAttributeButton';

@@ -244,6 +244,42 @@ export const TableOptions =(
   )
 )
 
+export const TableAttributes =(
+  ({tableId}: {tableId: string} ) => (
+    <>
+      MockTableAttributes
+      tableId: {tableId}
+    </>
+  )
+)
+
+export const AddTableButton =(
+  () => (
+    <>
+      MockAddTableButton
+    </>
+  )
+)
+
+export const AddAttributeButton =(
+  ({ tableId }: {tableId: string} ) => (
+    <>
+      MockAddAttributeButton
+      tableId: {tableId}
+    </>
+  )
+)
+
+export const RemoveAttributeButton =(
+  ({ tableId, attributeId }: {tableId: string, attributeId: string} ) => (
+    <>
+      MockRemoveAttributeButton
+      tableId: {tableId}
+      attributeId: {attributeId}
+    </>
+  )
+)
+
 export const AllHandlers =(
   ({ nodeId }: {nodeId: string} ) => (
     <>

@@ -1,6 +1,6 @@
 import {  SidebarOptions } from '../SidebarOptions';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import { useStore } from '@/zustandStore';
+import { DragDirection, useStore } from '@/zustandStore';
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
 
 jest.mock('@/helpers',  () => ({
@@ -17,7 +17,8 @@ beforeEach(() => {
       "2": {name: "Mock Second Name", attributes: {}, superclassId: "1"},
       "3": {name: "Mock Third Name", attributes: {}, superclassId: "1"}
     },
-    changeTableSuperClass: jest.fn()
+    changeTableSuperClass: jest.fn(),
+    moveTable: jest.fn(),
   })
   
   renderReadyComponent = (
@@ -58,7 +59,7 @@ describe('<Sidebar />', () => {
     render(renderReadyComponent );
     const { result } = renderHook(() => useStore());
 
-    const selectEl = screen.getByTitle(/Select a superclass to inherit/)
+    const selectEl = screen.getByTitle(/Select a class to inherit/)
     fireEvent.change( selectEl, {target: {value: '3'}})
     expect(result.current.changeTableSuperClass).toHaveBeenCalledTimes(1);
   });
@@ -79,12 +80,24 @@ describe('<Sidebar />', () => {
 
     render( renderReadyComponent );
 
-    const selectEl = screen.getByTitle(/Select a superclass to inherit/);
+    const selectEl = screen.getByTitle(/Select a class to inherit/);
 
     fireEvent.mouseLeave( selectEl );
 
     expect(handleMouseLeaveForSelect).toHaveBeenCalledTimes(1)
 
+  });
+  
+  it('calls the handleMouseLeaveForSelect function', () => {
+
+    render( renderReadyComponent );
+    const { result } = renderHook(() => useStore());
+
+    const button = screen.getByTitle("Locate below the inherited class");
+
+    fireEvent.click( button );
+
+    expect(result.current.moveTable).toHaveBeenCalledWith("2", "1", DragDirection.lower);
   });
 
 

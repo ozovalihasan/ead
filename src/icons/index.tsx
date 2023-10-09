@@ -6,3 +6,4 @@ export * from './UpArrow/UpArrow';
 export * from './Trash/Trash';
 export * from './CircleAndLine/CircleAndLine';
 export * from './ExpandToRight/ExpandToRight';
+export * from './AlignItems/AlignItems';

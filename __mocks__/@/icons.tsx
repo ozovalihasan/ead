@@ -48,3 +48,9 @@ export const CircleAndLine = () => (
   </>
 )
 
+export const AlignItems = () => (
+  <>
+    MockAlignItems
+  </>
+)
+

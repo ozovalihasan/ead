@@ -7,7 +7,7 @@ import { useState } from 'react';
 export const Sidebar = () => {
   const tables = useStore((state) => state.tables);
   const orderedTables = useStore((state) => state.orderedTables);
-  const orderedTablesExtended = orderedTables.map((tableId) => ({ tableId, ...tables[tableId] }));
+  
 
   const onTableNameChange = useStore((store) => store.onTableNameChange);
   const removeTable = useStore((store) => store.removeTable);
@@ -86,7 +86,7 @@ export const Sidebar = () => {
       className={`h-full relative py-4 px-2 overflow-y-scroll ${sidebarVisible ? '' : 'hidden'}`}
       style={{ width: widthSidebar }}
     >
-      {orderedTablesExtended.map(({ tableId }) => {
+      {orderedTables.map((tableId) => {
         const isCurrentTableDragged = isDragged(tableId);
         const isCurrentTableDraggedOver = isDraggedOver(tableId);
         const isCurrentTableUpperDraggedOver = draggedDirection === DragDirection.upper && isCurrentTableDraggedOver;

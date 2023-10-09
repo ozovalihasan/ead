@@ -1,4 +1,4 @@
-import { State, TableValueType, throughEdgePartial } from "@/zustandStore";
+import { State, TableValueType, throughEdgePartial, createOrderedTables } from "@/zustandStore";
 
 export const update_data = (data: State) => {
 
@@ -9,6 +9,7 @@ export const update_data = (data: State) => {
   }
 
   if ( !(["0.4.7"].includes( data.version )) ) {
+    data.orderedTables = createOrderedTables(data.tables)
     
     data.edges = data.edges.map(
       edge => edge.type === throughEdgePartial.type ? edge : {...edge, data: {optional: false}} 
@@ -25,5 +26,3 @@ export const update_data = (data: State) => {
   
   return data;
 }
-
-export default update_data;

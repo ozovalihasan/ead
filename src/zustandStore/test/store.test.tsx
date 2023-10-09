@@ -6,17 +6,18 @@ import {
   State, 
   hasManyEdgePartial, 
   hasOneEdgePartial,
-  AttributesType
+  AttributesType,
+  DragDirection
 } from '@/zustandStore';
 import { Connection,Edge, Node } from 'reactflow';
 import testNodes from './testNodes';
 import testEdges from './testEdges';
 import testTables from './testTables';
 import { EntityNodeType } from '@/zustandStore';
-import update_data from '../helpers/update_data'
+import { update_data } from '../helpers/update_data'
 
 jest.mock('../helpers/update_data',  () => ({
-  default: jest.fn((data: State) => data)
+  update_data: jest.fn((data: State) => data)
 }))
 
 
@@ -68,6 +69,10 @@ describe('store', () => {
   
   it('has a "tables" attribute and its value should exist as default', () => {
     expect(useStore.getState().tables).toBeTruthy();
+  });
+
+  it('has a "orderedTables" attribute and its value should exist as default', () => {
+    expect(useStore.getState().orderedTables).toBeTruthy();
   });
 
   it('has a "connectionStartNodeId" attribute and its value should be null', () => {
@@ -218,6 +223,9 @@ describe('store', () => {
       expect(useStore.getState().tables["333"]).toStrictEqual(
         {name: "", attributes: {}, superclassId: ""}
       );
+      expect(useStore.getState().orderedTables).toStrictEqual(
+        ["1", "2", "3", "333"]
+      );
       expect(useStore.getState().idCounter).toBe(334);
     });
 
@@ -255,6 +263,7 @@ describe('store', () => {
       expect(useStore.getState().edges.length).toBe(3);
       expect(useStore.getState().tables["2"].superclassId).toBe("1");
       expect(useStore.getState().tables["3"].superclassId).toBe("1");
+      expect(useStore.getState().orderedTables).toStrictEqual(["1", "2", "3"]);
 
 
       useStore.getState().removeTable("1")
@@ -263,7 +272,19 @@ describe('store', () => {
       expect(useStore.getState().edges.length).toBe(1);
       expect(useStore.getState().tables["2"].superclassId).toBe("");
       expect(useStore.getState().tables["3"].superclassId).toBe("");
+      expect(useStore.getState().orderedTables).toStrictEqual(["2", "3"]);
     });
+
+    it('has an "moveTable" attribute to add an attribute to the given table', () => {
+      expect(useStore.getState().orderedTables).toStrictEqual(["1", "2", "3"]);
+
+      useStore.getState().moveTable("1", "3", DragDirection.upper)
+      expect(useStore.getState().orderedTables).toStrictEqual(["2", "1", "3"]);
+
+      useStore.getState().moveTable("2", "3", DragDirection.lower)
+      expect(useStore.getState().orderedTables).toStrictEqual(["1", "3", "2"]);
+    });
+
   })
 
   it('has a "increaseIdCounter" attribute to increase the "idCounter" attribute by one', () => {

@@ -6,68 +6,80 @@ Object {
   "baseElement": <body>
     <div>
       <aside
-        class="h-full relative py-3 px-2 overflow-y-scroll hidden"
+        class="h-full relative py-4 px-2 overflow-y-scroll hidden"
         style="width: 204px;"
       >
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="transition-all py-2 "
           draggable="true"
         >
           <div
-            class="flex"
+            class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
           >
-            <input
-              class="p-2 rounded-tl-md w-1/2 z-10"
-              placeholder="Table name"
-              tabindex="4"
-              type="text"
-              value="MockFirstTable"
-            />
-            MockSidebarOptions
-            tableId: 1
-          </div>
-          MockTableAttributes tableId: 
-          1
-          <button
-            class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-            title="Delete the table"
-          >
-            <div
-              class="stroke-[40] w-3 h-3"
-            >
-              MockMinusSign
+            <div>
+              <div
+                class="flex"
+              >
+                <input
+                  class="p-2 rounded-tl-md w-1/2 z-10"
+                  placeholder="Table name"
+                  tabindex="4"
+                  type="text"
+                  value="MockFirstTable"
+                />
+                MockSidebarOptions
+                tableId: 1
+              </div>
+              MockTableAttributes tableId: 
+              1
+              <button
+                class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+                title="Delete the table"
+              >
+                <div
+                  class="stroke-[40] w-3 h-3"
+                >
+                  MockMinusSign
+                </div>
+              </button>
             </div>
-          </button>
+          </div>
         </div>
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="transition-all py-2 "
           draggable="true"
         >
           <div
-            class="flex"
+            class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
           >
-            <input
-              class="p-2 rounded-tl-md w-1/2 z-10"
-              placeholder="Table name"
-              tabindex="4"
-              type="text"
-              value="MockSecondTable"
-            />
-            MockSidebarOptions
-            tableId: 2
-          </div>
-          MockTableAttributes tableId: 
-          2
-          <button
-            class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-            title="Delete the table"
-          >
-            <div
-              class="stroke-[40] w-3 h-3"
-            >
-              MockMinusSign
+            <div>
+              <div
+                class="flex"
+              >
+                <input
+                  class="p-2 rounded-tl-md w-1/2 z-10"
+                  placeholder="Table name"
+                  tabindex="4"
+                  type="text"
+                  value="MockSecondTable"
+                />
+                MockSidebarOptions
+                tableId: 2
+              </div>
+              MockTableAttributes tableId: 
+              2
+              <button
+                class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+                title="Delete the table"
+              >
+                <div
+                  class="stroke-[40] w-3 h-3"
+                >
+                  MockMinusSign
+                </div>
+              </button>
             </div>
-          </button>
+          </div>
         </div>
         MockAddTableButton
       </aside>
@@ -75,68 +87,80 @@ Object {
   </body>,
   "container": <div>
     <aside
-      class="h-full relative py-3 px-2 overflow-y-scroll hidden"
+      class="h-full relative py-4 px-2 overflow-y-scroll hidden"
       style="width: 204px;"
     >
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="transition-all py-2 "
         draggable="true"
       >
         <div
-          class="flex"
+          class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
         >
-          <input
-            class="p-2 rounded-tl-md w-1/2 z-10"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockFirstTable"
-          />
-          MockSidebarOptions
-          tableId: 1
-        </div>
-        MockTableAttributes tableId: 
-        1
-        <button
-          class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-          title="Delete the table"
-        >
-          <div
-            class="stroke-[40] w-3 h-3"
-          >
-            MockMinusSign
+          <div>
+            <div
+              class="flex"
+            >
+              <input
+                class="p-2 rounded-tl-md w-1/2 z-10"
+                placeholder="Table name"
+                tabindex="4"
+                type="text"
+                value="MockFirstTable"
+              />
+              MockSidebarOptions
+              tableId: 1
+            </div>
+            MockTableAttributes tableId: 
+            1
+            <button
+              class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+              title="Delete the table"
+            >
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
       </div>
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="transition-all py-2 "
         draggable="true"
       >
         <div
-          class="flex"
+          class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
         >
-          <input
-            class="p-2 rounded-tl-md w-1/2 z-10"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockSecondTable"
-          />
-          MockSidebarOptions
-          tableId: 2
-        </div>
-        MockTableAttributes tableId: 
-        2
-        <button
-          class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-          title="Delete the table"
-        >
-          <div
-            class="stroke-[40] w-3 h-3"
-          >
-            MockMinusSign
+          <div>
+            <div
+              class="flex"
+            >
+              <input
+                class="p-2 rounded-tl-md w-1/2 z-10"
+                placeholder="Table name"
+                tabindex="4"
+                type="text"
+                value="MockSecondTable"
+              />
+              MockSidebarOptions
+              tableId: 2
+            </div>
+            MockTableAttributes tableId: 
+            2
+            <button
+              class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+              title="Delete the table"
+            >
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
       </div>
       MockAddTableButton
     </aside>
@@ -201,68 +225,80 @@ Object {
   "baseElement": <body>
     <div>
       <aside
-        class="h-full relative py-3 px-2 overflow-y-scroll "
+        class="h-full relative py-4 px-2 overflow-y-scroll "
         style="width: 204px;"
       >
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="transition-all py-2 "
           draggable="true"
         >
           <div
-            class="flex"
+            class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
           >
-            <input
-              class="p-2 rounded-tl-md w-1/2 z-10"
-              placeholder="Table name"
-              tabindex="4"
-              type="text"
-              value="MockFirstTable"
-            />
-            MockSidebarOptions
-            tableId: 1
-          </div>
-          MockTableAttributes tableId: 
-          1
-          <button
-            class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-            title="Delete the table"
-          >
-            <div
-              class="stroke-[40] w-3 h-3"
-            >
-              MockMinusSign
+            <div>
+              <div
+                class="flex"
+              >
+                <input
+                  class="p-2 rounded-tl-md w-1/2 z-10"
+                  placeholder="Table name"
+                  tabindex="4"
+                  type="text"
+                  value="MockFirstTable"
+                />
+                MockSidebarOptions
+                tableId: 1
+              </div>
+              MockTableAttributes tableId: 
+              1
+              <button
+                class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+                title="Delete the table"
+              >
+                <div
+                  class="stroke-[40] w-3 h-3"
+                >
+                  MockMinusSign
+                </div>
+              </button>
             </div>
-          </button>
+          </div>
         </div>
         <div
-          class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+          class="transition-all py-2 "
           draggable="true"
         >
           <div
-            class="flex"
+            class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
           >
-            <input
-              class="p-2 rounded-tl-md w-1/2 z-10"
-              placeholder="Table name"
-              tabindex="4"
-              type="text"
-              value="MockSecondTable"
-            />
-            MockSidebarOptions
-            tableId: 2
-          </div>
-          MockTableAttributes tableId: 
-          2
-          <button
-            class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-            title="Delete the table"
-          >
-            <div
-              class="stroke-[40] w-3 h-3"
-            >
-              MockMinusSign
+            <div>
+              <div
+                class="flex"
+              >
+                <input
+                  class="p-2 rounded-tl-md w-1/2 z-10"
+                  placeholder="Table name"
+                  tabindex="4"
+                  type="text"
+                  value="MockSecondTable"
+                />
+                MockSidebarOptions
+                tableId: 2
+              </div>
+              MockTableAttributes tableId: 
+              2
+              <button
+                class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+                title="Delete the table"
+              >
+                <div
+                  class="stroke-[40] w-3 h-3"
+                >
+                  MockMinusSign
+                </div>
+              </button>
             </div>
-          </button>
+          </div>
         </div>
         MockAddTableButton
       </aside>
@@ -270,68 +306,80 @@ Object {
   </body>,
   "container": <div>
     <aside
-      class="h-full relative py-3 px-2 overflow-y-scroll "
+      class="h-full relative py-4 px-2 overflow-y-scroll "
       style="width: 204px;"
     >
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="transition-all py-2 "
         draggable="true"
       >
         <div
-          class="flex"
+          class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
         >
-          <input
-            class="p-2 rounded-tl-md w-1/2 z-10"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockFirstTable"
-          />
-          MockSidebarOptions
-          tableId: 1
-        </div>
-        MockTableAttributes tableId: 
-        1
-        <button
-          class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-          title="Delete the table"
-        >
-          <div
-            class="stroke-[40] w-3 h-3"
-          >
-            MockMinusSign
+          <div>
+            <div
+              class="flex"
+            >
+              <input
+                class="p-2 rounded-tl-md w-1/2 z-10"
+                placeholder="Table name"
+                tabindex="4"
+                type="text"
+                value="MockFirstTable"
+              />
+              MockSidebarOptions
+              tableId: 1
+            </div>
+            MockTableAttributes tableId: 
+            1
+            <button
+              class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+              title="Delete the table"
+            >
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
       </div>
       <div
-        class="my-4 w-full bg-transparent border-2 general-border rounded-md"
+        class="transition-all py-2 "
         draggable="true"
       >
         <div
-          class="flex"
+          class="w-full bg-transparent border-2 general-border rounded-md group pb-2 relative"
         >
-          <input
-            class="p-2 rounded-tl-md w-1/2 z-10"
-            placeholder="Table name"
-            tabindex="4"
-            type="text"
-            value="MockSecondTable"
-          />
-          MockSidebarOptions
-          tableId: 2
-        </div>
-        MockTableAttributes tableId: 
-        2
-        <button
-          class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 "
-          title="Delete the table"
-        >
-          <div
-            class="stroke-[40] w-3 h-3"
-          >
-            MockMinusSign
+          <div>
+            <div
+              class="flex"
+            >
+              <input
+                class="p-2 rounded-tl-md w-1/2 z-10"
+                placeholder="Table name"
+                tabindex="4"
+                type="text"
+                value="MockSecondTable"
+              />
+              MockSidebarOptions
+              tableId: 2
+            </div>
+            MockTableAttributes tableId: 
+            2
+            <button
+              class="right-0 absolute -translate-x-full -translate-y-3/4 btn-first rounded-full aspect-square h-6 hidden group-hover:flex"
+              title="Delete the table"
+            >
+              <div
+                class="stroke-[40] w-3 h-3"
+              >
+                MockMinusSign
+              </div>
+            </button>
           </div>
-        </button>
+        </div>
       </div>
       MockAddTableButton
     </aside>

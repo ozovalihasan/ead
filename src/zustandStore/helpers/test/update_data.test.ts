@@ -27,6 +27,7 @@ describe("update_data function", () => {
             "superclassId": "",
           },
         },
+        orderedTables: ["1", "2"],
         nodes: [],
         edges: []
       });
@@ -47,6 +48,7 @@ describe("update_data function", () => {
       expect(update_data(data as State)).toStrictEqual({
         version: "0.4.7",
         tables: {},
+        orderedTables: [],
         nodes: [],
         edges: [
           { "id": "1", data: {optional: false} },
@@ -72,6 +74,7 @@ describe("update_data function", () => {
       expect(update_data(data as State)).toStrictEqual({
         version: "0.4.7",
         tables: {},
+        orderedTables: [],
         nodes: [
           {
             height: 100,
@@ -82,6 +85,34 @@ describe("update_data function", () => {
             }
           }
         ],
+        edges: []
+      });
+      
+    })
+
+    it('adds orderedTables attribute to the store ', () => {
+      data = {
+        version: "0.4.0",
+        tables: {
+          "1": {},
+          "2": {},
+        },
+        nodes: [],
+        edges: []
+      }  
+
+      expect(update_data(data as State)).toStrictEqual({
+        version: "0.4.7",
+        tables: {
+          "1": {
+            superclassId: ""
+          },
+          "2": {
+            superclassId: ""
+          },
+        },
+        orderedTables: ["1", "2"],
+        nodes: [],
         edges: []
       });
       
@@ -100,6 +131,7 @@ describe("update_data function", () => {
           superclassId: ""
         },
       },
+      orderedTables: ["1", "2"],
       nodes: [],
       edges: [
         { "id": "1", data: {optional: false} },

@@ -19,7 +19,7 @@ import initialTables from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
 import { update_data } from '@/zustandStore';
-import { entityNodePartial, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore';
+import { createOrderedTables, entityNodePartial, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
   
@@ -33,6 +33,11 @@ export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[]
   const max = Math.max( ...integer_ids ) 
   
   return (max + 1)
+}
+
+export enum DragDirection {
+  upper = "upper",
+  lower = "lower"
 }
 
 export type AttributesType = Record<string, {
@@ -81,6 +86,7 @@ export interface State {
   nodes: EntityNodeType[];
   edges: CustomEdgeType[];
   tables: TablesType;
+  orderedTables: (keyof TablesType)[];
   connectionStartNodeId: string | null;
   isConnectContinue: boolean;
   isMouseOnNode: boolean;
@@ -116,6 +122,7 @@ export interface State {
   resetStore: () => void;
   uploadStore: (event: React.ChangeEvent<HTMLInputElement>) => void;
   toggleNeedFitView: () => void;
+  moveTable: (draggedTableId: string, tableId: string, dragDirection: DragDirection) => void;
   toggleOptional: (edgeId: string) => void;
 }
 
@@ -126,6 +133,7 @@ export const useStore = create(devtools<State>((set, get) => ({
     nodes: initialNodes,
     edges: initialEdges,
     tables: initialTables,
+    orderedTables: createOrderedTables(initialTables),
     connectionStartNodeId: null,
     isConnectContinue: false,
     isMouseOnNode: false,
@@ -205,8 +213,10 @@ export const useStore = create(devtools<State>((set, get) => ({
 
     addTable: (() => {
       set(produce((state: State) => {
-        state.tables[get().idCounter.toString()] = {name: "", attributes: {}, superclassId: ""},
-        state.idCounter ++
+        state.tables[get().idCounter.toString()] = {name: "", attributes: {}, superclassId: ""};
+        state.orderedTables.push(get().idCounter.toString());
+        state.idCounter ++;
+
       }))
     }),
 
@@ -234,6 +244,8 @@ export const useStore = create(devtools<State>((set, get) => ({
     removeTable: ((tableId: string ) => {
       set(produce((state: State) => {
         delete state.tables[tableId]
+        state.orderedTables = state.orderedTables.filter((checkedTableId) => checkedTableId !== tableId )
+
         state.nodes = state.nodes.filter((node) => {
           state.edges = state.edges.filter((edge: CustomEdgeType) => (
 
@@ -409,6 +421,24 @@ export const useStore = create(devtools<State>((set, get) => ({
       set(produce((state: State) => {
         
         (state.edges[index] as HasAnyEdgeType).data.optional = !edge.data.optional
+      }))
+    },
+
+    moveTable: (draggedTableId, droppedTableId, dragDirection) => {
+      set(produce((state: State) => {
+        let orderedTables = state.orderedTables;
+      
+        const draggedTableIndex = orderedTables.findIndex((tableId) => tableId === draggedTableId);
+        orderedTables.splice(draggedTableIndex, 1);
+        
+        const droppedTableIndex = orderedTables.findIndex((tableId) => tableId === droppedTableId);
+        if (dragDirection === DragDirection.upper){
+          orderedTables.splice(droppedTableIndex, 0, draggedTableId);
+        } else {
+          orderedTables.splice(droppedTableIndex + 1, 0, draggedTableId);
+        }
+
+        state.orderedTables = orderedTables
       }))
     },
 

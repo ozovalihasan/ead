@@ -1,6 +1,6 @@
 import {  Sidebar } from '../Sidebar';
 import { render, screen, renderHook, fireEvent, cleanup } from "@testing-library/react";
-import { useStore } from '@/zustandStore';
+import { DragDirection, useStore } from '@/zustandStore';
 import { useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
@@ -22,8 +22,10 @@ beforeEach(() => {
         "superclassId": ""
       },
     },
+    orderedTables: ["1", "2"],
     removeTable: jest.fn(),
     onTableNameChange: jest.fn(),
+    moveTable: jest.fn(),
   })
     
   renderReadyComponent = (
@@ -69,6 +71,102 @@ describe('<Sidebar />', () => {
       fireEvent.change(inputElement, {target: {value: "MockNewTable"}})
 
       expect(result.current.onTableNameChange).toHaveBeenCalledTimes(1);
+
+    });
+
+    describe('provides drag and drop feature to change the order of tables', () => {
+      beforeAll(() => {
+        const data: any = {};
+        
+        const mockDataTransfer = {
+          setData: (key: string, value: string) => {data[key] = value},
+          getData: (key: string) => data[key],
+          setDragImage: jest.fn(),
+        };
+  
+        Object.defineProperty(global.Event.prototype, 'dataTransfer', {
+          value: mockDataTransfer,
+        });
+      })
+      
+      it('calls the function "moveTable" if the dragged table is dropped on above another table', () => {
+        render(renderReadyComponent );
+        const { result } = renderHook(() => useStore());
+        
+        let tableElements =  document.querySelectorAll('[draggable]')
+        let table1 = tableElements[0];
+        let table2 = tableElements[1];
+        
+        expect(result.current.moveTable).toHaveBeenCalledTimes(0);
+
+        fireEvent.click(table1);
+        fireEvent.dragStart(table1); 
+        fireEvent.dragOver(table2);
+
+        const dragOverUpperArea = table2.querySelector("[title='Drag over to locate above']") as HTMLDivElement;
+        fireEvent.dragOver(dragOverUpperArea);
+        fireEvent.drop(table2);
+
+        expect(result.current.moveTable).toHaveBeenCalledTimes(1);
+        expect(result.current.moveTable).toHaveBeenCalledWith("1", "2", DragDirection.upper);
+      });
+
+      it('calls the function "moveTable" if the dragged table is dropped on below another table', () => {
+        render(renderReadyComponent );
+        const { result } = renderHook(() => useStore());
+        
+        let tableElements =  document.querySelectorAll('[draggable]')
+        let table1 = tableElements[0];
+        let table2 = tableElements[1];
+        
+        expect(result.current.moveTable).toHaveBeenCalledTimes(0);
+
+        fireEvent.click(table1);
+        fireEvent.dragStart(table1); 
+        fireEvent.dragOver(table2);
+
+        const dragOverlowerArea = table2.querySelector("[title='Drag over to locate below']") as HTMLDivElement;
+        fireEvent.dragOver(dragOverlowerArea);
+        fireEvent.drop(table2);
+
+        expect(result.current.moveTable).toHaveBeenCalledTimes(1);
+        expect(result.current.moveTable).toHaveBeenCalledWith("1", "2", DragDirection.lower);
+      });
+
+      it('doesn"t call the function "moveTable" if the dragged table exits a drop area', () => {
+        render(renderReadyComponent );
+        const { result } = renderHook(() => useStore());
+        
+        let tableElements =  document.querySelectorAll('[draggable]')
+        let table1 = tableElements[0];
+        let table2 = tableElements[1];
+        
+        expect(result.current.moveTable).toHaveBeenCalledTimes(0);
+
+        fireEvent.click(table1);
+        fireEvent.dragStart(table1); 
+        fireEvent.dragOver(table2);
+        fireEvent.dragExit(table2);
+
+        expect(result.current.moveTable).toHaveBeenCalledTimes(0);
+      });
+
+      it('doesn"t call the function "moveTable" if the dragged table drags on over itself', () => {
+        render(renderReadyComponent );
+        const { result } = renderHook(() => useStore());
+        
+        let tableElements =  document.querySelectorAll('[draggable]')
+        let table1 = tableElements[0];
+        let table2 = tableElements[1];
+        
+        expect(result.current.moveTable).toHaveBeenCalledTimes(0);
+
+        fireEvent.click(table1);
+        fireEvent.dragStart(table1); 
+        fireEvent.dragOver(table1);
+
+        expect(result.current.moveTable).toHaveBeenCalledTimes(0);
+      });
 
     });
 

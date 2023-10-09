@@ -4,7 +4,7 @@ export const Trash = memo(() => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 200 200"
-    className="fill-transparent stroke-first400 dark:stroke-first-500"
+    className="fill-transparent stroke-first-400 dark:stroke-first-500"
   >
     <path 
       style={{strokeLinecap:"round", strokeLinejoin:"round"}} 

@@ -90,7 +90,7 @@ export const useCustomizationStore = create(devtools<CustomizationStoreState>((s
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => {
     let widthSidebar
 
-    if (get().locationSidebar == "left"){
+    if (get().locationSidebar === "left"){
       widthSidebar = e.clientX; 
     } else {
       widthSidebar = window.innerWidth - e.clientX; 

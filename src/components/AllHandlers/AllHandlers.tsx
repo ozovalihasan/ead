@@ -13,7 +13,7 @@ export const AllHandlers = memo(({nodeId}: {nodeId: string}) => {
     useStore(store =>(
       !store.isConnectContinue && 
       store.isMouseOnNode && 
-      store.mouseOnNodeId == nodeId
+      store.mouseOnNodeId === nodeId
     ))
   ) ? "opacity-100" : "opacity-0"
 

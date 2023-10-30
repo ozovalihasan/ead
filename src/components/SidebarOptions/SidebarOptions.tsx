@@ -43,8 +43,8 @@ export const SidebarOptions = memo(({tableId}: {tableId: string} ) => {
           <option
             key={superTableId}
             value={superTableId}
-            disabled={superTableId == tableId}
-            title={tables[superTableId].name + (superTableId == tableId ? "(Disabled)" : "")}
+            disabled={superTableId === tableId}
+            title={tables[superTableId].name + (superTableId === tableId ? "(Disabled)" : "")}
           >
             {tables[superTableId].name}
           </option>

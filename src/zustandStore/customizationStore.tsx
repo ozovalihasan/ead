@@ -2,8 +2,14 @@ import { availableColors, availableColorsType, setColorVariants } from '@/helper
 import create from 'zustand';
 import { devtools } from 'zustand/middleware'
 
+
+export enum LocationSidebar {
+  Left = "left",
+  Right = "right"
+}
+
 export interface CustomizationStoreState {
-  locationSidebar: "left" | "right";
+  locationSidebar: LocationSidebar;
   widthSidebar: number;
   showTextOnEdges: boolean;
   sidebarVisible: boolean;
@@ -22,7 +28,7 @@ export interface CustomizationStoreState {
 export const checkLocalStorage = () => {
 
   if(!localStorage.locationSidebar){
-    const locationSidebar = "left"
+    const locationSidebar = LocationSidebar.Left
     localStorage.setItem("locationSidebar", JSON.stringify(locationSidebar))
   }
 
@@ -48,7 +54,7 @@ export const checkLocalStorage = () => {
 checkLocalStorage();
 
 export const useCustomizationStore = create(devtools<CustomizationStoreState>((set, get) => ({
-  locationSidebar: JSON.parse(localStorage.locationSidebar as string) as ("left" | "right"),
+  locationSidebar: JSON.parse(localStorage.locationSidebar as string) as LocationSidebar,
   widthSidebar: JSON.parse(localStorage.widthSidebar as string) as number,
   showTextOnEdges: false,
   sidebarVisible: true,
@@ -65,10 +71,10 @@ export const useCustomizationStore = create(devtools<CustomizationStoreState>((s
   toggleLocationSidebar: () => {
     let location = get().locationSidebar
     
-    if (location === "left"){
-      location = "right"
+    if (location === LocationSidebar.Left){
+      location = LocationSidebar.Right
     } else {
-      location = "left"
+      location = LocationSidebar.Left
     }
 
     localStorage.setItem("locationSidebar", JSON.stringify( location) )  
@@ -90,7 +96,7 @@ export const useCustomizationStore = create(devtools<CustomizationStoreState>((s
   handleSidebarWidthChange: (e: React.DragEvent<HTMLDivElement>) => {
     let widthSidebar
 
-    if (get().locationSidebar === "left"){
+    if (get().locationSidebar === LocationSidebar.Left){
       widthSidebar = e.clientX; 
     } else {
       widthSidebar = window.innerWidth - e.clientX; 

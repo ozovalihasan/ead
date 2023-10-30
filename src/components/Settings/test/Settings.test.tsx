@@ -1,6 +1,6 @@
 import { Settings } from '../Settings';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
-import { useCustomizationStore } from '@/zustandStore/customizationStore';
+import { LocationSidebar, useCustomizationStore } from '@/zustandStore/customizationStore';
 
 
 let renderReadyComponent: JSX.Element;
@@ -8,7 +8,7 @@ let renderReadyComponent: JSX.Element;
 beforeEach(() => {
     
 useCustomizationStore.setState({ 
-    locationSidebar: "right",
+    locationSidebar: LocationSidebar.Right,
     showTextOnEdges: true,
     toggleLocationSidebar: jest.fn(),
     toggleTextMode: jest.fn(),

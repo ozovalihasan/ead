@@ -1,7 +1,7 @@
 import { MainColorDropdown } from '../MainColorDropdown';
 import { render, screen, renderHook, fireEvent } from "@testing-library/react";
 import { handleMouseLeaveForSelect, handleMouseUpForSelect } from '@/helpers';
-import { useCustomizationStore } from '@/zustandStore/customizationStore';
+import { LocationSidebar, useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 
@@ -16,7 +16,7 @@ jest.mock('@/helpers',  () => ({
 beforeEach(() => {
     
   useCustomizationStore.setState({ 
-    locationSidebar: "right",
+    locationSidebar: LocationSidebar.Right,
     showTextOnEdges: true,
     mainColor: "sky",
     changeMainColor: jest.fn(),

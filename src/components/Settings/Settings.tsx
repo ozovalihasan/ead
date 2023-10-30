@@ -1,4 +1,4 @@
-import { useCustomizationStore } from '@/zustandStore/customizationStore';
+import { LocationSidebar, useCustomizationStore } from '@/zustandStore/customizationStore';
 import { memo, useState } from 'react';
 import { MainColorDropdown } from '@/components';
 export const Settings = memo(() => {
@@ -27,7 +27,7 @@ export const Settings = memo(() => {
             Show Association Names
           </label>
           <label className='flex mb-5 cursor-pointer'>
-            <input className='mr-6' type="checkbox" checked={ locationSidebar === "right"} onChange={toggleLocationSidebar}/>
+            <input className='mr-6' type="checkbox" checked={ locationSidebar === LocationSidebar.Right} onChange={toggleLocationSidebar}/>
             Show the sidebar at the right of the window
           </label>
           <button className="btn-second rounded-md my-2 p-2 w-full" onClick={toggleDarkMode}>

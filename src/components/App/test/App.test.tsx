@@ -1,6 +1,6 @@
 import {  App } from '../App';
 import { render, screen } from "@testing-library/react";
-import { useCustomizationStore } from '@/zustandStore/customizationStore';
+import { LocationSidebar, useCustomizationStore } from '@/zustandStore/customizationStore';
 
 let renderReadyComponent: JSX.Element;
 
@@ -16,7 +16,7 @@ describe('<App />', () => {
 
     beforeEach(() => {
       useCustomizationStore.setState({ 
-        locationSidebar: "left"
+        locationSidebar: LocationSidebar.Left
       })
     })
     
@@ -37,7 +37,7 @@ describe('<App />', () => {
 
     beforeEach(() => {
       useCustomizationStore.setState({ 
-        locationSidebar: "right"
+        locationSidebar: LocationSidebar.Right
       })
     })
 

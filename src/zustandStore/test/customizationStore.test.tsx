@@ -1,6 +1,6 @@
 import { availableColors, setColorVariants } from '@/helpers';
 import { render, screen } from '@testing-library/react';
-import { useCustomizationStore, checkLocalStorage } from '@/zustandStore/customizationStore';
+import { useCustomizationStore, checkLocalStorage, LocationSidebar } from '@/zustandStore/customizationStore';
 
 
 jest.mock('@/helpers',  () => ({
@@ -17,7 +17,7 @@ describe('checkLocalStorage', () => {
     it('updates necessary attributes', () => {
       checkLocalStorage()
 
-      expect(JSON.parse(localStorage.locationSidebar as string)).toBe("left");
+      expect(JSON.parse(localStorage.locationSidebar as string)).toBe(LocationSidebar.Left);
       expect(JSON.parse(localStorage.widthSidebar as string)).toBeTruthy();
       expect(JSON.parse(localStorage.mainColor as string)).toBe(availableColors[0]);
       expect(JSON.parse(localStorage.darkModeActive as string)).toBe(false);
@@ -26,14 +26,14 @@ describe('checkLocalStorage', () => {
 
   describe('if attributes are defined previously', () => {
     beforeAll(()=> {
-      localStorage.locationSidebar = JSON.stringify("left")
+      localStorage.locationSidebar = JSON.stringify(LocationSidebar.Left)
       localStorage.widthSidebar = JSON.stringify(100)
       localStorage.mainColor = JSON.stringify("mock")
       localStorage.darkModeActive = JSON.stringify(true)
     })
 
     it('doesn"t change any attribute', () => {
-      expect(JSON.parse(localStorage.locationSidebar as string)).toBe("left");
+      expect(JSON.parse(localStorage.locationSidebar as string)).toBe(LocationSidebar.Left);
       expect(JSON.parse(localStorage.widthSidebar as string)).toBe(100);
       expect(JSON.parse(localStorage.mainColor as string)).toBe("mock");
       expect(JSON.parse(localStorage.darkModeActive as string)).toBe(true);
@@ -58,7 +58,7 @@ describe('checkLocalStorage', () => {
 describe('useCustomizationStore', () => {
   describe('if it has been initialized for the first time', () => {
     it('has an "locationSidebar" attribute and its value should be updated by using the localStorage', () => {
-      expect(useCustomizationStore.getState().locationSidebar).toBe("left");
+      expect(useCustomizationStore.getState().locationSidebar).toBe(LocationSidebar.Left);
     });
   
     it('has a "widthSidebar" attribute and its value should be updated by using the localStorage', () => {
@@ -101,17 +101,17 @@ describe('useCustomizationStore', () => {
     });
   
     it('has a "toggleLocationSidebar" function to toggle the location of the sidebar', () => {
-      expect(useCustomizationStore.getState().locationSidebar).toBe("left");
+      expect(useCustomizationStore.getState().locationSidebar).toBe(LocationSidebar.Left);
   
       useCustomizationStore.getState().toggleLocationSidebar()
   
-      expect(useCustomizationStore.getState().locationSidebar).toBe("right");
-      expect(JSON.parse(localStorage.locationSidebar as string)).toBe("right");
+      expect(useCustomizationStore.getState().locationSidebar).toBe(LocationSidebar.Right);
+      expect(JSON.parse(localStorage.locationSidebar as string)).toBe(LocationSidebar.Right);
       
       useCustomizationStore.getState().toggleLocationSidebar()
   
-      expect(useCustomizationStore.getState().locationSidebar).toBe("left");
-      expect(JSON.parse(localStorage.locationSidebar as string)).toBe("left");
+      expect(useCustomizationStore.getState().locationSidebar).toBe(LocationSidebar.Left);
+      expect(JSON.parse(localStorage.locationSidebar as string)).toBe(LocationSidebar.Left);
   
     });
   
@@ -144,7 +144,7 @@ describe('useCustomizationStore', () => {
         useCustomizationStore.setState(
           {
             sidebarVisible: false,
-            locationSidebar: "left"
+            locationSidebar: LocationSidebar.Left
           }
         )
       })
@@ -165,7 +165,7 @@ describe('useCustomizationStore', () => {
         useCustomizationStore.setState(
           {
             sidebarVisible: false,
-            locationSidebar: "right"
+            locationSidebar: LocationSidebar.Right
           }
         )
       })

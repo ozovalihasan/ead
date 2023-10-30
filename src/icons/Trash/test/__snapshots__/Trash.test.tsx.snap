@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg
-        class="fill-transparent stroke-first400 dark:stroke-first-500"
+        class="fill-transparent stroke-first-400 dark:stroke-first-500"
         viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -27,7 +27,7 @@ Object {
   </body>,
   "container": <div>
     <svg
-      class="fill-transparent stroke-first400 dark:stroke-first-500"
+      class="fill-transparent stroke-first-400 dark:stroke-first-500"
       viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
     >

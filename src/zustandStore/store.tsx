@@ -18,7 +18,7 @@ import produce from "immer"
 import initialTables from './tables';
 import initialNodes from './nodes';
 import initialEdges from './edges';
-import { update_data } from '@/zustandStore';
+import { HasManyEdgePartialType, HasOneEdgePartialType, ThroughEdgePartialType, update_data } from '@/zustandStore';
 import { createOrderedTables, entityNodePartial, hasManyEdgePartial, hasOneEdgePartial, throughEdgePartial } from '@/zustandStore';
 
 export const initialIdCounter = (initialTables: TablesType, initialNodes: Node[], initialEdges: Edge[]): number => {
@@ -60,25 +60,18 @@ export interface EntityNodeDataType {
 
 export type EntityNodeType = Node<EntityNodeDataType> & (typeof entityNodePartial)
 
-export interface HasOneEdgeDataType {
-  optional: boolean
-}
+export interface HasOneEdgeDataType { optional: boolean }
+export type HasOneEdgeType = Pick<Edge<HasOneEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle" | "selected"> & Required<Pick<Edge<HasOneEdgeDataType>, "data">> & HasOneEdgePartialType
 
-export type HasOneEdgeType = Pick<Edge<HasOneEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle" | "selected"> & Required<Pick<Edge<HasOneEdgeDataType>, "data">> & (typeof hasOneEdgePartial)
-export interface HasManyEdgeDataType {
-  optional: boolean
-}
+export interface HasManyEdgeDataType { optional: boolean }
+export type HasManyEdgeType = Pick<Edge<HasManyEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle" | "selected"> & Required<Pick<Edge<HasManyEdgeDataType>, "data">> & HasManyEdgePartialType
 
-export type HasManyEdgeType = Pick<Edge<HasManyEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle" | "selected"> & Required<Pick<Edge<HasManyEdgeDataType>, "data">> & (typeof hasManyEdgePartial)
-
-export interface ThroughEdgeDataType {
-  throughNodeId: string
-}
-
-export type ThroughEdgeType = Pick<Edge<ThroughEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle" | "selected"> & Required<Pick<Edge<ThroughEdgeDataType>, "data">> & (typeof throughEdgePartial) 
+export interface ThroughEdgeDataType { throughNodeId: string }
+export type ThroughEdgeType = Pick<Edge<ThroughEdgeDataType>, "id" | "source" | "target" | "sourceHandle" | "targetHandle" | "selected"> & Required<Pick<Edge<ThroughEdgeDataType>, "data">> & ThroughEdgePartialType
 
 export type HasAnyEdgeType = HasOneEdgeType | HasManyEdgeType
 export type CustomEdgeType = HasAnyEdgeType | ThroughEdgeType;
+export type  EdgeTypesType = CustomEdgeType["type"];
 
 export interface State {
   version: string;
@@ -94,7 +87,7 @@ export interface State {
   selectedNodeIdForThrough: string | null;
   mouseOnEdgeId: string | null;
   mouseOnNodeId: string | null;
-  associationType: string;
+  associationType: CustomEdgeType["type"];
   needFitView: boolean,
   onNodeMouseEnter: (_: React.MouseEvent, node: Node) => void; 
   onEdgeMouseEnter: (_: React.MouseEvent, edge: Edge) => void; 
@@ -102,7 +95,7 @@ export interface State {
   onEdgesChange: OnEdgesChange;
   onConnect: OnConnect;
   onMouseEnterThrough: (nodeId: string) => void;
-  onChangeAssociationType: (associationType: string, id: string) => void;
+  onChangeAssociationType: (associationType: CustomEdgeType["type"], id: string) => void;
   onTableNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string) => void;
   onAttributeNameChange: (event: React.ChangeEvent<HTMLInputElement>, tableId: string, attributeId: string) => void;
   onAttributeTypeChange: (event: React.ChangeEvent<HTMLSelectElement>, tableId: string, attributeId: string) => void;
@@ -129,7 +122,8 @@ export interface State {
 export const useStore = create(devtools<State>((set, get) => ({
     version: "0.4.7",  
     idCounter: initialIdCounter(initialTables, initialNodes, initialEdges) ,
-    associationType: "has_one",
+    associationType: hasOneEdgePartial.type as CustomEdgeType['type'],
+
     nodes: initialNodes,
     edges: initialEdges,
     tables: initialTables,
@@ -339,7 +333,7 @@ export const useStore = create(devtools<State>((set, get) => ({
         selectedNodeIdForThrough: null,
       })
       
-      if (get().associationType === "has_one"){
+      if (get().associationType === hasOneEdgePartial.type){
         
         const edge: HasOneEdgeType = { 
           ...edgeBase,
@@ -351,7 +345,7 @@ export const useStore = create(devtools<State>((set, get) => ({
 
         addEdge(edge)
 
-       } else if (get().associationType === "has_many") {
+      } else if (get().associationType === hasManyEdgePartial.type) {
         const edge: HasManyEdgeType = { 
           ...edgeBase,
           ...hasManyEdgePartial,
@@ -382,7 +376,7 @@ export const useStore = create(devtools<State>((set, get) => ({
       }
     },
    
-    onChangeAssociationType: (associationType: string, id: string) =>{
+    onChangeAssociationType: (associationType, id) =>{
       set({
         associationType: associationType,
         connectionStartNodeId: id

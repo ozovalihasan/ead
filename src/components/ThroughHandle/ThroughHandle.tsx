@@ -1,4 +1,5 @@
 import { CustomHandle } from '@/components';
+import { throughEdgePartial } from '@/zustandStore';
 import { memo } from 'react';
 
 export const ThroughHandle = memo(({nodeId} : {nodeId: string}) => {
@@ -22,7 +23,7 @@ export const ThroughHandle = memo(({nodeId} : {nodeId: string}) => {
       </svg>
 
       <CustomHandle 
-        handleType='through' 
+        handleType={throughEdgePartial.type}
         nodeId={nodeId} 
         id="bottom3"
       />

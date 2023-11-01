@@ -1,12 +1,12 @@
 import { Handle, Position } from 'reactflow';
-import { useStore } from '@/zustandStore';
+import { CustomEdgeType, useStore } from '@/zustandStore';
 import { memo } from 'react';
 
 
 export interface CustomHandleType {
   id: string, 
   nodeId: string, 
-  handleType: string
+  handleType: CustomEdgeType["type"]
 }
 
 export const CustomHandle = memo(({id, nodeId, handleType} : CustomHandleType) => {

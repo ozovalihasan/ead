@@ -1,4 +1,5 @@
 import { CustomHandle } from '@/components';
+import { hasOneEdgePartial } from '@/zustandStore';
 import { memo } from 'react';
 
 export const HasOneHandle = memo(({nodeId} : {nodeId: string}) => {
@@ -15,7 +16,7 @@ export const HasOneHandle = memo(({nodeId} : {nodeId: string}) => {
       </svg>
 
       <CustomHandle
-        handleType='has_one'
+        handleType={hasOneEdgePartial.type}
         nodeId={nodeId}
         id="bottom1"
       />

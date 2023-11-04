@@ -69,15 +69,9 @@ export const useCustomizationStore = create(devtools<CustomizationStoreState>((s
     })
   },
   toggleLocationSidebar: () => {
-    let location = get().locationSidebar
-    
-    if (location === LocationSidebar.Left){
-      location = LocationSidebar.Right
-    } else {
-      location = LocationSidebar.Left
-    }
-
-    localStorage.setItem("locationSidebar", JSON.stringify( location) )  
+    const location = get().locationSidebar === LocationSidebar.Left ? LocationSidebar.Right : LocationSidebar.Left;
+  
+    localStorage.setItem("locationSidebar", JSON.stringify( location) );
 
     set({
       locationSidebar: location,
